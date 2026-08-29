@@ -1,0 +1,120 @@
+\documentclass[12pt]{article}
+
+% -------------------------------------------------
+% PAGE & LANGUAGE
+% -------------------------------------------------
+
+\usepackage[a4paper,margin=2cm]{geometry}
+
+% -------------------------------------------------
+% MATHEMATICS
+% -------------------------------------------------
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathtools}
+
+% Physics notation
+\usepackage{physics}
+
+% -------------------------------------------------
+% GRAPHICS & PLOTS
+% -------------------------------------------------
+
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{pgfplots}
+
+\pgfplotsset{compat=1.18}
+\graphicspath{{./images/}}
+
+% -------------------------------------------------
+% COLORS & BOXES
+% -------------------------------------------------
+
+\usepackage[dvipsnames,svgnames,x11names]{xcolor}
+\usepackage{tcolorbox}
+
+% -------------------------------------------------
+% DOCUMENT FORMATTING
+% -------------------------------------------------
+
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{ragged2e}
+
+% -------------------------------------------------
+% CHEMISTRY
+% -------------------------------------------------
+
+\usepackage[version=4]{mhchem}
+
+% -------------------------------------------------
+% LINKS
+% -------------------------------------------------
+
+\usepackage[colorlinks=true,allcolors=black]{hyperref}
+
+% -------------------------------------------------
+% CUSTOM COMMANDS
+% -------------------------------------------------
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+
+% -------------------------------------------------
+% DOCUMENT STYLE
+% -------------------------------------------------
+
+\linespread{1.25}
+
+\setlength{\heavyrulewidth}{0.4pt}
+\setlength{\lightrulewidth}{0.4pt}
+\setlength{\cmidrulewidth}{0.4pt}
+
+\title{\textbf{Temari Física 2n Bat}}
+\author{\textit{Gerard Cosp Lores}}
+\date{\today}
+
+\begin{document}
+\justifying
+
+\maketitle
+
+\section{Introducció als Conceptes Físics}
+
+En la física tenim dos tipus de valors: els \textbf{escalars} i els \textbf{vectorials}. Els escalars es representen amb un valor $a$, i els vectorials (que podem imaginar com a fletxes) tenen tantes components com el espai vectorial al qual pertanyen, és a dir $a_x, a_y, a_z$, on $x$, $y$, $z$ representen els 3 eixos. Aquests també tenen una propietat anomenada mòdul, $\abs{\vec{a}}$, que bàsicament ens indica la longitud del vector. Aquest mòdul el trobem amb el teorema de Pitàgores: $\sqrt{a_x^2 + a_y^2 + a_z^2}$. 
+\\
+Un vector es pot \textbf{sumar o restar}, \textbf{multiplicar o dividir} per un altre vector o un escalar, en això es basa quasi totes les operacions físiques. Quan fem $F =m\vec{a}$, estem multiplicant el vector acceleració per el escalar massa d'un cos. De fet $F = m\vec{a}$ és el desenvolupament de si la massa es constant. El que realment ens deia newton era que la variació infinitèssima de moment lineal $p = m\vec{v}$ és igual a la massa que rep el cos; 
+
+\begin{tcolorbox}
+    \begin{equation}
+    \vec{F} = \dv{\vec{p}}{t} = \dv{m\vec{v}}{t} = \dv{m}{t}\vec{v} + m\dv{\vec{v}}{t}
+    \end{equation}
+\end{tcolorbox}
+
+També tenim altres magnituds que podem relacionar amb les forces, que son les \textbf{energies}. L'energia es un valor assignat (escalar) que té un cos degut a la seva \textbf{posició} (Potencial), \textbf{velocitat} (Cinètica) entre altres. Sabem que de moment tots els camps tenen $\Delta E_m = 0$ per tant hi ha una conservació total de l'energia mecànica i no hi ha forces no conservatives (per curiositat si n'hi haguessin $\Delta E_m = W_F$ on F és la força no conservativa.
+\\
+Podem relacionar la força i les energies a travès del treball. El treball és la forma de transferir energia en Jouls d'un cos que rep una força i es defineix per les forçes constants com a;
+
+\begin{tcolorbox}
+    \begin{equation}
+    W = \int_{x_0}^{x} F_x  dx + \int_{y_0}^{y} F_y  dy = F\int_{x_0}^{x} dx + F\int_{y_0}^{y} dy = F_x x|^x_{x_0} + F_y y|^y_{y_0} = F_x\Delta x + F_y\Delta y
+    \end{equation}
+\end{tcolorbox}
+I com que el treball es l'energia que perd un cos, podem defninir $W = -\Delta E_p$ i a partir d'aqui trobar totes les altres energies que actuen al sistema.
+\\
+Últimament en la física també surt el concepte de camp. Un camp es un espai on tots els punts $P(x,y)$, tenen un valor o vector associat. Tenim 2 camps principalement els \textbf{camps escalars} que son quells que en cada punt tenen un valor associat, com pot ser un mapa de temperatures del mapa del món, cada lloc te una temperatura i ja, per exemple un camp escalar $f(x,y) = xy^2$ on en la posició $(1,1)$ té un valor 1 i en la $(1,2)$ té un valor de 4. 
+\\
+També tenim els \textbf{camps vectorials} que son camps iguals que els escalars pero en cada punt ens trobem un vector que ens indica ja sigui la força en aquell punt o la velocitat, per exemple podem pendre el camp anterior i derivar cada component $f'(x,y) = (\pdv{f}{x},\pdv{f}{y}) = (y^2, 2xy)$ on a $(1,1)$ tenim un vector de valor $(1, 2)$ i a $(2,1)$ un vector de valor $(1,4)$ que bàsicament ens indica el pendent a aquells punts. 
+
+\section{Camp Gravitatori}
+\section{Camp Elèctric}
+\section{Camp Magnètic i Inducció Electromagnètica}
+\section{Òptica}
+\section{Física Relativista i Nuclear}
+
+\end{document}
