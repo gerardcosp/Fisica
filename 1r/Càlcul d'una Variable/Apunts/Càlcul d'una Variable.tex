@@ -115,6 +115,7 @@
 % -------------------------------------------------
 
 \newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
 
 % -------------------------------------------------
@@ -241,8 +242,36 @@ I això ho podem comprovar per exemple:
 
     Suposem que $P(n)$ és cert:
 
-    \[ P(n) = n^2 \]
+    \[ P(2n -1 ) = n^2 \]
 
-    Hem de demostrar que també és cert per 
+    Hem de demostrar que també és cert per a $(2n - 1) + 1$
+
+    \[ (2n-1)^2 = (2n-1)^2 + (2n -1 + 1) \]
 \end{examplebox}
+
+\section{Conjunts de Nombres}
+
+$A \subset B \rightarrowtail$ Subconjunt pròpi
+
+$A \subseteq B$ És un subconjunt qualsevol i conté B 
+
+x + y ($\in \R$)
+Propietats de $\R$
+\begin{itemize}
+    \item \textbf{Suma}
+    \begin{itemize}
+        \item Associativa, $(x + y) + z = x + (y + z)$
+        \item Commutativa, $x + y = y + x$
+        \item Element Neutre, $\exists 0 \in \R \mid x + 0 = 0 + x = x$
+        \item Element Simètric, $\forall x \in \R \exists - x \in \R \mid x + (-x) = (-x) + x = 0$ (És l'element neutre)
+    \end{itemize}
+    \item \textbf{Multiplicació}
+    \begin{itemize}
+        \item Associativa, $(x\cdot y) \cdot z = x \cdot (y \cdot z)$
+        \item Commutativa, $x \cdot y = y \cdot x$
+        \item Distributiva, $x \cdot (y + z) = x\cdot y + x\cdot z$
+        \item Element Neutre, $\exists 1 \in \R \mid x \cdot 1 = 1 \cdot x = x$
+        \item Element Simètric, $\forall x \in \R \exists x^-1 \in \R \mid x \cdot (x^-1) = (x^-1) \cdot x = 1$ (És l'element neutre)
+    \end{itemize}
+\end{itemize}
 \end{document}
