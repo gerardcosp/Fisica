@@ -14,6 +14,7 @@
 \usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage{mathtools}
+\usepackage{yhmath}
 
 % Physics notation
 \usepackage{physics}
@@ -35,6 +36,57 @@
 
 \usepackage[dvipsnames,svgnames,x11names]{xcolor}
 \usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\newtcolorbox{demobox}[1][]{
+    enhanced,
+    breakable,
+    colback=black!2,
+    colframe=black!70,
+    boxrule=0pt,
+    borderline west={2pt}{0pt}{black!70},
+    sharp corners,
+    left=10pt,
+    right=7pt,
+    top=6pt,
+    bottom=6pt,
+    fonttitle=\bfseries,
+    title={Demostració},
+    #1
+}
+
+\newtcolorbox{examplebox}[1]{
+    enhanced,
+    breakable,
+    colback=black!1,
+    colframe=black!15,
+    boxrule=0.5pt,
+    arc=2mm,
+    borderline west={2pt}{0pt}{black!55},
+    left=12pt,
+    right=12pt,
+    top=10pt,
+    bottom=10pt,
+    before skip=12pt,
+    after skip=12pt,
+    title={\textbf{Exemple #1}},
+    fonttitle=\normalsize,
+    coltitle=black,
+    attach boxed title to top left={
+        xshift=8pt,
+        yshift=-\tcboxedtitleheight/2
+    },
+    boxed title style={
+        colback=white,
+        colframe=white,
+        boxrule=0pt,
+        left=3pt,
+        right=3pt,
+        top=1pt,
+        bottom=1pt
+    },
+    before upper={\setlength{\parskip}{7pt}}
+}
+
 
 % -------------------------------------------------
 % DOCUMENT FORMATTING
@@ -63,6 +115,7 @@
 % -------------------------------------------------
 
 \newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
 
 % -------------------------------------------------
@@ -84,4 +137,113 @@
 
 \maketitle
 
+\section{Nombres \texorpdfstring{$\R$}{R}}
+
+Tenim diferents conjunts de Nombres;
+
+\begin{itemize}
+    \item $\N$: Naturals, $\{1,2,3 \dots\}$
+    \item $\Z$: Enters, $\{\dots -2,-1,0,1,2 \dots\}$
+    \item $Q$: Racionals $\leftrightarrow \{\frac{n}{m}\}$ on $n,m \in \Z - 0$, (tenir en compte que: \textbf{racional - racional = racional} i \textbf{racional/racional = racional}) més d'una fracció pot representar el mateix nombre racional (les anomenem \textit{fraccions equivalents} $\frac{1}{2} = \frac{2}{4}$)
+    
+    Una fracció pot ser:
+    \begin{itemize}
+        \item Finita (0.5) on per transformar en fracció \textbf{multipliquem i dividim} per la potència de 10 necessaria
+        \item Periòdica (0.4545...) on fem servir un simple truc tal que;
+        \begin{equation}
+            \begin{aligned}
+                0.\wideparen{45} &= y \\
+                45.\wideparen{45} &= 100y\\
+                45 &= 99y\\
+                y &= \frac{45}{99}
+            \end{aligned}
+        \end{equation}
+    \end{itemize}
+
+    \item $\R$: Reals, tots els nombres + els que tenen \textbf{decimals arbitràris} com $\{\pi, e, \sqrt{2}\}$
+\end{itemize}
+
+Necessitem el conjunt $\R$, ja que els nombres irracionals no els podem obtenir d'una \textbf{fracció} com és $\frac{n}{m}$
+
+\begin{demobox}
+    Si volem demostrar perque $\sqrt{2}$ és irracional, podem demostrar per l'absurd (dir el contrari).
+    \begin{align*}
+        q &= \sqrt{2} = \frac{n}{m} \\
+        q^2 &= 2 = (\frac{n}{m})^2\\
+        n^2 &= 2m^2 (parell)\\
+        \frac{1}{2}n^2 (parell) &= m^2
+    \end{align*}
+    com que n i m són parells la fracció $\frac{n}{m}$ és reduïble per 2 per tant ens hem equivocat en el principi i $\sqrt{2}$ ha de ser irracional.
+\end{demobox}
+
+\section{Inducció Matemàtica}
+
+Per poder comprovar que una declaració serveix $\forall x \in \R$ fem servir \textbf{L'inducció matemàtica}. Aquesta té dos condicions que s'han de complir per poder ser cert en tot $\R$
+
+\begin{itemize}
+    \item P(1) $\exists$
+    \item P(n) $\exists \xRightarrow{}$ P(n+1) $\exists$
+\end{itemize}
+
+I això ho podem comprovar per exemple:
+
+\begin{examplebox}{1}
+
+    Si sumem els primers \(n\) nombres obtenim
+
+    \[ 1+2+3+\dots+n=\frac{n(n+1)}{2}. \]
+
+    Per comprovar si aquesta fórmula \(P(n)\) és certa, fem inducció matemàtica.
+
+    \textbf{1. Cas base:}
+
+    \[ P(1)=\frac{1(1+1)}{2}=1. \]
+
+    Per tant, la fórmula és certa per a \(n=1\).
+
+    \textbf{2. Pas inductiu:}
+
+    Suposem que \(P(n)\) és certa:
+
+    \[ P(n)=\frac{n(n+1)}{2}. \]
+
+    Hem de demostrar que també és certa per a \(n+1\):
+
+    \[ P(n+1)=P(n)+(n+1). \]
+
+    Substituïm \(P(n)\):
+
+    \[ P(n+1) = \frac{n(n+1)}{2}+(n+1). \]
+
+    Posem-ho al mateix denominador:
+
+    \[ P(n+1) = \frac{n(n+1)+2(n+1)}{2} = \frac{(n+1)(n+2)}{2}. \]
+
+    Per tant, \(P(n+1)\) també és certa.
+
+    \[ \boxed{P(n)\text{ és certa per a tot }n\geq1.} \]
+
+\end{examplebox}
+
+\begin{examplebox}{2}
+    Si tenim la serie
+
+    \[ 1 + 3 + 5 \dots + (2n-1) = n^2 \]
+
+    I volem comprovar que $P(n) = n^2$ és cert fem el mateix d'abans 
+
+    \textbf{1. Cas base:}
+
+    \[ P(1)=1^2 = 1 \]
+
+    Per tant la formùla en 1 és certa ja que $1 = 1$
+
+    \textbf{2. Pas inductiu:}
+
+    Suposem que $P(n)$ és cert:
+
+    \[ P(n) = n^2 \]
+
+    Hem de demostrar que també és cert per 
+\end{examplebox}
 \end{document}
