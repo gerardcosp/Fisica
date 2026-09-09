@@ -117,6 +117,7 @@
 
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
 \newcommand{\Z}{\mathbb{Z}}
 
 % -------------------------------------------------
@@ -133,7 +134,7 @@
 \setlength{\lightrulewidth}{0.4pt}
 \setlength{\cmidrulewidth}{0.4pt}
 
-\title{\textbf{Apunts Càlcul en una Variable}}
+\title{\textbf{Apunts Àlgebra}}
 \author{\textit{Gerard Cosp Lores}}
 \date{\today}
 
@@ -199,5 +200,67 @@
 \tableofcontents
 
 \newpage
+
+\section{Definicions Bàsiques d'Algebra}
+
+D'aqui en endavant anomenem a qualsevol cos \textbf{K}, un cos és aquella llista d'elements que tenen dues operacions bàsiques $(K, +, \cdot)$ on (al contrari que els anells) pots dvidir $\forall k \in K - 0$
+
+\begin{itemize}
+    \item + $K \cross K \rightarrow K$\\
+    $(k_1, k_2) \rightarrowtail k_1 + k_2$
+    \item $\cdot$ $K \cross K \rightarrow K$\\
+    $(k_1, k_2) \rightarrowtail k_1 \cdot k_2$ 
+\end{itemize}
+
+Aquestes operacions compleixen les seves \textbf{propietats habituals a $\Q, \R$}
+
+\textit{K amb +}
+\begin{itemize}
+    \item \textbf{Associativa}; $k_1 +(k_2 + k_3) = (k_1 + k_2) + k_3$
+    \item \textbf{Commutativa}; $k_1 + k_2 = k_2 + k_1$
+    \item \textbf{Element neutre}; (0) $k_i + 0 = k_i$
+    \item \textbf{Element oposat}; $\forall k, \exists \overline{k} \mid k + \overline{k} = 0$
+\end{itemize}
+
+\textit{K amb $\cdot$}
+\begin{itemize}
+    \item \textbf{Associativa}; $k_1 \cdot(k_2 \cdot k_3) = (k_1 \cdot k_2) \cdot k_3$
+    \item \textbf{Commutativa}; $k_1 \cdot k_2 = k_2 \cdot k_1$
+    \item \textbf{Element neutre}; (1) $k_i \cdot 1 = k_i$
+    \item \textbf{Element oposat}; $\forall k, \exists k^-1 \mid k \cdot k^-1 = 1$
+\end{itemize}
+
+Com a cossos tenim per exemple $f(x), \R, \Q, F_2 = \Z/2\Z$ on en l'ultim només existeix 0, 1 on $1 + 1 = 0$.
+
+Anomenem \textbf{grup abelià} aquell cos que permet una operació que commuta com $(K, +), (K, \cdot)\dots$. Un conjunt de dos operacions és un \textbf{anell} per exemple $\R = (K, +, \cdot)$
+%Cos
+%anell
+%grup abeli
+
+\section{Matrius}
+
+\section{Espais Vectorials}
+
+Fixem E-espai vectorial \textbf{(E-ev)}
+
+Idea: Cos on es pot dur a terme \textbf{suma} i \textbf{multiplicació per escalar} de manera $(a_1, b_1) + (a_2, b_2) = (a_1 + a_2, b_1 + b_2)$ i ànalogament $\lambda(a_1, b_1) = (\lambda a_1, \lambda b_1), \lambda\in\R$.
+
+\begin{itemize}
+    \item + $E \cross E \rightarrow E$\\
+    $(\vec{e}_1, \vec{e}_2) \rightarrowtail \vec{e}_1 + \vec{e}_2$ (complint, Associativa, Commutativa)\\
+    $\exists \vec{0_e} \mid \vec{e} + \vec{0_e} = \vec{e}, \forall \vec{e} \in E$\\
+    $\exists \vec{\overline{e}} \mid \vec{e} + \vec{\overline{e}} = \vec{0_e}, \forall \vec{e} \in E$
+    \item $\cdot \lambda$ $K \cross E \rightarrow E$\\
+    $(k, \vec{e}) \rightarrowtail k \cdot \vec{e}$
+    \begin{itemize}
+        \item $(a_kb)_E \cdot u = a_k\cdot(b_E u)$
+        \item $(a+b)_E \cdot u = a_E \cdot u + b_E \cdot u$
+        \item $a_E(u+v) = a_E\cdot u + a_E \cdot + v$
+        \item $1_E \cdot u = u$
+    \end{itemize}
+\end{itemize}
+
+On es satisà que $u,v\in E$ i $a,b \in K$
+
 
 \end{document}
