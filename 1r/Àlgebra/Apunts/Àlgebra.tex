@@ -14,6 +14,7 @@
 \usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage{mathtools}
+\usepackage{yhmath}
 
 % Physics notation
 \usepackage{physics}
@@ -35,13 +36,63 @@
 
 \usepackage[dvipsnames,svgnames,x11names]{xcolor}
 \usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\newtcolorbox{demobox}[1][]{
+    enhanced,
+    breakable,
+    colback=black!2,
+    colframe=black!70,
+    boxrule=0pt,
+    borderline west={2pt}{0pt}{black!70},
+    sharp corners,
+    left=10pt,
+    right=7pt,
+    top=6pt,
+    bottom=6pt,
+    fonttitle=\bfseries,
+    title={Demostració},
+    #1
+}
+
+\newtcolorbox{examplebox}[1]{
+    enhanced,
+    breakable,
+    colback=black!1,
+    colframe=black!15,
+    boxrule=0.5pt,
+    arc=2mm,
+    borderline west={2pt}{0pt}{black!55},
+    left=12pt,
+    right=12pt,
+    top=10pt,
+    bottom=10pt,
+    before skip=12pt,
+    after skip=12pt,
+    title={\textbf{Exemple #1}},
+    fonttitle=\normalsize,
+    coltitle=black,
+    attach boxed title to top left={
+        xshift=8pt,
+        yshift=-\tcboxedtitleheight/2
+    },
+    boxed title style={
+        colback=white,
+        colframe=white,
+        boxrule=0pt,
+        left=3pt,
+        right=3pt,
+        top=1pt,
+        bottom=1pt
+    },
+    before upper={\setlength{\parskip}{7pt}}
+}
 
 % -------------------------------------------------
 % DOCUMENT FORMATTING
 % -------------------------------------------------
 
 \usepackage{enumitem}
-\usepackage{microtype}
+\usepackage[expansion=false]{microtype}
 \usepackage{booktabs}
 \usepackage{float}
 \usepackage{ragged2e}
@@ -54,15 +105,18 @@
 
 % -------------------------------------------------
 % LINKS
-% -------------------------------------------------
+% --------------------------------------------------
 
-\usepackage[colorlinks=true,allcolors=black]{hyperref}
+\usepackage[colorlinks=true,linkcolor=Black,urlcolor=Black,citecolor=Black]{hyperref}
+\usepackage{tocloft}
+\usepackage{cite}
 
 % -------------------------------------------------
 % CUSTOM COMMANDS
 % -------------------------------------------------
 
 \newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
 
 % -------------------------------------------------
@@ -71,17 +125,79 @@
 
 \linespread{1.25}
 
+\setlength{\parskip}{0.8em}
+\setlength{\parindent}{0pt}
+
+\setlength{\heavyrulewidth}{0.4pt}
 \setlength{\heavyrulewidth}{0.4pt}
 \setlength{\lightrulewidth}{0.4pt}
 \setlength{\cmidrulewidth}{0.4pt}
 
-\title{\textbf{Apunts Àlgebra}}
+\title{\textbf{Apunts Càlcul en una Variable}}
 \author{\textit{Gerard Cosp Lores}}
 \date{\today}
+
+% -------------------------------------------------
+% TABLE OF CONTENTS
+% -------------------------------------------------
+
+\renewcommand{\contentsname}{Índex}
+
+% Title
+\renewcommand{\cfttoctitlefont}{%
+    \Huge\bfseries\color{Black}
+}
+
+% Line underneath title
+\renewcommand{\cftaftertoctitle}{%
+    \par\vspace{0.3cm}
+    \noindent\color{Black}\rule{\textwidth}{1.2pt}
+    \vspace{0.4cm}
+}
+
+% Section appearance
+\renewcommand{\cftsecfont}{%
+    \large\bfseries\color{Black}
+}
+
+\renewcommand{\cftsecpagefont}{%
+    \large\bfseries\color{Black}
+}
+
+% Subsection appearance
+\renewcommand{\cftsubsecfont}{%
+    \normalsize
+}
+
+\renewcommand{\cftsubsecpagefont}{%
+    \normalsize\color{Black}
+}
+
+% Spacing
+\setlength{\cftbeforesecskip}{10pt}
+\setlength{\cftbeforesubsecskip}{3pt}
+
+% Dotted leaders
+\renewcommand{\cftsecleader}{%
+    \color{Black}\cftdotfill{\cftdotsep}
+}
+
+\renewcommand{\cftsubsecleader}{%
+    \color{Black}\cftdotfill{\cftdotsep}
+}
+
+% Number spacing
+\setlength{\cftsecnumwidth}{2.5em}
+\setlength{\cftsubsecnumwidth}{3.5em}
+
+% -------------------------------------------------
 
 \begin{document}
 \justifying
 
 \maketitle
+\tableofcontents
+
+\newpage
 
 \end{document}

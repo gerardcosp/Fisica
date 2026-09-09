@@ -1,6 +1,6 @@
 \documentclass[12pt]{article}
 
-% -------------------------------------------------
+%-------------------------------------------------
 % PAGE & LANGUAGE
 % -------------------------------------------------
 
@@ -14,6 +14,7 @@
 \usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage{mathtools}
+\usepackage{yhmath}
 
 % Physics notation
 \usepackage{physics}
@@ -35,13 +36,63 @@
 
 \usepackage[dvipsnames,svgnames,x11names]{xcolor}
 \usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\newtcolorbox{demobox}[1][]{
+    enhanced,
+    breakable,
+    colback=black!2,
+    colframe=black!70,
+    boxrule=0pt,
+    borderline west={2pt}{0pt}{black!70},
+    sharp corners,
+    left=10pt,
+    right=7pt,
+    top=6pt,
+    bottom=6pt,
+    fonttitle=\bfseries,
+    title={Demostració},
+    #1
+}
+
+\newtcolorbox{examplebox}[1]{
+    enhanced,
+    breakable,
+    colback=black!1,
+    colframe=black!15,
+    boxrule=0.5pt,
+    arc=2mm,
+    borderline west={2pt}{0pt}{black!55},
+    left=12pt,
+    right=12pt,
+    top=10pt,
+    bottom=10pt,
+    before skip=12pt,
+    after skip=12pt,
+    title={\textbf{Exemple #1}},
+    fonttitle=\normalsize,
+    coltitle=black,
+    attach boxed title to top left={
+        xshift=8pt,
+        yshift=-\tcboxedtitleheight/2
+    },
+    boxed title style={
+        colback=white,
+        colframe=white,
+        boxrule=0pt,
+        left=3pt,
+        right=3pt,
+        top=1pt,
+        bottom=1pt
+    },
+    before upper={\setlength{\parskip}{7pt}}
+}
 
 % -------------------------------------------------
 % DOCUMENT FORMATTING
 % -------------------------------------------------
 
 \usepackage{enumitem}
-\usepackage{microtype}
+\usepackage[expansion=false]{microtype}
 \usepackage{booktabs}
 \usepackage{float}
 \usepackage{ragged2e}
@@ -54,15 +105,18 @@
 
 % -------------------------------------------------
 % LINKS
-% -------------------------------------------------
+% --------------------------------------------------
 
-\usepackage[colorlinks=true,allcolors=black]{hyperref}
+\usepackage[colorlinks=true,linkcolor=Black,urlcolor=Black,citecolor=Black]{hyperref}
+\usepackage{tocloft}
+\usepackage{cite}
 
 % -------------------------------------------------
 % CUSTOM COMMANDS
 % -------------------------------------------------
 
 \newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
 
 % -------------------------------------------------
@@ -71,6 +125,10 @@
 
 \linespread{1.25}
 
+\setlength{\parskip}{0.8em}
+\setlength{\parindent}{0pt}
+
+\setlength{\heavyrulewidth}{0.4pt}
 \setlength{\heavyrulewidth}{0.4pt}
 \setlength{\lightrulewidth}{0.4pt}
 \setlength{\cmidrulewidth}{0.4pt}
@@ -79,9 +137,102 @@
 \author{\textit{Gerard Cosp Lores}}
 \date{\today}
 
+% -------------------------------------------------
+% TABLE OF CONTENTS
+% -------------------------------------------------
+
+\renewcommand{\contentsname}{Índex}
+
+% Title
+\renewcommand{\cfttoctitlefont}{%
+    \Huge\bfseries\color{Black}
+}
+
+% Line underneath title
+\renewcommand{\cftaftertoctitle}{%
+    \par\vspace{0.3cm}
+    \noindent\color{Black}\rule{\textwidth}{1.2pt}
+    \vspace{0.4cm}
+}
+
+% Section appearance
+\renewcommand{\cftsecfont}{%
+    \large\bfseries\color{Black}
+}
+
+\renewcommand{\cftsecpagefont}{%
+    \large\bfseries\color{Black}
+}
+
+% Subsection appearance
+\renewcommand{\cftsubsecfont}{%
+    \normalsize
+}
+
+\renewcommand{\cftsubsecpagefont}{%
+    \normalsize\color{Black}
+}
+
+% Spacing
+\setlength{\cftbeforesecskip}{10pt}
+\setlength{\cftbeforesubsecskip}{3pt}
+
+% Dotted leaders
+\renewcommand{\cftsecleader}{%
+    \color{Black}\cftdotfill{\cftdotsep}
+}
+
+\renewcommand{\cftsubsecleader}{%
+    \color{Black}\cftdotfill{\cftdotsep}
+}
+
+% Number spacing
+\setlength{\cftsecnumwidth}{2.5em}
+\setlength{\cftsubsecnumwidth}{3.5em}
+
+% -------------------------------------------------
+
 \begin{document}
 \justifying
 
 \maketitle
+\tableofcontents
+
+\newpage
+
+\section{Metrologia}
+
+La metrologia és la ciència de les mesures i de les seves aplicacions
+
+Com $\{Unitats, Patrons, Magnituds, \dots\}$
+
+Les unitats han d'estar definides per algú i han de seguir un sistema de referència universal. No val qualsevol objecte variable; per exemple \textbf{un segon} es defineix com \textit{9,192,631,770 oscilacions de la radiació emitida pel Cesi-133}, com que el periode d'oscilacions de l'àtom de cesi és el mateix aquí i a Andromeda es pot definir el segon amb exactitud.
+
+Donem el resultat de mesura com $\boxed{(x \pm y)U}$ on x és el valor obtingut, y l'intèrval de confiança i U les unitats.
+
+Si x és un vector també hem de donar \textbf{la direcció i el sentit}.
+
+\begin{itemize}
+    \item Una \textbf{magnitud} és una propietat d'un fenòmen, cos o substància, que es pot mesurar (quantificar).
+    \item El \textbf{valor d'una magnitud} és el conjunt del valor numéric (x) amb la seva referència (unitat). Depèn de la referencia en l'escala de $\cdot 10^n$.
+\end{itemize}
+
+Alhora de mesurar i deixar-ho en escriu hem de tenir en compte 3 principis;
+
+\begin{itemize}
+    \item Principi de mesura (Propietat / Teorema física que es fa servir per mesurar) \textbf{Ex: "La dilatació del líquid Hg"}
+    \item Métode de mesura (Llista o procediments que es fan servir per mesurar algo)
+    \item Procediment de mesura (Descripció detallada del process + el perquè)
+\end{itemize}
+
+Qualsevol cosa que volguem mesurar té un valor veritable, pero no es pot trobar, el que podem fer és \textbf{aproximar-nos} molt pero mai el trobarem
+
+\textbf{L'error de mesura} és la diferència entre l'estimació i el valor veritable; Podem distingir l'error de l'incertesa ($\pm I$) ja que l'error no es pot calcular ja que per ser calculat es necesita el valor veritable i reitero no es pot aconseguir.
+
+\textbf{L'exactitud} és aquella proximitat entre un valor mesurat i el real (=)
+
+\textbf{La precissió} és aquella proximitat entre l'intèrval ($\sim$)
+
+Si pensem en una diana l'exacte és aquell que fa molts tirs diferents pero la mitjana de tots aquells és el valor exacte. Mentre que el precis fa tirs molt junts pero no tan aprop del valor veritable. Per molt que el precis soni pitjor de fet si li fem una correció pot arribar a ser \textbf{exacte i precís}.
 
 \end{document}
