@@ -210,7 +210,34 @@ En qualsevol sistema de coordenades tenim els \textbf{vectors unitaris} són vec
 \[\vec{r} = x\vec{i} + y\vec{j} + z\vec{k}\]
 
 \begin{center}
-    \includegraphics[width=0.4\textwidth]{Imatge_MOiR2.jpg}
+   \begin{tikzpicture}
+  \draw (-0.2,2.2) -- (-0.2,-0.4);
+  \draw (-0.2,-0.4) -- (2.6,-0.4);
+  \node[
+  % draw,
+  inner sep=0pt,
+  align=center,
+  text=black
+] at (-0.2,2.4) {z};
+  \node[
+  % draw,
+  inner sep=0pt,
+  align=center,
+  text=black
+] at (-1.2,-1.5) {x};
+  \node[
+  % draw,
+  inner sep=0pt,
+  align=center,
+  text=black
+] at (2.6,-0.2) {y};
+  \node[inner sep=0pt, align=center, text=red, node font=\scriptsize, rotate=40] (node2) at (1.5,1.5) {$\vec{r}(t)$};
+  \draw[arrows=-stealth, thick, densely dotted, red] (-0.2,-0.4) -- (2,1.52);
+  \draw (-1.08,-1.4) -- (1.2,1.2);
+  \draw[->, green] (-0.2,-0.4) -- (-0.2,0.2);
+\draw[->, yellow] (-0.2,-0.4) -- (-0.46,-0.69);
+\draw[->, blue] (-0.2,-0.4) -- (0.29,-0.4);
+\end{tikzpicture}
 \end{center}
 
 Quan algo es mou o canvia és degut al temps (esdevé funció del temps).
@@ -284,7 +311,35 @@ Si definim 2 bases (R i R') que es diferencien pel vector que depèn del temps $
 Poso el MCU i MCUA dins d'aquesta secció ja que per aquests moviments hem de fer un petit canvi de base a cordenades polars.
 
 \begin{center}
-    \includegraphics[width=0.4\textwidth]{Imatge_MOiR1.jpg}
+    \begin{tikzpicture}
+  \draw (-0.2,2.2) -- (-0.2,-0.4);
+  \draw (-0.2,-0.4) -- (2.6,-0.4);
+    \draw[arrows=-stealth, thick, densely dotted, red] (-0.2,-0.4) -- (1.4,1);
+  \node[
+  % draw,
+  inner sep=0pt,
+  align=center,
+  text=black
+] at (-0.2,2.4) {y};
+
+ \node[inner sep=0pt, align=center, text=black, node font=\scriptsize] at (1.4,1.7) {$e_{\varphi}$};
+
+ \node[inner sep=0pt, align=center, text=black, minimum height=1pt, minimum width=1pt, node font=\scriptsize] at (2,1.) {$e_r$};
+
+\node[
+  % draw,
+  inner sep=0pt,
+  align=center,
+  text=black
+] at (2.6,-0.2) {x};
+
+\node[inner sep=0pt, align=center, text=red, node font=\scriptsize, rotate=40] at (.6,.6) {$\vec{r}(t)$};
+
+\node[inner sep=0pt, align=center, text=olive!31!black] at (1,0) {$\varphi$};
+  \draw (0.5,0.19) .. controls (0.72,0.05) and (0.8,-0.15) .. (0.74,-0.4);
+  \draw[blue, arrows=-stealth] (1.4,1) -- (1.84,1);
+  \draw[blue, arrows=-stealth] (1.38,1) -- (1.4,1.5);
+\end{tikzpicture}
 \end{center}
 
 Si en les \textbf{cordenades cartesianes} necesitem \textit{(x,y)}, en les polars necessitem \textit{(r, $\varphi$)}, on r és el mòdul del vector posició i definim que,
@@ -301,4 +356,76 @@ $e_\varphi = (-\sin \varphi, \cos \varphi)$
 
 Recordem que per molt que hi hagi una velocitat tangencial que existeixi $v$ es crea una acceleració centripeta de manera que \textbf{es crea una força}.
 
+Podem veure fàcilment que $\vec{e_r}, \vec{e_{\varphi}}$ depenen de $\varphi$ i del temps, de manera que $\dv{}{t}\vec{e_r} = \dot{\varphi} \vec{e_{\varphi}}$ i que $\dv{}{t}\vec{e_{\varphi}} = -\dot{\varphi} \vec{ e_{r}}$ de manera que podem descriure un vector \textbf{$\vec{r} = r\vec{e_r}$} i derivar-lo respecte del temps per \textbf{obtenir la velocitat.}
+
+\begin{demobox}
+\[\vec{v} = \dot{\vec{r}} = \dv{}{t}r\vec{e_r} = r \dot{\varphi}\vec{e_\varphi}\]
+\[\dot{\varphi} \equiv \omega\]
+\end{demobox}
+
+Acabem amb la relació de que $v = r\omega$ i va en direcció \textbf{tangencial al moviment}. Ara, quan apareix un canvi en la velocitat apareix una acceleració, tal i com hem descrit als altres moviments, pero ara com que $\omega$ i $\vec{e_{\varphi}}$ depenen de temps és dona la regla del producte
+
+\begin{demobox}
+    \[\vec{a} = \dot{\vec{v}} = \ddot{\vec{r}} = r\ddot{\varphi}\vec{e_{\varphi}} - r\dot{\varphi}\dot{\varphi} \vec{e_r}\]
+    \[\ddot{\varphi} \equiv \alpha\]
+\end{demobox}
+
+Per tant tenim dues acceleracions, una que es diu \textbf{tangencial} $a_t = r\alpha$ que va en direcció tangencial a la trajectoria i la \textbf{normal} que va en oposat al vector director $\vec{e_r}$ i que és $a_n = r\omega^2 = \frac{v^2}{r}$.
+
+L'acceleració normal és centripeta i per tant crea una força centripeta al cos.
+
+\subsection{Moviment General en 2D}
+
+Aquí tot i que determinem $\vec{r}(t)$ en les bases cartesianes $\vec{i}, \vec{j}$ despres usem la nostra base propia que canvia en funció del temps amb \textbf{els vectors de frenet} on $e_1$ pren la direcció de la velocitat i l'acceleració tangencial i $e_2$ pren el sentit de l'acceleració normal.
+
+Donat $r(t)$ podem trobar $v(t)$ fàcilment derivant la posció. Amb això podem determinar el nostre \textbf{primer vector de frenet}, de manera que $\vec{e_1} = \frac{\dot{\vec{x}}(t)}{\abs{\dot{\vec{x}}(t)}} = \frac{\vec{v}(t)}{\abs{\vec{v}(t)}}$. I si derivem podem trobar el \textbf{segon vector de frenet}, de manera que; $\vec{e_2} = \frac{\dot{\vec{e_1}}}{\abs{\dot{\vec{e_1}}}}$ ja que han de formar una base;
+
+\begin{demobox}
+    \[\abs{\vec{e_1}}^2 = 1\]
+    \[\dv{}{t}\abs{\vec{e_1}}^2 = 1  \]
+    \[2 \abs{\dot{\vec{e_1}}} \cdot \abs{\vec{e_1}} = 0\]
+\end{demobox}
+
+Quan ja tenim la nostra base, per definició donem la velocitat com $\vec{v}(t) = v\vec{e_1}$. I simplement si volem trobar l'acceleració derivem usant la regla de la cadena;
+
+\[\vec{a}(t) = \dot{\vec{v}}(t) = \dot{v}\vec{e_1} + v\dot{\vec{e_1}}\]
+\[R = \frac{\vec{v}}{\vec{e_2}}\]
+\[\vec{a}(t) = \dot{\vec{v}}(t) = \dot{v}\vec{e_1} + \frac{v^2}{R}{\vec{e_2}}\]
+
+On un altre cop tenim l'acceleració tangencial i l'acceleració normal una apuntant en cada direcció i el mòdul d'aquestes indica l'acceleració del nostre cos.
+
+Denominem K al recíproc del Radi de corbatura, k (en $m^-1$) ens indica com canvia l'angle $\varphi$ respecte de l'elongació, $\frac{\Delta \varphi}{\Delta s}$, si prenem el límit a $\Delta s$ quan s'aproxima a 0, estem mirant l'angle instantani i el canvi d'aquest $k = \abs{\frac{\dv{\varphi}{t}}{\dv{s}{t}}} = \abs{\frac{\dot{\varphi}}{v}}$.
+
+Si ens fixem amb com definim \textbf{els vectors de frenet} en l'espai amb $\varphi$, $\vec{e_1} = \vec{i}\cos \varphi + \vec{j} \sin \varphi$, de manera que $\abs{\vec{e_1}} = \dot{\varphi}$, per tant;
+
+\[\boxed{k = \frac{\abs{\vec{e_1}}}{\abs{\vec{v}}}}, \boxed{R = \frac{\abs{\vec{v}}}{\abs{\vec{e_1}}}}\]
+
+Aquest radi de corbatura normalment s'escriu $R(t)$, ja que com hem vist \textbf{els vectors de frenet depenen del temps} i de la velocitat, si R no canvia estem parlant d'un moviment circular, sinó  el radi canvia i la corbatura també.
+
+\subsection{Distàncies}
+
+Si sabem que $\vec{v} = \dv{\vec{r}}{t}$ doncs quan afegim tots els trossos \textbf{dr} en una integral podem obtenir la distància recorregura $\int_{t_0}^{t} v(t) dt$. 
+
+Pero que fem quan no ens parlen de temps i ens donen una funció arbitraria? Doncs proposem x = t, de manera que desenvolupant.
+
+\begin{demobox}
+    \[\dot{x} = \dv{x}{x} = 1, \dot{y} = \dv{y}{x} = y'\]
+    \[\int_{x_0}^{x} \abs{\dot{x}\vec{i} + \dot{y}\vec{j}} = \int_{x_0}^{x} \sqrt{1+y'}\]
+\end{demobox}
+
+Per acabar podem distingir magnituds que depenen del temps com;
+
+\begin{itemize}
+    \item Vectors de frenet
+    \item Velocitat, Posició i Acceleració
+    \item Radi
+\end{itemize}
+
+Dels que no depenen;
+
+\begin{itemize}
+    \item Distància de trajectoria
+\end{itemize}
+% distància
+% magnituds intrinieques
 \end{document}

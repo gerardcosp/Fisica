@@ -233,11 +233,49 @@ Aquestes operacions compleixen les seves \textbf{propietats habituals a $\Q, \R$
 Com a cossos tenim per exemple $f(x), \R, \Q, F_2 = \Z/2\Z$ on en l'ultim només existeix 0, 1 on $1 + 1 = 0$.
 
 Anomenem \textbf{grup abelià} aquell cos que permet una operació que commuta com $(K, +), (K, \cdot)\dots$. Un conjunt de dos operacions és un \textbf{anell} per exemple $\R = (K, +, \cdot)$
-%Cos
-%anell
-%grup abeli
 
 \section{Matrius}
+
+Una matriu és un cos K amb entrades $K^{m\cross n}$ que ens permet gestionar un array molt gran de nombres, soldrem usar $\Q, \R, \dots$
+
+Dins de cada matriu es troba un element A = ($a_{ij}$) on $ 1 \leq i \leq m, 1 \leq j \leq n$. I hi ha diverses operacions que podem fer amb les matrius. Podem fer diverses operacions a les matrius de manera que les anomenem \textbf{transformacions fonamentals} ($\rightsquigarrow$)
+
+\begin{itemize}
+    \item Canviar una fila per una altra, $F_i \leftrightarrow F_j$
+    \item Multipliquem una fila per un escalar $\lambda \in K$, $kF_i$
+    \item Li sumem a una fila una altra multiplicada per un escalar, $F_i \rightarrowtail kF_j$
+\end{itemize}
+
+Qualsevol cosa es pot fer amb \textbf{columnes} de la mateixa manera. 
+
+Una cosa important de les matrius i les transoformacions és que poden ser descrites com \textbf{matrius elementals} $E_i$ que són les transformacions lineals en una matriu identitat de manera que si fem $E_i \cdot A = A'$, obtenim la matriu A amb la transformació anterior. Si fem $A\cdot E_1 = A'$, hem dut a terme la transformació per les colmnes de la matriu.
+\textbf{\textcolor{red}{Recordem una matriu $A\in K^{n\cross m}$ només pot ser multiplicada per una amb m files}.}
+
+Per exemple;
+
+\begin{itemize}
+    \item \textbf{Canviem} $F_1 \leftrightarrow F_2$ = $ \begin{pmatrix}
+0 & 1 & 0 \\
+1 & 0 & 0 \\
+0 & 0 & 1 
+\end{pmatrix}  $
+
+    \item \textbf{Multipliquem} la $F_1$ per $-3$ = $ \begin{pmatrix}
+-3 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & 1 
+\end{pmatrix}  $
+
+    \item \textbf{Multipliquem} la $F_1$ per $2$ i li \textbf{sumem} a $F_2$ = $ \begin{pmatrix}
+1 & 0 & 0 \\
+2 & 1 & 0 \\
+0 & 0 & 1 
+\end{pmatrix}  $
+\end{itemize}
+
+Una operació interesant és que \textbf{la matriu inversa} és l'operació contrària de la matriu $E^{-1}_1 \cdot E_1 = E_1 \cdot E^{-1}_1 = Id_n$.
+
+Podem usar aquesta propietat per dur a terme una matriu $P = \prod_{i = 0}^{n} E_i = E_{1} \dots E_n$ on quan apliquem la matriu P es dona una serie de \textbf{transformacions lineals} aquesta la podem usar per trobar una matriu que multiplicada per P ens dona la forma \textbf{reduïda} de la matriu original.
 
 \section{Espais Vectorials}
 
