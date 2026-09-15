@@ -295,9 +295,9 @@ Aquí l'acceleració és constant per tant hem de trobar una expressió en funci
 \[x(t) = x_0 + v(t-t_0) + \frac{1}{2}a(t-t_0)^2\]
 \[v(t) = v_0 + a(t-t_0)\]
 
-\section{Canvis en els sistemes de referència}
+\subsection{Canvis en els sistemes de referència}
 
-Podem escollir el nostre sistema de referència com vulguem pero estem \textbf{obligats a donar la referència}. Per crear el nostre sistema de referència fem ús de tres axiomes que no funcionen en la Relativitat;
+Podem escollir el nostre sistema de referència com vulguem pero estem \textbf{obligats a donar la referència}. Per crear el nostre sistema de referència fem ús de dos axiomes que no funcionen en la Relativitat d'Einstein; 
 
 \begin{itemize}
     \item Axioma I: El temps és absolut (\textit{transcorre al mateix ritme per tothom})
@@ -413,7 +413,7 @@ Pero que fem quan no ens parlen de temps i ens donen una funció arbitraria? Don
     \[\int_{x_0}^{x} \abs{\dot{x}\vec{i} + \dot{y}\vec{j}} = \int_{x_0}^{x} \sqrt{1+y'}\]
 \end{demobox}
 
-Per acabar podem distingir magnituds que depenen del temps com;
+Per acabar podem distingir magnituds que \textbf{depenen del temps} com;
 
 \begin{itemize}
     \item Vectors de frenet
@@ -421,11 +421,43 @@ Per acabar podem distingir magnituds que depenen del temps com;
     \item Radi
 \end{itemize}
 
-Dels que no depenen;
+Dels que \textbf{no depenen del temps};
 
 \begin{itemize}
     \item Distància de trajectoria
 \end{itemize}
-% distància
-% magnituds intrinieques
+
+\subsection{Casos Particulars}
+
+Aquests són problemes típics o cassos particulars que poden aparèixer al examen i tenen una forma sistemàtica de resoldre
+
+\subsubsection{Politjes}
+
+\section{Dinàmica}
+
+Estudia el \textbf{moviment dels objectes}, des de les forçes que el pertorben.
+
+\subsection{Lleis de Newton}
+
+Per poder predir el moviment usem les \textbf{3 lleis de Newton}
+
+\begin{itemize}
+    \item \textit{Llei de l'inèrcia}; Un cos en repos no experimenta un canvi si no es pertorbat. 
+    Parlem de sistemes inercials en aquells que es troben en repòs o a una velocitat constant i es compleixen les lleis de Newton sense falta d'aplicar cap força externa. I els no inercials aquells que tenen una acceleracció aplicada ($A'$) i hem de "crear" una força $F = mA'$ ficticia.
+    \item \textit{Segona Llei}; Una força actua sobre un cos \textbf{otorgant-li acceleració}, $F = m\vec{a}$
+    \item \textit{Acció-Reacció}; Si un objecte fa força sobre un altre, aquell altre li fa una contrària en \textbf{sentit oposat}, pero aquesta mai s'aplica si tractem el conjunt com un únic cos perque sinò seria $\Sigma \vec{F} = m\vec{a}$
+\end{itemize}
+
+Sabem que $\vec{F}$ depèn de $\vec{r}(t), \dot{\vec{r}}(t), t$ i que;
+
+\[\frac{\vec{F}(\vec{r}(t), \dot{\vec{r}}(t), t)}{m} = \ddot{\vec{r}}(t)\]
+
+El que realment es vol trobar és la força que pertorba aquell cos i li dona una acceleració, com;
+
+\begin{itemize}
+    \item $F = G\frac{Mm}{r^2}$
+    \item $F = -k\Delta x$
+    \item $F = qvB$
+\end{itemize}
+
 \end{document}

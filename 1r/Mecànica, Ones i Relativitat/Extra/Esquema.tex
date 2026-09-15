@@ -1,411 +1,85 @@
-\documentclass{article} % 12pt is optional
+\documentclass[12pt]{article}
+
+% ============================================================
+%                     CONFIGURACIÓ BÀSICA
+% ============================================================
+
 \usepackage[utf8]{inputenc}
-\usepackage[a4paper,margin=2cm]{geometry} 
-\usepackage{amssymb, amsmath, amsthm}
-\usepackage[most]{tcolorbox}
-\usepackage[dvipsnames,svgnames,x11names]{xcolor}
-\usepackage{fullpage}
-\usepackage[catalan]{babel}
-\usepackage[colorlinks=true, allcolors=black]{hyperref}
+\usepackage[a4paper, margin=2cm]{geometry}
+
+% ============================================================
+%                    MATEMÀTIQUES I FÍSICA
+% ============================================================
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
 \usepackage{mathtools}
+\usepackage{physics}
+
+% ============================================================
+%                    COLORS I CAIXES
+% ============================================================
+
+\usepackage[dvipsnames, svgnames, x11names]{xcolor}
+\usepackage{tcolorbox}
+
+% ============================================================
+%                       CONFIGURACIÓ
+% ============================================================
+
+\graphicspath{{./images/}}
+
+\linespread{1.25}
+
+% ============================================================
+%                    COMANDAMENTS PROPIS
+% ============================================================
+
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\Z}{\mathbb{Z}}
-\usepackage{physics}    
-\usepackage{siunitx}     
-\usepackage{enumitem}
-\usepackage{microtype}   
-\usepackage{tikz}
-\usepackage{pgfplots}
-\pgfplotsset{compat=1.18} 
-\graphicspath{ {./images/} }
-\usepackage{booktabs}
-\setlength{\heavyrulewidth}{0.4pt}
-\linespread{1.25}
-\setlength{\lightrulewidth}{0.4pt}
-\setlength{\cmidrulewidth}{0.4pt}
-\usepackage{chemfig}
-\usepackage[version=4]{mhchem}
-\usepackage[table]{xcolor}
-\title{\textbf{ESQUEMA MATEMÀTIQUES}}
+
+% ============================================================
+%                         DOCUMENT
+% ============================================================
+
+\title{\textbf{Esquema de MOiR}}
 \author{\textit{Gerard Cosp Lores}}
-\usepackage{graphicx}
-\usepgfplotslibrary{fillbetween}
-\usepackage{float}
 \date{}
 
 \begin{document}
 
 \maketitle
 
+\maketitle
+
 \begin{abstract}
-Aquest document està destinat a millorar els errors que es cometen en els exàmens de matemàtiques per \textbf{poder-ho fer millor}\footnote{Aquest document s'anirà actualitzant cada tema}.
+Aquest document recull les definicions, demostracions i fòrmules bàsiques per comprebdre \textbf{l'assignatura de MOiR}. \footnote{Aquest document s'anirà actualitzant a mesura que avançi el semmestre.}
 \end{abstract}
 
-\section{T1-T2 Matrius i determinants}
-\subsection{Estudiar \textbf{Rang}(A) amb paràmetre}
-
 \begin{tcolorbox}[
-  title=Mètode del pivot,
-  colback=blue!5!white,
-  colframe=blue!70!black,
+  title=Canvis de Base,
+  colback=red!5!white,
+  colframe=red!70!black,
   coltitle=white,
-  colbacktitle=blue!70!black,
+  colbacktitle=red!70!black,
   fonttitle=\bfseries,
   arc=6pt,
   boxrule=0.8pt
 ]
 
-Primer escollim un menor d'ordre dos 
-$\begin{vmatrix}
-a & b \\
-c & d
-\end{vmatrix} \neq 0$ \textit{(millor si no te cap paràmetre)} i després resolem 1 \textbf{d'ordre 3} i l'altre ho fem \textbf{a partir dels resultats de l'anterior.}
-
-
-\end{tcolorbox}
-
-\begin{align}
-A = \begin{vmatrix}
-1 & 2 & a\\
-a-1 & 2a & 0 \\
-1 & -4 & -a
-\end{vmatrix}
-\end{align}
-
-\begin{align}
-\begin{vmatrix}
-1 & 2 \\
-a-1 & 2a
-\end{vmatrix} = 9 \neq 0 \therefore Rang(A) \geq 2
-\end{align}
-
-\begin{align}
-\begin{vmatrix}
-1 & 2 & a\\
-a-1 & 2a & 0 \\
-1 & -4 & -a
-\end{vmatrix} = (-2a^2 -4a^2+4a)-(2a^2 -2a^2 +2a)
-\end{align}
-
-\begin{align}
--6a^2+2a = 0 \therefore a = 0, a = \frac{1}{3}
-\end{align}
-
-Estudiariem els dos cassos si la matriu fos més gran, però hem obtingut que:
-
-\begin{center}
-\begin{tabular}{|c|c|}
-\hline
-\textbf{Valor de "$a$"} & \textbf{Rang de la matriu} \\ \hline
-Si a = 0 i a = $\frac{1}{3}$ & Rang(A) = 2 \\ \hline
-Si a $\neq$ 0 i a $\neq \frac{1}{3}$ & Rang(A) = 3 \\ \hline
-\end{tabular}
-\end{center}
-
-\subsection{Estudiar inversa amb paràmetre}
-
-\begin{tcolorbox}[
-  title=Inversa amb determinant,
-  colback=TealBlue!5!white,
-  colframe=TealBlue!70!black,
-  coltitle=white,
-  colbacktitle=TealBlue!70!black,
-  fonttitle=\bfseries,
-  arc=6pt,
-  boxrule=0.8pt
-]
-
-$\forall$ Matrius \textbf{$\exists$ inversa} si, i només si
-$\begin{vmatrix}
-a & b \\
-c & d
-\end{vmatrix} \neq 0$, de manera que el rang és el màxim, el que farem serà \textbf{igualar el determinant $= 0$} $. {\textbf{\textcolor{red}{Comprovar que és inversa de A i dona Id.}}}$ Podem fer la inversa de diverses maneres:
-
-\begin{itemize}
-    \item $A\cdot A^{-1} = A^{-1}\cdot A = Id$
-    \item $A^{-1} = \frac{1}{\abs{A}} Adj(A^t)$
-    \item Fem gauss amb $\begin{pmatrix}
-a & b & c \mid & 1 & 0 & 0 \\
-d & e & f \mid & 0 & 1 & 0 \\
-g & h & i \mid & 0 & 0 & 1 \\
-\end{pmatrix}$
-\end{itemize}
+\textbf{RELACIÓ}\\
+\\
+$\vec{r} = \vec{R} + \vec{r'}$\\
+\\
+Fem servir el \textbf{canvi de bases} per conveniència, quan el sistema es fa més fàcil. Hi ha bases que depenen del temps com els \textit{vectors de frenet}, o d'altres que no com \textit{la base polar} que per problemes circulars és molt més fàcil. Sempre hem de deixar estipulat com és el canvi en les bases i com afecten a tots els components del problema.
 
 \end{tcolorbox}
 
-\subsection{Resoldre equacions matricials}
+\section{Cinemàtica}
 
 \begin{tcolorbox}[
-  title=Equacions matricials,
-  colback=MidnightBlue!5!white,
-  colframe=MidnightBlue!70!black,
-  coltitle=white,
-  colbacktitle=MidnightBlue!70!black,
-  fonttitle=\bfseries,
-  arc=6pt,
-  boxrule=0.8pt
-]
-
-Una equació matricial $\longrightarrow$ $X \cdot A = Id$ \textbf{es resol com una equació normal}, però no podem dividir per tant \textit{multipliquem} per $A^{-1}$ (que la podem fer per \textbf{definició, formula o Gauss}).
-
-\end{tcolorbox}
-
-\subsection{Altres tipus de matrius}
-
-\begin{tcolorbox}[
-  title=Tipus de matrius,
-  colback=NavyBlue!5!white,
-  colframe=NavyBlue!70!black,
-  coltitle=white,
-  colbacktitle=NavyBlue!70!black,
-  fonttitle=\bfseries,
-  arc=6pt,
-  boxrule=0.8pt
-]
-
-\begin{itemize}
-  \item Matriu Diagonal Superior $\begin{pmatrix}
-    1 & 0 & 0\\
-    3 & 2 & 0 \\
-    1 & -4 & -1
-  \end{pmatrix}$
-  \item Matriu Diagonal Inferior $\begin{pmatrix}
-    1 & 2 & 4\\
-    0 & 2 & 0 \\
-    0 & 0 & -1
-  \end{pmatrix}$
-  \item Matriu Identitat $\begin{pmatrix}
-    1 & 0 & 0\\
-    0 & 1 & 0 \\
-    0 & 0 & 1
-  \end{pmatrix}$
-  \item Matriu Nula $\begin{pmatrix}
-    0 & 0 & 0\\
-    0 & 0 & 0 \\
-    0 & 0 & 0
-  \end{pmatrix}$
-\end{itemize}
-\end{tcolorbox}
-
-\section{T3 Sistemes d'equacions}
-
-\subsection{Discuteix el tipus de sistema i resol el sistema}
-
-\begin{tcolorbox}[
-  title=Teorema Rouché-Frobenius,
-  colback=Salmon!5!white,
-  colframe=Salmon!70!black,
-  coltitle=white,
-  colbacktitle=Salmon!70!black,
-  fonttitle=\bfseries,
-  arc=6pt,
-  boxrule=0.8pt
-]
-
-El tipus de sistema \textit{SDC, SCI, SI}, \textbf{depen del Rang} de la matriu del sistema $\therefore$
-
-\begin{itemize}
-\item Si Rang($A$) = Rang($A^*$) = n(Incògnites)
-$\Rightarrow$ SCD
-\item Si Rang($A$) = Rang($A^*$) $<$ n(Incògnites)
-$\Rightarrow$ SCI
-\item Si Rang($A$) $\neq$ Rang($A^*$)
-$\Rightarrow$ SI
-\end{itemize}
-
-\end{tcolorbox}
-
-\noindent
-1) Expressar el sistema en forma matricial\\
-2) Estudiar el rang d'A a partir del pivot\\
-3) Estudiar el rang de l'ampliada amb els valors del anterior\\
-4) Explicar per quins valors es quin sistema i resoldre, (Cramer, Gauss /Paràmetres/)
-
-\subsection{Resol un problema escrit}
-
-\begin{tcolorbox}[
-  title=Problemes escrits,
-  colback=OrangeRed!5!white,
-  colframe=OrangeRed!70!black,
-  coltitle=white,
-  colbacktitle=OrangeRed!70!black,
-  fonttitle=\bfseries,
-  arc=6pt,
-  boxrule=0.8pt
-]
-
-Important \textbf{plantejar les variables} \textit{(+0.5 pts),} i \textbf{redactar un text final} en f(x) amb l'enunciat, intentar que els coeficients siguin $\mathbb{Z}$ per poder fer Gauss millor. \textit{Sobretot intentar, tot suma}.
-
-\end{tcolorbox}
-
-\section{T4 Limits i continuïtat}
-
-\subsection{Resol els límits següents}
-
-\begin{tcolorbox}[
-  title=Resoldre limits,
-  colback=SeaGreen!5!white,
-  colframe=SeaGreen!70!black,
-  coltitle=white,
-  colbacktitle=SeaGreen!70!black,
-  fonttitle=\bfseries,
-  arc=6pt,
-  boxrule=0.8pt
-]
-
-Sempre comprovar amb la calculadora, \textbf{apropant el valor de les x al limit i veient el comportament}. $\lim_{x \to \infty} f(x) \approx f(\infty)$, i enrecordar-se de que $1^{\infty} \approx e$.
-
-\end{tcolorbox}
-
-\subsection{Estudia la continuïtat de:}
-
-\begin{tcolorbox}[
-  title=Continuïtat,
-  colback=ForestGreen!5!white,
-  colframe=ForestGreen!70!black,
-  coltitle=white,
-  colbacktitle=ForestGreen!70!black,
-  fonttitle=\bfseries,
-  arc=6pt,
-  boxrule=0.8pt
-]
-
-És important dir \textit{La funció es continua en tot el seu Domf, menys en els punts:} I \textbf{estudiem els punts crítics}, pot ser:
-
-\begin{itemize}
-\item Discontinuïtat evitable \textbf{(punt blanc)}
-\item Discontinuïtat de salt infinit \textbf{(assimptota)}
-\item Discontinuïtat de salt finit
-\end{itemize}
-
-\begin{center}
-\begin{tikzpicture}
-  \begin{axis}[
-      width=3cm,
-      height=2cm,
-      scale only axis,
-      axis lines=middle,              
-      axis on top,                   
-      axis line style={thick, black},
-      xlabel={$x$}, ylabel={$f(x)$},  
-      tick label style={font=\tiny},
-      label style={font=\tiny},
-      grid=both,                        
-      domain=-3:3, samples=200,       
-      ymin=-10, ymax=10,                
-      xtick={-3,-2,-1,0,1,2,3},        
-      ytick={-10,-5,0,5,10}
-    ]
-    \addplot[LimeGreen, line width=2pt, domain=-3:-0.1] {1/x};
-    \addplot[LimeGreen, line width=2pt, domain=0.1:1] {1/x};
-    \addplot[LimeGreen, line width=2pt, domain=1:3] {-x};
-  \end{axis}
-\end{tikzpicture}
-\end{center}
-\end{tcolorbox}
-
-\subsection{Per a quins valors de a la funció es continua}
-
-\begin{tcolorbox}[
-  title=Límits amb paràmetres,
-  colback=LimeGreen!5!white,
-  colframe=LimeGreen!70!black,
-  coltitle=white,
-  colbacktitle=LimeGreen!70!black,
-  fonttitle=\bfseries,
-  arc=6pt,
-  boxrule=0.8pt
-]
-
-Plantegem tantes equacions com paràmetres hi hagi i si fa falta utilitzem \textbf{la condició de derivabilitat} per treure una altra equació $\therefore$, derivada ha de ser contínua i les derivades laterals han de ser iguals.
-
-
-\end{tcolorbox}
-\subsection{Bolzano}
-\begin{tcolorbox}[
-  title=Teorema de Bolzano,
-  colback=Green!5!white,
-  colframe=Green!70!black,
-  coltitle=white,
-  colbacktitle=Green!70!black,
-  fonttitle=\bfseries,
-  arc=6pt,
-  boxrule=0.8pt
-]
-
-El teorema de \textbf{Bolzano} garantitza que si en un interval de $[a,b]$ passa que $f(a)\cdot f(b) < 0$. Existeix almenys un punt $c \in [a,b]$ de manera que $f(c) =0$ per tant prenem 2 valors i anem \textbf{escurçant el interval}.   
-
-\end{tcolorbox}
-\section{T5 Identitats Trigonomètriques}
-\subsection{Igualtats trigonomètriques}
-\begin{tcolorbox}[
-  title=Relacions trigonomètriques,
-  colback=magenta!5!white,
-  colframe=magenta!70!black,
-  coltitle=white,
-  colbacktitle=magenta!70!black,
-  fonttitle=\bfseries,
-  arc=6pt,
-  boxrule=0.8pt
-]
-
-Podem relacionar les diferentes f(x) trigonomètriques com:
-
-\[
-\tan \theta = \frac{\sin \theta}{\cos \theta}
-\]
-
-\[
-\sin^2 \theta + \cos^2 \theta = 1
-\]
-
-\[
-1 + \tan^2 \theta = \sec^2 \theta
-\]
-\end{tcolorbox}
-\subsection{Suma i resta d'angles}
-\begin{tcolorbox}[
-  title=Funcions trigonomètriques no perfectes,
-  colback=violet!5!white,
-  colframe=violet!70!black,
-  coltitle=white,
-  colbacktitle=violet!70!black,
-  fonttitle=\bfseries,
-  arc=6pt,
-  boxrule=0.8pt
-]
-
-Si necessitem calcular $\sin \theta$, $\cos \theta$ i $\tan \theta$, on $\theta$ és una \textbf{combinació} de \textbf{dos angles}, ja sigui $\theta = \alpha + \beta$ o $\theta = 2\alpha$, utilitzem les identitats \textbf{trigonomètriques corresponents}.
-
-\[
-\sin(\alpha + \beta) = \sin \alpha \cos \beta \pm \cos \alpha \sin \beta
-\]
-
-\[
-\cos(\alpha + \beta) = \cos \alpha \cos \beta \mp \sin \alpha \sin \beta
-\]
-
-\[
-\sin(2\alpha) = 2 \sin \alpha \cos \alpha
-\]
-
-\[
-\cos(2\alpha) = \cos^2 \alpha - \sin^2 \alpha
-\]
-
-\[
-\sin^2(\alpha) = \frac{2 - \cos(2\alpha)}{2}
-\]
-
-\begin{center}
-     $\uparrow$ (Super important per $\int$) $\uparrow$
-\end{center}
-\end{tcolorbox}
-
-\section{T6-T7 Derivades i aplicacions a les derivadades}
-\subsection{Derivades importants}
-\begin{tcolorbox}[
-  title=Derivades trivials,
+  title=Fórmues bàsiques,
   colback=orange!5!white,
   colframe=orange!70!black,
   coltitle=white,
@@ -415,785 +89,150 @@ Si necessitem calcular $\sin \theta$, $\cos \theta$ i $\tan \theta$, on $\theta$
   boxrule=0.8pt
 ]
 
-Les derivades que s'haurien de recordar, \textbf{a part de les bàsiques}, són les seguents:
-
-
-
-\[
-f(x) = \arccos(x) \therefore f'(x) = -\frac{1}{\sqrt{1-x^2}}
-\]
-
-\[
-f(x) = \arcsin(x) \therefore f'(x) = \frac{1}{\sqrt{1-x^2}}
-\]
-
-\[
-f(x) = \arctan(x) \therefore f'(x) = \frac{1}{1+x^2}
-\]
-
-\[
-f(x) = \log_nx \therefore f'(x) = \frac{1}{x\ln(n)}
-\]
+\textbf{EQUACIÓ DE VECTOR POSICIÓ}\\ 
+\\
+$\vec{r}(t) = x(t)\vec{i} + y(t)\vec{j} + z(t)\vec{k}$\\
+\\
+\textbf{VELOCITAT MITJANA I INSTANTÀNIA}\\
+\\
+$\vec{v_m} = \frac{\Delta \vec{r}}{\Delta t}$ \\
+\\
+\textbf{ACCELERACIÓ MITJANA I INSTANTÀNIA}\\ 
+\\
+$\vec{v}(t) = \dot{\vec{r}}(t) = \dv{\vec{r}}{t}$\\
 
 \end{tcolorbox}
-\subsection{Recta tangent}
+
+\subsection{Moviments Rectilinis}
+
 \begin{tcolorbox}[
-  title=Trobar equació de la recta tangent,
-  colback=Peach!5!white,
-  colframe=Peach!70!black,
+  title=Fórmules Bàsiques,
+  colback=yellow!5!white,
+  colframe=yellow!70!black,
   coltitle=white,
-  colbacktitle=Peach!70!black,
+  colbacktitle=yellow!70!black,
   fonttitle=\bfseries,
   arc=6pt,
   boxrule=0.8pt
 ]
 
-Trobar la \textbf{recta tangent} de la funció en un punt és molt fàcil, recodem \textit{$y=mx+n$} on \textbf{$m=f'(x_0)$} i fàcilment podem subsituir un punt \textbf{$P(x_0,f(x_0))$} $\in$ a la funció \textit{(el punt que ens demanen)} i aixi trobem $n$.
+\textbf{MRU}\\
+\\
+$x(t) = x_0 + v(t-t_0)$\\
+\\
+\textbf{MRUA}\\
+\\
+$x(t) = x_0 + v(t-t_0) + \frac{1}{2}a(t-t_0)^2$\\
+$v(t) = v_0 + a(t-t_0)$\\
 
 \end{tcolorbox}
-\subsection{Optimització de funcions}
+
+\subsection{Moviments Circulars}
+
 \begin{tcolorbox}[
-  title=Problemes d'optimització,
-  colback=BurntOrange!5!white,
-  colframe=BurntOrange!70!black,
+  title=Fórmues bàsiques,
+  colback=green!5!white,
+  colframe=green!70!black,
   coltitle=white,
-  colbacktitle=BurntOrange!70!black,
+  colbacktitle=green!70!black,
   fonttitle=\bfseries,
   arc=6pt,
   boxrule=0.8pt
 ]
 
-Aquests problemes són dificils i ens hem d'enrrecordar de les formules de \textbf{l'àrea, volum i superficie} de les figures geomètriques:\\
+\textbf{EQUACIÓ DE VECTOR POSICIÓ}\\ 
 \\
-\begin{center}
-\includegraphics[width=0.5\textwidth]{Areas_Superficies.png}
-\end{center}
-
-A més ens poden demanar el Benefici com $B(x)$ que bàsicament és Ingrès - Costos $\therefore I(x) - C(x)$.
+$\vec{r}(t) = R \vec{e_r}$\\
 \\
-Tot i sabent això el més important és \textbf{establir una relació entre les incògnites} per tenir una \textbf{funció en una variable}$\therefore$: \\
+\textbf{VELOCITAT}\\
 \\
-1) Escriure la funció objectiu \textit{(és igual en quantes variables)}\\
-2) Intentar \textbf{en el enunciat} trobar una relació ja sigui una igualtat o una relació geomètrica\\
-3) Substituir a la funció f(x) objectiu\\
-4) Trobar $f'(x)$ i $f'(x) = 0$ trobant els valors màxims i minims. ${\textbf{\textcolor{red}{Comprovar que és màxim o mínim.}}}$\\
-
-Tips: \\
-· Sobre tot \textbf{dibuixar la situació}.\\
-· Si tenim una recta busquem un punt $P(x,f(x))$, buscant \textbf{l'equació de la recta.}\\
-· Si hem de buscar una \textbf{distància punt recta}, usem la formula $\Rightarrow d(P,r) = \frac{\lvert Ax_0 + By_0 + C \rvert}{\sqrt{A^2 + B^2}} $, posant el punt en $P(x_0,y_0)$ i l'equació en forma general $Ax + By +C = 0$. 
+$\vec{v} = R \dot{\varphi}\vec{e_{\varphi}} \therefore v = \omega R$ \\
+\\
+\textbf{ACCELERACIÓ}\\ 
+\\
+$\vec{a} = R\ddot{\varphi}\vec{e_{\varphi}} - R\dot{\varphi}\dot{\varphi}\vec{e_r}$\\
+$\vec{a_T} = R\alpha$(En direcció tangencial)\\ 
+$\vec{a_N} = \frac{v^2}{R} = \omega^2 R$(En direcció cap a dins del cercle)\\
 
 \end{tcolorbox}
 
-\subsection{Punts d'estudi}
+\subsection{Moviments Generals}
 
 \begin{tcolorbox}[
-  title=Punts d'inflexió,
-  colback=Apricot!5!white,
-  colframe=Apricot!70!black,
+  title=Fórmues bàsiques,
+  colback=blue!5!white,
+  colframe=blue!70!black,
   coltitle=white,
-  colbacktitle=Apricot!70!black,
+  colbacktitle=blue!70!black,
   fonttitle=\bfseries,
   arc=6pt,
   boxrule=0.8pt
 ]
 
-Si $f'(x) = 0$ por ser \textbf{màxim, mínim o p.inflexió}, podem estudiar aquests casos amb $f''(x)$ que ens descriu \textbf{la curvatura}.\\
+\textbf{VECTORS DE FRENET}\\ 
 \\
-Si $f'(x)=0$ també hem d'estudiar $f''(x) = 0$ ja \textbf{que potser no comparteixen }punts en comú que $\exists$, també escriure els intèrvals en forma $(-\infty , x) \cup (y, +\infty)$, {\textbf{\textcolor{red}{L'infinit sempre va amb ().}}}\\
+$\vec{e_1} = \frac{\vec{v}}{\left|\vec{v}\right|}$\\
+$\vec{e_2} = \frac{\vec{\dot{\vec{e_1}}}}{\left|\vec{\dot{\vec{e_1}}}\right|}$ ($\leftrightarrow \vec{e_1} = (a,b) \therefore \vec{e_2} = (-b,a)$)\\
 \\
-1) Si $f''(x) > 0 \iff$ tenim un mínim. (\textbf{Convexa})\\
-\begin{center}
-\begin{tikzpicture}
-\draw[->] (-2,0) -- (2,0) node[right] {$x$};
-\draw[->] (0,-1) -- (0,3) node[above] {$y$};
-\draw[thick, color = orange, domain=-1.5:1.5, samples=100] plot (\x,{\x*\x});
-\node at (1.5,2.5) {$f''(x)>0$};
-\end{tikzpicture}\\
-\end{center}
-2) Si $f''(x) < 0 \iff$ tenim un màxim.(\textbf{Còncava})\\
-\begin{center}
-\begin{tikzpicture}
-\draw[->] (-2,0) -- (2,0) node[right] {$x$};
-\draw[->] (0,-3) -- (0,1) node[above] {$y$};
-\draw[thick, color = orange, domain=-1.5:1.5, samples=100] plot (\x,{-(\x*\x)});
-\node at (1.5,-2.5) {$f''(x)<0$};
-\end{tikzpicture}
-\end{center}
-3) Si $f''(x) = 0 \iff$ tenim un p.inflexió.\\
-\begin{center}
-\begin{tikzpicture}[scale=0.7]
-  \begin{axis}[
-    axis lines = middle,
-    xlabel=$x$, ylabel=$y$,
-    domain=-2:2, samples=200,
-    title={$f(x)=x^3$}
-  ]
-  \addplot[thick, color = orange] {x^3};
-  \addplot[only marks, mark=*] coordinates {(0,0)};
-  \end{axis}
-\end{tikzpicture}
-\end{center}
+\textbf{POSICIÓ}\\
+\\
+$\vec{r}(t) = x(t)\vec{i} + y(t)\vec{j} + z(t)\vec{k}$ \\
+\\
+\textbf{VELOCITAT}\\ 
+\\
+$\vec{v}(t) = v \vec{e_1}$\\
+\\
+\textbf{ACCELERACIÓ}\\
+\\
+$\vec{a}(t) = \dot{\vec{v}}(t) = \dot{v}\vec{e_1} + v\dot{\vec{e_1}} = \dot{v}\vec{e_1} + \frac{v^2}{R}$\\
+\\
+\textbf{RADI DE CORBATURA}\\
+\\
+$R = \frac{\left|\vec{v}\right|}{\left|\vec{e_2}\right|} = k^{-1}$\\
+\\
+\textbf{DISTÀNCIA}\\
+\\
+$D = \int_{t_0}^{t} v(t) dt$\\
+$D = \int_{x_0}^{x} \sqrt{1 + y'}$\\
+
 \end{tcolorbox}
 
-\section{T8 Probabilitat}
-\subsection{Formulari de probabilitat}
+\subsection{Politjes}
 
 \begin{tcolorbox}[
-  title=Formules Probabilitat,
-  colback=Goldenrod!5!white,
-  colframe=Goldenrod!70!black,
+  title=Fórmues bàsiques,
+  colback=magenta!5!white,
+  colframe=magenta!70!black,
   coltitle=white,
-  colbacktitle=Goldenrod!70!black,
+  colbacktitle=magenta!70!black,
   fonttitle=\bfseries,
   arc=6pt,
   boxrule=0.8pt
 ]
 
-A la probabilitat de la selectivitat tenim diferents formules que ens puguin sortir. Primer el que s'ha de fer es \textbf{definir l'esdeveniment} i apuntar totes les probabilitats que ens diu l'anunciat i els seus \textit{complementaris}. $P(A^c) = 1- P(A)$ i $P(B^c\mid A) = 1-P(B\mid A)$.\\
+\textbf{VECTORS DE FRENET}\\ 
 \\
-Les formules que ens hem de saber són \textbf{Probabilitat total} i \textbf{Bayes};
-
-Mentre que la \textit{probabilitat total} ens serveix per \textbf{extreure la probabilitat d'una condicionada}, \textit{Bayes} ens serveix perquè es giri\textbf{ l'ordre de dependència.}
-
-\[
-P(A) = \frac{\mid A \mid}{\mid \Omega \mid} 
-\]
-
-\[
-P(B) = P(A)·P(B\mid A) + P(A^c)·P(B\mid A^c)...
-\]
-
-\[
-P(B\mid A) = \frac{P(B)·P(A\mid B)}{P(A)}
-\]
-
-\[
-P(A\mid B) = \frac{P(A\cap B)}{P(B)}
-\]
-
-\[
-P(A\cup B) = P(A)+P(B)-P(A\cap B)
-\]
-\end{tcolorbox}
-
-\section{T9-T10-T11 Geometria}
-\subsection{Usos dels vectors}
-
-\begin{tcolorbox}[
-  title=Utlitats dels vectors,
-  colback=Brown!5!white,
-  colframe=Brown!70!black,
-  coltitle=white,
-  colbacktitle=Brown!70!black,
-  fonttitle=\bfseries,
-  arc=6pt,
-  boxrule=0.8pt
-]
-
-\textbf{Punt mitjà}\\
+$\vec{r}(t) = R \vec{e_r}$\\
 \\
-Calculem el \textbf{punt mitjà}; $\vec{OP} = \vec{OA}+\frac{1}{2}\vec{AB} = P \iff P = \frac{A+B}{2}$\\
+\textbf{POSICIÓ}\\
 \\
-\textbf{Proporcionalitat}\\
+$\vec{v} = R \dot{\varphi}\vec{e_{\varphi}} \therefore v = \omega R$ \\
 \\
-Dos vectors son \textbf{paralels}, si son proporcionals; $\frac{\vec{v_x}}{\vec{u_x}} = \frac{\vec{v_y}}{\vec{u_y}} = \frac{\vec{v_z}}{\vec{u_z}} = k \iff k\in \mathbb{R}$
+\textbf{VELOCITAT}\\ 
 \\
-
-\end{tcolorbox}
-
-\subsection{Vectors perpendiculars (base)}
-
-\begin{tcolorbox}[
-  title=Linealitat de vectors,
-  colback=Maroon!5!white,
-  colframe=Maroon!70!black,
-  coltitle=white,
-  colbacktitle=Maroon!70!black,
-  fonttitle=\bfseries,
-  arc=6pt,
-  boxrule=0.8pt
-]
-
-\noindent En $R^2$, dos vectors \textbf{son l. independents} si no es poden formar l'un per l'altre és a dir $\therefore$ $\vec{v} = k\vec{b} \longleftrightarrow k\in \mathbb{R}$, per tant si dividim $\frac{\vec{v}}{\vec{b}} = k$ per totes les components.\\
-
-\noindent En $R^3$, necessitem 3 vectors per formar una \textbf{base}, si $\det(V) \neq 0$, si V = matriu de vectors (són linealment independents). Podem trobar si son l.d per que estan formats fent un sistema $\vec{v} = x\vec{u}+y\vec{w}$
-
-\end{tcolorbox}
-
-\subsection{Canvis de base}
-
-\begin{tcolorbox}[
-  title=Com fer canvis de Bases,
-  colback=Sepia!5!white,
-  colframe=Sepia!70!black,
-  coltitle=white,
-  colbacktitle=Sepia!70!black,
-  fonttitle=\bfseries,
-  arc=6pt,
-  boxrule=0.8pt
-]
-
-Si volem \textbf{expressar un vector} $\vec{a}=(1,2,-3)$ en una base $B =\{(1,-1,3),(1,0,0), (2,1,0)\}$\\
+$\vec{a} = R\ddot{\varphi}\vec{e_{\varphi}} - R\dot{\varphi}\dot{\varphi}\vec{e_r}$\\
+$\vec{a_T} = R\alpha$(En direcció tangencial)\\ 
+$\vec{a_N} = \frac{v^2}{R} = \omega^2 R$(En direcció cap a dins del cercle)\\
 \\
-$\vec{a} =\lambda\vec{v}+k\vec{u}+\mu\vec{w} \iff$ resolem el sistema fins trobar $\lambda, k, \mu$, i operem per trobar $\vec{a}$\\
+\textbf{ACCELERACIÓ}\\
 \\
-Si tenim un vector $\vec{a}=(1,2,-3)$ en una base $B =\{(1,-1,3),(1,0,0), (2,1,0)\}$, el vector $\vec{a}'$ \textbf{en cordenades cartesianes} serà el resultant de; \\
+\textbf{RADI DE CORBATURA}\\
 \\
-$\vec{a}' = a_x (1,-1,3) + a_y(1,0,0)+a_z(2,1,0)$ = $\vec{a}' = 1 (1,-1,3) + 2(1,0,0)+-3(2,1,0)$
-
-
-\end{tcolorbox}
-
-\subsection{Producte escalar}
-
-\begin{tcolorbox}[
-  title=Producte escalar i usos,
-  colback=Brown!5!white,
-  colframe=Brown!70!black,
-  coltitle=white,
-  colbacktitle=Brown!70!black,
-  fonttitle=\bfseries,
-  arc=6pt,
-  boxrule=0.8pt
-]
-
-Anomenem producte escalar a $\vec{v}\cdot \vec{u} = \mid\vec{v}\mid\mid\vec{u}\mid\cos(\alpha)$, es pot utilitzar per; \\
-\\
-\textbf{Angle entre vectors}\\
-\\
-$\alpha = \arccos(\frac{\vec{v}\cdot \vec{u}}{\mid\vec{v}\mid\mid\vec{u}\mid}) \iff 0º  \leq \alpha \leq 180º $ \\
-\\
-\textbf{Projecció d'un vector sobre un altre}\\
-\\
-$Proj_{\vec{v}}\vec{u} = \mid\vec{u}\mid\cos(\alpha)\cdot\frac{\vec{v}}{\mid\vec{v}\mid}$\\
-\\
-
-\end{tcolorbox}
-
-\subsection{Producte vectorial}
-
-\begin{tcolorbox}[
-  title=Producte vectorial i usos,
-  colback=Mahogany!5!white,
-  colframe=Mahogany!70!black,
-  coltitle=white,
-  colbacktitle=Mahogany!70!black,
-  fonttitle=\bfseries,
-  arc=6pt,
-  boxrule=0.8pt
-]
-
-Anomenem producte vectorial a $\vec{v}\times \vec{u} =
-=
-\begin{vmatrix}
-\mathbf{i} & \mathbf{j} & \mathbf{k} \\
-v_x & v_y & v_z \\
-u_x & u_y & u_z
-\end{vmatrix}
-$, es pot utilitzar per;\\
-\\
-\textbf{Càlcul del paralelogram}\\
-\\
-$Area_{paralelogram} = \mid \vec{v}\times \vec{u}\mid$ \\
-$Area_{triangle} = \frac{1}{2}\mid \vec{v}\times \vec{u}\mid$ \\
-\\
-\textbf{Càlcul d'una base}\\
-\\
-Si volem trobar una base i ens donen un vector $\vec{v} = (v_x,v_y,v_z)$, trobem un vector $\therefore \vec{v}\cdot\vec{u} = 0 \iff \vec{u} = (v_y,-v_x,0)$, i per acabar trobem un vector fent el \textbf{producte vectorial d'aquests dos}.
-\\
-
-\end{tcolorbox}
-
-\subsection{Producte mixt}
-
-\begin{tcolorbox}[
-  title=Producte mixt i usos,
-  colback=Sienna!5!white,
-  colframe=Sienna!70!black,
-  coltitle=white,
-  colbacktitle=Sienna!70!black,
-  fonttitle=\bfseries,
-  arc=6pt,
-  boxrule=0.8pt
-]
-
-Anomenem producte mixt a una operació entre 3 vectors; $\vec{u}, \vec{v}, \vec{w}$ i s'escriu tal que $[\vec{u}, \vec{v}, \vec{w}] = \vec{u}\cdot(\vec{v}\times\vec{w})$, aquest producte no commuta i bàsicament ens decriu geometricament \textbf{el volum del paral·lelopìptede} que formen els 3 vectors $\therefore$ (les unitats solen ser $u^2$).
-
-\begin{center}
-\includegraphics[width=0.3\textwidth]{Producte_Mixt.png}
-\end{center}
-
-Una forma més fàcil de calcular-lo és fent el $ \det(V) \longleftrightarrow V = \begin{vmatrix}
-v_1 \\
-v_2 \\
-v_3 \\
-\end{vmatrix}$, pot $\exists$ una àrea negativa, que \textbf{geometricament} vol dir que el vector ($\vec{u}$), està en sentit contrari al vector resultant ($\vec{v}\times\vec{w}$)
-
-\end{tcolorbox}
-
-Cal saber que l'area del tetraedre és composta per $\frac{1}{6}\lvert [\vec{v},\vec{u},\vec{w}] \rvert$, és dir que té 2 solucions ja que \[
-|x|=\begin{cases}
-x & \text{si } x \ge 0 \\
--x & \text{si } x < 0
-\end{cases}
-\]
-
-\subsection{Equacions de la recta}
-
-\begin{tcolorbox}[
-  title=Equacions de la recta,
-  colback=SaddleBrown!5!white,
-  colframe=SaddleBrown!70!black,
-  coltitle=white,
-  colbacktitle=SaddleBrown!70!black,
-  fonttitle=\bfseries,
-  arc=6pt,
-  boxrule=0.8pt
-]
-
-Podem definir qualsavol \textbf{recta}, amb (\textbf{Un punt i un vector director}),(\textbf{Dos punts}), les rectes tenen infinits punts al espai $\therefore$ hi ha infinites cominacions d'equacions
-
-\begin{center}
-\includegraphics[width=0.3\textwidth]{Equacions_d'una_recta.png}
-\end{center}
-
-\begin{center}
-\renewcommand{\arraystretch}{1.6}
-\begin{tabular}{|c|c|}
-\hline
-\textbf{\textit{Equació}} & \textbf{\textit{Nom}} \\
-\hline
-
-$r: (x,y,z) = (x_0,y_0,z_0) + \lambda (v_x,v_y,v_z)$ 
-& Equació vectorial \\
-
-\hline
-
-$\begin{cases}
-x = x_0 + \lambda v_x \\
-y = y_0 + \lambda v_y \\
-z = z_0 + \lambda v_z
-\end{cases}$
-& Equacions paramètriques \\
-
-\hline
-
-$\dfrac{x - x_0}{v_x}
-=
-\dfrac{y - y_0}{v_y}
-=
-\dfrac{z - z_0}{v_z}$
-& Equació contínua \\
-
-\hline
-
-$\begin{cases}
-   A x + B y + C = 0 \\
-A' x + B' y + C' = 0
-\end{cases}$
-
-& Equació general (implícita) \\
-
-\hline
-
-\end{tabular}
-\end{center}
-
-
-\end{tcolorbox}
-
-\subsection{Equacions d'un pla}
-
-\begin{tcolorbox}[
-  title=Equacions d'un pla,
-  colback=DarkRed!5!white,
-  colframe=DarkRed!70!black,
-  coltitle=white,
-  colbacktitle=DarkRed!70!black,
-  fonttitle=\bfseries,
-  arc=6pt,
-  boxrule=0.8pt
-]
-
-Definim un pla de dues maneres: (\textbf{Un punt i dos vectors l.i.}, \textbf{3 punts no alineats}). El definim de forma:
-
-\begin{center}
-\includegraphics[width=0.3\textwidth]{Equacions_del_Pla.png}
-\end{center}
-
-\[
-\pi : (x,y,z) = (x_0,y_0,z_0) + 
-\lambda (v_x, v_y, v_z) + 
-\mu (u_x, u_y, u_z)
-\]
-
-o com un \textbf{sistema}.
-
-\[\begin{cases}
-    x = x_0 + \lambda v_x + \mu u_x \\
-    y = y_0 + \lambda v_y + \mu u_y \\
-    z = z_0 + \lambda v_z + \mu u_z
-\end{cases}\]\\
-
-Finalment el podem expressar amb la forma general de \textbf{$Ax+By+Cz+D =0$} on $(A,B,C)$ és el vector resultant del \textbf{producte vectorial entre els vectors directos del pla}. i D és una variable que trobem substituint x,y,z per un punt que pertany al pla.
-
-\end{tcolorbox}
-
-\subsection{Projeccions}
-
-\begin{tcolorbox}[
-  title= Estudi de projeccions ortogonals,
-  colback=Mahogany!5!white,
-  colframe=Mahogany!70!black,
-  coltitle=white,
-  colbacktitle=Mahogany!70!black,
-  fonttitle=\bfseries,
-  arc=6pt,
-  boxrule=0.8pt
-]
-
-\textbf{Punt sobre recta:}
-\begin{enumerate}
-    \item Creem un pla perpendicular a r que passi pel punt
-    \item Fem la intersecció del pla i la recta ($\pi \cap s$)
-\end{enumerate}
-\textbf{Punt sobre pla:}
-\begin{enumerate}
-    \item Creem una recta que amb el vector normal i el punt
-    \item Busquem la intersecció de la recta i el pla ($\pi \cap s$)
-\end{enumerate}
-\textbf{Recta sobre pla}
-\begin{enumerate}
-    \item Fem la Projecció de dos punts sobre el pla
-    \item Creem una recta amb aquests dos punts
-\end{enumerate}
-\end{tcolorbox}
-
-\subsection{Posicions relatives}
-
-\begin{tcolorbox}[
-  title=Estudi de posicions,
-  colback=Bittersweet!5!white,
-  colframe=Bittersweet!70!black,
-  coltitle=white,
-  colbacktitle=Bittersweet!70!black,
-  fonttitle=\bfseries,
-  arc=6pt,
-  boxrule=0.8pt
-]
-
-\textbf{Dos rectes:}
-
-\begin{center}
-\begin{tabular}{lcr}
-\noalign{\hrule height 0.8pt}
-\textbf{Posició} & \textbf{Condició} \\
-\noalign{\hrule height 0.3pt}
-\\[-2mm] % reduce space if needed
-Paral·leles & $\vec{v_1} \parallel \vec{v_2}$ i $P_1 \notin r_2$ \\
-Coincidents & $\vec{v_1} \parallel \vec{v_2}$ i $P_1 \in r_2$ \\
-Secants & $\vec{v_1} \nparallel \vec{v_2}$ i $[\vec{PQ},\vec{v_1},\vec{v_2}] = 0$ \\
-Encreuades & $\vec{v_1} \nparallel \vec{v_2}$ i $[\vec{PQ},\vec{v_1},\vec{v_2}] \neq  0$\\
-\noalign{\hrule height 0.8pt}
-\end{tabular}
-\end{center}
-
-\textbf{Dos plans:}
-
-\begin{center}
-\begin{tabular}{lcr}
-\noalign{\hrule height 0.8pt}
-\textbf{Posició} & \textbf{Condició} \\
-\noalign{\hrule height 0.3pt}
-\\[-2mm] % reduce space if needed
-Paral·lels & $\vec{n_1} \parallel \vec{n_2}$ i $P_1 \notin \pi_2$ \\
-Coincidents & $\vec{n_1} \parallel \vec{n_2}$ i $P_1 \in \pi_2$ \\
-Secants & $\vec{n_1} \nparallel \vec{n_2}$ i tenen una recta en comú \\
-\noalign{\hrule height 0.8pt}
-\end{tabular}
-\end{center}
-
-\textbf{Una recta i un pla:}
-
-\begin{center}
-\begin{tabular}{lcr}
-\noalign{\hrule height 0.8pt}
-\textbf{Posició} & \textbf{Condició} \\
-\noalign{\hrule height 0.3pt}
-\\[-2mm] % reduce space if needed
-Paral·lels & $\vec{n} \cdot \vec{v} = 0$ i $P \notin \pi$ \\
-Coincidents & $\vec{n} \cdot \vec{v} = 0$ i $P \in \pi$ \\
-Secants & $\vec{n} \cdot \vec{v} \neq 0$ \\
-\noalign{\hrule height 0.8pt}
-\end{tabular}
-\end{center}
-
-\textbf{Tres Plans:} Resolem el sistema dels tres plans;
-\\
-Siguin $\pi_1,\pi_2,\pi_3$ tres plans a $\mathbb{R}^3$.
-
-\begin{itemize}
-\item[$\star$] \textbf{SDC}
-
-\item[$\cdot$] Una única solució. $P(x_0,y_0,z_0)$
-
-\item[$\star$] \textbf{SCI}
-
-\item[$\cdot$] 3 plans coincidents. $\frac{A_1}{A_2} = \frac{B_1}{B_2} = \frac{C_1}{C_2} = \frac{D_1}{D_2}$ i $\frac{A_1}{A_2} = \frac{B_1}{B_3} = \frac{C_1}{C_3} = \frac{D_1}{D_3}$ i $\vec{n_1} \parallel \vec{n_2} \parallel \vec{n_3}$
-\item[$\cdot$] 2 coincidents i 1 secant. $\frac{A_1}{A_2} = \frac{B_1}{B_2} = \frac{C_1}{C_2} = \frac{D_1}{D_2}$ i $\vec{n_1} \parallel \vec{n_2} \nparallel \vec{n_3}$
-\item[$\cdot$] Tallen en una recta. $[\vec{n_1},\vec{n_2},\vec{n_3}]$
-
-\item[$\star$] \textbf{SI}
-
-\item[$\cdot$] 3 plans paral·lels. $\frac{A_1}{A_2} = \frac{B_1}{B_2} = \frac{C_1}{C_2} \neq \frac{D_1}{D_2}$ i $\frac{A_1}{A_2} = \frac{B_1}{B_3} = \frac{C_1}{C_3} \neq \frac{D_1}{D_3}$
-\item[$\cdot$] 2 coincidents i 1 paral·lel. $\frac{A_1}{A_2} = \frac{B_1}{B_2} = \frac{C_1}{C_2} = \frac{D_1}{D_2}$ i $\frac{A_1}{A_2} = \frac{B_1}{B_3} = \frac{C_1}{C_3} \neq \frac{D_1}{D_3}$
-\item[$\cdot$] 2 paral·lels i 1 secant. $\vec{n_1} \parallel \vec{n_2} \nparallel \vec{n_3}$
-\item[$\cdot$] Secants 2:2. $[\vec{n_1}, \vec{n_2}, \vec{n_3}] = 0$
-
-\end{itemize}
-
-\end{tcolorbox}
-
-\subsection{Distàncies}
-
-\begin{tcolorbox}[
-  title=Producte escalar i usos,
-  colback=RawSienna!5!white,
-  colframe=RawSienna!70!black,
-  coltitle=white,
-  colbacktitle=RawSienna!70!black,
-  fonttitle=\bfseries,
-  arc=6pt,
-  boxrule=0.8pt
-]
-
-Podem trobar diferentes distàncies, ens podem aprendre les formules o fer \textbf{projecció i el mòdul del vector resultant}, les formules són:\\
-
-\textbf{Distància Punt-Punt:}\\
-\\
-$d(P, Q) = \sqrt{(x_q-x_p)^2+(y_q-y_p)^2(z_q-z_p)^2}$\\
-\\
-\textbf{Distància Punt-Recta:}\\
-\\
-$d(P,r) = \frac{\lvert \vec{PR} \times \vec{v_r} \rvert}{\lvert \vec{v_r}\rvert}$\\
-\\
-\textbf{Distància Recta-Recta:}\\
-\\
-$d(r,s) = \frac{\lvert \vec{v_r} \times \vec{P_rP_s}\rvert}{\lvert \vec{v_r}\rvert}$\\
-\\
-\textbf{Distància Recta-Recta paral·leles:}\\
-\\
-$d(r,s) = \frac{\lvert [\vec{v_r},\vec{v_s}, \vec{P_rP_s}]\rvert}{\lvert\vec{v_r}\times\vec{v_s}\rvert}$\\
-\\
-\textbf{Distància Punt-Pla:}\\
-\\
-$d(P,\pi) = \frac{\lvert Ax_p+By_p+Cz_p+D \rvert}{\sqrt{A^2+B^2+C^2}}$\\
+\textbf{DISTÀNCIA}\\
 \\
 \end{tcolorbox}
 
-\section{T12 Integrals}
-\subsection{Integrals importants}
-\begin{tcolorbox}[
-  title=Integrals trivials,
-  colback=Orchid!5!white,
-  colframe=Orchid!70!black,
-  coltitle=white,
-  colbacktitle=Orchid!70!black,
-  fonttitle=\bfseries,
-  arc=6pt,
-  boxrule=0.8pt
-]
-
-Les integrals que s'haurien de recordar, \textbf{a part de les bàsiques}, són les seguents:
-
-\[
-\int \frac{1}{\cos ^2x} dx = \tan x + K
-\]
-
-\[
-\int \frac{1}{\sqrt{1-x^2}} dx = \arcsin x + K
-\]
-
-\[
-\int -\frac{1}{\sqrt{1-x^2}} dx = \arccos x + K
-\]
-
-\[
-\int \frac{1}{1+x^2} dx = \arctan x + K
-\]
-
-Sempre posar "+K" per a \textbf{qualsevol constant al fer la operació inversa}, i que $K \in \mathbb{R}$
-
-\end{tcolorbox}
-
-\subsection{Tècniques d'integració}
-
-\begin{tcolorbox}[
-  title=Com integrar,
-  colback=CarnationPink!5!white,
-  colframe=CarnationPink!70!black,
-  coltitle=white,
-  colbacktitle=CarnationPink!70!black,
-  fonttitle=\bfseries,
-  arc=6pt,
-  boxrule=0.8pt
-]
-
-Les integrals que s'haurien de recordar, \textbf{a part de les bàsiques}, són les seguents:
-
-\begin{itemize}
-    \item \textbf{U-Sub}, $f(x) = u, du = f'(x) dx$ i aïllem dx, substituïm u a la integral i integrem.
-
-    \item \textbf{Integrals per parts}, Usar la formula $\int u\cdot dv = u\cdot v \int v\cdot du$, intentar reduïr el polinomi (si n'hi ha a 0) i vigilar amb les cicliques
-
-    \item \textbf{Fraccions parcials}, Tenim diversos cassos (vigilar perque potser tenim una polinòmica o quasi-immmediata); $\int\frac{p(x)}{q(x)}$
-
-    \begin{itemize}
-        \item Grau num $<$ Grau denom $\int \frac{x_1^{n-1} + x_2^{n-2} ...+x_m^0}{x_1^{n} + x_2^{n-1} ...+x_m^0}$ 
-        
-        \begin{itemize}
-            \item Segurament es un polinomi, un $ln\abs{x}$ o una $\arctan(x)$
-            \item Fer la tècnica de $x-1 = Ax+B(x+2)$, \textbf{donem valors a x i aïllem A i B}.
-                \begin{itemize}
-                    \item Si son repetides, anem de $x .. x^n$ i afegim una fracció per cada
-                    \item Si hi ha una arrel no real ($q(x)$ en forma $x^2+a^2$) dividirem la fracció amb les reals com A i B i les no reals $\frac{Mx+N}{x^2+a^2}$ i ara podem derivar-la amb $ln\abs{x}$ o $\arctan(x)$
-                \end{itemize}
-        \end{itemize} 
-        \item Grau num $\geq$ Grau denom $\int \frac{x_1^{n} + x_2^{n-1} ...+x_m^0}{x_1^{n-1} + x_2^{n-2} ...+x_m^0}$, podem reescriure i tornar a integrar el numerador com a ($p(x) = d(x)\cdot q(x) +r(x)$) on d(x) és el resultat i q(x) el divisor
-        \begin{itemize}
-            \item Fem divisió per \textbf{ruffini}, si tenim la foram $(x\pm a)$
-            \item Fem divisió per caixeta
-        \end{itemize}
-
-    \end{itemize}
-
-    
-\end{itemize}
-\end{tcolorbox}
-
-\subsection{Integrals definides}
-
-\begin{tcolorbox}[
-  title=Llei de Barrow,
-  colback=Purple!5!white,
-  colframe=Purple!70!black,
-  coltitle=white,
-  colbacktitle=Purple!70!black,
-  fonttitle=\bfseries,
-  arc=6pt,
-  boxrule=0.8pt
-]
-
-\textbf{Barrow}, ens diu que $\int_a^b f(x) dx = F(b)-F(a)$,  {\textbf{\textcolor{red}{tenir en ment que $\exists$ A $\leq$ 0. Implica que esta sota l'eix.}}}\\
-
-\begin{itemize}
-    \item $\int_{a}^{a} f(x)  dx = 0$
-     \item $\int_{a}^{a} f(x)  dx = 0$
-     \item Si $c\in (a,b)$ $\int_a^b f(x) dx = \int_a^c f(x) dx + \int_c^b f(x) dx$
-     \item $\int_{a}^{b} f(x)  dx = -\int_{b}^{a} f(x)  dx $\\
-\end{itemize}
-
-Per calcular l'area compressa entre \textbf{dos corbes}, mirem els punts de tall com a \textit{limits d'integració}.
-Fem la integral de $\int_a^b [f(x)-g(x)] dx$ on f(x) es superior a g(x).\\
-
-Per calcular l'area compresa entre \textbf{tres funcions}, prenem per intèrvals les \textit{dos funcions més altes} i fem l'area compressa entre les dues $\therefore A_t = \sum_{i=1}^{n}
-A_i$.
-
-\vspace{0.6cm}
-
-\definecolor{lilaoscuro}{HTML}{5B2D8E}
-\definecolor{lilamedio}{HTML}{9B59B6}
-\definecolor{lilaclaro}{HTML}{C39BD3}
-\definecolor{lilafondo}{HTML}{F3E5F5}
-\definecolor{lilarelleno}{HTML}{CE93D8}
-\definecolor{lilatexto}{HTML}{4A235A}
-\definecolor{fondopag}{HTML}{FDFAFF}
-
-\begin{center}
-\begin{tikzpicture}
-
-\begin{axis}[
-  width  = 9cm,
-  height = 9cm,
-  xmin = -0.25, xmax = 1.35,
-  ymin = -0.15, ymax = 1.25,
-  axis lines = center,
-  axis line style = {color=lilaoscuro, line width=1.2pt},
-  tick style     = {color=lilaoscuro, line width=0.8pt},
-  ticklabel style= {color=lilatexto, font=\small},
-  xtick = {0, 0.25, 0.5, 0.75, 1},
-  ytick = {0, 0.25, 0.5, 0.75, 1},
-  xlabel = {$x$},
-  ylabel = {$y$},
-  xlabel style = {color=lilaoscuro, font=\bfseries\large,
-                  at={(axis cs:1.35,0)}, anchor=north},
-  ylabel style = {color=lilaoscuro, font=\bfseries\large,
-                  at={(axis cs:0,1.25)}, anchor=east},
-  grid = both,
-  grid style = {color=lilarelleno!35, line width=0.4pt},
-  major grid style={color=lilarelleno!55, line width=0.6pt},
-  minor tick num = 1,
-  legend pos = north west,
-  legend style = {
-    fill=lilafondo,
-    draw=lilaoscuro!60,
-    rounded corners=3pt,
-    font=\small,
-    row sep=3pt
-  },
-  clip = false,
-]
-
-\addplot [name path=F, draw=none, domain=0:1, samples=120] {x};
-\addplot [name path=G, draw=none, domain=0:1, samples=120] {x^2};
-
-\addplot [
-  fill=lilarelleno,
-  fill opacity=0.45,
-] fill between [of=F and G];
-
-\addplot [
-  domain = -0.1:1.05,
-  samples = 200,
-  color = lilamedio,
-  line width = 2.2pt,
-] {x^2};
-
-\addplot [
-  domain = -0.1:1.05,
-  samples = 200,
-  color = lilaclaro!80!lilaoscuro,
-  line width = 2.2pt,
-  dashed,
-] {x};
-
-\addplot [
-  only marks,
-  mark = *,
-  mark size = 3.8pt,
-  color = lilaoscuro,
-] coordinates {(0,0) (1,1)};
-
-\node[above left, color=lilaoscuro, font=\small\bfseries]
-  at (axis cs:0,0) {$(0,0)$};
-
-\node[above left, color=lilaoscuro, font=\small\bfseries]
-  at (axis cs:1,1) {$(1,1)$};
+\section{Dinàmica}
 
 
-\addplot [
-  color=lilaoscuro!50,
-  line width=0.9pt,
-  dotted,
-] coordinates {(1,0) (1,1)};
-
-
-\end{axis}
-\end{tikzpicture}
-\end{center}
-
-\vspace{0.5cm}
-
-\end{tcolorbox}
 \end{document}
