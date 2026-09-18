@@ -306,6 +306,16 @@ Podem escollir el nostre sistema de referència com vulguem pero estem \textbf{o
 
 Si definim 2 bases (R i R') que es diferencien pel vector que depèn del temps $\vec{R}(t)$, Per arribar al punt des de R fem servir el vector $\vec{r}$ i per arribar al punt des de R' fem servir $\vec{r'}$. Llavors podem definir $\vec{r}$ com $\vec{r} = \vec{R} + \vec{r'}$
 
+Si el nostre sistema R' es mou a una velocitat V' constant, només necesitarem que $\vec{R'} = \vec{V'}t$ on V' pot ser qualsevol velocitat en el nostre sistema inicial per facilitar-nos la feina.
+
+Podem distingir \textbf{dos tipus de sistema}.
+
+\begin{itemize}
+    \item \textbf{Inercials}; El sistema \textit{es troba o en repòs o en velocitat constant}, per tant la 2a Llei de Newton no es veu alterada de cap manera. $\Sigma \vec{F} = m\vec{a}$
+    \item \textbf{No Inercials}; El sistema \textit{experimenta una acceleració} $\ddot{\vec{R'}}$ i per tant en el nou sistema s'ha de contrarestar 3a Llei de Newton, la 2a es manté pero hem d'afegir $\Sigma \vec{F} - m\ddot{\vec{R'}} = m\vec{a}$ on podem dir que $-m\ddot{\vec{R'}} = F_{\text{inèrcia}}$ que és una força "inventada" (\textbf{no existeix pero s'experimenta}).
+\end{itemize}
+
+
 \subsection{MCU i MCUA}
 
 Poso el MCU i MCUA dins d'aquesta secció ja que per aquests moviments hem de fer un petit canvi de base a cordenades polars.
@@ -433,6 +443,8 @@ Aquests són problemes típics o cassos particulars que poden aparèixer al exam
 
 \subsubsection{Politjes}
 
+En un sistema de politjes \textbf{asumim que la longitud $L$ de la corda és constant}, de manera que podem crear un sistema d'equacions amb $s_n \leftrightarrow \Sigma s_n = L$ on relacionem les longituds $s_n$ amb $y_n$ que és la posició de les politjes i que $\dot{y_n} = v_n$ per trobar la relació entre velocitats.
+
 \section{Dinàmica}
 
 Estudia el \textbf{moviment dels objectes}, des de les forçes que el pertorben.
@@ -443,7 +455,6 @@ Per poder predir el moviment usem les \textbf{3 lleis de Newton}
 
 \begin{itemize}
     \item \textit{Llei de l'inèrcia}; Un cos en repos no experimenta un canvi si no es pertorbat. 
-    Parlem de sistemes inercials en aquells que es troben en repòs o a una velocitat constant i es compleixen les lleis de Newton sense falta d'aplicar cap força externa. I els no inercials aquells que tenen una acceleracció aplicada ($A'$) i hem de "crear" una força $F = mA'$ ficticia.
     \item \textit{Segona Llei}; Una força actua sobre un cos \textbf{otorgant-li acceleració}, $F = m\vec{a}$
     \item \textit{Acció-Reacció}; Si un objecte fa força sobre un altre, aquell altre li fa una contrària en \textbf{sentit oposat}, pero aquesta mai s'aplica si tractem el conjunt com un únic cos perque sinò seria $\Sigma \vec{F} = m\vec{a}$
 \end{itemize}

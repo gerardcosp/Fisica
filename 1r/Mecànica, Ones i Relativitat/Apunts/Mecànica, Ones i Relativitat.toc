@@ -5,9 +5,9 @@
 \contentsline {subsection}{\numberline {1.4}MRUA}{4}{subsection.1.4}%
 \contentsline {subsection}{\numberline {1.5}Canvis en els sistemes de referència}{4}{subsection.1.5}%
 \contentsline {subsection}{\numberline {1.6}MCU i MCUA}{4}{subsection.1.6}%
-\contentsline {subsection}{\numberline {1.7}Moviment General en 2D}{5}{subsection.1.7}%
-\contentsline {subsection}{\numberline {1.8}Distàncies}{6}{subsection.1.8}%
+\contentsline {subsection}{\numberline {1.7}Moviment General en 2D}{6}{subsection.1.7}%
+\contentsline {subsection}{\numberline {1.8}Distàncies}{7}{subsection.1.8}%
 \contentsline {subsection}{\numberline {1.9}Casos Particulars}{7}{subsection.1.9}%
 \contentsline {subsubsection}{\numberline {1.9.1}Politjes}{7}{subsubsection.1.9.1}%
 \contentsline {section}{\numberline {2}Dinàmica}{7}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Lleis de Newton}{7}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.1}Lleis de Newton}{8}{subsection.2.1}%
