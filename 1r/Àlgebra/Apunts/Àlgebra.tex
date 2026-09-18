@@ -299,7 +299,112 @@ p_{31} & p_{32} & p_{33} & a'_{31} & a'_{32} & a'_{33}
 \right)
 \]
 
-\section{Sistemes d'Equacions}
+\subsection{Sistemes d'Equacions}
+
+Anomenem sistema d'equacions a un \textbf{conjunt d'equacions} amb les mateixes incògnites per així poder donar una solució.
+
+Un sistema qualsevol es pot expressar de dos maneres, la manera clàssica i la manera \textbf{matricial}.
+
+\[
+\left\{
+\begin{aligned}
+a_{11}x_1+a_{12}x_2+a_{13}x_3 &= b_1\\
+a_{21}x_1+a_{22}x_2+a_{23}x_3 &= b_2\\
+a_{31}x_1+a_{32}x_2+a_{33}x_3 &= b_3
+\end{aligned}
+\right.
+\quad\longrightarrow\quad
+\left(
+\begin{array}{ccc|c}
+a_{11} & a_{12} & a_{13} & b_1\\
+a_{21} & a_{22} & a_{23} & b_2\\
+a_{31} & a_{32} & a_{33} & b_3
+\end{array}
+\right)
+\]
+
+Anomenem \textbf{matriu ampliada ($A^*$)} a la matriu amb els termes independents, per resoldre qualsevol sistema \textbf{esglaonem la matriu} i la transformem a la manera clàssica per aïllar les incògnites.
+
+Quan anem esglaonant ens podem trobar en 3 situacions;
+\begin{itemize}
+    \item $Rang(A)\neq Rang(A^*)$; SI
+    \item $Rang(A) = Rang(A^*) = \#\,\text{incògnites}$; SCD
+    \item $Rang(A) = Rang(A^*) < \#\,\text{incògnites}$; SCI
+\end{itemize}
+
+Si tenim un sistema on la matriu de coeficients i de termes independents és;
+\[
+\left(
+\begin{array}{ccc|c}
+    x\\
+    y\\
+    z\\
+    .\\
+    .\\
+    .\\
+\end{array}
+\right)
+\]\[
+\left(
+\begin{array}{ccc|c}
+    0\\
+    0\\
+    0\\
+    0\\
+    0\\
+    0\\
+\end{array}
+\right)
+\]
+
+Ens trobem amb un \textbf{sistema homogeni}, i n'hi ha dos tipus.
+
+\begin{itemize}
+    \item SCD amb solució $(0,0,\dots)$. - \textit{Incompatible}
+    \item SCI amb infinites solucions. - \textit{Compatible}
+\end{itemize}
+
+Per resoldre un sistema també podem fer ús del mètode de cràmer;
+
+\begin{demobox}
+
+Donat un sistema lineal
+
+$$
+AX=B,
+$$
+
+si
+
+$$
+\det(A)\neq 0,
+$$
+
+el sistema té una única solució, que es pot obtenir mitjançant el \textbf{mètode de Cramer}:
+
+$$
+\boxed{x_i=\frac{\det(A_i)}{\det(A)}}
+$$
+
+on $A_i$ és la matriu que s'obté substituint la \textit{columna $i$ de $A$} per la columna $B$.
+
+Per a un sistema de tres incògnites:
+
+$$
+\boxed{
+x=\frac{\det(A_x)}{\det(A)},
+\qquad
+y=\frac{\det(A_y)}{\det(A)},
+\qquad
+z=\frac{\det(A_z)}{\det(A)}
+}
+$$
+
+\end{demobox}
+
+Si se'ns proposa un sistema amb uns paràmetres ($a \in R$) hem d'estudiar per rangs en funció del paràmetre.
+
+Estudiem el $det(A)$ i trobem per quins a $det(A) = 0$ i per cadascun busquem el \textbf{rang de la matriu ampliada i comparem}.
 
 \section{Espais Vectorials}
 
