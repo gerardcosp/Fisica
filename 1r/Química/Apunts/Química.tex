@@ -235,7 +235,8 @@ $\Delta E = \Delta m c^2$
 
 Teòricament la massa d'un àtom és la \textbf{mitjana ponderada} de tots els seus isòtops en funció de l'abundància.
 
-\section{Orbitals Atòmics}
+\section{Els Electrons}
+\subsection{Funció d'ona dels electrons atòmics}
 
 Si volem descriure un electró d'un àtom, fem servir l'equació d'Shrödinger de manera $\Psi(x,y,z)$ però d'aquesta manera és super tediòs trobar un electró, per això fem servir les \textbf{cordenades polars} de manera que la nostra funció queda $\Psi (r, \theta, \varphi)$, on;
 
@@ -243,7 +244,7 @@ Si volem descriure un electró d'un àtom, fem servir l'equació d'Shrödinger d
 \[x = r \sin \theta \sin \varphi\]
 \[z = r \cos \theta \]
 
-Amb aixó podem obtenir unes funcións que depenen o de la distància r o dels angles de manera $R(r)Y(\theta, \varphi)$ on R depèn dels nombres quàntics n i l, i Y depèn de l i m.
+Amb aixó podem obtenir unes funcións que depenen o de la distància r o dels angles de manera $R(r)\\theta, \varphi)$ on R depèn dels nombres quàntics n i l, i Y depèn de, on R s'anomena funció radial i ens diu la probabilitat de la distància respecte el nucli i Y és l'angular que ens indica l'orientació dels electrons.
 
 L'equació d'Shrödinger té infinites solucions (\textit{comprovat matemàticament}) per arribar a una solució finita li afegim uns paràmetres que anomenem \textbf{nombres quàtnics}.
 
@@ -254,7 +255,7 @@ L'equació d'Shrödinger té infinites solucions (\textit{comprovat matemàticam
     \item \textbf{s}, spin: Indica com gira l'electró ($\pm \frac{1}{2}$).
 \end{itemize}
 
-Anomenem \textbf{especie hidrogenoide} a tots aquells àtoms que tenen i \textbf{$e^-$} ($H$, $He^+$, $Li^{2+}$, $Be^{3+}$). Com que l'unica força elèctrica que existeix no te més interaccions podem definir l'energia en funció del orbital de manera;
+De moment per simplificar la nostra vida, estudiarem els electrons als àtoms hidrogenoides. Anomenem \textbf{especie hidrogenoide} a tots aquells àtoms que tenen i \textbf{$e^-$} ($H$, $He^+$, $Li^{2+}$, $Be^{3+}$). Com que l'unica força elèctrica que existeix no te més interaccions podem definir l'energia en funció del orbital de manera;
 
 \[ \boxed{E = \frac{-R_H}{n^2}} (R_H = 2,278\cdot 10^{-18} J = 13,6 eV)\]
 
@@ -263,8 +264,51 @@ I aquesta energia va en negatiu sempre ja que és una força d'atracció.
 Com he dit abans l'orbital del àtom es descriu per una fiunció $R(r)Y(\theta, \varphi)$, $R^2(r)$ ens determina un núvol de probabilitat on es troba l'electró, com que a la taula de funcions de R ens ensenya que R(r) sempre té la forma $R(r) = Ae^{-kr}$ on $k,A \in \R$ el punt màxim és a 0 que és al nucli.
 Per solucionar aquest problema li multipliquem pel terme radial ($2\pi r$ / $4\pi r^2$) per portar R(0) a un valor més petit i aixi donar una corba on l'integral d'aquesta és la probabilitat de trobar l'electró;
 
-% Corba de probabilidad
+% Corba de probabilidad 1,2,3s
 
-La línea blava indica el màxim de probabilitat i la tronja la meitat. Veiem que com anem afegint més orbitals n ($1_s, 2_s, 3_s$) la gràfica té \textbf{nòdes} que indiquen la \textbf{separació entre capes}, el nombre de nòdes és $\boxed{n - l - 1}$
+La línea blava indica el màxim de probabilitat i la tronja la meitat. Veiem que com anem afegint més orbitals n ($1_s, 2_s, 3_s$) la gràfica té \textbf{nòdes radials} que indiquen la \textbf{separació entre capes} (el nombre de nòdes és $\boxed{n - l - 1}$) de diversos orbitals. El $3s$ por tenir com veiem àtoms a dins del $1s$ ja que té una petita àrea pero és tan petita que es molt improbable (\textbf{ja que hi haurà més repulsió electrònica}). Si parlem de $Y(\theta, \varphi)$ tenim els \textbf{nòdes angulars} que ens indiquen un canvi de rotació del orbital (el nombre de nòdes. és $\boxed{l}$). Per tans els \textbf{nòdes totals} són $\boxed{n - l - 1 + l = n - 1}$. Com que a partir d'un punt $R^2(r') = 0$ constantment podem afirmar que a partir de $r'$ no hi ha més electrons.
+
+En veritat els nòdes són \textbf{canvis de signe} per que així els electrons no poden passar entre les zones, pero com que prenem $R^2(r)$ no ho tenim en compte només quan $R(r) = 0$
+
+A mesura que anem canviant la $l$ apareixen més funcions radials, com les $p$ o les $d$ fins arribar a les 
+
+% Gràfica 3p o algo
+% representació de 2p
+
+Si veiem la representació d'aquests orbitals en $\R^3$ veiem que a partir del $p$ tenen com plans nodals que semblen \textit{assimptotics}, n'hi ha tans com $l$; plans nodals = \boxed{l}
+
+
+Si ens pregunten pels nombres quantics d'un orbital responem sempre amb $n, l, m$ però si ens demanen un electrò en especific afegim $s$. L'spin indica una propietat intrinseca del electrò que en part ens indica \textbf{com es mou al aplicar-li un camp magnètic}, aquest spin pot canviar pero en la seva forma base és constant. L'spin és l'únic independent dels altres nombres quàntics i es poden expresar com $\pm \frac{1}{2}$ on només poden conviure en un nombre quantic els \textbf{complementaris} que tenen spins oposats. Remarcar que \textbf{l'spin global del àtom és $\Sigma$ dels spins parcials} és a dir que un àtom amb electrons senars tindrà un spin $\neq 0$
+
+\subsection{Apantallament Electrònic}
+
+Si tenim \textit{més d'un electrò} ja no parlem d'hidrogenoides, parlem de \textbf{polielectrònics} i en la funció canvia el terme $\sigma =  \frac{2Zr}{na_0}$ Z ja que no és la carrega effectiva (que en els hidrogenoides és \textbf{\#protons}) ara com que hi ha repulsions actua una \textbf{constant d'apantallament ($\sigma$)} $\boxed{Z_{eff}^* = Z - \sigma}$.
+
+La constant d'apantallament té un calcul trivial però amb uns valors memoristics. Si prenem un electró $3p$ en un àtom $X$ on $Z(X) = 1s^2 2s^2 2p^6 3s^2 3p^4$ i volem calcular la seva \textbf{càrrega nuclear effectiva} $Z(X, 3p)$ primer calculem la constant d'apantallament i li restem a la càrrega nuclear effectiva;
+
+\begin{center}
+    $\sigma =$ \#(Electrons del mateix orbital)·$0,35$ [menys per $1s$ que és $0,3$] + \#(Electrons en nivell (n-1))·$0,85$ + \#(Electrons en nivell (n-2) i avall)·$1$
+\end{center}
+
+\subsection{Diagrama d'Aufbau}
+
+Ara que he explicar això dels orbitals ens podem preguntar com és que s'ordenen si no tenen tots els orbitals la mateixa energia i com sabem \textbf{els electrons SEMPRE s'ordenen de menys a més energia}. 
+
+Si mirem com estan representats veiem que cada orbital té tantes linees com electrons/2 pot tenir. És a dir que en cada "casella" por tenir dos electrons \textit{els dos complementaris}. Però aquests segueixen unes normes bàsiques;
+
+% Com s'ordenen els electrons
+
+\begin{itemize}
+    \item Sempre hem d'omplir amb les dues fletxes \textbf{d'abaix a dalt.} $\uparrow\downarrow$
+    \item Si un orbital té més lloc lliure els electrons \textbf{prefereixen estar sols que aparellats amb el complementari.} $\uparrow\downarrow \_ = \uparrow \uparrow$ 
+\end{itemize}
+
+Per fer això tenim el \textit{diagrama d'Aufbau} que ens indica com s'ordenen els electrons. Aquest té unes quantes normes que hem de seguir;
+
+%Diagrama d'aufbau
+
+\begin{itemize}
+    \item 1.
+\end{itemize}
 
 \end{document}

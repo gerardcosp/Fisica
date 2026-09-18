@@ -249,7 +249,7 @@ Dins de cada matriu es troba un element A = ($a_{ij}$) on $ 1 \leq i \leq m, 1 \
 Qualsevol cosa es pot fer amb \textbf{columnes} de la mateixa manera. 
 
 Una cosa important de les matrius i les transoformacions és que poden ser descrites com \textbf{matrius elementals} $E_i$ que són les transformacions lineals en una matriu identitat de manera que si fem $E_i \cdot A = A'$, obtenim la matriu A amb la transformació anterior. Si fem $A\cdot E_1 = A'$, hem dut a terme la transformació per les colmnes de la matriu.
-\textbf{\textcolor{red}{Recordem una matriu $A\in K^{n\cross m}$ només pot ser multiplicada per una amb m files}.}
+\textbf{\textcolor{red}{Recordem una matriu $A\in K^{n\cross m}$ només pot ser multiplicada per una amb m files o n columnes al altre bando}.} De manera que si volem fer una transformació per la dreta o l'esquerra haurem de complir les condicions.
 
 Per exemple;
 
@@ -276,6 +276,30 @@ Per exemple;
 Una operació interesant és que \textbf{la matriu inversa} és l'operació contrària de la matriu $E^{-1}_1 \cdot E_1 = E_1 \cdot E^{-1}_1 = Id_n$.
 
 Podem usar aquesta propietat per dur a terme una matriu $P = \prod_{i = 0}^{n} E_i = E_{1} \dots E_n$ on quan apliquem la matriu P es dona una serie de \textbf{transformacions lineals} aquesta la podem usar per trobar una matriu que multiplicada per P ens dona la forma \textbf{reduïda} de la matriu original.
+
+Cal remarcar que les matrius $K^{n\cross n} \supset GL_n(K) = \{A \in K{n\cross n} | \exists A^{-1}\}$ Aixó vol dir que totes les matrius quadrades sense relacions lineals entre files o columnes tenen una inversa $AA^{-1} = A^{-1}A = Id_n$ de manera que $Rang(A) = n$
+
+Si tenim una matriu al costat d'una identitat i apliquem uns canvis per obtenir $A'$ tindrem a l'identitat una matriu $P$ que \textbf{ens donara tot el conjunt de transformacions lineals que hem d'aplicar a A per obtenir A'}. Que pot ser la forma reduïda o la forma normal de Gauss-Jordan
+
+\[
+\left(
+\begin{array}{ccc|ccc}
+1 & 0 & 0 & a_{11} & a_{12} & a_{13}\\
+0 & 1 & 0 & a_{21} & a_{22} & a_{23}\\
+0 & 0 & 1 & a_{31} & a_{32} & a_{33}
+\end{array}
+\right)
+\quad\rightarrowtail \quad
+\left(
+\begin{array}{ccc|ccc}
+p_{11} & p_{12} & p_{13} & a'_{11} & a'_{12} & a'_{13}\\
+p_{21} & p_{22} & p_{23} & a'_{21} & a'_{22} & a'_{23}\\
+p_{31} & p_{32} & p_{33} & a'_{31} & a'_{32} & a'_{33}
+\end{array}
+\right)
+\]
+
+\section{Sistemes d'Equacions}
 
 \section{Espais Vectorials}
 

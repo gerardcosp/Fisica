@@ -1,2 +1,5 @@
 \contentsline {section}{\numberline {1}Introducció als Elements}{2}{section.1}%
-\contentsline {section}{\numberline {2}Orbitals Atòmics}{2}{section.2}%
+\contentsline {section}{\numberline {2}Els Electrons}{2}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Funció d'ona dels electrons atòmics}{2}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Apantallament Electrònic}{4}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Diagrama d'Aufbau}{4}{subsection.2.3}%
