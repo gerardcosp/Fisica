@@ -471,4 +471,64 @@ El que realment es vol trobar és la força que pertorba aquell cos i li dona un
     \item $F = qvB$
 \end{itemize}
 
+\subsection{Forces}
+
+Sobre qualsevol cos pot actuar una força. Si ens trobem a la terra un cos X rep \textbf{un pes} i la terra genera una força en sentit oposat (\textit{tercera llei de Newton}). Però que passa si ens trobem assobre d'una superficie. No caiem cap abaix, això indica \textbf{que existeix una força en reacció a una superficie}. Aquesta és la força normal que és \textit{perpendicular a la superficie de repòs}, aquesta força, naturalment, genera una força' en sentit oposat com a reacció d'aquella. L'acceleració que obté la terra del pes d'un objecte X és infinitéssimament petita per això mai es té en compte.
+
+\[P = P' \leftrightarrow m_T \cdot a_t = m_X \cdot g\]
+
+\subsection{Camp Gravitatori}
+
+Si dos objectes qualsevol tenen massa, es genera una força atractiva entre ells amb relació a la seva distància de manera que.
+
+\[\vec{F} = - G\frac{Mm}{r^2} \vec{u_r}\]
+
+On agafa el vector director entre els dos cossos (Cos Origen - Cos Afectat), li dona la volta i ho multiplica per un factor $G\frac{Mm}{r^2}$. També podem obtenir un \textbf{camp vectorial} $g = \frac{\vec{F}}{m}$ on obtenim un conjunt de vectors que al aplicar una massa m obtenen la força de gravitació,
+
+\begin{center}
+    \begin{tikzpicture}[scale=0.7]
+
+% Ejes
+\draw[->] (-4.5,0) -- (4.5,0);
+\draw[->] (0,-4.5) -- (0,4.5);
+
+% Campo vectorial
+\foreach \x in {-4,-3.5,...,4}{
+    \foreach \y in {-4,-3.5,...,4}{
+        \pgfmathsetmacro{\r}{sqrt(\x*\x+\y*\y)}
+        \ifdim\r pt>0.1pt
+            \draw[->,blue]
+                (\x,\y) -- 
+                ({\x+0.35*\x/\r},{\y-0.35*\y/\r});
+        \fi
+    }
+}
+
+\end{tikzpicture}
+\end{center}
+
+\subsubsection{Gravetat Artificial}
+
+Es pot crear un \textbf{pes artficial} si tenim una esfera on el producte $R\omega^2 = g$ que és la força de la gravetat sempre i quant el moviment del observador sigui solidari al de la roda.
+
+Si $R\downarrow, P\downarrow$
+
+Si $\omega \downarrow (\text{ha de}), R \uparrow$
+
+\subsubsection{Cancelació de la Gravetat}
+
+En alguns moments, els efectes de la gravetat $g$ poden semblar indistingibles (\textbf{caiguda lliure}). Segons un teorema la \textit{massa gravitatoria (la massa d'un cos que experimenta la gravetat)} i la \textit{massa inercial (la massa que obté una acceleració)} són les mateixes de manera que en $F = ma = G\frac{Mm}{r^2}$ es simplifiquen i obtenim $\vec{a} = -G\frac{M}{r^2} \vec{u_r}$
+
+De manera que \textbf{la massa no influeix}, quan diem "cancelar la gravetat" ens referim a estar en una situació de \textbf{caiguda lliure} on $a = g$ de manera que tot cau en sincronització a la gravetat i $F + N = mg$, $N = mg - mg = 0$ no hi ha recolzament del terra i segons el sistema $a = 0$ i \textit{els objectes floten}
+
+\subsection{Forces de Fregament}
+
+En qualevol cos que es mou \textbf{sobre una superficie}. Com que les superficies mai són completament regulars, experimenta \textit{una restricció} alhora de moure's. Si dibuixem la força de fregament en sentit oposat no vol dir que es mou la contrari, ja que \textbf{és proporcional a la força que fa moure l'objecte}, si no hi ha força no hi ha força de fregament.
+
+S'ha vist que $F_f \propto F_N$ de manera que;
+
+\[F_f = \mu_{e/d}N\]
+
+Sabem que $\mu_e, \mu_d \exists$ i que $\mu_e > \mu_d$. On definim $\mu_e$ com a \textit{coeficient estàtic} i $\mu_d$ com a \textit{coeficient dinàmic}
+
 \end{document}

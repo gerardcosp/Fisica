@@ -11,3 +11,8 @@
 \contentsline {subsubsection}{\numberline {1.9.1}Politjes}{7}{subsubsection.1.9.1}%
 \contentsline {section}{\numberline {2}Dinàmica}{7}{section.2}%
 \contentsline {subsection}{\numberline {2.1}Lleis de Newton}{8}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Forces}{8}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Camp Gravitatori}{9}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}Gravetat Artificial}{9}{subsubsection.2.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.2}Cancelació de la Gravetat}{9}{subsubsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.4}Forces de Fregament}{10}{subsection.2.4}%
