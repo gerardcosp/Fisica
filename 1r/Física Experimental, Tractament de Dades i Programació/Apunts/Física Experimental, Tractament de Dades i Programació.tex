@@ -225,14 +225,92 @@ Alhora de mesurar i deixar-ho en escriu hem de tenir en compte 3 principis;
     \item Procediment de mesura (Descripció detallada del process + el perquè)
 \end{itemize}
 
+\subsection{Termes Importants}
+
 Qualsevol cosa que volguem mesurar té un valor veritable, pero no es pot trobar, el que podem fer és \textbf{aproximar-nos} molt pero mai el trobarem
 
 \textbf{L'error de mesura} és la diferència entre l'estimació i el valor veritable; Podem distingir l'error de l'incertesa ($\pm I$) ja que l'error no es pot calcular ja que per ser calculat es necesita el valor veritable i reitero no es pot aconseguir.
 
-\textbf{L'exactitud} és aquella proximitat entre un valor mesurat i el real (=)
+\textbf{L'exactitud} és aquella proximitat entre un valor mesurat i el real (=) [Error $\uparrow$, Exactitud $\downarrow$]
 
-\textbf{La precissió} és aquella proximitat entre l'intèrval ($\sim$)
+\textbf{La precissió} és aquella proximitat entre l'intèrval ($\sim$)[Precissió $\uparrow$, Incertesa $\downarrow$]
 
 Si pensem en una diana l'exacte és aquell que fa molts tirs diferents pero la mitjana de tots aquells és el valor exacte. Mentre que el precis fa tirs molt junts pero no tan aprop del valor veritable. Per molt que el precis soni pitjor de fet si li fem una correció pot arribar a ser \textbf{exacte i precís}.
 
+\subsubsection{Errors}
+
+Hi ha dos tipus d'errors que hem de tenir en compte,
+
+\begin{itemize}
+    \item \textbf{Errors en el procès de mesura}, (errors sistemàtics). ¡Es poden corretjir! Amb factors de correció.
+    \item \textbf{Errors per fenòmens aleatoris}, ¡No es poden eliminar! Poder posar paràmetres per evitar-los.
+\end{itemize}
+
+\subsection{Xifres Significatives}
+
+Parlem de xifres significatives, l'última xifra que si es repeteix l'experiment no canvia, és a dir si $Exp1; 0,53324$ i $Exp1; 0,53317$ tenim \textbf{3 xifres significatives}. \textcolor{red}{Els zeros de la dreta es conten SEMPRE, $0,5 \neq 0,5000$ i els de l'esquerra mai.}.
+
+La precissió ve donada per la posició de l'última xifra significativa, com més xifres més precissió. \textbf{Quan canviem} d'unitats el \# de xifres significatives no pot canviar, $5,0 cm = 0,050 m$, si augmentem el nombre, el que hem de fer és \textbf{notar-ho amb notació cientifica}, $5,0 m = 5,0 \cdot 10 ^{-3}$
+
+\section{Càlcul d'Incerteses}
+
+Parlem \textbf{d'incertesa stàndard} quan tenim una incertesa I $R = (A\pm I)U$ concretament d'un \textbf{\textit{68,27\%}}(És un sigma ($\sigma$) en la desviació stàndard). Per mesurar les incerteses tenim dos mètodes.
+
+\begin{itemize}
+    \item Avaluacions de \textbf{tipus A}.
+    \begin{itemize}
+        \item Es fa \textit{manualment} a partir de càlculs estadístics. 
+    \end{itemize}
+    \item  Avaluació de \textbf{tipus B}.
+    \begin{itemize}
+        \item Ja ve donat el càlcul estadistic per \textit{una empresa cerificada}
+        \item La traçabilitat metrologica és aquell \textbf{certificat} que garanteix que s'ha usat un patró secundari o terciari del \textbf{patró primari} usat pel sistema internacional.
+    \end{itemize}
+\end{itemize}
+
+Per calcular les incerteses (a part de l'stàndard) podem trobar altres càlculs;
+
+- \textbf{Incerteses Combinades}; Quan mesurem una magnitud a partir d'una operació, l'incertesa és la combinada de les altres, $\text{Incertesa Velocitat} = \frac{\text{Incertesa Posició}}{\text{Incertesa Temps}}$
+
+- \textbf{Incertesa Expandida}; És la $\Delta$ de incertesa stàndard per un factor $k$, de manera que $\uparrow k, \uparrow probabilitat$
+
+\begin{table}[H]
+\centering
+\begin{tabular}{c|c}
+\hline
+$k$ & \text{Cobertura} \\
+\hline
+1 & 68,27\,\% \\
+2 & 95,45\,\% \\
+3 & 99,73\,\% \\
+4 & 99,994\,\% \\
+\hline
+\end{tabular}
+\end{table}
+
+\section{Observables, Magnituds, Unitats i Sistemes d'Unitats}
+
+El S.I és l'ùnic sistema d'unitats que es pot usar \textbf{legalment} a europa, pero no és l'unic, també existeix; \textit{imperialista, mètric decimal, cegesimal, \dots}
+
+Tots els comparambles són magnituds a física (ja que es poden comparar entre ells i són "tangibles") ($L, t, A, \dots$), el valor d'un observable és \textbf{el valor i el producte amb unitats}, $\{X\}\cdot\{ms^{-1}\}$ on $X$ no canvia mai, només per canvis d'unitats
+
+\subsection{Sistema d'Unitats}
+
+S'ha demostrat que \textbf{totes les magnituds són combinacions lineals de potències de 7 fonamentals}, de manera que;
+
+\[[X] = m^a + Kg^b + s^c + A^d+K^e + Cd^f + mol^g\]
+
+Les 7 magnituds amb les seves unitats són;
+
+\begin{itemize}
+    \item Longitud - Metre 
+    \item Massa - Quilogram
+    \item Temps - Segons
+    \item Intensitat de corrent elèctric - Amperes
+    \item Temperatura termodinàmica - Kelvin
+    \item Intensitat Lluminosa - Candela
+    \item Quantitat de matèria / substància - Mol
+\end{itemize}
+
+Per exemple $v = L \cdot t^-1 \leftrightarrow [m/s] = [m]\cdot[s^{-1}]$ 
 \end{document}

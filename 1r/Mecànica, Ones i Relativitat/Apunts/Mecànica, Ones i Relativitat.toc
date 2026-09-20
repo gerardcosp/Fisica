@@ -4,15 +4,15 @@
 \contentsline {subsection}{\numberline {1.3}MRU (1-D)}{3}{subsection.1.3}%
 \contentsline {subsection}{\numberline {1.4}MRUA}{4}{subsection.1.4}%
 \contentsline {subsection}{\numberline {1.5}Canvis en els sistemes de referència}{4}{subsection.1.5}%
-\contentsline {subsection}{\numberline {1.6}MCU i MCUA}{4}{subsection.1.6}%
+\contentsline {subsection}{\numberline {1.6}MCU i MCUA}{5}{subsection.1.6}%
 \contentsline {subsection}{\numberline {1.7}Moviment General en 2D}{6}{subsection.1.7}%
 \contentsline {subsection}{\numberline {1.8}Distàncies}{7}{subsection.1.8}%
-\contentsline {subsection}{\numberline {1.9}Casos Particulars}{7}{subsection.1.9}%
-\contentsline {subsubsection}{\numberline {1.9.1}Politjes}{7}{subsubsection.1.9.1}%
-\contentsline {section}{\numberline {2}Dinàmica}{7}{section.2}%
+\contentsline {subsection}{\numberline {1.9}Casos Particulars}{8}{subsection.1.9}%
+\contentsline {subsubsection}{\numberline {1.9.1}Politjes}{8}{subsubsection.1.9.1}%
+\contentsline {section}{\numberline {2}Dinàmica}{8}{section.2}%
 \contentsline {subsection}{\numberline {2.1}Lleis de Newton}{8}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Forces}{8}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.2}Forces}{9}{subsection.2.2}%
 \contentsline {subsection}{\numberline {2.3}Camp Gravitatori}{9}{subsection.2.3}%
 \contentsline {subsubsection}{\numberline {2.3.1}Gravetat Artificial}{9}{subsubsection.2.3.1}%
-\contentsline {subsubsection}{\numberline {2.3.2}Cancelació de la Gravetat}{9}{subsubsection.2.3.2}%
+\contentsline {subsubsection}{\numberline {2.3.2}Cancelació de la Gravetat}{10}{subsubsection.2.3.2}%
 \contentsline {subsection}{\numberline {2.4}Forces de Fregament}{10}{subsection.2.4}%
