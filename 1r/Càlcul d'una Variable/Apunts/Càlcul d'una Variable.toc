@@ -1,3 +1,11 @@
 \contentsline {section}{\numberline {1}Nombres $\mathbb {R}$}{2}{section.1}%
-\contentsline {section}{\numberline {2}Inducció Matemàtica}{3}{section.2}%
-\contentsline {section}{\numberline {3}Conjunts de Nombres}{4}{section.3}%
+\contentsline {subsection}{\numberline {1.1}Conjunts de Nombres}{3}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Valor Absolut}{3}{subsection.1.2}%
+\contentsline {section}{\numberline {2}Inducció Matemàtica}{4}{section.2}%
+\contentsline {section}{\numberline {3}Igualtats}{5}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Desigualtats}{6}{subsection.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}Inequacions}{6}{subsubsection.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.2}Interpretació Geomètrica d'una Desigualtat}{7}{subsubsection.3.1.2}%
+\contentsline {section}{\numberline {4}Funcions}{7}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Tipus de Funcions}{8}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Funció Inversa}{9}{subsection.4.2}%
