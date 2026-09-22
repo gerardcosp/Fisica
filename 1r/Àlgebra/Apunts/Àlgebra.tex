@@ -429,5 +429,116 @@ Idea: Cos on es pot dur a terme \textbf{suma} i \textbf{multiplicació per escal
 
 On es satisà que $u,v\in E$ i $a,b \in K$
 
+\subsection{Subespai Vectorial}
+
+Definim E un K-espai vectorial ($\R^2 i \R^3$) i un F K-espai vectorial tal que $F\subseteq E$ on es dona $(+, \cdot)$ i el resultant sempre ha d'estar dins de E.
+
+% figura cercle amb suma fora del subespai
+
+Com es veu en la figura si prenem 2 vectors $\vec{u} + \vec{v} = \vec{t} \notin E$. \textbf{\textcolor{red}{Qualsevol espai o qualsevo subespai ha de tenir el vector $\vec{0_{\R^2}}$}}. Necessitem el $\vec{0_{\R^2}}$ ja que no el podem obtenir aquest vector i el necessitem per sumar i restar.
+
+Un subespai vectorial pot ser la recta que passa per $\vec{0_{\R^2}}$ de manera que es formen infinits vectors multiplicats per infinits escalars (creant aquesta recta). 
+
+Una combinació lineal d'una familia de vectors / $<u_1, \dots u_n>\in E$ és un vector $u$ de E que s'obté multiplicant cada vector per un escalar $\lambda_n$ i sumant-los fent així; $<u_1,\dots,u_n>_K$ Totes les combinacions lineals dels vectors.
+
+\textbf{IMPORTANT}: F és K-Subespai Vectorial $\leftrightarrow$
+
+\begin{itemize}
+    \item 1. $\forall \vec{u}, \vec{v}\in F, \text{ es té } u_E+v \in E$
+    \item 2. $\forall \vec{u}\in F i \lambda \in K, \text{ es té } \lambda\vec{u}\in E$
+\end{itemize}
+
+Donat F tal que $<u_1,\dots, u_n>$, diem que aquests vectors són \textbf{un sistema de generadors per a F}, la base son els minims generadors d'un E.V, és a dir sense \textit{combinacions lineals} ni \textit{$\vec{0_{\R^2}}$}
+
+\begin{examplebox}{1}
+Per trobar un \textbf{sistema de generadors} d'un subespai vectorial $S \in <(x,y,z) \mid x + y + z = 0>$
+
+On s'ens posa una condició com la d'aquest espai o s'ens donen vectors del sub espai com $S \in <(x,y,z) \mid (-2,3,1), (2,1,10), (5,2,0)>$
+
+Plantejem un sistema d'equacions $Ax = B$ on les columnes d'A són \textit{vectors} i la B sempre són \textit{zeros} ja que el vector $(0,0,\dots,0)$ pertany a qualsevol subespai.
+
+Resolent aquest sistema homoegni amb paràmetres o sense i deixant els vectors sense paràmetres obtenim un sistema de generadors:
+
+Aïllem una de les incògnites:
+
+$$
+x=-y-z
+$$
+
+Ara introduïm \textbf{paràmetres} per a les variables lliures:
+
+$$
+\begin{cases}
+y=\lambda\\
+z=\mu
+\end{cases}
+\qquad \lambda,\mu\in\mathbb{R}
+$$
+
+$$
+x=-\lambda-\mu
+$$
+
+i obtenim:
+
+$$
+\begin{pmatrix}
+x\\
+y\\
+z
+\end{pmatrix}
+=
+\begin{pmatrix}
+-\lambda-\mu\\
+\lambda\\
+\mu
+\end{pmatrix}
+$$
+
+Separem els paràmetres:
+
+$$
+\begin{pmatrix}
+-\lambda-\mu\\
+\lambda\\
+\mu
+\end{pmatrix}
+=
+\lambda
+\begin{pmatrix}
+-1\\
+1\\
+0
+\end{pmatrix}
++
+\mu
+\begin{pmatrix}
+-1\\
+0\\
+1
+\end{pmatrix}
+$$
+
+Per tant, \textbf{el conjunt de vectors generadors} és:
+
+$$
+\boxed{
+\left\{
+\begin{pmatrix}
+-1\\
+1\\
+0
+\end{pmatrix},
+\begin{pmatrix}
+-1\\
+0\\
+1
+\end{pmatrix}
+\right\}
+}
+$$
+
+\end{examplebox}
+
 
 \end{document}

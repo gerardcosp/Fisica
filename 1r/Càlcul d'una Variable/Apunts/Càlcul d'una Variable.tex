@@ -498,6 +498,15 @@ Existeixen unes \textbf{funcions elementals a partir de les quals es construeix 
         \item $(a^n)^m = a^{n\cdot m} = (a^m)^n$
         \item $a^0: a^0 \cdot a^n = a^{0+n} = a^n \therefore a^0 = 1$
         \item $a^{-n}: a^{-n} \cdot a^n = a^{n-n} = a^0 \therefore a^{-n} = \frac{1}{a^n}$ on $a\neq 0$
+        \item $a^x \text{Si } a > 0$ és creixent $\text{Si } a<0$ és decreixent;
+        \begin{itemize}
+            \item És \textbf{Creixent/Decreixent};
+            $\text{Si } x_1 < x_2 \rightarrow f(x_1) \leq f(x_2)$
+            \item És \textbf{Estrictament Creixent/Decreixent}
+            $\text{Si } x_1 < x_2 \rightarrow f(x_1) < f(x_2)$
+
+            [Ambdós accepten $< i >$]
+        \end{itemize}
     \end{itemize} 
 \end{itemize}
 
@@ -530,4 +539,57 @@ Només existeix una funció inversa $f\rightarrow f^{-1}$, si la funció $f$ \te
 
 Si hi ha alguna funció injectiva i \textbf{volem conèixer la inversa} reduïm el domini. Per exemple, definim $f(x)=x^2$ per $x>0$, la inversa $f^{-1}(x) = + \sqrt{x}$
 
+\subsubsection{Funció Inversa de l'exponencial. El Logaritme}
+
+Com que \textbf{les funcions exponencials} són creixents, \textit{trivialment} són injectives i $\exists f^{-1}$ i són els logaritmes;
+
+\[a^x = y \leftrightarrow x = log_ay\]
+
+On log \textbf{és creixent} si $a > 0$ i \textbf{és decreixent} si $a < 0$
+
+Els logaritmes com tota operació matemàtica tenen \textit{propietats};
+
+\begin{itemize}
+    \item $log_a(y) + log_a(y') = log_a(y\cdot y')$
+    \item $log_a(y)^n = n log_a(y)$
+    \item $log_a(y) = \frac{log_b(y)}{log_b(a)}$
+\end{itemize}
+
+\section{Successions Numériques}
+
+Si volem aproximar un valor $x$ per exemple $x = \sqrt{2}$, podem fer una \textbf{succeció d'acotaments a un intèrval}, ja que podem trobar;
+
+\begin{align}
+    1^2 &< x^2 < 2^2\\
+    (1,4)^2&< x^2 <(1,5)^2\\
+    y_n&< x < y_n'
+\end{align}
+
+I així acotem $x$ fent una succesí de canvis als intèrvals. Com que podem demostrar que $\sqrt{2}$ és irracional, aquesta succeció és infinita i mai acaba és a dir que $\lim_{n \rightarrow \infty} a_n$.
+
+Si tenim un conjunt de nombres $a_n = \{a_1, a_2, \dots, a_n\}$ que tendeix a infinit, aquesta $a_n$ és una succesió on els elements són anomenats \textit{termes}, per exemple $a_n = n^2 = 1, 4, 9, 16, \dots$ on a cada $a_n \in \N \exists (output) \in \Q, \R$
+
+Bàsicament és una \textbf{funció} $\N \rightarrow \Q,\R$. 
+
+\subsection{Convergència de Successions}
+
+Si volem saber si dues successions \textbf{convergeixen o divergeixen}, volem veure si arriben o no a un \textit{valor finit} en el terme $\lim_{n \rightarrow \infty} a_n$.
+
+\begin{examplebox}{4}
+    Si tenim la seqüència $a_n = \frac{n+1}{n} = \{2,\frac{3}{2}, \frac{4}{3}, \dots\}$, podem manipular l'expressió i prendre el límit al infinit per veure on caurà;
+
+    \[\frac{n+1}{n} = \frac{1}{n} + 1\]
+
+    $\lim_{n \rightarrow \infty} \frac{1}{n} + 1 = 0 + 1$. És a dir que la serie s'aproxima a 1. 
+\end{examplebox}
+
+En cada punt podem pendre un $\varepsilon$ que ens mesura la distància entre el valor actual i el convergent, és a dir si $n = 1000$ ens trobem a un $\frac{1}{n} = \frac{1}{1000} = 10^{-3}$ dècimes de diferencia.
+
+Podem definir que;
+
+\begin{demobox}
+    Per tot $\varepsilon > 0 $ existeix un $n_0$ tal que per tot $n>n_0$ es compleix $\abs{a_n - l} < \varepsilon$.\\
+
+    Una successió \(a_n\) tendeix a \(l\) si, per molt a prop que vulguem estar de \(l\), a partir d'un cert moment tots els termes de la successió estan així de prop de \(l\). És a dir que cada cop s'apropa més a l
+\end{demobox}
 \end{document}
