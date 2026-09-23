@@ -1,6 +1,6 @@
 \documentclass[12pt]{article}
 
-% -------------------------------------------------
+%-------------------------------------------------
 % PAGE & LANGUAGE
 % -------------------------------------------------
 
@@ -14,6 +14,7 @@
 \usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage{mathtools}
+\usepackage{yhmath}
 
 % Physics notation
 \usepackage{physics}
@@ -35,13 +36,63 @@
 
 \usepackage[dvipsnames,svgnames,x11names]{xcolor}
 \usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\newtcolorbox{demobox}[1][]{
+    enhanced,
+    breakable,
+    colback=black!2,
+    colframe=black!70,
+    boxrule=0pt,
+    borderline west={2pt}{0pt}{black!70},
+    sharp corners,
+    left=10pt,
+    right=7pt,
+    top=6pt,
+    bottom=6pt,
+    fonttitle=\bfseries,
+    title={Demostració},
+    #1
+}
+
+\newtcolorbox{examplebox}[1]{
+    enhanced,
+    breakable,
+    colback=black!1,
+    colframe=black!15,
+    boxrule=0.5pt,
+    arc=2mm,
+    borderline west={2pt}{0pt}{black!55},
+    left=12pt,
+    right=12pt,
+    top=10pt,
+    bottom=10pt,
+    before skip=12pt,
+    after skip=12pt,
+    title={\textbf{Exemple #1}},
+    fonttitle=\normalsize,
+    coltitle=black,
+    attach boxed title to top left={
+        xshift=8pt,
+        yshift=-\tcboxedtitleheight/2
+    },
+    boxed title style={
+        colback=white,
+        colframe=white,
+        boxrule=0pt,
+        left=3pt,
+        right=3pt,
+        top=1pt,
+        bottom=1pt
+    },
+    before upper={\setlength{\parskip}{7pt}}
+}
 
 % -------------------------------------------------
 % DOCUMENT FORMATTING
 % -------------------------------------------------
 
 \usepackage{enumitem}
-\usepackage{microtype}
+\usepackage[expansion=false]{microtype}
 \usepackage{booktabs}
 \usepackage{float}
 \usepackage{ragged2e}
@@ -54,15 +105,18 @@
 
 % -------------------------------------------------
 % LINKS
-% -------------------------------------------------
+% --------------------------------------------------
 
-\usepackage[colorlinks=true,allcolors=black]{hyperref}
+\usepackage[colorlinks=true,linkcolor=Black,urlcolor=Black,citecolor=Black]{hyperref}
+\usepackage{tocloft}
+\usepackage{cite}
 
 % -------------------------------------------------
 % CUSTOM COMMANDS
 % -------------------------------------------------
 
 \newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
 
 % -------------------------------------------------
@@ -71,17 +125,206 @@
 
 \linespread{1.25}
 
+\setlength{\parskip}{0.8em}
+\setlength{\parindent}{0pt}
+
+\setlength{\heavyrulewidth}{0.4pt}
 \setlength{\heavyrulewidth}{0.4pt}
 \setlength{\lightrulewidth}{0.4pt}
 \setlength{\cmidrulewidth}{0.4pt}
 
-\title{\textbf{Apunts Temes de Ciència Actuals}}
+\title{\textbf{Apunts Física Experimental, Tractament de Dades i Programació}}
 \author{\textit{Gerard Cosp Lores}}
 \date{\today}
+
+% -------------------------------------------------
+% TABLE OF CONTENTS
+% -------------------------------------------------
+
+\renewcommand{\contentsname}{Índex}
+
+% Title
+\renewcommand{\cfttoctitlefont}{%
+    \Huge\bfseries\color{Black}
+}
+
+% Line underneath title
+\renewcommand{\cftaftertoctitle}{%
+    \par\vspace{0.3cm}
+    \noindent\color{Black}\rule{\textwidth}{1.2pt}
+    \vspace{0.4cm}
+}
+
+% Section appearance
+\renewcommand{\cftsecfont}{%
+    \large\bfseries\color{Black}
+}
+
+\renewcommand{\cftsecpagefont}{%
+    \large\bfseries\color{Black}
+}
+
+% Subsection appearance
+\renewcommand{\cftsubsecfont}{%
+    \normalsize
+}
+
+\renewcommand{\cftsubsecpagefont}{%
+    \normalsize\color{Black}
+}
+
+% Spacing
+\setlength{\cftbeforesecskip}{10pt}
+\setlength{\cftbeforesubsecskip}{3pt}
+
+% Dotted leaders
+\renewcommand{\cftsecleader}{%
+    \color{Black}\cftdotfill{\cftdotsep}
+}
+
+\renewcommand{\cftsubsecleader}{%
+    \color{Black}\cftdotfill{\cftdotsep}
+}
+
+% Number spacing
+\setlength{\cftsecnumwidth}{2.5em}
+\setlength{\cftsubsecnumwidth}{3.5em}
+
+% -------------------------------------------------
 
 \begin{document}
 \justifying
 
 \maketitle
+\tableofcontents
+
+\newpage
+
+\section[Blockchain \& Criptomonedes]{Blockchain \& Criptomonedes\\[-0.2ex]\textit{Marta Bellès Muñoz}}
+
+Per entendre com funciona el \textbf{BlockChain} hem de desmontar primer com funcionen els bancs tradicionals. Els bancs tradicionals són una entitat on un grup $tx_i \in \text{Banc}$, demana de fer unes gestions i intercanviar diners.
+
+Anomenem la llista on queda constància dels diners, \textbf{llibre de comptes}, i cada cop que es fa una transacció s'actualitza (amb ajuda de la màquina d'estats).
+
+Per saber si no t'estas enviant tu mateix els diners d'una altra persona necessitem un \textbf{guardià} que fa 2 passos alhora que es crida una transacció
+
+\[\downarrow\]
+
+\begin{itemize}
+    \item Autenticació: Qui demana la transacció?
+    \item Balanç: Hi ha prous diners de la persona per enviar?
+\end{itemize}
+
+El banc mateix actua com a guardià i hi ha una relació de \textbf{confiança} entre el banc i els usuaris i aquest banc és centralitzat perque ho fa tot ell.
+
+Tota aquesta confiança i aquest sistema pot fallar a vegades com es va poder veure en:
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+1990 & Brasil \\ \hline
+2009 & Lúban \\ \hline
+2001 & Argentina \\ \hline
+2013 & Xipre \\ \hline
+2008 & Islàndia \\ \hline
+2015 & Grècia \\ \hline
+\end{tabular}
+\end{table}\dots
+
+Degut a aquesta \textbf{desconfiança}, es va voler presentar una nova idea d'autogestió dels diners, on:
+
+\begin{itemize}
+    \item I si l’usuari fos el propietari real dels diners?
+    \item I si no calgués tenir confiança en el sistema?
+    \item I si tothom pogués guardar l’estat dels comptes?
+    \item I si ens haguéssim de posar d’acord per actualitzar l’estat?
+\end{itemize}
+
+D'aquesta idea va sorgir el \textbf{blockchain} on es va escriure un paper que complia totes les condicions proposades anteriorment. L'usuari es el propietari dels seus propis diners, no cal confiar en el sistema, quantes més copies millor, les normes estan consensuades. Per tant;
+
+\[\text{\textbf{L'història del blockchain és una eina per a construir una història comuna.}}\]
+
+Com que hi ha moltes copies queda Immutable, Transparent, Distribuïda i Compartida.
+
+Ara bé si fem un banc descentralizat poden haver errors ja que no se sap quin servidor "persona en el cas de TCA bank" executa la seva ordre primer, aixó genera el conegut com \textbf{\textit{Double-Spending Problem}} on acabes gastant més diners dels que tens.
+
+\begin{examplebox}{1}
+    El \textbf{Double Spending Problem} (problema de la doble despesa) apareix en les \textbf{monedes digitals} i consisteix en la possibilitat que una mateixa unitat de diners digitals es pugui \textbf{gastar dues vegades}.
+
+A diferència dels diners físics, un fitxer digital es pot copiar. Per tant, si no hi ha cap sistema que ho controli, una persona podria intentar utilitzar els mateixos diners per pagar dues persones diferents.
+
+Imagina que tens \textbf{10,€ digitals}.
+
+\begin{enumerate}
+\item Pagues \textbf{10,€ a l'Aina}.
+\item Abans que es comprovi la transacció, intentes pagar els \textbf{mateixos 10,€ a en Marc}.
+\item Si les dues transaccions fossin acceptades, hauries gastat els mateixos 10,€ \textbf{dues vegades}.
+\end{enumerate}
+
+Això és el \textbf{Double Spending Problem}.
+
+En el cas de \textbf{Bitcoin}, aquest problema es resol mitjançant la \textbf{blockchain}: les transaccions es registren en un llibre major compartit i la xarxa comprova que aquells bitcoins \textbf{no s'hagin gastat anteriorment}.
+\end{examplebox}
+
+En la blockchain els nodes (servidors) (en conjunt formen una xarxa) per ordre de preferència (el que els hi paga més taxa), escullen una llista de transaccions (formant aixi una \textbf{cadena de blocs}), ara ens poden sorgir alguns dubtes;
+
+\begin{itemize}
+    \item Que passa si falla algun nòde? (1)
+    \item Com es decideixen l'ordre dels blocs? (1)
+    \item Que passa si hi ha transaccions incompatibles? (1)
+    \item Com sabem que realment estan autoritzades i no tenim el mateix problema que abans? (2)
+\end{itemize}
+
+La resposta a questes preguntes són dos sistemes \textit{(1) Algorismes de Consens}, \textit{(2), Clau Pública i Privada}
+
+En la moneda bitcoin;
+
+\textbf{ALGORISMES DE CONSENS}
+
+Per escollir quin bloc de transaccions va primer (cada node (ara anomenat \textbf{miner}) escull un bloc), juguen a un "joc". Per prevenir que la gent es torni \textit{corrupte}, el sistema recompensa amb monedes (en aquest cas BTC) al miner que guanya intentant incentivar la bona jugada.
+
+Abans de saber com funciona el patrò, hem de coneixer les \textbf{funcions HASH} on tu coneixes molt be el output $H(a) = A$ és facil de calcular pero el input no ho es, de fet és practicament aleatori. El que el sistema vol és que trobis $a$ tal que $A$ començi amb $n$ zeros on $a$ ha de ser ($x + NONCE_{i-1}$) és a dir un nombre x qualsevol més el $a$ d'abans per tant no es pot guardar.
+
+\textbf{AUTENTICACIÓ}
+
+Com sabem qui és la gent que envia les transaccions? Com sabem si són els qui tenen els diners? Doncs ho fem amb unes claus a partir \textbf{d'aritmètica modular.}
+
+Denominem modul a la màxima unitat que pot tenir un objecte, quan té $x \mod x = 0$;
+
+\begin{examplebox}{2}
+
+L'\textbf{aritmètica modular} és una manera de treballar amb els \textbf{residus d'una divisió}. El nombre que apareix després de $\pmod{\phantom{x}}$ indica cada quants nombres tornem a començar.
+
+Per calcular $a \pmod n$ dividim $a$ entre $n$ i ens quedem amb el \textbf{residu}.
+
+Per exemple:
+
+$$38 \pmod{13}$$
+
+Com que $$38 = 13\cdot2+12$$ tenim:
+
+$$\boxed{38\equiv12\pmod{13}}$$
+
+Quan envès de calcular un enter volem trobar quin nombre ens dona el mòdul pero aquest nombre té una \textbf{forma} $a^x$ és molt més dificil trobar l'input com si fos una funció hash. Per aixo diem que;
+
+\[Input = \text{Clau Privada}\]
+\[Output = \text{Clau Pública}\]
+
+$3^{\text{Clau Privada}} \pmod 17 = \text{Clau Pública}$
+
+Cadascú té la clau privada pero tothom té la teva clau pública per enviar-te transaccions. 
+
+\end{examplebox}
+
+Com ja he dit abans els miners s'els donen diners pero aquests diners són una suma de: Diners generats al moment + diners de comissió.
+
+Cal recordar, com diu Spider-man \textbf{with great power comes great responsability}. És a dir com que és una entitat autogestionada tú tens la teva clau privada i si la perds, \textbf{perds tots els diners}.
+
+Si vols enviar diners de manera anònima no cal la clau ni res pero has d'enviar una \textbf{prova} que demostri qui ets tu sense revelar. Com si diguèssis un secret sense dir-lo. [\textit{Prova de Coneixement Zero!!!}]
+
+Ethereum és un altra moneda diferent a bitcoin que es va crear el 2014 amb el nom de ETH, aquest proposa una nova idea anomenada \textit{smart contracts} que són transaccions que es donen \textbf{quan tu vols on tu vols}, a partir d'una linea de codig, ja pot ser pagues mensuals o una herència.
+
+En conclusió com tot, hi ha una part bona i una part dolenta. En realitat tot és neutre i és el nostre ús el que ho determina, això ens pot servir com a aprenentatge i manera de millorar.
 
 \end{document}
