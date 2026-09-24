@@ -49,9 +49,13 @@
     right=7pt,
     top=6pt,
     bottom=6pt,
+    before skip=12pt,
+    after skip=12pt,
     fonttitle=\bfseries,
     title={Demostració},
-    #1
+    #1,
+    before upper={\setlength{\parskip}{7pt}}
+
 }
 
 \newtcolorbox{examplebox}[1]{
@@ -414,7 +418,7 @@ Idea: Cos on es pot dur a terme \textbf{suma} i \textbf{multiplicació per escal
 
 \begin{itemize}
     \item + $E \cross E \rightarrow E$\\
-    $(\vec{e}_1, \vec{e}_2) \rightarrowtail \vec{e}_1 + \vec{e}_2$ (complint, Associativa, Commutativa)\\
+    $(\vec{e}_1, \vec{e}_2) \rightarrowtail \vec{e_1} + \vec{e_2}$ (complint, Associativa, Commutativa)\\
     $\exists \vec{0_e} \mid \vec{e} + \vec{0_e} = \vec{e}, \forall \vec{e} \in E$\\
     $\exists \vec{\overline{e}} \mid \vec{e} + \vec{\overline{e}} = \vec{0_e}, \forall \vec{e} \in E$
     \item $\cdot \lambda$ $K \cross E \rightarrow E$\\
@@ -450,95 +454,148 @@ Una combinació lineal d'una familia de vectors / $<u_1, \dots u_n>\in E$ és un
 
 Donat F tal que $<u_1,\dots, u_n>$, diem que aquests vectors són \textbf{un sistema de generadors per a F}, la base son els minims generadors d'un E.V, és a dir sense \textit{combinacions lineals} ni \textit{$\vec{0_{\R^2}}$}
 
+Si diem que F és un Sub espai vectorial de E fix i \textbf{finit}, totes les $<f_1,\dots,f_n>_K = F \in E$ de manera que les \textbf{combinacions lineals d'aquests vectors formen l'espai}. Els casos més trivials d'un subespai vectorial, poden ser;
+
+\begin{itemize}
+    \item \textbf{Punts} $\vec{0}_{E}$
+    \item Qualsevol \textbf{recta} que \textbf{passa per l'origen}
+    \item \textbf{Tot} $E$
+\end{itemize}
+
+Cal remarcar que per tot $E$ un vector ($\vec{u} \in F \leftrightarrow u \in <\vec{u_1}, \dots, \vec{u_n}>_K$) és a dir que un vector pertany a un subespai si és combinacio lineal (\textbf{suma i multiplicació per escalar} $\vec{u} = \lambda_1\vec{u_1} + \dots + \lambda_n\vec{u_n}$).
+
+\begin{demobox}
+    Si $\vec{u} \in <\vec{u_1}, \dots, \vec{u_n}>_K$ es verifica que podem trobar $\vec{u}$ en $<\vec{u}, \vec{u_1}, \dots, \vec{u_n}>_K$ si $<\vec{u}, \vec{u_1}, \dots, \vec{u_n}>_K = <\vec{u_1}, \dots, \vec{u_n}>_K$ ja que podem trobar;
+
+    \[\vec{u} = 1\vec{u} + 0 \vec{u_n}\dots\]
+
+    Com que $\vec{u} \in <\vec{u_1}, \dots, \vec{u_n}>_K$, clarament cada combinació lineal podem donar un valor $\lambda_0 = 0$ de manera que ens queda que $<\vec{u}, \vec{u_1}, \dots, \vec{u_n}>_K = <\vec{u_1}, \dots, \vec{u_n}>_K$ i així es verifica que si tenim un espai vectorial on hi pertany un vector qualsevol \textbf{combinació lineal amb el vector també hi pertany}.
+\end{demobox}
+
 \begin{examplebox}{1}
-Per trobar un \textbf{sistema de generadors} d'un subespai vectorial $S \in <(x,y,z) \mid x + y + z = 0>$
+    \[F = <(1,1,1), (1,2,3), (2,3,4)>\]
 
-On s'ens posa una condició com la d'aquest espai o s'ens donen vectors del sub espai com $S \in <(x,y,z) \mid (-2,3,1), (2,1,10), (5,2,0)>$
+    Com que el vector $(1,1,1) \in <(2,3,4), (1,2,3)>_K$ és combinacio lineal dels altres, el podem eliminar del nostre sistema de generadors. Pel Lema de que una matriu un es fan operacions lineals \textbf{no perd la seva informació} podem escriure,
 
-Plantejem un sistema d'equacions $Ax = B$ on les columnes d'A són \textit{vectors} i la B sempre són \textit{zeros} ja que el vector $(0,0,\dots,0)$ pertany a qualsevol subespai.
+    \[A =\begin{pmatrix}
+Fila_{1A} \\
+\hline .\\
+. \\
+\hline \\
+Fila _{nA} 
+\end{pmatrix} \rightsquigarrow (\text{Operacions Elementals}) \begin{pmatrix}
+Fila_{1A'} \\
+\hline .\\
+. \\
+\hline \\
+Fila _{nA'} / (0,\dots,0) 
+\end{pmatrix}\]
 
-Resolent aquest sistema homoegni amb paràmetres o sense i deixant els vectors sense paràmetres obtenim un sistema de generadors:
-
-Aïllem una de les incògnites:
-
-$$
-x=-y-z
-$$
-
-Ara introduïm \textbf{paràmetres} per a les variables lliures:
-
-$$
-\begin{cases}
-y=\lambda\\
-z=\mu
-\end{cases}
-\qquad \lambda,\mu\in\mathbb{R}
-$$
-
-$$
-x=-\lambda-\mu
-$$
-
-i obtenim:
-
-$$
-\begin{pmatrix}
-x\\
-y\\
-z
-\end{pmatrix}
-=
-\begin{pmatrix}
--\lambda-\mu\\
-\lambda\\
-\mu
-\end{pmatrix}
-$$
-
-Separem els paràmetres:
-
-$$
-\begin{pmatrix}
--\lambda-\mu\\
-\lambda\\
-\mu
-\end{pmatrix}
-=
-\lambda
-\begin{pmatrix}
--1\\
-1\\
-0
-\end{pmatrix}
-+
-\mu
-\begin{pmatrix}
--1\\
-0\\
-1
-\end{pmatrix}
-$$
-
-Per tant, \textbf{el conjunt de vectors generadors} és:
-
-$$
-\boxed{
-\left\{
-\begin{pmatrix}
--1\\
-1\\
-0
-\end{pmatrix},
-\begin{pmatrix}
--1\\
-0\\
-1
-\end{pmatrix}
-\right\}
-}
-$$
-
+    I reduïr la matriu a forma gauss jordan o esgalonada i veure quines files són combinació lineal de les altres per \textbf{simplificar el sistema de generadors}.
 \end{examplebox}
 
+Bàsicament com hem vist al exemple si tenim una matriu $M \in K^{m\cross n}$ si $Rang(A) < m$ és tracta d'un sistema de generadors amb \textbf{combinacions lineals}, si $Rang(A) = m$, tots els vectors del sistema de generadors són \textbf{linealment independents}.
 
+\textit{Uns vectors són linealment independentment} si i només si \textbf{cap es pot construïr com a combinació dels altres} i en cas que igualem els vectors al vector origen ($\mu_1\vec{u_1}+ \dots + \mu_n\vec{u_n} = 0$) és un \textbf{SCD} homogeni amb úniques solucions ($\mu_1, \dots, \mu_n = 0$).
+
+\subsection{Sistemes de Generadors i Bases}
+
+Parlem d'un sistema de generadors tots els vectors (independentment si són C.L) dels altres o no, \textbf{que ens ajuden a construïr tot l'espai}. En el sistema de generadors podem afegir o eliminar vectors combinació lineal dels altres.
+
+Com que un sistema de generadors també esta format per C.L dels altres \textbf{n'hi ha infinits sistemes generadors}.
+
+\begin{examplebox}{2}
+    Donat un sistema de generadors d'un espai vectorial E $\{\sin x, \cos x, 1\}, f = (\R, \R)^2$, volem veure quines solucions fan cert el sistema que descriu el sistema de generadors (posem en columnes els elements i l'element $0_{E}$). Volem veure si hi ha alguna possible combinació lineal entre els 3 elements que sigui zero sense que els coeficients $\mu_n$ siguin, de manera que;
+
+    \[\mu_1 \sin x + \mu_2 \cos x + \mu_3 \cdot 1 = 0 \]
+
+    Donem valors a les x i resolem;
+
+    \begin{itemize}
+        \item $x = 0 \therefore \mu_2 + \mu_3 = 0$
+        \item $x = \frac{\pi}{2} \therefore \mu_1 + \mu_3 = 0$
+        \item $x = \pi \therefore -\mu_2 + \mu 3 = 0$
+    \end{itemize}
+
+    Podem arribar a la conclusió que $\mu_1, \mu_2, \mu_3 = 0$ per tant com que el resultat són zeros no podem construïr cap element amb combinació dels altres.
+\end{examplebox}
+
+Per tant en aquest exemple 2 com que són \textbf{linealment independents}, $\{\sin x, \cos x, 1\}$ formen un \textit{sistema de generadors}.
+
+\begin{demobox}
+    Si $<\vec{u_1}, \dots, \vec{u_n}>$ de E són \textbf{linealment independents} es té que podem afegir $\vec{u} \notin <\vec{u_1}, \dots, \vec{u_n}>_K$ al nostra sistema de generadors de manera que no sigui \textbf{combinació lineal dels altres}.
+
+    Demostrem això del contrari, si \textit{$\vec{u} \in <\vec{u_1}, \dots, \vec{u_n}>$} podem escriure;
+
+    \[\vec{u} = \lambda_1\vec{u_1} + \dots + \lambda_n \vec{u_n}\]
+
+    \[\vec{u} - \lambda_1\vec{u_1} + \dots + \lambda_n \vec{u_n} = \vec{0_E}\]
+
+    De manera que podem transformar això en una equació;
+
+    $x_0 \vec{u} -x_1 \vec{u_1} - \dots- x_n \vec{u_n} = 0$ que és un Sistema Homogeni amb solució $(0,\dots,0)$ per tant són \textbf{linealment depenents} si pertany.
+
+    Però com que hem dit que no pertany \textbf{són Linealment Independents.}
+\end{demobox}
+
+Com podem reduïr un sistema de generadors? Doncs primer mirem quins són combinació lineal dels altres i ho reduim amb paràmetres als mínims múltiples possibles
+
+\begin{examplebox}
+    Siguin $E = <(1,2,3), (2,3,4), (3,4,5)>$ un sistema de generadors, volem reduïr i simplificar al màxim, creem un sistema tal que;
+
+    \[x_1 \begin{pmatrix}
+        1\\
+        2\\
+        3
+    \end{pmatrix} + x_2\begin{pmatrix}
+        2\\
+        3\\
+        4
+    \end{pmatrix} + x_3 \begin{pmatrix}
+        3\\
+        4\\
+        5
+    \end{pmatrix} = \begin{pmatrix}
+        0\\
+        0\\
+        0
+    \end{pmatrix}\]
+
+    \textbf{Col·loquem els vectors en files i ho igualem a $\vec{0_E}$} i obtenim el sistema;
+
+    \[
+    \begin{pmatrix}
+        1 & 2 & 3 & 0 \\
+        2 & 3 & 4 & 0 \\
+        3 & 4 & 5 & 0 
+    \end{pmatrix}
+    \]
+
+    Si resolem ens queda el sistema reduït com;
+
+    \[
+    \begin{pmatrix}
+        1 & 1 & 1 & 0 \\
+        0 & 1 & 2 & 0 \\
+        0 & 0 & 0 & 0 
+    \end{pmatrix}
+    \]
+
+    Si parametritzem queden dos vectors de la forma $(\lambda, -2\lambda, \lambda), (0, -2\lambda, 2\lambda)$ i si treiem $\lambda$ com a factor comú, ens queda que podem rescriure el nostre \textbf{sistema de generadors com;}
+
+    \[<(0,-1,1), (1,-2,1)>\]
+\end{examplebox}
+
+Una \textbf{base} d'un espai E és un sistema de generadors on tots són \textit{linealment independents}, i és la familia màxima de vectors independents (màxims vectors independents, $\#vectors = dimensions$).
+
+\begin{itemize}
+    \item \textbf{Canònica}: Base habitual ($\vec{i}, \vec{j},\vec{k}$)
+    \item \textbf{Ortogonal}: Els vectors formen $\alpha = 90$ entre ells
+    \item \textbf{Normal}; Els vectors tenen $\abs{\vec{u}} = 1$
+    \item \textbf{Ortonormal}; Els vectors tenen $\abs{\vec{u}} = 1$ i formen $\alpha = 90$ entre ells.
+\end{itemize}
+
+Si una base compleix tots els seus requisits de manera que tenim $B = <\vec{u_1}, \vec{u_2}, \vec{u_3}, \dots, \vec{u_n}>$ podem descomposar qualsevol vector $\vec{e}$ com;
+
+\[\vec{e} = \lambda_1 \vec{u_1} + \lambda_2 \vec{u_2} + \lambda_3 \vec{u_3} + \dots + \lambda_n \vec{u_n}\]
 \end{document}
