@@ -298,50 +298,12 @@ Per poder comprovar que una declaració serveix $\forall x \in \R$ fem servir \t
 
 \begin{itemize}
     \item P(1) $\exists$
-    \item P(n) $\exists \xRightarrow{}$ P(n+1) $\exists$
+    \item P(n) $\exists \xRightarrow{}$ $P(n+1)$ $\exists$ (Prenem que es cert per $P(n)$)
 \end{itemize}
 
 I això ho podem comprovar per exemple:
 
-\begin{examplebox}{1}
-
-    Si sumem els primers \(n\) nombres obtenim
-
-    \[ 1+2+3+\dots+n=\frac{n(n+1)}{2}. \]
-
-    Per comprovar si aquesta fórmula \(P(n)\) és certa, fem inducció matemàtica.
-
-    \textbf{1. Cas base:}
-
-    \[ P(1)=\frac{1(1+1)}{2}=1. \]
-
-    Per tant, la fórmula és certa per a \(n=1\).
-
-    \textbf{2. Pas inductiu:}
-
-    Suposem que \(P(n)\) és certa:
-
-    \[ P(n)=\frac{n(n+1)}{2}. \]
-
-    Hem de demostrar que també és certa per a \(n+1\):
-
-    \[ P(n+1)=P(n)+(n+1). \]
-
-    Substituïm \(P(n)\):
-
-    \[ P(n+1) = \frac{n(n+1)}{2}+(n+1). \]
-
-    Posem-ho al mateix denominador:
-
-    \[ P(n+1) = \frac{n(n+1)+2(n+1)}{2} = \frac{(n+1)(n+2)}{2}. \]
-
-    Per tant, \(P(n+1)\) també és certa.
-
-    \[ \boxed{P(n)\text{ és certa per a tot }n\geq1.} \]
-
-\end{examplebox}
-
-\begin{examplebox}{2}
+\begin{examplebox}{}
     Si tenim la serie
 
     \[ 1 + 3 + 5 \dots + (2n-1) = n^2 \]
@@ -356,13 +318,38 @@ I això ho podem comprovar per exemple:
 
     \textbf{2. Pas inductiu:}
 
-    Suposem que $P(n)$ és cert:
+    Suposem que $P(n)$ és cert, si tenim una succeció;
 
-    \[ P(2n -1 ) = n^2 \]
+    \[1+3+5\dots+(2n-1) = n^2\]
 
-    Hem de demostrar que també és cert per a $(2n - 1) + 1$
+    Podem afegir als dos termes $(2(n+1) -1)$ i a la dreta obtenim $P(n+1)$ que alhora és $(n+1)^2$ llavors demostrem que;
 
-    \[ (2n-1)^2 = (2n-1)^2 + (2n -1 + 1) \]
+    \[(n+1)^2 = n^2 + (2(n+1)-1)\]
+\end{examplebox}
+
+\begin{examplebox}{}
+    Si en comptes de tenir una \textbf{igualtat} tenim una \textbf{desigualtat} del estil $(1+x)^n \geq 1+nx$ i ho hem de demostrar $\forall n \in \N$ amb inducció;
+
+    \textbf{1. Cas base:}
+
+    Provem per el cas $n = 1$ de manera que;
+
+    \[(1+x)^1 \geq (1+1x)\](és cert)
+
+    \textbf{2. Pas inductiu:}
+
+    Suposem que per $n$ és cert ara hem de demostrar que és cert per (n+1) consecutiu, aquí \textbf{partim del cas base i intentem que s'assembli al cas $n+1$};
+
+    Proposem $n+1$, $(1+x)^{n+1} \geq 1+ (n+1)x$
+
+    \[(1+x)^n \cdot (1+x)\geq (1+nx) \cdot (1+x)\]
+    \[(1+x)^{n+1} \geq 1 + nx + x + nx^2\]
+    \[(1+x)^{n+1} \geq 1 + x(n+1) + nx^2\]
+
+    Aqui apliquem que com que $nx^2$ és natural i sempre més gran a 0, $1+ (n+1)x + nx^2 \geq 1+ (n+1)x$ i podem ajuntar desigualtats i ens queda cert que;
+
+    \[(1+x)^{n+1} = 1+ (n+1)x\]
+
 \end{examplebox}
 
 % inequacions amb inducció
@@ -573,6 +560,8 @@ Bàsicament és una \textbf{funció} $\N \rightarrow \Q,\R$.
 
 \subsection{Convergència de Successions}
 
+Definim una successió $\{a_1, a_2, \dots, a_n\}$ on $a_i$ són els elements de la succesió.
+
 Si volem saber si dues successions \textbf{convergeixen o divergeixen}, volem veure si arriben o no a un \textit{valor finit} en el terme $\lim_{n \rightarrow \infty} a_n$.
 
 \begin{examplebox}{4}
@@ -591,5 +580,88 @@ Podem definir que;
     Per tot $\varepsilon > 0 $ existeix un $n_0$ tal que per tot $n>n_0$ es compleix $\abs{a_n - l} < \varepsilon$.\\
 
     Una successió \(a_n\) tendeix a \(l\) si, per molt a prop que vulguem estar de \(l\), a partir d'un cert moment tots els termes de la successió estan així de prop de \(l\). És a dir que cada cop s'apropa més a l
+
+    Com més gran fem $n$ més petita és $\varepsilon$ tot i que mai $\varepsilon = 0$
+
+    Diguem que volem la distància $\varepsilon = 10^{-3}$, $-\varepsilon < a_n - l < \varepsilon$, si tenim que;
+
+    \[a_n = \frac{n+1}{n}\]
+
+    Si volem saber la distància a $\varepsilon$, com que a $\lim_{n\rightarrow \infty} = 1$, $\abs{\frac{n}{n} - 1 + \frac{1}{n}} = \abs{\frac{1}{n}} < \varepsilon$ com que treballem amb nombres $\N$ $\frac{1}{n}<\varepsilon$, trobem la relació $n, \varepsilon$. Per verificar que és cert, si fem $n$ més gran, $\varepsilon$ ha de ser \textbf{més petit} és a dir $\frac{1}{\varepsilon} < n_0 < n$
+
+    Si, $\varepsilon = 1$, $n = 1$
+    Si, $\varepsilon = 0.1$, $n = 10$ que es confirma
 \end{demobox}
+
+\subsubsection{Propietats dels límits de les Successions}
+
+\begin{itemize}
+    \item Si $\{a_n\} \rightarrow l$ aquest límit és únic, sinó la proposició anterior cauria, quan es fes $\varepsilon \rightarrow 0$ no convergiria al mateix lloc.
+    
+    % Imagge dos limits
+
+    \item Si $\{a_n\} \rightarrow l$ llavors la successió esta acotada (finita), pot tenir nombres grans pero \textbf{hi ha un punt $\exists k > 0 | \abs{a_n} < k$}.
+    \item Operacions aritmétiques [$Si \{a_n\} \rightarrow \alpha$, i $Si \{b_n\} \rightarrow \beta$]
+    \begin{itemize}
+        \item + $\{a_n + b_n\} \rightarrow \alpha + \beta$
+        \item $\cdot$ $\{a_n \cdot b_n\} \rightarrow \alpha \cdot \beta$
+        \item $/$ $\{a_n / b_n\} \rightarrow \frac{\alpha}{\beta}$ [$Si b_n \neq 0, \beta \neq 0$]
+        \begin{examplebox}{}
+            Si tenim una successió de la forma $a_n = \frac{2n+1}{n+3}$, podem dividir tot per n $\frac{2+\frac{1}{n}}{1+\frac{3}{n}}$ com que $\lim_{n\rightarrow \infty} \frac{1}{n} = 0$, $\lim_{n\rightarrow 0} a_n = \frac{2+0}{1+0} = 2$
+        \end{examplebox}
+        \item \textit{Successions de Caucy}, ara mateix per determinar si es convergent o no pel primer lema, hem de saber $l$ per determinar si cau en un valor. Però amb les series de Caucy podem determinar \textbf{si és convergent o no} sense saber el límit (ja el determinem desprès)
+        % dibuix linea caucy
+
+        Aquest diu que per molt petita que sigui la distància \(\varepsilon\) que jo demani, arriba un moment \(n_0\) a partir del qual TOTS els termes de la successió estan a una distància entre ells menor que \(\varepsilon\).
+        
+        \begin{center}
+            \begin{tikzpicture}[>=stealth, scale=1]
+
+            % --- Recta principal ---
+            \draw[->, thick] (0,0) -- (11,0);
+
+            % puntos de la sucesión (más espaciados, con salto visual de "acercamiento")
+            \foreach \x/\lbl in {0.5/a_1, 2/a_2, 3.2/a_3, 4.2/a_4, 5/a_5, 5.6/a_6}{
+            \fill (\x,0) circle (1.5pt);
+            \node[below, font=\scriptsize] at (\x,-0.15) {$\lbl$};
+            }
+
+            % puntos que se acumulan cerca de 7 (a partir de N)
+            \foreach \x in {6.8, 7.0, 7.15, 7.25, 7.32, 7.37}{
+            \fill[red!70!black] (\x,0) circle (1.5pt);
+            }
+            \node[below, font=\scriptsize, red!70!black] at (7.1,-0.4) {$a_n, a_{n+1}, \dots$};
+
+            % banda epsilon
+            \draw[blue!60!black, dashed] (6.6,0.35) -- (6.6,-0.35);
+            \draw[blue!60!black, dashed] (7.6,0.35) -- (7.6,-0.35);
+            \draw[<->, blue!60!black] (6.6,0.5) -- node[above, font=\scriptsize]{$\varepsilon$} (7.6,0.5);
+
+            % --- Zoom / lupa a la derecha ---
+            \draw[gray] (6.6,0.35) -- (9,1.6);
+            \draw[gray] (7.6,0.35) -- (11,1.6);
+
+            \draw[thick, blue!60!black] (9,1.6) rectangle (11,3.2);
+            \foreach \x in {9.4, 9.55, 9.68, 9.76, 9.82, 9.87}{
+            \fill[red!70!black] (\x,2.4) circle (1.6pt);
+            }
+
+            \end{tikzpicture}
+        \end{center}
+        
+        És a dir, matemàticament $\forall \varepsilon >0 \exists n_0 \in \N | \forall m,n > n_0 |a_n - a_m| < \varepsilon$
+    
+        No trobem el límit, pero si es compleix la proposició podem \textbf{determinar que és convergent},
+
+        - Convergent $\rightarrow$ De Cauchy
+
+        - De caucy $\neq \rightarrow$ Límit
+
+        \begin{examplebox}{}
+            $a_n = 1,41\dots = \sqrt{2}$ si prenem la serie només per $\Q$ $\nexists$ límit pero convergeix perque es va aproximant a $\sqrt{2}$
+        \end{examplebox}
+    \end{itemize}
+\end{itemize}
+
+
 \end{document}
