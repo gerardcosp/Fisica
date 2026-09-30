@@ -13,3 +13,6 @@
 \contentsline {section}{\numberline {5}Successions Numériques}{10}{section.5}%
 \contentsline {subsection}{\numberline {5.1}Convergència de Successions}{10}{subsection.5.1}%
 \contentsline {subsubsection}{\numberline {5.1.1}Propietats dels límits de les Successions}{11}{subsubsection.5.1.1}%
+\contentsline {subsubsection}{\numberline {5.1.2}Successions de Cauchy}{12}{subsubsection.5.1.2}%
+\contentsline {subsubsection}{\numberline {5.1.3}Definició de $\mathbb {R}$ a partir de Cauchy}{14}{subsubsection.5.1.3}%
+\contentsline {subsubsection}{\numberline {5.1.4}Tècnica del Sandvitx}{15}{subsubsection.5.1.4}%
