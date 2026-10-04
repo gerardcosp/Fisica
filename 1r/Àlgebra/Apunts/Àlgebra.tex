@@ -15,6 +15,7 @@
 \usepackage{amsthm}
 \usepackage{mathtools}
 \usepackage{yhmath}
+\newtheorem{proposicio}{Proposició}[section]
 
 % Physics notation
 \usepackage{physics}
@@ -37,26 +38,6 @@
 \usepackage[dvipsnames,svgnames,x11names]{xcolor}
 \usepackage{tcolorbox}
 \tcbuselibrary{skins,breakable}
-\newtcolorbox{demobox}[1][]{
-    enhanced,
-    breakable,
-    colback=black!2,
-    colframe=black!70,
-    boxrule=0pt,
-    borderline west={2pt}{0pt}{black!70},
-    sharp corners,
-    left=10pt,
-    right=7pt,
-    top=6pt,
-    bottom=6pt,
-    before skip=12pt,
-    after skip=12pt,
-    fonttitle=\bfseries,
-    title={Demostració},
-    #1,
-    before upper={\setlength{\parskip}{7pt}}
-
-}
 
 \newtcolorbox{examplebox}[1]{
     enhanced,
@@ -123,6 +104,7 @@
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\Z}{\mathbb{Z}}
+\renewcommand{\proofname}{Demostració}
 
 % -------------------------------------------------
 % DOCUMENT STYLE
@@ -252,7 +234,9 @@ Dins de cada matriu es troba un element A = ($a_{ij}$) on $ 1 \leq i \leq m, 1 \
 
 Qualsevol cosa es pot fer amb \textbf{columnes} de la mateixa manera. 
 
-Una cosa important de les matrius i les transoformacions és que poden ser descrites com \textbf{matrius elementals} $E_i$ que són les transformacions lineals en una matriu identitat de manera que si fem $E_i \cdot A = A'$, obtenim la matriu A amb la transformació anterior. Si fem $A\cdot E_1 = A'$, hem dut a terme la transformació per les colmnes de la matriu.
+\begin{proposicio}
+    Una cosa important de les matrius i les transoformacions és que poden ser descrites com \textbf{matrius elementals} $E_i$ que són les transformacions lineals en una matriu identitat de manera que si fem $E_i \cdot A = A'$, obtenim la matriu A amb la transformació anterior. Si fem $A\cdot E_1 = A'$, hem dut a terme la transformació per les colmnes de la matriu.
+\end{proposicio}
 \textbf{\textcolor{red}{Recordem una matriu $A\in K^{n\cross m}$ només pot ser multiplicada per una amb m files o n columnes al altre bando}.} De manera que si volem fer una transformació per la dreta o l'esquerra haurem de complir les condicions.
 
 Per exemple;
@@ -281,7 +265,9 @@ Una operació interesant és que \textbf{la matriu inversa} és l'operació cont
 
 Podem usar aquesta propietat per dur a terme una matriu $P = \prod_{i = 0}^{n} E_i = E_{1} \dots E_n$ on quan apliquem la matriu P es dona una serie de \textbf{transformacions lineals} aquesta la podem usar per trobar una matriu que multiplicada per P ens dona la forma \textbf{reduïda} de la matriu original.
 
-Cal remarcar que les matrius $K^{n\cross n} \supset GL_n(K) = \{A \in K{n\cross n} | \exists A^{-1}\}$ Aixó vol dir que totes les matrius quadrades sense relacions lineals entre files o columnes tenen una inversa $AA^{-1} = A^{-1}A = Id_n$ de manera que $Rang(A) = n$
+\begin{proposicio}
+    Cal remarcar que les matrius $K^{n\cross n} \supset GL_n(K) = \{A \in K{n\cross n} | \exists A^{-1}\}$ Aixó vol dir que totes les matrius quadrades sense relacions lineals entre files o columnes tenen una inversa $AA^{-1} = A^{-1}A = Id_n$ de manera que $Rang(A) = n$
+\end{proposicio}
 
 Si tenim una matriu al costat d'una identitat i apliquem uns canvis per obtenir $A'$ tindrem a l'identitat una matriu $P$ que \textbf{ens donara tot el conjunt de transformacions lineals que hem d'aplicar a A per obtenir A'}. Que pot ser la forma reduïda o la forma normal de Gauss-Jordan
 
@@ -329,12 +315,14 @@ a_{31} & a_{32} & a_{33} & b_3
 
 Anomenem \textbf{matriu ampliada ($A^*$)} a la matriu amb els termes independents, per resoldre qualsevol sistema \textbf{esglaonem la matriu} i la transformem a la manera clàssica per aïllar les incògnites.
 
-Quan anem esglaonant ens podem trobar en 3 situacions;
-\begin{itemize}
-    \item $Rang(A)\neq Rang(A^*)$; SI
-    \item $Rang(A) = Rang(A^*) = \#\,\text{incògnites}$; SCD
-    \item $Rang(A) = Rang(A^*) < \#\,\text{incògnites}$; SCI
-\end{itemize}
+\begin{proposicio}
+    Quan anem esglaonant ens podem trobar en 3 situacions;
+    \begin{itemize}
+        \item $Rang(A)\neq Rang(A^*)$; SI
+        \item $Rang(A) = Rang(A^*) = \#\,\text{incògnites}$; SCD
+        \item $Rang(A) = Rang(A^*) < \#\,\text{incògnites}$; SCI
+    \end{itemize}
+\end{proposicio}
 
 Si tenim un sistema on la matriu de coeficients i de termes independents és;
 \[
@@ -370,7 +358,7 @@ Ens trobem amb un \textbf{sistema homogeni}, i n'hi ha dos tipus.
 
 Per resoldre un sistema també podem fer ús del mètode de cràmer;
 
-\begin{demobox}
+\begin{proposicio}
 
 Donat un sistema lineal
 
@@ -404,7 +392,7 @@ z=\frac{\det(A_z)}{\det(A)}
 }
 $$
 
-\end{demobox}
+\end{proposicio}
 
 Si se'ns proposa un sistema amb uns paràmetres ($a \in R$) hem d'estudiar per rangs en funció del paràmetre.
 
@@ -445,12 +433,14 @@ Un subespai vectorial pot ser la recta que passa per $\vec{0_{\R^2}}$ de manera 
 
 Una combinació lineal d'una familia de vectors / $<u_1, \dots u_n>\in E$ és un vector $u$ de E que s'obté multiplicant cada vector per un escalar $\lambda_n$ i sumant-los fent així; $<u_1,\dots,u_n>_K$ Totes les combinacions lineals dels vectors.
 
-\textbf{IMPORTANT}: F és K-Subespai Vectorial $\leftrightarrow$
+\begin{proposicio}
+    \textbf{IMPORTANT}: F és K-Subespai Vectorial $\leftrightarrow$
 
 \begin{itemize}
     \item 1. $\forall \vec{u}, \vec{v}\in F, \text{ es té } u_E+v \in E$
     \item 2. $\forall \vec{u}\in F i \lambda \in K, \text{ es té } \lambda\vec{u}\in E$
 \end{itemize}
+\end{proposicio}
 
 Donat F tal que $<u_1,\dots, u_n>$, diem que aquests vectors són \textbf{un sistema de generadors per a F}, la base son els minims generadors d'un E.V, és a dir sense \textit{combinacions lineals} ni \textit{$\vec{0_{\R^2}}$}
 
@@ -462,17 +452,19 @@ Si diem que F és un Sub espai vectorial de E fix i \textbf{finit}, totes les $<
     \item \textbf{Tot} $E$
 \end{itemize}
 
-Cal remarcar que per tot $E$ un vector ($\vec{u} \in F \leftrightarrow u \in <\vec{u_1}, \dots, \vec{u_n}>_K$) és a dir que un vector pertany a un subespai si és combinacio lineal (\textbf{suma i multiplicació per escalar} $\vec{u} = \lambda_1\vec{u_1} + \dots + \lambda_n\vec{u_n}$).
+\begin{proposicio}
+    Cal remarcar que per tot $E$ un vector ($\vec{u} \in F \leftrightarrow u \in <\vec{u_1}, \dots, \vec{u_n}>_K$) és a dir que un vector pertany a un subespai si és combinacio lineal (\textbf{suma i multiplicació per escalar} $\vec{u} = \lambda_1\vec{u_1} + \dots + \lambda_n\vec{u_n}$).
+\end{proposicio}
 
-\begin{demobox}
+\begin{proof}
     Si $\vec{u} \in <\vec{u_1}, \dots, \vec{u_n}>_K$ es verifica que podem trobar $\vec{u}$ en $<\vec{u}, \vec{u_1}, \dots, \vec{u_n}>_K$ si $<\vec{u}, \vec{u_1}, \dots, \vec{u_n}>_K = <\vec{u_1}, \dots, \vec{u_n}>_K$ ja que podem trobar;
 
     \[\vec{u} = 1\vec{u} + 0 \vec{u_n}\dots\]
 
     Com que $\vec{u} \in <\vec{u_1}, \dots, \vec{u_n}>_K$, clarament cada combinació lineal podem donar un valor $\lambda_0 = 0$ de manera que ens queda que $<\vec{u}, \vec{u_1}, \dots, \vec{u_n}>_K = <\vec{u_1}, \dots, \vec{u_n}>_K$ i així es verifica que si tenim un espai vectorial on hi pertany un vector qualsevol \textbf{combinació lineal amb el vector també hi pertany}.
-\end{demobox}
+\end{proof}
 
-\begin{examplebox}{1}
+\begin{examplebox}{}
     \[F = <(1,1,1), (1,2,3), (2,3,4)>\]
 
     Com que el vector $(1,1,1) \in <(2,3,4), (1,2,3)>_K$ és combinacio lineal dels altres, el podem eliminar del nostre sistema de generadors. Pel Lema de que una matriu un es fan operacions lineals \textbf{no perd la seva informació} podem escriure,
@@ -494,9 +486,19 @@ Fila _{nA'} / (0,\dots,0)
     I reduïr la matriu a forma gauss jordan o esgalonada i veure quines files són combinació lineal de les altres per \textbf{simplificar el sistema de generadors}.
 \end{examplebox}
 
-Bàsicament com hem vist al exemple si tenim una matriu $M \in K^{m\cross n}$ si $Rang(A) < m$ és tracta d'un sistema de generadors amb \textbf{combinacions lineals}, si $Rang(A) = m$, tots els vectors del sistema de generadors són \textbf{linealment independents}.
+\begin{proposicio}
+    Bàsicament com hem vist al exemple si tenim una matriu $M \in K^{m\cross n}$ si $Rang(A) < m$ és tracta d'un sistema de generadors amb \textbf{combinacions lineals}, si $Rang(A) = m$, tots els vectors del sistema de generadors són \textbf{linealment independents}.
+\end{proposicio}
 
-\textit{Uns vectors són linealment independentment} si i només si \textbf{cap es pot construïr com a combinació dels altres} i en cas que igualem els vectors al vector origen ($\mu_1\vec{u_1}+ \dots + \mu_n\vec{u_n} = 0$) és un \textbf{SCD} homogeni amb úniques solucions ($\mu_1, \dots, \mu_n = 0$).
+\textit{Uns vectors són linealment independentment} quan uns no es poden construïr a partir dels altres, i es compleix que l'única manera d'obtenir el $0_E$ en;
+
+\[\lambda_1 u_1 + \lambda_2 u_2 + \dots + \lambda_n u_n = 0\]
+
+És que $\lambda_i = 0$ és a dir que és un sistema homogeni amb solucions $\begin{pmatrix}
+    0\\
+    \dots\\
+    0\\
+\end{pmatrix}$. 
 
 \subsection{Sistemes de Generadors i Bases}
 
@@ -504,7 +506,7 @@ Parlem d'un sistema de generadors tots els vectors (independentment si són C.L)
 
 Com que un sistema de generadors també esta format per C.L dels altres \textbf{n'hi ha infinits sistemes generadors}.
 
-\begin{examplebox}{2}
+\begin{examplebox}{}
     Donat un sistema de generadors d'un espai vectorial E $\{\sin x, \cos x, 1\}, f = (\R, \R)^2$, volem veure quines solucions fan cert el sistema que descriu el sistema de generadors (posem en columnes els elements i l'element $0_{E}$). Volem veure si hi ha alguna possible combinació lineal entre els 3 elements que sigui zero sense que els coeficients $\mu_n$ siguin, de manera que;
 
     \[\mu_1 \sin x + \mu_2 \cos x + \mu_3 \cdot 1 = 0 \]
@@ -520,9 +522,11 @@ Com que un sistema de generadors també esta format per C.L dels altres \textbf{
     Podem arribar a la conclusió que $\mu_1, \mu_2, \mu_3 = 0$ per tant com que el resultat són zeros no podem construïr cap element amb combinació dels altres.
 \end{examplebox}
 
-Per tant en aquest exemple 2 com que són \textbf{linealment independents}, $\{\sin x, \cos x, 1\}$ formen un \textit{sistema de generadors}.
+\begin{proposicio}
+    Per tant en aquest exemple 2 com que són \textbf{linealment independents}, $\{\sin x, \cos x, 1\}$ formen un \textit{sistema de generadors}.
+\end{proposicio}
 
-\begin{demobox}
+\begin{proof}
     Si $<\vec{u_1}, \dots, \vec{u_n}>$ de E són \textbf{linealment independents} es té que podem afegir $\vec{u} \notin <\vec{u_1}, \dots, \vec{u_n}>_K$ al nostra sistema de generadors de manera que no sigui \textbf{combinació lineal dels altres}.
 
     Demostrem això del contrari, si \textit{$\vec{u} \in <\vec{u_1}, \dots, \vec{u_n}>$} podem escriure;
@@ -536,11 +540,11 @@ Per tant en aquest exemple 2 com que són \textbf{linealment independents}, $\{\
     $x_0 \vec{u} -x_1 \vec{u_1} - \dots- x_n \vec{u_n} = 0$ que és un Sistema Homogeni amb solució $(0,\dots,0)$ per tant són \textbf{linealment depenents} si pertany.
 
     Però com que hem dit que no pertany \textbf{són Linealment Independents.}
-\end{demobox}
+\end{proof}
 
 Com podem reduïr un sistema de generadors? Doncs primer mirem quins són combinació lineal dels altres i ho reduim amb paràmetres als mínims múltiples possibles
 
-\begin{examplebox}
+\begin{examplebox}{}
     Siguin $E = <(1,2,3), (2,3,4), (3,4,5)>$ un sistema de generadors, volem reduïr i simplificar al màxim, creem un sistema tal que;
 
     \[x_1 \begin{pmatrix}
@@ -595,7 +599,408 @@ Una \textbf{base} d'un espai E és un sistema de generadors on tots són \textit
     \item \textbf{Ortonormal}; Els vectors tenen $\abs{\vec{u}} = 1$ i formen $\alpha = 90$ entre ells.
 \end{itemize}
 
-Si una base compleix tots els seus requisits de manera que tenim $B = <\vec{u_1}, \vec{u_2}, \vec{u_3}, \dots, \vec{u_n}>$ podem descomposar qualsevol vector $\vec{e}$ com;
+\begin{proposicio}
+    Si una base compleix tots els seus requisits de manera que tenim $B = <\vec{u_1}, \vec{u_2}, \vec{u_3}, \dots, \vec{u_n}>$ podem descomposar qualsevol vector $\vec{e}$ com;
+\end{proposicio}
 
-\[\vec{e} = \lambda_1 \vec{u_1} + \lambda_2 \vec{u_2} + \lambda_3 \vec{u_3} + \dots + \lambda_n \vec{u_n}\]
+\[\vec{e} = \lambda_1 u_1 + \lambda_2 u_2 + \lambda_3 u_3 + \dots + \lambda_n u_n\]
+
+Si tenim un cas on $<u_1,\dots, u_n>$ són L.D podem eliminar alguns vectors \textbf{que són combinacions lineals} per acabar amb una base $<u'_1, \dots u'_r>$ on tots els vectors són L.I i formen una base
+
+\begin{proposicio}
+Siguin $u_1,\dots,u_n \in E$ vectors linealment dependents. Existeix una subfamília $u_{i_1},\dots,u_{i_r}$ linealment independent tal que;
+
+\[<u_1,\dots,u_n> = <u_{i_1},\dots,u_{i_r}> .\]
+
+En particular, $\{u_{i_1},\dots,u_{i_r}\}$ és una base de $<u_1,\dots,u_n>$.
+\end{proposicio}
+
+\begin{proof}
+Prenem una subfamília màxima l.i., que reordenem com $u_1,\dots,u_r$. Per a cada $j>r$, la família $u_1,\dots,u_r,u_j$ és l.d. per maximalitat, i com que $u_1,\dots,u_r$ són l.i., el coeficient de $u_j$ en la relació de dependència és no nul. Aïllant, $u_j$ és c.l. de $u_1,\dots,u_r$.
+
+Per tant, $<u_1,\dots,u_n> = <u_1,\dots,u_r>$.
+\end{proof}
+
+\begin{proposicio}
+    Com hem dit abans $<u_1, \dots, u_r>$ és base de E i podem comprobar que \textbf{ocupa tot l'espai}
+\end{proposicio}
+
+\begin{proof}
+    Cada $u_j$ amb $j>r$ és C.L de $u_1,\dots,u_r$, és a dir, $u_j \in <u_1,\dots,u_r>$.
+    Pel lema anterior, afegir-los un a un no canvia el subespai generat, i per tant
+    $<u_1,\dots,u_n> = <u_1,\dots,u_r>$, i ocupa tot l'espai de vectors C.L.
+\end{proof}
+
+Si volem ampliar uns vectors L.I a una base d'E, si tenim $e_1,\dots,e_r$ una familia L.I de vectors d'E i $u_1,\dots,u_m$ un S.G d'E ampliant la familia $e_1,\dots,e_r$ per uns $u_1, \dots, u_m,$.
+
+$SG = <e_1, \dots, e_r, u_1, \dots, u_m>$
+
+\begin{proof}
+    Tenim $e_1, \dots, e_r, u_1, \dots, u_M$ també és S.G per a E. Pel resulat anterior tota subfamilia L.I màxima de $e_1, \dots, e_r, u_1, \dots, u_m$ serà base, triem la que usa $e_1, \dots, e_r$.
+\end{proof}
+
+\begin{examplebox}{}
+    En $\R^3$ un S.G per a E és $<(1,0,0), (0,1,0), (0,0,1)>_K$,
+
+    \[e(x,y,z) = x(1,0,0) + y(0,1,0) + z(0,0,1)\] 
+    
+    És sistema generador, podem triar $e_1(1,1,1)$ i $e_2(1,2,1)$ una subfamilia màxima és aquella on tots són L.I llavors probem si ara algun dels altres vectors $(0,1,0)$ són C.L amb altres vectors i si ho son els podem eliminar.
+
+    És màximal L.I si eliminem del subespai $<(1,0,0), (0,1,0), (0,0,1), (1,1,1), (1,2,1)>$ els combinacions lineals.
+\end{examplebox}
+
+\subsubsection{Lema D'Steintz}
+
+E és un K.ev $(u_1, \dots, u_m)$ i $(v_1,\dots, v_m)$ un S.G de E llavors
+\begin{itemize}
+    \item $m\leq n$
+    \item Reordenant els termes $v_j$, aquesta també es un S.G (Pel lema anteroir [Es igual que afegeixis o sumis combinacions lineals de vectors a sistemes generadors])
+\end{itemize}
+
+Com que un S.G pot contenir tants vectors C.L com vulguem però una familia L.I de E té un nombre limitat el nombre de u sempre serà menor al nombre de n.
+
+\textbf{CONSEQUENCIES}
+
+\begin{itemize}
+    \item \textit{St 1}. En un E generat finit, el nombre de vectors L.I sempre és \textbf{menor o igual al de qualsevol S.G}.
+    \item \textit{St 2}. Totes les bases d'un mateix espai E tenen el \textbf{mateix nombre de vectors}, i anomenem a $\abs{B}$ dimensió.
+    \item \textit{St 3}. Si \textbf{$\dim E = n$}. Tota familia L.I té $\leq n$ i tot S.G té $\geq n$
+    \item \textit{St 4}. Es compleix que un S.G és una base si el nombre de vectors $= \dim E$ i són L.I ($\det(A) \neq 0$)
+    \item \textit{St 5}. Si $F \subseteq E$ on F és Sub E.v, $\dim F \leq \dim E$
+\end{itemize}
+
+\begin{tcolorbox}[colback=black!1, colframe=black!55, boxrule=0.8pt, arc=2mm]
+    \begin{center}
+        Com a orientació bàsica;
+        \begin{itemize}
+            \item $\dim E = 0$. Es tracta d'un \textbf{punt} $= \{\vec{0}_E\}$
+            \item $\dim E = 1$. Es tracta d'una \textbf{recta}
+            \item $\dim E = 2$. Es tracta d'un \textbf{pla}
+            \item $\dim E = 3$. Es tracta de tot l'espai \textbf{$\R^3$}
+            \item $\dim F = E$. $F = E$
+        \end{itemize}
+    \end{center}
+\end{tcolorbox}
+
+\subsection{Casos Bàsics}
+
+\subsubsection{Cas Vectors}
+
+Vectorialment hi ha dues maneres d'escriure un Sub E.V
+
+\begin{itemize}
+    \item $<v_1, \dots, v_n>_K$ = C.L dels vectors
+    \item $\{(x,y,z,\dots)\in K \mid A\vec{x} = \begin{pmatrix}
+    0\\
+    ...\\
+    0
+    \end{pmatrix}\}$ = Sistema homogeni amb solucions de vectors directors (normalment amb paràmetres però els extraiem [$\lambda(1,-1,0), \mu(2,0,-3)$])
+
+    \subsubsection{Canvi de Forma Subespais Vectorials}
+    
+    \begin{proposicio}
+        Podem transformar una forma en l'altra en qualsevol Sub E.v
+    \end{proposicio}
+
+    \textbf{Sistema Homogeni a Vectors}
+
+    Si resolem el sistema (com ja he dit) ens queda $\{P + \lambda \vec{r_1} + \mu \vec{r_2} \mid \lambda, \mu\in K\}$ i diem que $P = (0,\dots,0)$
+
+    \textbf{Vectors a Sistema Homogeni}
+
+    Si tenim $F = <\vec{u}, \vec{v}>$, podem reescriure $F = \begin{pmatrix}
+        x\\
+        y\\
+        z
+    \end{pmatrix} = \lambda_1 \vec{u} + \lambda_2 \vec{v}$ els vectors en forma de columnes. Per tant resolem (esglaonant [Gauss-Jordan] i una fila ens donarà zeros)
+
+    \[\begin{pmatrix}
+        u_x & v_x & x\\
+        u_y & v_y & y\\
+        u_z & v_z & z
+    \end{pmatrix}\rightsquigarrow \begin{pmatrix}
+        u'_x & v'_x & x\\
+        u'_y & v'_y & y\\
+        0 & 0 & x-2y+z
+    \end{pmatrix}\]
+
+    Per tant el Sub E.v es pot escriure com $x-2y+z = 0$
+
+\end{itemize}
+
+\begin{examplebox}{}
+    Trobem una \textbf{base} d'un Sub E.v de $K$. \textcolor{red}{\textbf{Recordem que una base és un S.G màximal}}. Per tant hem de trobar un sistema generador i comprovar que és maximal.
+
+    \[F = <(1,2,3), (2,3,4), (1,1,1)>\]
+    
+    Com que és en $\R^3$ el nombre de vectors és correcte, mirem \textbf{si són L.I}; $\begin{vmatrix}
+        1 & 2 & 3 \\
+        2 & 3 & 4 \\
+        1 & 1 & 1
+    \end{vmatrix} = 0$ és a dir que són L.D i per tant C.l
+    
+    Si observem podem escriure $(1,1,1) = (2,3,4)-(1,2,3)$ per tant la base maximal serà
+
+    També podem esglaonar la matriu i veiem que $Rang(F) = 2 = \dim F$. Com que \textbf{les transformacions lineals guarden informació}, podem fer transformació a la matriu essglaonada i també obtenir una base diferent o més simple.
+
+    \begin{proposicio}
+        Com que es poden fer $\infty$ combinacions lineals, \textbf{existeixen $\infty$ bases per qualsevol espai.}
+    \end{proposicio}
+\end{examplebox}
+
+\begin{examplebox}{}
+    Tenim un Sub E.v de $K$ ara amb la forma; (recordem que $\boxed{\dim F = N - Rang(F)}$)
+
+    \[F = \{(x,y,z) \in \R^4 \mid \begin{pmatrix}
+    1 & 1 & 1 & 0 \\
+    1 & 2 & 3 & 0 \\
+    3 & 2 & 4 & 0 \\
+    \end{pmatrix} \begin{pmatrix}
+    x\\
+    y\\
+    z\\
+    t
+    \end{pmatrix}= \begin{pmatrix}
+        0\\
+        0\\
+        0\\
+    \end{pmatrix}\}\]
+
+    Resolent el sistema homogeni obtenim que $Sol. = (z, -2z, z, t) = z(1,-2,1,0) + t(0,0,0,1)$
+
+    $\dim F = 4 - 2 = 2$
+\end{examplebox}
+
+\subsubsection{Cas Matrius}
+
+\begin{examplebox}{}
+ 
+En les matrius si tenim un Sub E.v $F$ podem trobar la base i dimensions tan fàcil com;
+
+    \[
+F = \left\{
+\begin{pmatrix}
+    0 & a \\
+    b & c
+\end{pmatrix}
+\;\middle|\;
+c = a+b
+\right\}
+\]
+
+De manera que podem trobar la matriu base extraient els paràmetres de les matrius
+
+\[
+a
+\begin{pmatrix}
+    0 & 1\\
+    0 & 1
+\end{pmatrix}
++
+b
+\begin{pmatrix}
+    0 & 0\\
+    1 & 1
+\end{pmatrix}
+\]
+
+On la $\dim F = m\cross n = 2\cdot 2 = 4$
+\end{examplebox}
+
+\subsubsection{Cas Polinomis}
+
+\begin{examplebox}{}
+    Si tenim un Sub E.v $F$ de la forma;
+
+    \[F = \{p(x) \in \R^2 \mid p(4) = 0\}\]
+
+    Imposem la condició $p(x) = ax^2 + bx + c$, de manera que $0= 16a + 4b + c \leftrightarrow c = -16a + 4b$, si substituïm, una base de $F$ és;
+
+    \[p(x) = ax^2 + bx - 16a - 4b = a(x^2 - 16)+ b(x - 4)\]
+\end{examplebox}
+
+\subsection{Suma i Intersecció de Sub E.v}
+
+\subsubsection{Intersecció de \texorpdfstring{$F \cap W$}{F ∩ W}}
+
+$F, W$ Sub E.v de $E$ és compleix; $F \cap W = \{e\in E, e\in F \cap e\in W\}$
+
+\subsubsection{Suma de \texorpdfstring{$F + W$}{F + W}}
+
+Aquest és el subespai vectorial \textbf{més petit} que ajunta $F \text{ i } W$.
+
+\[F = <f_1 , \dots, f_n>\]
+\[W = <w_1, \dots, w_n>\]
+\[F + W = <f_1 , \dots, f_n, w_1, \dots, w_n>\]
+
+I amb la fòrmula de \textbf{Grassman} podem relacionar \textit{Suma amb Intersecció} de manera que $\dim F + \dim W = \dim F+W + \dim F \cap W$.
+
+\begin{examplebox}{}
+    Donat $F = <(1,0,-1),(0,1,2)>$ i $W = <(1,1,0), (0,0,1)>$.
+
+    \textbf{Base $F+W$}
+
+    $F + W = <(1,0,-1),(0,1,2),(1,1,0),(0,0,1)>$ per trobar la familia maximal reduïm la matriu;
+    
+    $\begin{pmatrix}
+        1 & 0 & -1\\
+        0 & 1 & 2 \\
+        1 & 1 & 0\\
+        0 & 0 & 1
+    \end{pmatrix} \rightsquigarrow \begin{pmatrix}
+        1 & 0 & 0\\
+        0 & 1 & 0 \\
+        0 & 0 & 1\\
+        0 & 0 & 0
+    \end{pmatrix}$
+
+    De manera que $\dim F+ W = 2$ i la base és la canònica. ($F+G \subseteq \R^3$)
+
+    \textbf{Base $F \cap W$}
+
+    Amb la fòrmula de \textbf{Grassman} ja podem trobar $\dim F\cup W$ i esperar \#vectors base
+
+    \[\dim F \cap W = \dim F + \dim W - \dim F + W = 2 + 2 - 3 = 1\]
+
+    Per tant podem esperar una \textit{recta amb 1 sol vector director}.
+
+    Per trobar la base, determinem e, element que ha d'estar dins de $F$ i $W$,
+
+    \[e = \mu_1 (1,0,-1) + \mu_2(0,1,2)\]
+    \[e = \delta_1 (1,1,0) + \delta_2(0,0,1)\]
+
+    Per lògica $e-e = 0$ de manera que $\mu_1 (1,0,1) + \mu_2(0,1,2) -\delta_1 (1,1,0) - \delta_2(0,0,1) = \vec{0}$.
+
+    Si resolem obtenim $\mu_1, \mu_2, \delta_1, \delta_2 = 1$ i usem una de les dues bases principals per obtenir;
+
+    \[F \cap W = 1(1,0,-1) + 1(0,1,2) = (1,1,1)\]
+
+    Es pot fer transformant $F$ i $W$ en Sub E.v de forma equació lineal (equació de pla cartesià)
+
+    \[F = \{(x,y,z) \mid x-2y + z = 0\}\]
+    \[G = \{(x,y,z) \mid x-y = 0\}\]
+
+    Per tant
+
+    \[F\cap G = \{(x,y,z) \mid x-2y+z = 0, x-y = 0\}\]
+
+\end{examplebox}
+
+\subsection{Bases Comunes a Saber}
+
+\begin{itemize}
+    \item Cas vectorial $K^N$, amb $\dim K^N = N$.\
+        \textit{Bases canòniques}: 
+        \[
+        (1,0,\dots,0), (0,1,\dots,0), (0,\dots,1,\dots,0), (0,\dots,1,0), (0,\dots,1)
+        \]
+    \item Cas $K[x] = \{\text{polinomis de grau }\leq N\} \dim K[X] = N + 1$
+        \textit{Base Stàndard}
+        \[
+        (1, x, x^2, \dots, x^N)
+        \]
+    \item Cas matricial $M_{m\cross n}(K) \mid \dim_K M_{m\cross n} = m \cross n$. 
+        \textit{Base Idenititat}
+        \[
+        I_n =
+        \begin{pmatrix}
+        1 & 0 & \dots & 0 \\
+        0 & 1 & \dots & 0 \\
+        \vdots & \vdots & \ddots & \vdots \\
+        0 & 0 & \dots & 1
+        \end{pmatrix}
+        \]
+\end{itemize}
+
+\subsection{Canvis de Base}
+
+Si tenim un vector \(\vec{u}\) amb coordenades \((x,y)\) respecte d'una base \(B\),
+
+\[
+[\vec{u}]_B=
+\begin{pmatrix}
+x\\
+y
+\end{pmatrix},
+\]
+
+i el volem expressar en una altra base \(B'\),
+
+\[
+[\vec{u}]_{B'}=
+\begin{pmatrix}
+x'\\
+y'
+\end{pmatrix},
+\]
+
+hem de trobar la \textbf{matriu de canvi de base} que permet passar de les coordenades de \(\vec{u}\) en la base \(B\) a les seves coordenades en la base \(B'\).
+
+Aquesta matriu és una matriu quadrada les columnes de la qual contenen les coordenades dels vectors de la base inicial expressades en la base final. Per tant,
+
+\[
+[\vec{u}]_{B'}=P_{B\to B'}[\vec{u}]_B.
+\]
+
+Així, la matriu de canvi de base ens permet transformar directament les coordenades d'un mateix vector d'una base a una altra.
+
+\[\begin{pmatrix}
+    a & b\\
+    c & d
+\end{pmatrix} \begin{pmatrix}
+    x \\ 
+    y
+\end{pmatrix} = \begin{pmatrix}
+    x'\\
+    y'
+\end{pmatrix}\]
+
+On $a,c$ és el nou vector $\vec{i}$ en la base i $b,d$ és el vector $\vec{j}$ en la base.
+
+Aquest canvi de base es pot fer a partir de la \textbf{matriu canvi de base} o fent un sistema lineal molt bàsic.
+
+Podem representar el \textbf{vector real}, si tenim $\vec{v} = (v_x, v_y)$ i $B = \{(a_1, a_2), (b_1, b_2)\}$ [on coneixem la base i els vectors]
+
+\[\vec{v_r} = v_x(a_1, a_2) + v_y(b_1,b_2)\]
+
+I si volem expressar $\vec{v} = (v'_x, v'_y)$, $B = \{(a'_1, a'_2), (b'_1, b'_2)\}$ [on coneixem el vector real i la base] 
+
+\[\vec{v_r} = v'_x(a'_1, a'_2) + v'_y(b'_1, b'_2)\] 
+\begin{examplebox}{}
+    Tenim el vector $\vec{v_B} = (5,2)$ expressat en la base $B = \{(2,1), (3,4)\}$ i volem veure com s'expressa en la base $B' = \{(4,3),(0,2)\}$
+
+    1. Expressar el vector en cartesianes;
+
+    \[\vec{v_r} = \begin{pmatrix}
+        2 & 3\\
+        1 & 4
+    \end{pmatrix}\begin{pmatrix}
+        5\\
+        2
+    \end{pmatrix} = \begin{pmatrix}
+        v_{r_x}\\
+        v_{r_y}
+    \end{pmatrix} = \begin{pmatrix}
+        16\\
+        13
+    \end{pmatrix}\]
+
+    2. Trobem $\vec{v_{B'}}$
+
+    Sabem que;
+
+    \[\begin{pmatrix}
+        4&0\\
+        3&2
+    \end{pmatrix}\begin{pmatrix}
+        v_{B'_x}\\
+        v_{B'_y}
+    \end{pmatrix} = \begin{pmatrix}
+        16\\
+        13
+    \end{pmatrix}\]
+
+    Trobant la inversa i resolent podem trobar que $\vec{v_{B'}} = (4,\frac{1}{2}) = (8,1)$
+\end{examplebox}
+%exemple base vectors (1,2,3 ...), exemple base vectors (x+y-z=0), exemple matrius, exempe polinomis
 \end{document}

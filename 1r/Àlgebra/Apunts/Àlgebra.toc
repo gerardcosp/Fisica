@@ -1,6 +1,17 @@
 \contentsline {section}{\numberline {1}Definicions Bàsiques d'Algebra}{2}{section.1}%
 \contentsline {section}{\numberline {2}Matrius}{2}{section.2}%
 \contentsline {subsection}{\numberline {2.1}Sistemes d'Equacions}{4}{subsection.2.1}%
-\contentsline {section}{\numberline {3}Espais Vectorials}{5}{section.3}%
+\contentsline {section}{\numberline {3}Espais Vectorials}{6}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Subespai Vectorial}{6}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}Sistemes de Generadors i Bases}{8}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Lema D'Steintz}{12}{subsubsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.3}Casos Bàsics}{12}{subsection.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.1}Cas Vectors}{12}{subsubsection.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.2}Canvi de Forma Subespais Vectorials}{13}{subsubsection.3.3.2}%
+\contentsline {subsubsection}{\numberline {3.3.3}Cas Matrius}{14}{subsubsection.3.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.4}Cas Polinomis}{14}{subsubsection.3.3.4}%
+\contentsline {subsection}{\numberline {3.4}Suma i Intersecció de Sub E.v}{15}{subsection.3.4}%
+\contentsline {subsubsection}{\numberline {3.4.1}Intersecció de $F \cap W$}{15}{subsubsection.3.4.1}%
+\contentsline {subsubsection}{\numberline {3.4.2}Suma de $F + W$}{15}{subsubsection.3.4.2}%
+\contentsline {subsection}{\numberline {3.5}Bases Comunes a Saber}{16}{subsection.3.5}%
+\contentsline {subsection}{\numberline {3.6}Canvis de Base}{17}{subsection.3.6}%
