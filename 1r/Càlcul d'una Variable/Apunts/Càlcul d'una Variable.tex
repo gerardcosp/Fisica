@@ -598,7 +598,59 @@ Podem definir que;
 \begin{itemize}
     \item Si $\{a_n\} \rightarrow l$ aquest límit és únic, sinó la proposició anterior cauria, quan es fes $\varepsilon \rightarrow 0$ no convergiria al mateix lloc.
     
-    % Imagge dos limits
+    \begin{tikzpicture}[scale=1.1]
+
+        % --- Recta numèrica ---
+        \draw[thick, -] (0,0) -- (6,0);
+
+        % Extrems
+        \draw[thick] (0,0.10) -- (0,-0.10);
+        \draw[thick] (6,0.10) -- (6,-0.10);
+
+        % Punts dels límits
+        \coordinate (l1) at (2.2,0);
+        \coordinate (l2) at (4.1,0);
+
+        % --- Entorns ---
+        \draw[
+            fill=red!20,
+            draw=red!70!black,
+            thick,
+            rounded corners=2pt
+        ] (1.85,0.12) rectangle (2.55,-0.12);
+
+        \draw[
+            fill=blue!20,
+            draw=blue!70!black,
+            thick,
+            rounded corners=2pt
+        ] (3.75,0.12) rectangle (4.45,-0.12);
+
+        % --- Punts centrals ---
+        \fill[red!70!black] (l1) circle (2.5pt);
+        \fill[blue!70!black] (l2) circle (2.5pt);
+
+        % --- Etiquetes ---
+        \node[
+            font=\small\bfseries,
+            text=red!70!black
+        ] at (2.2,0.42) {$l_1$};
+
+        \node[
+            font=\small\bfseries,
+            text=blue!70!black
+        ] at (4.1,0.42) {$l_2$};
+
+        % --- ε ---
+        \draw[<->, thick, red!70!black]
+            (1.85,-0.42) -- (2.55,-0.42);
+        \node[font=\scriptsize] at (2.2,-0.62) {$\varepsilon$};
+
+        \draw[<->, thick, blue!70!black]
+            (3.75,-0.42) -- (4.45,-0.42);
+        \node[font=\scriptsize] at (4.1,-0.62) {$\varepsilon$};
+
+    \end{tikzpicture}
 
     \item Si $\{a_n\} \rightarrow l$ llavors la successió esta acotada (finita), pot tenir nombres grans pero \textbf{hi ha un punt $\exists k > 0 | \abs{a_n} < k$}.
     \item Operacions aritmétiques [$Si \{a_n\} \rightarrow \alpha$, i $Si \{b_n\} \rightarrow \beta$]
@@ -621,27 +673,22 @@ Podem definir que;
     \begin{center}
         \begin{tikzpicture}[>=stealth, scale=1]
 
-        % --- Recta principal ---
         \draw[->, thick] (0,0) -- (11,0);
 
-        % puntos de la sucesión (más espaciados, con salto visual de "acercamiento")
         \foreach \x/\lbl in {0.5/a_1, 2/a_2, 3.2/a_3, 4.2/a_4, 5/a_5, 5.6/a_6}{
         \fill (\x,0) circle (1.5pt);
         \node[below, font=\scriptsize] at (\x,-0.15) {$\lbl$};
         }
 
-        % puntos que se acumulan cerca de 7 (a partir de N)
         \foreach \x in {6.8, 7.0, 7.15, 7.25, 7.32, 7.37}{
         \fill[red!70!black] (\x,0) circle (1.5pt);
         }
         \node[below, font=\scriptsize, red!70!black] at (7.1,-0.4) {$a_n, a_{n+1}, \dots$};
 
-        % banda epsilon
         \draw[blue!60!black, dashed] (6.6,0.35) -- (6.6,-0.35);
         \draw[blue!60!black, dashed] (7.6,0.35) -- (7.6,-0.35);
         \draw[<->, blue!60!black] (6.6,0.5) -- node[above, font=\scriptsize]{$\varepsilon$} (7.6,0.5);
 
-        % --- Zoom / lupa a la derecha ---
         \draw[gray] (6.6,0.35) -- (9,1.6);
         \draw[gray] (7.6,0.35) -- (11,1.6);
 
@@ -769,4 +816,6 @@ Podem definir que;
         De manera que $\lim_{n\rightarrow \infty} \frac{\abs{\sin 2n}}{n}$ es troba en 0 ja que els dos cantons convergeixen a 0.
 
     \end{examplebox}
+
+    
 \end{document}

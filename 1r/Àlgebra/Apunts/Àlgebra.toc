@@ -4,7 +4,7 @@
 \contentsline {section}{\numberline {3}Espais Vectorials}{6}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Subespai Vectorial}{6}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}Sistemes de Generadors i Bases}{8}{subsection.3.2}%
-\contentsline {subsubsection}{\numberline {3.2.1}Lema D'Steintz}{12}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.1}Lema D'Steintz}{11}{subsubsection.3.2.1}%
 \contentsline {subsection}{\numberline {3.3}Casos Bàsics}{12}{subsection.3.3}%
 \contentsline {subsubsection}{\numberline {3.3.1}Cas Vectors}{12}{subsubsection.3.3.1}%
 \contentsline {subsubsection}{\numberline {3.3.2}Canvi de Forma Subespais Vectorials}{13}{subsubsection.3.3.2}%
@@ -14,4 +14,6 @@
 \contentsline {subsubsection}{\numberline {3.4.1}Intersecció de $F \cap W$}{15}{subsubsection.3.4.1}%
 \contentsline {subsubsection}{\numberline {3.4.2}Suma de $F + W$}{15}{subsubsection.3.4.2}%
 \contentsline {subsection}{\numberline {3.5}Bases Comunes a Saber}{16}{subsection.3.5}%
-\contentsline {subsection}{\numberline {3.6}Canvis de Base}{17}{subsection.3.6}%
+\contentsline {subsection}{\numberline {3.6}Canvis de Base}{16}{subsection.3.6}%
+\contentsline {section}{\numberline {4}Aplicacions Lineals}{19}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Forma lineal d'un Vector (El dual d'un vector)}{19}{subsection.4.1}%

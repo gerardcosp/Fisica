@@ -331,9 +331,8 @@ Si tenim un sistema on la matriu de coeficients i de termes independents és;
     x\\
     y\\
     z\\
-    .\\
-    .\\
-    .\\
+    \vdots\\
+    
 \end{array}
 \right)
 \]\[
@@ -1002,5 +1001,120 @@ I si volem expressar $\vec{v} = (v'_x, v'_y)$, $B = \{(a'_1, a'_2), (b'_1, b'_2)
 
     Trobant la inversa i resolent podem trobar que $\vec{v_{B'}} = (4,\frac{1}{2}) = (8,1)$
 \end{examplebox}
+
+\begin{proposicio}
+    Tota aplicació lineal entre espais de dimensió finita, un cop fixades bases, es pot calcular multiplicant per una matriu.
+\end{proposicio}
+
+\begin{proof}
+    En general; $f: E_1 \rightarrow E_2$ lineal
+
+Fixem $B(v_1, \dots, v_l)\in E_1$ i $e = (w_1,\dots, w_t) \in E_2$
+
+\[f(v_l) = \begin{pmatrix}
+    a_{1,l}\\
+    \vdots\\
+    a_{t,l}
+\end{pmatrix}\]
+
+Llavors podem escriure $e$ com $e = \lambda_1v_1 +\dots+ \lambda_lv_l = \begin{pmatrix}
+    \lambda_1\\
+    \vdots\\
+    \lambda_l
+\end{pmatrix}_B$ 
+
+I que $f(e)[lineal] = \lambda_1f(v_1) + \dots + \lambda_nf(v_n)$ = $\lambda_1 \begin{pmatrix}
+    a_{1,1}\\
+    \vdots \\
+    a_{t,1}
+\end{pmatrix} + \lambda_2\begin{pmatrix}
+    a_{1,2}\\
+    \vdots \\
+    a_{t,2}
+\end{pmatrix}+\dots+\lambda_l \begin{pmatrix}
+    a_{1,l}\\
+    \vdots \\
+    a_{t,l}
+\end{pmatrix}$
+
+Finalment unint aquestes columnes podem escriure $e = \begin{pmatrix}
+    a_{1,1} & \dots & a_{1,l}\\
+    \vdots\\
+    a_{t,1} & \dots & a_{t,l}
+\end{pmatrix}\begin{pmatrix}
+    \lambda_1\\
+    \vdots\\
+    \lambda_l
+\end{pmatrix}$
+
+Per tant trobem una matriu de coeficients. \textbf{Qualsevol aplicació fixant bases és una multiplicació per una matriu} ($M(f: e \leftarrow B)$)
+\end{proof}
+
+\textcolor{red}{\textbf{Quan treballem amb polinomis hem de deixar la conversió de bases escrita}}
+
+\[1 \rightarrow (1,0,0,...,0)\]
+\[x \rightarrow (0,1,0,...,0)\]
+\[x^2 \rightarrow (0,0,1,...,0)\]
+\[\dots\]
+\[x^n \rightarrow (0,0,0,...,1)\]
+
 %exemple base vectors (1,2,3 ...), exemple base vectors (x+y-z=0), exemple matrius, exempe polinomis
+
+\section{Aplicacions Lineals}
+
+També conegudes com \textbf{funcions}, tenen la forma;
+
+\[f: X \rightarrow Y\]
+\[x \rightarrow y\]
+
+On li adjuntem un input \textbf{x} i en surt un output \textbf{y}, no només són funcions com les coneixem sinó que també val per \textit{vectors o matrius}
+
+\textbf{Definició}: Una \textit{aplicació} $f: E_1 \rightarrow E_2$ entre 2 k-espais vectorials $E_1$ i $E_2$ diem que és lineal si es mantenen les operacions espai vectorial és a dir que es compleix;
+
+\begin{itemize}
+    \item $f(u+v) = f(u) + f(v)$
+    \item $f(\lambda u) = \lambda f(u)$
+\end{itemize}
+
+\subsection{Forma lineal d'un Vector (El dual d'un vector)}
+
+Si fem una aplicació de la forma, amb $A = \begin{pmatrix}
+    a_1 & a_2 & \dots & a_n
+\end{pmatrix}$
+
+\[T: K^N \rightarrow K\]
+\[\begin{pmatrix}
+    x_1 \\
+    \vdots\\
+    x_n
+\end{pmatrix} \rightarrow A\begin{pmatrix}
+    x_1 \\
+    \vdots\\
+    x_n
+\end{pmatrix}\]
+
+Que simplement és una matriu $1\cross 1$ de la forma $\begin{pmatrix}
+    a_1x_1 + a_2x_2+\dots, a_nx_n
+\end{pmatrix}$. Que simplement anomenem \textbf{for lineal d'una matriu}. O també es diu \textbf{forma dual de $K^N$} i s'escriu com $(K^N)^K$.
+
+\begin{examplebox}{}
+    Per exemple podem transformar una \textbf{matriu} en una funció; $T = \begin{pmatrix}
+        1 & 2\\
+        2 & 1
+    \end{pmatrix}$
+
+    \[f: \R^2 \rightarrow \R^2\]
+    \[\begin{pmatrix}
+        x\\
+        y
+    \end{pmatrix} \rightarrow T \begin{pmatrix}
+        x\\
+        y
+    \end{pmatrix} = \begin{pmatrix}
+        x + 2y\\
+        2x +y
+    \end{pmatrix}\]
+
+    I obtenim que $f(x,y) = (x+2y, 2x+y)$
+\end{examplebox}
 \end{document}
