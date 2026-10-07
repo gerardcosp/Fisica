@@ -1717,7 +1717,44 @@ Considerem \textbf{un sistema de particules}; $\vec{P} = \vec{p_1}+ \dots + \vec
 \end{tikzpicture}
 \end{center}
 
-Pel teorema $\dv{\vec{P}}{t} = \vec{F} = \vec{f_1} + \dots + \vec{f_n}$. Com que estem contant el sistema com un total, \textbf{les forçes internes $\vec{f_{1,2}}, \vec{f_{2,1}}, \vec{f_{1,3}}, \vec{f_{3,1}}, \vec{f_{2,3}}, \vec{f_{3,2}}$} es cancelen ja que són idèntiques en sentits oposats.
+Pel teorema $\dv{\vec{P}}{t} = \vec{F} = \vec{f_1} + \dots + \vec{f_n}$. Com que estem contant el sistema com un total, \textbf{les forçes internes $\vec{f_{1,2}}, \vec{f_{2,1}}, \vec{f_{1,3}}, \vec{f_{3,1}}, \vec{f_{2,3}}, \vec{f_{3,2}}$} es cancelen ja que són idèntiques en sentits oposats. Llavors en un sistema de particules; ens queda que $\vec{P} = \vec{P}^{ext}$ i com que $\dv{\vec{P}}{t} = \vec{F}$, en un sistema qualsevol $\vec{F} = \vec{F}^{ext}$.
+
+\begin{examplebox}{Conservació del moment}
+    Moment Lineal, exemple bàsic;
+
+    %DIBUIX PERSONES A LA PISTA
+
+    Dos cossos de massa ($m,, m'$) es troben sobre una superficie amb $\mu = 0$.
+
+    Sabem que \textit{el moment lineal es conserva}. $\vec{P_{AB}} = \vec{P_{A}} = \vec{P_{B}} = 0$
+
+    Si no tenen cap velocitat inicial a cap cantó, es queden eternament quiets ja que el moment lineal inicial és igual al finalue és 0.
+
+    Ara, si volen apropar-se necessiten que algo els hi doni velocitat, tots dos llençen una moneda que tenen i en cada persona apareix un sistema Persona-Moneda diferent.
+
+    \[\vec{P_{A+m1+B+m2}} = \vec{P_{A+m1}} = \vec{P_{B+m2}}\]
+    
+    % Dibuix gel
+
+    I prenent el sistema de referència indicat, $P_mb < 0$ per tant $P_B = P_m2$ i $v_B > 0$
+
+    Si ens hi fixem, quan es mou la moneda $x$ espai, el cos també per tant el \textbf{sistema centre de masses (Cos B - Moneda) es manté invariable}.
+
+    Passa el mateix amb el cos A, en sentit contrari.
+\end{examplebox}
+
+\begin{examplebox}{Xoc Perfectament Elàstic}
+    Si tenim al inici una \textbf{superficie amb fregament} com que és força no conservativa, $\Delta \vec{P} \neq 0$.
+
+    Si al col·lisionar (en un terra ara si sense fregament ($\Delta \vec{P} = 0$))els dos cossos \textbf{s'ajunten}, al final, per cada persona $\vec{P_i} = \vec{P_f}$, de manera que;
+
+    \[\vec{P_i} = mv - MV\]
+    \[\vec{P_f} = (m+M) V'\]
+
+    El moment no canvia perque el sistema A+B és aïllat.
+
+    \[mv - MV = (m+M)V'\]
+\end{examplebox}
 
 \subsection{Centre de Masses}
 
@@ -1725,7 +1762,41 @@ Anomenem centre de masses d'un sistema $M = (m_1, \dots, m_n)$. El centre de mas
 
 \[\vec{R_t}= \frac{\vec{r_1} + \dots + \vec{r_n}}{n}\]
 
-I descrivim el sistema com a $\vec{P} = M\dot{\vec{R}}$ i $\vec{F} = M \ddot{\vec{R}}$
+I descrivim el sistema com a $\vec{P} = M\dot{\vec{R}}$ i $\vec{F} = M \ddot{\vec{R}}$ (Així reduïm el moviment d'un sistema a un únic lloc).
+
+Parlem del \textbf{sistema centre de masses a aquell sistema} que uneix totes les particules i \textbf{si actuen només forçes conservatives,} sol tenir el centre de masses invariable
+
+Calcular el CM d'un \textbf{sòlid rígid}.
+
+%DIBUIX CUB
+
+Tenim un cub trencat a trossos amb massa $dm$ i volum $dV$, sabem que; $dm = \rho dV$ i que podem definir la massa $M$ com a;
+
+\[M = \int_V dm = \int_V \rho dV\]
+
+Si recordem que el centre de masses total és la suma ininita de posicions, podem determinar $\vec{R} = \frac{1}{M}\int_V \vec{r} \, dm = \frac{1}{M}\int_V \vec{r}\rho \, dV$
+
+Trivialment, en una bara de massa uniforme, un cercle, un cub \dots, \textbf{el centre de masses es troba al centre del objecte.}
+
+\subsection{Repàs: Producte Vectorial}
+
+Denotem $\vec{T} = \vec{A} \cross \vec{B}, \vec{T} \perp \vec{A} \cap \vec{T} \perp \vec{B}$.
+
+El producte vectorial és definit per les propietats;
+
+\begin{itemize}
+    \item (bi)lineal: $(\alpha\vec{A} + \beta\vec{B}) \cross \vec{C} = \alpha \vec{A} \cross \vec{C} + \beta \vec{B} \cross \vec{C}$
+    \item anti-simètric / ani-communtatiu: $\vec{C} \cross \vec{A} = - \vec{A} \cross \vec{C}$ (Particularment $\vec{A} \cross \vec{A}= - \vec{A} \cross \vec{A} = 0$)
+    \item podem definir la base cartesiana ($\vec{i}, \vec{j}, \vec{k}$) com a (podem usar la regla de la mà dreta);
+        \begin{itemize}
+            \item $\vec{k} = \vec{i} \cross \vec{j}$
+            \item $\vec{i} = \vec{j} \cross \vec{k}$
+            \item $\vec{j} = \vec{k} \cross \vec{i}$
+        \end{itemize}
+    \item no és associatiu: $\vec{A}\cross (\vec{B}\cross \vec{C}) \neq (\vec{A} \cross \vec{B})\cross \vec{C}$
+\end{itemize}
+
+\section{Treball I Energies}
 
 \section{Dinàmica dels Sistemes de Partícules II}
 
