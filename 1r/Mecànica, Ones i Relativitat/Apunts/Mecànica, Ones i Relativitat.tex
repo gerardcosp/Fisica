@@ -1292,7 +1292,7 @@ On agafa el vector director entre els dos cossos (Cos Origen - Cos Afectat), li 
     \foreach \y in {-4,-3.5,...,4}{
         \pgfmathsetmacro{\r}{sqrt(\x*\x+\y*\y)}
         \ifdim\r pt>0.1pt
-            \draw[->,blue]
+            \draw[->,orange]
                 (\x,\y) -- 
                 ({\x+0.35*\x/\r},{\y-0.35*\y/\r});
         \fi
@@ -1719,6 +1719,10 @@ Considerem \textbf{un sistema de particules}; $\vec{P} = \vec{p_1}+ \dots + \vec
 
 Pel teorema $\dv{\vec{P}}{t} = \vec{F} = \vec{f_1} + \dots + \vec{f_n}$. Com que estem contant el sistema com un total, \textbf{les forçes internes $\vec{f_{1,2}}, \vec{f_{2,1}}, \vec{f_{1,3}}, \vec{f_{3,1}}, \vec{f_{2,3}}, \vec{f_{3,2}}$} es cancelen ja que són idèntiques en sentits oposats. Llavors en un sistema de particules; ens queda que $\vec{P} = \vec{P}^{ext}$ i com que $\dv{\vec{P}}{t} = \vec{F}$, en un sistema qualsevol $\vec{F} = \vec{F}^{ext}$.
 
+Si $\vec{F}_{total}^{externa} = 0$, el moment no varia i $\vec{P}$ és constant.
+
+\textcolor{red}{\textbf{Si el moment linal és zero, vol dir que el CM no es desplaça}}.
+
 \begin{examplebox}{Conservació del moment}
     Moment Lineal, exemple bàsic;
 
@@ -1796,8 +1800,182 @@ El producte vectorial és definit per les propietats;
     \item no és associatiu: $\vec{A}\cross (\vec{B}\cross \vec{C}) \neq (\vec{A} \cross \vec{B})\cross \vec{C}$
 \end{itemize}
 
-\section{Treball I Energies}
+Podem calcular el \textbf{producte vectorial} com;
+
+\[\abs{\vec{A} \cross \vec{B}} = \abs{\vec{A}} \abs{\vec{B}} \sin\theta\]
+
+\[\vec{A} \cross \vec{B} = \begin{vmatrix}
+    \vec{i} & \vec{j} & \vec{k} \\
+    A_x & A_y & A_z\\
+    B_x & B_y & B_z
+\end{vmatrix}\]
+
+\subsection{Moment de Forces}
+
+Sabem que $\vec{F}_{total}^{externa} = M \ddot{R}$, podriem pensar que al aplicar un parell de forçes oposades, el sistema no fa res (cap efecte), aquí intervé una magnitud anomenada \textbf{moment d'una força} $\vec{M}$.
+
+% DIBUIX RODA AMB FORçES OPOSADES
+
+Si veiem en el dibuix, l'objecte no gira $\Leftrightarrow$ les forçes s'apliquen a la mateixa distància, si s'apliquen en diverses pot apareixer un \textbf{torque}, aixó si i només si són perpendiculars a l'eix central (el que passa pel CM)
+
+% DIBUIX MOMENTS PARALELS SENSE EFECTE
+
+Anomenem \textbf{moment angular} al $\vec{L} = \vec{r} \cross \vec{p}$ per cada moment que actua en un cos i per tant $\vec{L_t} = \sum \vec{L_i}$. Aquest moment és sempre perpendicular a la direcció de rotació.
+
+\textbf{Teorema}: 
+
+\[\dot{\vec{L_0}} =\vec{M_0}^{ext}\]
+
+Podem demostrar que ja que si tenim una particula a distància $\vec{r}$, amb un moment lineal $\vec{p}$, i una força $\vec{f}$,
+
+\[\vec{m_0} = \vec{r} \cross \vec{f}\]
+\[\vec{l_0} = \vec{r} \cross \vec{p}\]
+\[\vec{\dot{l_0}} = \vec{\dot{r}} \cross \vec{p} + \vec{r} \cross \vec{\dot{p}} = \vec{r} \cross \vec{f} = \vec{m_0}\]
+
+Com en el cas del moment lineal, podem negligir els moment angulars inters ja que les forçes internes passen dins de les línees dels centres de massa i $f_{i,j} \cross \vec{r}_{i,j} = 0$. 
+
+Si $\vec{M_0}^{ext} = 0 \rightarrow \Delta \vec{L_0} = 0$ i el moment angular es mantè constant.
+
+\textcolor{red}{\textbf{Diem que un cos es troba en equilibri quan es compleix;}}
+
+\begin{itemize}
+    \item $\vec{F}_{total}^{ext} = 0$
+    \item $\vec{M_0}^{ext} = 0$
+\end{itemize}
+
+\textcolor{red}{\textbf{El moment de les forçes no depèn del punt d'origen per tant usem el més convenient tal que $F\cross\vec{r} = 0$}}
+
+[Anomentem quantitats \textit{conservades} a aquelles $x \mid \Delta x = 0$]
+
+Per calcular el moment de forçes d'una força, prenem la força mateixa, i la direcció \textbf{perpendicular a ella mateixa}.
 
 \section{Dinàmica dels Sistemes de Partícules II}
+
+Aqui ja no estudiem les \textbf{situacions en equilibri}, sinó que $\vec{M} \neq 0$. I on sempre treballem amb sòldis rígids que és un \textbf{cos amb distàncies relatives entre si constants},
+
+% DIBUIX SÒLID RIGID
+
+Suposem que giren tots al voltant d'un eix amb una velocitat $\omega$.
+
+Fixem-nos que giren en torn a un eix que anomenem $e$, podem estudiar la trajectoria (\textit{circular}) de cada partícula $m_i$ traçant un radi des del seu $r_0$ fins al eix i li anomenem $\vec{\eta_i}$ que és un vector posició.
+
+Sabem (pel tema anterior que) $\vec{l} = \vec{\eta} \cross \vec{p} = \begin{vmatrix}
+    \vec{i} & \vec{j} & \vec{k} \\
+    x & y & z \\
+    p_x & p_y & p_z
+\end{vmatrix}$
+
+Però només ens importa la projecció en l'eix e ja que és la que determina el \textbf{moment angular}, per tant $\vec{l_e} = xp_y - yp_x$ que podem desenvolupar com.
+
+\[l_e = m(xv_y - yv_x) = m\eta v = m\omega\eta^2\] 
+
+Diem que $(xv_y - yv_x) = \eta v$ ja que si fem el producte vectorial un altre cop pero ara treiem la massa ens queda $\vec{\eta} \cross \vec{v} = (xv_y - yv_x) = \abs{\vec{\eta}} \cdot \abs{\vec{v}} \sin\theta$ i com que $\theta = 90 \therefore \sin \theta = 1$. Sumant obtenim que:
+
+\[L_e = \sum l_i = \omega(m_1\eta_1^2 + m_2\eta_2^2 + \dots)\]
+
+Anomenem a la suma de $\sum m_i\eta_i^2 = I_e$ \textbf{moment d'inèrcia respecte e} (trivialment com que depèn de $\eta$ al canviar l'eix, el moment també canvia [però al canviar l'origen no canvia el moment d'inèrcia ja que tots pertanyen al eix]). Obtenim que $\boxed{L_e = I_e\omega}$
+
+Ara si tenim un sólid rígid compost per \textit{moltíssimes masses individuals el podem descomposar de manera que};
+
+% DIBUIX MASSA GRAN SOBRE PETITES
+
+Podem dividir el cos en petits increments de massa $dm$ i volum $\rho dV$ i cadascun rep una $\vec{\eta}$ i una moment lineal $dm \cdot \vec{v} = dm \vec{\eta}\omega$, podem definir el seu \textbf{moment inercial} com;
+
+\[I_e = \int_V \eta^2 dm = \int_V \eta^2 \rho dV\]
+
+\textcolor{red}{\textbf{Els moment d'inèrcia de diverses figures ja estan pre-calculats, no cal calcular-los degut a la seva complexitat}}.
+
+Si $\vec{L_e} = \eta\cross \vec{P}$, i derivem $\dot{\vec{L_e}} = \dot{\eta}\cross \dot{\vec{P}}$ que si recordem, $\eta$ és constant ja que és un cercle i $\dot{\vec{P}} = \vec{F^{ext}}$ per tant $\dot{\vec{L_e}} = \vec{M_e}^{ext}$ (comprovem el que en el tema anterior hem suposat).
+
+Llavors si podem afirmar que $\vec{M_e}^{ext} = 0$ podem afirmar que \textbf{moment angular es manté constant ja que} $\dv{\vec{L_e}}{t} = \vec{M_e}^{ext} = 0$
+
+Si en un sistema on no hi ha moment de forçes externes, com el de la ballerina (només actua el pes pero prenem el $\vec{0}$ al CM i s'envà amb la normal), de manera que $\vec{M_e}^{ext} = 0$ i $\vec{L_0} = cte.$.
+
+Si aquesta ballerina gira amb les cames obertes (amb un radi de gir $\eta$) i una $\omega$, si canvia el seu radi de gir (tanca les cames) $\eta' < \eta$, com que el moment és constant apareix $\omega' > \omega$.
+
+Si $\vec{M_e}^{ext}$ no és 0, és a dir que hi ha una força paral·lela al eix, $\vec{M_e}^{ext} = I_e\dot{\omega} = I_e \alpha$.
+
+\subsection{Dinàmica de Particules en altres Sistemes de Referència}
+
+Si tenim un CM (amb un objecte a una distància $\vec{r'_i}$) que es mou respecte el temps amb $\vec{R(t)}$, podem estudiar-lo fàcilment ja que sabem que $\vec{r} = \vec{R(t)} + \vec{r'_i}$ on $\vec{r}$ és el vector posició des del $\vec{0}$.
+
+% DIBUIX CANVI DE SISTEMA DE REFERENCIA
+
+Sabem que $\vec{L}_{CM}$ (moment angular respecte el centre de masses) és $= \vec{r'_1}\cross\vec{p'_1} + \vec{r'_2}\cross\vec{p'_2} + \dots$, també sabem que $\vec{r'_i} = (\vec{r_i} - \vec{R})$ i que $\vec{p'_i} = (\vec{p_i} - m\dot{\vec{R}})$.
+
+Llavors $\vec{L}_{CM} = \sum(\vec{r_i}- \vec{R}) \cross (\vec{p_i} - m_i\dot{\vec{R}})$ que si desevolupem;
+
+\[\vec{L}_{CM} = \vec{r_1} \cross \vec{p_1} + \vec{r_2} \cross \vec{p_2} + \dots - \vec{R}\cross(\vec{p_1} + \vec{p_2} + \dots) - (m_1\vec{r'_1} + m_2\vec{r'_2}+ \dots)\cross \dot{\vec{R}}\]
+
+I si simplfiquem acabem amb l'expressió $\boxed{\vec{L}_{CM} = \vec{L_0} - \vec{R} \cross \vec{P}} = \boxed{\vec{L}_{CM} = \vec{L}_0 - \vec{L}_{0-CM}}$ i si derivem a tots els llocs obtenim que $\boxed{\vec{M}_{CM}^{ext} = \vec{M_0}^{ext} - \vec{R}\cross\vec{F_t}^{ext}} = \boxed{\vec{M}^{ext}_{CM} = \vec{M}^{ext}_0 - \vec{M}^{ext}_{0-CM}}$
+
+I com que les podem igualar, \textbf{fins i tot si el CM es troba accelerat};
+
+\[\dot{\vec{L}}_{CM} = \vec{M}_{CM}^{ext}\]
+
+\section{Treball I Energies}
+
+L'enegia i el treball són \textbf{unitats escalars} és a dir que només tenen una magnitud sense \textit{sentit, ni direcció}.
+
+\subsection{Treball}
+
+Suposem que una força es \textbf{desplaça} en línea recta amb una \textbf{força constant};
+
+% DIBUIX BOLA AMB FORçA DESPLAÇANT SE
+
+Anomentem treball a la magnitud que estudia el desplaçament d'una força en una distància; $\boxed{W = \vec{F} \cdot \Delta \vec{r} \mid N \cross m = J}$, ens podem trobar amb 3 situacions possibles;
+
+\begin{itemize}
+    \item $W > 0$; A favor del moviment, és a dir en compensació amb el desplaçament
+    \item $W < 0$; En contra del moviment
+    \item $W = 0$; La força és perpendicular al moviment o no hi ha desplaçament
+\end{itemize}
+
+Podem veure que en tot moment \textbf{el treball no esta associat a la particula}, no hi apareix cap massa o velocitat, només la força i el desplaçament.
+
+Anomenem \textit{potència}, a la magnitud que estudia el canvi de treball respecte el temps; $\boxed{W = \frac{W}{\Delta t} \mid \frac{J}{s} = W}$, on suposem que el treball es dona en un temps $\Delta t$ i que no és instantani.
+
+Anomenem \textit{potència instantània}, a $\dv{W}{t} = \dv{\vec{F} \cdot \vec{R}}{t}$, si F és constant $P = \vec{F} \dv{\vec{r}}{t} = \vec{F} \cdot \vec{v}$
+Ara si considerem una \textbf{força no constant} i una \textbf{posició variable}, com una corba (C) on la força que actua cap a dins canvia cada instant.
+
+% DIBUIX CORBA I FORça
+
+Podem aproximar el treball si dividim la corba i $W \approx \vec{F_1}\Delta \vec{r_1} + \vec{F_2}\Delta \vec{r_2} + \dots$
+
+Pero podem igualar-ho si fem aquests $\Delta \vec{r_i}$ infinitéssimament petits i els convertíssim a $d\vec{r}$ és a dir quan prens el límit de $\Delta r \rightarrow 0$;
+
+\[W = \int_C \vec{F} \cdot d\vec{r}\] (\textit{integral de camí})
+\[W = \int_{t_0}^t \vec{F} \cdot v(t)dt\]
+
+\subsection{Energies}
+
+\subsubsection{Energia Cinètica}
+
+Definim energia cinètica com $\boxed{K \equiv \frac{1}{2}mv^2}$, on $K \geq 0$ sempre;
+
+% DIBUIX BOLA AMB VELOCITAT
+
+Al contrari que el treball, l'energia cinètica \textbf{si que esta associada a la particula (m, v = $\abs{\vec{v}}$)} això ens crea una conexió entre \textit{cinemàtica i dinàmica} entre les forçes i el cos.
+
+\[v^2 = \abs{\vec{v}}^2 \cos 0 = \vec{v} \cdot \vec{v}\] (no depèn de la direcció ni el sentit)
+
+\textbf{Teorema:}
+
+\textit{El treball \textbf{total} realitzat sobre una partícula és igual a l'increment de la seva energia cinètica}.
+
+\[W = \Delta K = K_f - K_i\]
+
+\begin{demobox}
+    Suposem que una particula de massa $m$ on actua $\vec{F}_{tot}$ que fa un camí $\tau$.
+
+    % DIBUIX CAMÍ
+
+    $W = \int_{\tau} \vec{F}_{tot}\cdot d\vec{r}$, amb la següent equació de newton ($F = m\dv{\vec{v}}{t}$) i ($d\vec{r} = \vec{v} dt$). 
+
+    \[W = m\int_{t_i}^{t_f} \dv{\vec{v}}{t} \vec{v}dt = \frac{1}{2}m \int_{t_i}^{t_f} \dv{v^2}{t}dt = \frac{1}{2}m[v(t)]^{t_f}_{t_i}  = \frac{1}{2}mv^2\]
+
+\end{demobox}
+
+\subsubsection{Energia Potencial}
 
 \end{document}
