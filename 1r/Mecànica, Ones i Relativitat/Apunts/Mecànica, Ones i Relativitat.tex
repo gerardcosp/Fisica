@@ -457,7 +457,7 @@ Que bàsicament ens dona el canvi de velocitat respeccte el petitíssim canvi de
 \end{center}
 \[\ddot{\vec{r}}(t) = \ddot{x}(t)\vec{i} + \ddot{y}(t)\vec{j} + \ddot{z}(t)\vec{k}\]
 
-\subsection{MRU (1-D)}
+\subsection{MRU}
 
 Parlem de MRU quan $\Delta v = 0$ és a dir que la velocitat és constant i que el canvi de posició és sempre el mateix.
 
@@ -1913,6 +1913,16 @@ I com que les podem igualar, \textbf{fins i tot si el CM es troba accelerat};
 
 \[\dot{\vec{L}}_{CM} = \vec{M}_{CM}^{ext}\]
 
+\begin{examplebox}{}
+    Diguem que la terra és un \textit{sòlid rígid}, i es mou en una òrbita, per determinar la òrbita del centre total, ($\vec{L_0}$) aïllem de l'equació,
+
+    \[\vec{L_0} = \vec{L}_{CM} + \vec{R} \cross\vec{P}\]
+
+    Per tant el que fem és sumar el gir del centre de masses (el propi de la terra) i el de l'orbita per obtenir el total.
+
+    % DIBUIX RESOLUCIÖ problema orbita
+\end{examplebox}
+
 \section{Treball I Energies}
 
 L'enegia i el treball són \textbf{unitats escalars} és a dir que només tenen una magnitud sense \textit{sentit, ni direcció}.
@@ -1976,6 +1986,47 @@ Al contrari que el treball, l'energia cinètica \textbf{si que esta associada a 
 
 \end{demobox}
 
-\subsubsection{Energia Potencial}
+\subsubsection{\texorpdfstring{Energia Potencial ($\exists$ Per Forçes Conserviatives)}{Energia Potencial (Per Forçes Conserviatives)}}
 
+Per a una força conservativa $\vec F$, anomenem energia potencial $V$ la funció tal que $\vec F = -\nabla U$, és a dir, $V(\vec r) = -\int \vec F\cdot d\vec r$.
+
+\begin{examplebox}{}
+    Tenim una molla, que es contrau $\Delta x$ amb una força $F = -k\Delta x$, volem calcular el treball de la \textbf{força contrària} de la particula
+
+    % DIBUIX MOLLA.
+
+    \[W = \int_{x_1}^{x_2} -F dx = \int_{x_1}^{x_2} kx dx = [\frac{1}{2}kx^2]_{x_1}^{x_2}\]
+
+    Anomenem energia potencial $U$ a la funció $\frac{1}{2}kx^2$, on $-\dv{V}{t} = F$ si $x_1=x_2$ el treball i l'energia són zero.
+\end{examplebox}
+
+Que passa quan treballem amb una força no conservativa? (Com $F_f$)
+
+Si movem una partícula per una superficie en un sentit, es mou en sentit positiu i la força de fricció en sentit negatiu, per tant \textbf{la contraria es troba en sentit positiu}, si ara tornem endarrera, la particula es mou en sentit negatiu i la força de fregament en positiu i la contraria \textbf{en sincronia amb el moviment} per tant el treball total és $2 \mu mg L$ i no zero com haura de ser (anar i tornar). \boxed{\text{Per aquestes forces (no conservatives) no existeix cap funció} \; \Delta V = W} ($\nexists U$).
+
+\textit{Si el treball d'una foça és independent al camí que conecta el punt inicial $\vec{r_i}$ i el final $\vec{r_f}$ diem que és conservativa.}
+
+\subsection{Energia Mecànica}
+
+Suposem que una particula es mou sota l'acció d'una \textbf{força conservativa} $F$, el treball fet en contra es pot descriure com $W_{-F}= \Delta V = U_f-U_i$ per tant el treball de F $W_F = -\Delta U$. Pero haviem dit que $W_F = \Delta K$, obtenim que $\Delta K = - \Delta U$ i que $K+ E$ defineix una \textbf{nova magnitud}, \textit{energia mecànica} que si no apareixen forçes conservatives, és constant i es conserva, $\boxed{E = K + V}$.
+
+Si $\exists$ Forçes no conservatives, $\Delta E = W_F$
+
+\subsection{Energia potencial gravitatoria (alçades petites)}
+
+A poques distàncies podem representar un objecte de massa amb un Pes que actua cap abaix $\vec{P} = -mg\vec{j}$ i seguiex una corba C.
+
+%DIBUIX
+
+Sabem que;
+
+\[W = \int_C \vec{F} d\vec{r} = mg \int_C \vec{j} \cdot (dx \vec{i} + dy \vec{j}) = mg \int_{y_i}^{y_f} dy = [mgy]^{y_f}_{y_i}\]
+
+Hem trobat que $V = mgy$
+
+\subsection{Energia potencial gravitatoria (alçades grans)}
+
+
+
+\section{Ones}
 \end{document}
