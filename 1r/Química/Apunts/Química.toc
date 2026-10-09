@@ -12,3 +12,5 @@
 \contentsline {subsection}{\numberline {2.5}Electronegativitat (Escala de Mulliken)}{8}{subsection.2.5}%
 \contentsline {subsection}{\numberline {2.6}Representació de les Propietats Periòdiques}{9}{subsection.2.6}%
 \contentsline {section}{\numberline {3}Els Enllaços Covalents}{9}{section.3}%
+\contentsline {subsection}{\numberline {3.1}La Teoria de Lewis (1919)}{9}{subsection.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}Com Dibuixar Lewis}{11}{subsubsection.3.1.1}%

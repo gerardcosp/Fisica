@@ -1747,7 +1747,7 @@ Si $\vec{F}_{total}^{externa} = 0$, el moment no varia i $\vec{P}$ és constant.
     Passa el mateix amb el cos A, en sentit contrari.
 \end{examplebox}
 
-\begin{examplebox}{Xoc Perfectament Elàstic}
+\begin{examplebox}{Xoc Inelàstic}
     Si tenim al inici una \textbf{superficie amb fregament} com que és força no conservativa, $\Delta \vec{P} \neq 0$.
 
     Si al col·lisionar (en un terra ara si sense fregament ($\Delta \vec{P} = 0$))els dos cossos \textbf{s'ajunten}, al final, per cada persona $\vec{P_i} = \vec{P_f}$, de manera que;
@@ -1758,6 +1758,37 @@ Si $\vec{F}_{total}^{externa} = 0$, el moment no varia i $\vec{P}$ és constant.
     El moment no canvia perque el sistema A+B és aïllat.
 
     \[mv - MV = (m+M)V'\]
+
+
+    Si fem $\Delta K$ (Llegir Tema 5), obtenim $K_f - K_i = \frac{1}{2} (M+m) (\frac{mv-MV}{(M+M)})^2 -(\frac{1}{2}m v^2 + \frac{1}{2} MV'^2)$, observem que $\Delta K \neq 0$ de fet $\Delta K < 0$.
+
+    Podem afirmar que \textbf{l'energia es dissipa en forma de calor}.
+\end{examplebox}
+
+\begin{examplebox}{Xoc Esàstic}
+    La diferència es que en aquests, com que res s'uneix $\Delta K = 0$ sempre i podem imposar aquesta condició i la $\Delta \vec{p} = 0$
+
+    Si tenim dos blocs de massa $m, M$ amb velocitats $v, V$, podem imposar per trobar la final
+
+    \[\Delta K = 0 \rightarrow \frac{1}{2}mv^2 + \frac{1}{2}MV^2 = \frac{1}{2}mv'^2 + \frac{1}{2}MV'^2\]
+    \[\Delta \vec{p} = 0 \rightarrow mv - MV = MV' - mv'\]
+
+    Resolem l'equació;
+
+    \[m(v+v') = M(V+V')\]
+    \[m(v^2 - v'^2) = M(V'^2 -V^2) = v-v' = V'-V\]
+
+    D'aqui podem treure dos cassos;
+
+    \begin{itemize}
+        \item \textbf{Masses iguals}
+        Si $M = m$, podem argumentar que $V' = v$ i $V = v'$
+        
+        \item \textbf{Masses molt diferents}
+        Si $M >> m$, podem dir que $V' = -V$ i $v' = 2V+v$. És a dir que el cos gran segueix en el seu camí
+    
+    \end{itemize}
+
 \end{examplebox}
 
 \subsection{Centre de Masses}
@@ -2026,7 +2057,51 @@ Hem trobat que $V = mgy$
 
 \subsection{Energia potencial gravitatoria (alçades grans)}
 
+Si tenim dues masses que s'atrauen (generen una força d'atracció $G\frac{Mm}{r^3}\vec{r}$) i la particula \textbf{m} seguiex un cami Calcular
 
+%DUBUIX
 
+Per calcular \textit{l'energia potencial}, fem $U = \int-F = -GMm\int\frac{1}{r^3}\vec{r} d\vec{r}$ per començar canviem la integral i la fem respecte el temps ja que $d\vec{r} = \vec{v} dt$;
+
+\[U = -GMm \int_{t_i}^{t_f} \frac{1}{r^3} \vec{r} \vec{v} dt\]
+
+Si ens enrrecordem, $\vec{v} = \dot{\vec{r}}$, llavors tenim la derivada d'un producte;
+
+\[U = -\frac{1}{2}GMm\int_{t_i}^{t_f} \frac{1}{r^3} \dv{\vec{r}\cdot \vec{r}}{t} \]
+\[U = -\frac{1}{2}GMm \int_{r^2_i}^{r^2_f} (r^2)^{-3/2} d{r^2}\]
+\[U = [-\frac{2}{2} GMm \frac{1}{r}]_{r^2_i}^{r^2_f}\]
+
+I l'energia porencial ens queda com; $U = -\frac{GMm}{r}$ i no depèn del camí només de la distància inicial i final.
+\subsubsection{Gràfica Funció Energia}
+
+Sempre podem dibuixar la gràfica de \textbf{Energia respecte posició}. Recordem que $E$ és sempre constant (línea recta) i que la distància entre E i U és K;
+
+%DIBUIX GRÀFICA
+
+\begin{examplebox}{}
+    Suposem que la particula es mou radialment i té una energia E.
+
+    Denominem $r_{max}$ al lloc on $U = E$ i $K = 0$, per tant la particula es troba tancada dins del sistema.
+
+    Si volem llençar una massa i que s'escapi la llençem amb \textbf{velocitat d'escapament} on $K = 0, U = E, U \rightarrow 0$ per tant $E = 0$
+
+    Com que $\Delta E = 0$, $\frac{1}{2}mv^2 = \frac{GMm}{r}$; de manera que $v = \sqrt{\frac{2GM}{r}}$
+\end{examplebox}
+
+\subsection{Treball i Energia en Sistemes de Partícules}
+
+Si volem saber el \textbf{treball realitzat sobre el sistema} quan unes particules segueixen cadascuna una trajectoria $\tau_i$, podem obtenir que;
+
+\[\sum_{i = 1}^{n} \int_{\tau_i} \vec{F_i}^{tot} \cdot d\vec{r_i} = \sum_{i = 1}^{n} [\frac{1}{2} m_iv_i^2]^B_A = K_B - K_A\] 
+
+Si desenvolupem; podem trobar que:
+
+\[\sum_{i,j = 1: i<j}^{n} [U_{ji}]^A_B + \sum_{i=1}^{n} [U_i ]^A_B = K_B - K_A\]
+
+On el primer terme és el potencial intern però si parlem d'un sòlid rígid, $\vec{r}_{intern} = cte$ i $U_{intern} = 0$ per tant;
+
+\textbf{Teorema}
+
+\[E_A = E_B , \Delta E = 0, \Delta U = - \Delta K\]
 \section{Ones}
 \end{document}

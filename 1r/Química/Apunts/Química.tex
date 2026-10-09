@@ -249,7 +249,7 @@ L'equació d'Shrödinger té infinites solucions (\textit{comprovat matemàticam
 
 \begin{itemize}
     \item \textbf{n}, nombre primer: Aquest indica la distància entre l'electró i el nucli
-    \item \textbf{l}, moment angular orbital: Aquest indica la forma del orbital (0--$n-1$) i $\{0\ (s), 1\ (p), 2\ (d), 3\ (f) \dots\}$
+    \item \textbf{l}, moment angular orbital: Aquest indica la forma del orbital (0--$n-1$) i $\{0\ (s),\allowbreak 1\ (p),\allowbreak 2\ (d),\allowbreak 3\ (f)\allowbreak \dots\}$
     \item \textbf{m}, nombre magnètic: Aquest indica l'orientació del orbital (-l - l)
     \item \textbf{s}, spin: Indica com gira l'electró ($\pm \frac{1}{2}$).
 \end{itemize}
@@ -437,5 +437,95 @@ En els grups quan pujes hi ha menys electrons i menys $\sigma$ per tant més $Z_
 \end{center}
 
 \section{Els Enllaços Covalents}
+
+\subsection{La Teoria de Lewis (1919)}
+
+Lewis va dir que \textbf{el nombre d'electrons de valència} (electrons de l'última capa) \textbf{tenen gran importància en el nombre d'enllaços i tipus de compost que un àtom forma.}
+
+Quan hi ha una \textit{transferencia d'electrons} és un enllaç \textbf{iònic}
+
+Quan hi ha una \textit{compartició d'electrons} és un enllaç \textbf{covalent}
+
+Aquests es comparteixen o es transfereixen per donar una estabilitat de gas noble.
+
+La teoria de Lewis ens ensenya un àtom i els seus electrons de valència per així poder formar molècules; de manera que si tenim $Si(Z = 14): 1s^2 2s^2 2p^6 3s^2 3p^2$ (té 4 electrons de valència)
+
+\begin{center}
+    \begin{tikzpicture}
+        \node at (0,0) {$\mathrm{Si}$};
+        \fill (-0.35,0) circle (2pt);
+        \fill (0.35,0) circle (2pt);
+        \fill (0,0.35) circle (2pt);
+        \fill (0,-0.35) circle (2pt);
+    \end{tikzpicture}
+\end{center}
+
+Els àtoms més electronegatius tendeixen a compartir electrons fins a aconseguir la configuració electronica de gas noble més proper
+
+$\rightarrow$ \textit{Regla de l'octet}: Els àtoms comparteixen parells d'electrons per tal de completar l'octet (8 $e^-$ menys per $1s \rightsquigarrow 1s^2$)
+
+$\rightarrow$ \textit{València d'un element}: Nombre total de parells d'electrons que comparteix un àtom (en el cas dels diatòmiques \boxed{\text{valència = O.E}})
+
+Anomenem \textbf{ordre de reacció} (O.E) = nombre total de parells d’electrons que constitueixen un enllaç.
+
+I es calcula com $OE = \frac{N_{\text{electrons enllaçats}}-N_{\text{electrons no enllaçats}}}{2}$ i ho calculem per àtom en una molècula. De fet com a interpretació;
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{c|c}
+        \hline
+        \textbf{Ordre d'enllaç} & \textbf{Interpretació habitual} \\
+        \hline
+        1 & Enllaç simple \\
+        2 & Enllaç doble \\
+        3 & Enllaç triple \\
+        \hline
+    \end{tabular}
+\end{table}
+
+Anomenem \textbf{càrrega formal} (\(CF\)) a la diferència entre el nombre d'electrons de valència de l'àtom aïllat i el nombre d'electrons que se li assignen en l'estructura de Lewis.
+
+\[
+\boxed{CF=V-N-\frac{E}{2}}
+\]
+
+on \(V\) és el nombre d'electrons de valència de l'àtom aïllat, \(N\) el nombre d'electrons no enllaçants i \(E\) el nombre d'electrons compartits en els enllaços.
+
+La suma de totes les càrregues formals ha de ser igual a la càrrega total de la molècula o ió.
+
+Anomenem \textbf{forma ressonant} cadascuna de les estructures de Lewis d'una mateixa molècula o ió que difereixen únicament en la distribució dels electrons, mantenint fixa la posició dels àtoms.
+
+La molècula real és un \textbf{híbrid de ressonància} de totes les formes ressonants possibles.
+
+Com hem vist al tema 1, hi ha electrons amb \textbf{electronegativitats} ($\chi$) diferents, i per tant atrauen (en un compost) de maneres diferents. Podem distingir 3 tipus d'enllaç depenent del tipus de electronegativitat.
+
+\begin{itemize}
+    \item $A ^+ B^-$: Enllaç Iònic, electrons es transfereixen ($\delta = \pm 1$)
+    \item $A^{\delta +}-B^{\delta -}$: Enllaç Covalent-polar ($\delta = \pm 0.2$)
+    \item $A-A$: Enllaç Covalent ($\delta = 0$)
+\end{itemize}
+
+\subsubsection{Com Dibuixar Lewis}
+
+\begin{itemize}
+    \item 1. Escrivim la configuració electrònica de tots els enllaços de la molècula
+    \item 2. Escrivim l'estructura de Lewis per cada element
+    \item 3. Posem l'àtom menys electronegatiu al mig i els altres als voltant
+    
+    \begin{itemize}
+        \item Els àtoms d'hidrogen són sempre àtoms terminals.
+        \item Els àtoms centrals són, generalment, els que tenen la electronegativitat més baixa.
+        \item Els àtoms de carboni són sempre àtoms centrals.
+        \item En general, les estructures són compactes i simètriques.
+    \end{itemize}
+    
+    [Recordem que L'hidrogen només requereix 2 electrons. - Els elements del tercer període i dels posteriors poden expandir l'octet fins a 10, 12 o 14 electrons.]
+\end{itemize}
+
+\begin{center}
+    \includegraphics[width=1\textwidth]{Passos_Lewis.jpeg}
+\end{center}
+
+% Com fer diagrames lewis
 
 \end{document}
