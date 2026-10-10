@@ -5,7 +5,7 @@
 % ============================================================
 
 \usepackage[utf8]{inputenc}
-\usepackage[a4paper, margin=2cm]{geometry}
+\usepackage[a4paper, margin=1.2cm]{geometry}
 
 % ============================================================
 %                    MATEMÀTIQUES I FÍSICA
@@ -58,11 +58,30 @@ Aquest document recull les definicions, demostracions i fòrmules bàsiques per 
 \end{abstract}
 
 \begin{tcolorbox}[
-  title=Canvis de Base,
-  colback=red!5!white,
-  colframe=red!70!black,
+  title=Sistemes de Referència,
+  colback=RoyalBlue!5!white,
+  colframe=RoyalBlue!70!black,
   coltitle=white,
-  colbacktitle=red!70!black,
+  colbacktitle=RoyalBlue!70!black,
+  fonttitle=\bfseries,
+  arc=6pt,
+  boxrule=0.8pt
+]
+
+\textbf{RELACIÓ}\\
+\\
+$\vec{r} = \vec{R} + \vec{r'}$\\
+\\
+Fem servir el \textbf{canvi de bases} per conveniència, quan el sistema es fa més fàcil. Hi ha bases que depenen del temps com els \textit{vectors de frenet}, o d'altres que no com \textit{la base polar} que per problemes circulars és molt més fàcil. Sempre hem de deixar estipulat com és el canvi en les bases i com afecten a tots els components del problema.
+%inercia
+\end{tcolorbox}
+
+\begin{tcolorbox}[
+  title=Canvis de Base,
+  colback=RoyalBlue!5!white,
+  colframe=RoyalBlue!70!black,
+  coltitle=white,
+  colbacktitle=RoyalBlue!70!black,
   fonttitle=\bfseries,
   arc=6pt,
   boxrule=0.8pt
@@ -76,14 +95,15 @@ Fem servir el \textbf{canvi de bases} per conveniència, quan el sistema es fa m
 
 \end{tcolorbox}
 
+
 \section{Cinemàtica}
 
 \begin{tcolorbox}[
   title=Fórmues bàsiques,
-  colback=orange!5!white,
-  colframe=orange!70!black,
+  colback=Cerulean!5!white,
+  colframe=Cerulean!70!black,
   coltitle=white,
-  colbacktitle=orange!70!black,
+  colbacktitle=Cerulean!70!black,
   fonttitle=\bfseries,
   arc=6pt,
   boxrule=0.8pt
@@ -107,10 +127,10 @@ $\vec{v}(t) = \dot{\vec{r}}(t) = \dv{\vec{r}}{t}$\\
 
 \begin{tcolorbox}[
   title=Fórmules Bàsiques,
-  colback=yellow!5!white,
-  colframe=yellow!70!black,
+  colback=Goldenrod!5!white,
+  colframe=Goldenrod!70!black,
   coltitle=white,
-  colbacktitle=yellow!70!black,
+  colbacktitle=Goldenrod!70!black,
   fonttitle=\bfseries,
   arc=6pt,
   boxrule=0.8pt
@@ -131,10 +151,10 @@ $v(t) = v_0 + a(t-t_0)$\\
 
 \begin{tcolorbox}[
   title=Fórmues bàsiques,
-  colback=green!5!white,
-  colframe=green!70!black,
+  colback=ForestGreen!5!white,
+  colframe=ForestGreen!70!black,
   coltitle=white,
-  colbacktitle=green!70!black,
+  colbacktitle=ForestGreen!70!black,
   fonttitle=\bfseries,
   arc=6pt,
   boxrule=0.8pt
@@ -166,10 +186,10 @@ $\vec{a_N} = \frac{v^2}{R} = \omega^2 R$(En direcció cap a dins del cercle)\\
 
 \begin{tcolorbox}[
   title=Fórmues bàsiques,
-  colback=blue!5!white,
-  colframe=blue!70!black,
+  colback=RoyalPurple!5!white,
+  colframe=RoyalPurple!70!black,
   coltitle=white,
-  colbacktitle=blue!70!black,
+  colbacktitle=RoyalPurple!70!black,
   fonttitle=\bfseries,
   arc=6pt,
   boxrule=0.8pt
@@ -207,10 +227,10 @@ $D = \int_{x_0}^{x} \sqrt{1 + y'} dx$\\
 
 \begin{tcolorbox}[
   title=Fórmues bàsiques,
-  colback=magenta!5!white,
-  colframe=magenta!70!black,
+  colback=BurntOrange!5!white,
+  colframe=BurntOrange!70!black,
   coltitle=white,
-  colbacktitle=magenta!70!black,
+  colbacktitle=BurntOrange!70!black,
   fonttitle=\bfseries,
   arc=6pt,
   boxrule=0.8pt
@@ -222,11 +242,622 @@ La idea és definir les llargades de les poltijes com a $S_1$ i relacionar-ho am
 \\
 $L = \sum_{i = 0}^{n} S_i$\\
 $0 = \sum_{i = 0}^{n} V_i$\\
-\\
-
+$0 = \sum_{i = 0}^{n} A_i$\\
 \end{tcolorbox}
 
 \section{Dinàmica}
+\subsection{Equacions de Newton}
+
+\begin{tcolorbox}[
+    title=Fórmules Bàsiques,
+    colback=IndianRed!5!white,
+    colframe=IndianRed!70!black,
+    coltitle=white,
+    colbacktitle=IndianRed!70!black,
+    fonttitle=\bfseries,
+    arc=6pt,
+    boxrule=0.8pt
+]
+
+\textbf{1a LLEI DE NEWTON}\\
+\\
+Si no actua cap força neta sobre un cos, aquest manté el seu estat de repòs o de moviment rectilini uniforme.\\
+\\
+$\sum \vec{F} = \vec{0}$\\
+\\
+\textbf{2a LLEI DE NEWTON}\\
+\\
+El canvi de moment lineal d'un cos per unitat de temps és igual a la força neta que actua sobre ell.\\
+\\
+$\vec{F} = \dv{\vec{p}}{t} = m\vec{a}$\\
+\\
+\textbf{3a LLEI DE NEWTON}\\
+\\
+Quan un cos exerceix una força sobre un altre, aquest exerceix una força igual i de sentit contrari sobre el primer.\\
+\\
+$\vec{F}_{12} = -\vec{F}_{21}$\\
+\end{tcolorbox}
+
+\subsection{Forçes / Situacions Conegudes}
+
+\begin{tcolorbox}[
+    title=Fórmules Bàsiques,
+    colback=IndianRed!5!white,
+    colframe=IndianRed!70!black,
+    coltitle=white,
+    colbacktitle=IndianRed!70!black,
+    fonttitle=\bfseries,
+    arc=6pt,
+    boxrule=0.8pt
+]
+
+\textbf{GRAVETAT ARTIFICIAL}\\
+\\
+Anomenem \textbf{gravetat artificial} l'efecte produït per una acceleració centrípeta que simula la gravetat.\\
+\\
+$g = \dfrac{v^2}{R} = \omega^2 R$\\
+\\
+\textbf{CAIGUDA LLIURE}\\
+\\
+Moviment d'un cos sotmès únicament a l'acceleració de la gravetat.\\
+\\
+$\vec{a} = -g\vec{j}$\\
+$P + F = mg \therefore F = 0$\\
+\\
+\textbf{TENSIÓ}\\
+\\
+En aquest curs, considerem que la tensió es manté constant al llarg d'una corda ideal, tant si és recta com si és corba.\\
+\\
+\textbf{FORCES}\\
+\\
+$\vec{P} = -mg\vec{j}$\\
+\\
+$\vec{F}_g = -G\dfrac{Mm}{r^3}\vec{r}$\\
+\\
+$\vec{F}_e = -k\Delta x\vec{i}$\\
+\\
+$\left|\vec{F}_f\right| = \mu_{e/c}N$\\
+\\
+\textbf{POLITJES}\\
+\\
+Si tenim un \textbf{sistema de politjes} on entren 2 cordes i en surt una, podem escriure les forçes totals com a múltiples de \# entrada i sortida; $F_i = 2F_f$
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[
+    colback=white,
+    colframe=black,
+    boxrule=0.8pt,
+    arc=0pt
+]
+
+\textbf{RODA I CONDICIÓ DE RODAMENT}
+
+Si no hi ha fregament la velocitat d'adalt d'una roda és $v = 2\omega R$ i la d'abaix $v = 0$ (ja que la suma de velocitats abaix és oposada i adalt en sincronia) on anomenem \textbf{que la roda esta rodant}, això es produeix quan la força que es fa és $\leq \mu_e N$.
+
+Quan actua el fregament és que hem passat de $\mu_e$ a $\mu_d$ i la velcoitat de translació ja no és $\omega R$ per tant abaix ara ja no roda i llisca.
+
+EXEMPLE: FRENS ABS;
+
+Una roda és mou endavant amb \textit{velocitat} $v = \omega R$ i volem que pari amb una \textbf{acceleració de frenada}, però no volem que llisqui perque sino després perdem el control així que obtenim que;
+
+\[F_f = ma\]
+\[\mu_e mg \geq ma\]
+
+Per tant l'acceleració ha de ser menor o igual a $\mu_e \cdot g$
+
+\begin{center}
+\begin{tikzpicture}[
+    >=stealth,
+    thick
+]
+
+    % Terra
+    \draw[thick, black!20] (-0.5,.4) -- (7.5,0.4);
+    \foreach \x in {-0.4,-0.1,...,7.4} {
+        \draw[black!10] (\x,0) -- ++(0.2,0.2);
+    }
+
+    % Roda
+    \shade[
+        ball color=gray!20
+    ] (3.2,1.6) circle (1.2);
+
+    % Contorn de la roda
+    \draw[very thick, black!75] (3.2,1.6) circle (1.2);
+
+    % Centre de la roda
+    \fill[black] (3.2,1.6) circle (0.05);
+    \node[above left] at (3.2,1.6) {$C$};
+
+    % Radi
+    \draw[dashed, black!60] (3.2,1.6) -- (3.2,0.4);
+    \node[left] at (3.2,1.0) {$R$};
+
+    % Velocitat del centre
+    \draw[
+        ->,
+        very thick,
+        blue!75!black
+    ] (3.2,1.6) -- (5.0,1.6)
+        node[midway, above] {\color{blue!75!black}$v_{\mathrm{CM}}$};
+
+    % Velocitat del punt superior
+    \draw[
+        ->,
+        very thick,
+        blue!75!black
+    ] (3.2,2.8) -- (6.0,2.8)
+        node[midway, above] {\color{blue!75!black}$v_{\mathrm{dalt}}=2v_{\mathrm{CM}}$};
+
+    \draw[
+        <-,
+        very thick,
+        red!75!black
+    ] (2.2,0.4) -- (3.2,0.4)
+        node[midway, below] {\color{red!75!black}$\omega R$};
+
+   % Velocitat total del punt de contacte: zero
+    \node[right] at (4.8,0.4)
+        {\color{red!75!black}$v_P=v_{\mathrm{CM}}-\omega R=0$};
+
+    % Sentit de gir
+    \draw[
+        ->,
+        very thick,
+        orange!85!black
+    ] (2.35,2.35) arc[
+        start angle=135,
+        end angle=35,
+        radius=1.2
+    ];
+    \node[orange!85!black] at (1.4,2.75) {$\omega$};
+
+    % Condició de rodament
+    \node[
+        draw=black,
+        rounded corners=2pt,
+        fill=white,
+        align=center,
+        inner sep=6pt
+    ] at (6.0,1.15)
+        {$\boxed{v_{\mathrm{CM}}=\omega R}$};
+
+\end{tikzpicture}
+\end{center}
+
+\end{tcolorbox}
+
+\section{Sistemes De Partícules I i II}
+\subsection{Centre de Masses}
+
+Si $\sum F$ són conservatives, el CM és \textit{invariable}
+
+\begin{tcolorbox}[
+  title=Fórmues bàsiques,
+  colback=CadetBlue!5!white,
+  colframe=CadetBlue!70!black,
+  coltitle=white,
+  colbacktitle=CadetBlue!70!black,
+  fonttitle=\bfseries,
+  arc=6pt,
+  boxrule=0.8pt
+]
+
+\textbf{CENTRE DE MASSES}\\ 
+\\
+$\vec{R_t} = \frac{m_1 \vec{r_1} + \dots + m_n \vec{r_n}}{M}$\\
+$\vec{R_t} = \frac{1}{M} \int_V \vec{r}dm = \frac{1}{M} \int_V \vec{r}\rho dV$\\
+\end{tcolorbox}
+
+\subsection{Moments}
+
+En tots els moment ignorem els interns ja que no afecten i només ens centrem en les components externes.\\
+
+\noindent Si alguna força és paral·lela al eix que indiquem, aquesta mou l'eix sinó l'eix es queda igual.\\
+
+\noindent Sempre, en qualsevol cas $\Delta P = 0$.
+
+\begin{tcolorbox}[
+  title=Fórmues bàsiques,
+  colback=MidnightBlue!5!white,
+  colframe=MidnightBlue!70!black,
+  coltitle=white,
+  colbacktitle=MidnightBlue!70!black,
+  fonttitle=\bfseries,
+  arc=6pt,
+  boxrule=0.8pt
+]
+
+\textbf{MOMENT LINEAL}\\ 
+\\
+$\vec{p} = m \vec{v}$\\
+$P = \sum p$\\
+\\
+\textbf{MOMENT DE FORÇA}\\
+\\
+$\vec{m} = \vec{f} \cross \vec{r}$ [Només prenem la component perpendicular al vector direcció]\\
+$\vec{m} = \dot{\vec{l}}$\\
+$M = \sum m$\\
+\\
+\textbf{MOMENT INTERCIAL}\\
+\\
+$I = m\omega r^2$ ($r = \eta$)\\
+\\
+\textbf{MOMENT ANGULAR}\\ 
+\\
+$\vec{l} = \vec{p} \cross \vec{r}$\\
+$L = \sum l$\\
+$L = I \omega$\\
+$\vec{L_0} = \vec{L_{CM}} + \vec{R} \cross \vec{P}$\\
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[
+    colback=white,
+    colframe=black,
+    boxrule=0.8pt,
+    arc=0pt
+]
+
+\textbf{CONDICIÓ D'EQUILIRBI}
+
+Diem que un sistema es troba en equilibri quan \textbf{ni es mou ni gira} de manera que compleix;
+
+\[\sum \vec{F} = 0\]
+\[\sum \vec{M} = 0\]
+
+\begin{center}
+\begin{tikzpicture}[
+    >=stealth,
+    thick
+]
+
+    % Terra
+    \draw[thick, black!70] (-0.5,0) -- (5.5,0);
+    \foreach \x in {-0.4,-0.1,...,5.4} {
+        \draw[black!40] (\x,0) -- ++(-0.2,-0.2);
+    }
+
+    % Bloc
+    \shade[
+        top color=blue!20,
+        bottom color=blue!50,
+        draw=blue!60!black,
+        very thick
+    ] (1.8,0) rectangle (3.4,1.6);
+
+    % Centre de massa
+    \fill[black] (2.6,0.8) circle (0.06);
+    \node[above right] at (2.6,0.8) {$C$};
+
+    % Força normal N
+    \draw[
+        ->,
+        very thick,
+        red!75!black
+    ] (2.6,1.6) -- (2.6,2.8)
+        node[midway, right] {\color{red!75!black}$\vec N$};
+
+    % Pes mg
+    \draw[
+        ->,
+        very thick,
+        blue!75!black
+    ] (2.6,0.8) -- (2.6,-0.8)
+        node[right] {\color{blue!75!black}$m\vec g$};
+
+    % Força aplicada F
+    \draw[
+        ->,
+        very thick,
+        green!50!black
+    ] (3.4,0.8) -- (4.8,0.8)
+        node[midway, above] {\color{green!50!black}$\vec F$};
+
+    % Fregament f
+    \draw[
+        ->,
+        very thick,
+        purple
+    ] (1.8,0.8) -- (0.4,0.8)
+        node[midway, above] {\color{purple}$\vec f$};
+
+\end{tikzpicture}
+\end{center}
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[
+    colback=white,
+    colframe=black,
+    boxrule=0.8pt,
+    arc=0pt
+]
+
+\textbf{XOCS I CONDICIONS}
+
+Tenim \textbf{3 tipus de xocs} i cadascuna implica les seves condicions;
+
+\begin{itemize}
+  \item Xocs Elàstics: Els cossos xoquen sense \textbf{deformar-se} ni perdre \textbf{energia} de manera que; $\Delta P = 0$ i $\Delta K = 0$
+  
+  \begin{center}
+
+\begin{tikzpicture}[
+    >=stealth,
+    thick,
+    scale=0.9
+]
+
+    % Abans del xoc
+    \node at (0.8,2.2) {\small Abans del xoc};
+
+    % Bola 1
+    \shade[ball color=blue!55] (0.5,1.2) circle (0.3);
+    \node at (0.5,1.2) {\small $m_1$};
+
+    % Bola 2
+    \shade[ball color=orange!70] (3.0,1.2) circle (0.3);
+    \node at (3.0,1.2) {\small $m_2$};
+
+    % Velocitat inicial 1
+    \draw[->,very thick,blue!75!black]
+        (0.8,1.2) -- (1.8,1.2)
+        node[midway,above] {\color{blue!75!black}$\vec v_{1i}$};
+
+    % Velocitat inicial 2
+    \draw[->,very thick,blue!75!black]
+        (2.7,1.2) -- (2.0,1.2)
+        node[midway,below] {\color{blue!75!black}$\vec v_{2i}$};
+
+    % Fletxa temporal
+    \draw[->,very thick,black!60]
+        (4.0,1.2) -- (5.0,1.2)
+        node[midway,above] {\small Xoc};
+
+    % Després del xoc
+    \node at (7.1,2.2) {\small Després del xoc};
+
+    % Bola 1
+    \shade[ball color=blue!55] (6.0,1.2) circle (0.3);
+    \node at (6.0,1.2) {\small $m_1$};
+
+    % Bola 2
+    \shade[ball color=orange!70] (8.0,1.2) circle (0.3);
+    \node at (8.0,1.2) {\small $m_2$};
+
+    % Velocitat final 1
+    \draw[->,very thick,blue!75!black]
+        (6.3,1.2) -- (7.1,1.2)
+        node[midway,above] {\color{blue!75!black}$\vec v_{1f}$};
+
+    % Velocitat final 2
+    \draw[->,very thick,blue!75!black]
+        (8.3,1.2) -- (9.2,1.2)
+        node[midway,above] {\color{blue!75!black}$\vec v_{2f}$};
+
+\end{tikzpicture}
+\end{center}
+  
+  \item Xocs Inelàstics: Els cossos xoquen i es \textbf{genera energia} (es perd), pero no es deformen de manera que; $\Delta P = 0$ i $\Delta K \neq 0$
+  
+\begin{center}
+
+\begin{tikzpicture}[
+    >=stealth,
+    thick,
+    scale=0.9
+]
+
+    % Abans del xoc
+    \node at (0.8,2.2) {\small Abans del xoc};
+
+    % Bola 1
+    \shade[ball color=blue!55] (0.5,1.2) circle (0.3);
+    \node at (0.5,1.2) {\small $m_1$};
+
+    % Bola 2
+    \shade[ball color=orange!70] (3.0,1.2) circle (0.3);
+    \node at (3.0,1.2) {\small $m_2$};
+
+    % Velocitat inicial 1
+    \draw[->,very thick,blue!75!black]
+        (0.8,1.2) -- (1.8,1.2)
+        node[midway,above] {\color{blue!75!black}$\vec v_{1i}$};
+
+    % Velocitat inicial 2
+    \draw[->,very thick,blue!75!black]
+        (2.7,1.2) -- (2.0,1.2)
+        node[midway,below] {\color{blue!75!black}$\vec v_{2i}$};
+
+    % Fletxa temporal
+    \draw[->,very thick,black!60]
+        (4.0,1.2) -- (5.0,1.2)
+        node[midway,above] {\small Xoc};
+
+    % Després del xoc
+    \node at (7.1,2.2) {\small Després del xoc};
+
+    % Boles després del xoc
+    \shade[ball color=blue!55] (6.0,1.2) circle (0.3);
+    \node at (6.0,1.2) {\small $m_1$};
+
+    \shade[ball color=orange!70] (6.65,1.2) circle (0.3);
+    \node at (6.65,1.2) {\small $m_2$};
+
+    % Velocitat final
+    \draw[->,very thick,blue!75!black]
+        (6.95,1.2) -- (8.4,1.2)
+        node[midway,above] {\color{blue!75!black}$\vec v_f$};
+
+    % Energia dissipada
+    \draw[->,very thick,red!75!black]
+        (6.3,0.75) -- (6.3,0.1)
+        node[below] {\color{red!75!black}\small Energia dissipada};
 
 
+
+\end{tikzpicture}
+\end{center}
+
+  \item Xocs Perfectament Inelàstics: Els xocs es \textbf{deformen} i es perd energia de manera que; $\Delta P = 0$ i $\Delta K \neq 0$
+
+  \begin{center}
+
+\begin{tikzpicture}[
+    >=stealth,
+    thick,
+    scale=0.9
+]
+
+    % Abans del xoc
+    \node at (0.8,2.2) {\small Abans del xoc};
+
+    % Bola 1
+    \shade[ball color=blue!55] (0.5,1.2) circle (0.3);
+    \node at (0.5,1.2) {\small $m_1$};
+
+    % Bola 2
+    \shade[ball color=orange!70] (3.0,1.2) circle (0.3);
+    \node at (3.0,1.2) {\small $m_2$};
+
+    % Velocitat inicial 1
+    \draw[->,very thick,blue!75!black]
+        (0.8,1.2) -- (1.8,1.2)
+        node[midway,above] {\color{blue!75!black}$\vec v_{1i}$};
+
+    % Velocitat inicial 2
+    \draw[->,very thick,blue!75!black]
+        (2.7,1.2) -- (2.0,1.2)
+        node[midway,below] {\color{blue!75!black}$\vec v_{2i}$};
+
+    % Fletxa temporal
+    \draw[->,very thick,black!60]
+        (4.0,1.2) -- (5.0,1.2)
+        node[midway,above] {\small Xoc};
+
+    % Després del xoc
+    \node at (7.1,2.2) {\small Després del xoc};
+
+    % Cossos units
+    \shade[
+        ball color=blue!45,
+        draw=blue!75!black,
+        very thick
+    ] (6.0,1.2) circle (0.3);
+
+    \shade[
+        ball color=orange!70,
+        draw=orange!80!black,
+        very thick
+    ] (6.5,1.2) circle (0.3);
+
+    % Etiqueta masses
+    \node at (6.25,1.2) {\scriptsize $m_1+m_2$};
+
+    % Velocitat final conjunta
+    \draw[->,very thick,blue!75!black]
+        (6.8,1.2) -- (8.4,1.2)
+        node[midway,above] {\color{blue!75!black}$\vec v_f$};
+
+    % Energia dissipada
+    \draw[->,very thick,red!75!black]
+        (6.3,0.75) -- (6.3,0.1)
+        node[below] {\color{red!75!black}\small Energia dissipada};
+
+    % Condicions
+
+\end{tikzpicture}
+\end{center}
+
+\end{itemize}
+
+% ============================================================
+%                    1. XOC ELÀSTIC
+% ============================================================
+
+
+
+
+% ============================================================
+%                    2. XOC INELÀSTIC
+% ============================================================
+
+
+
+
+% ============================================================
+%               3. XOC PERFECTAMENT INELÀSTIC
+% ============================================================
+
+
+
+
+
+\end{tcolorbox}
+
+\section{Treball i Energia}
+
+\subsection{Treball}
+
+\begin{tcolorbox}[
+  title=Fórmues bàsiques,
+  colback=DarkOrchid!5!white,
+  colframe=DarkOrchid!70!black,
+  coltitle=white,
+  colbacktitle=DarkOrchid!70!black,
+  fonttitle=\bfseries,
+  arc=6pt,
+  boxrule=0.8pt
+]
+
+\textbf{TREBALL}\\ 
+\\
+$W = \vec{F} \cdot \vec{r}$\\
+$W = \int_C \vec{F} \cdot d\vec{r} = \int_{t_0}^{t} \vec{F}\cdot \vec{v} dt$\\
+\\
+\textbf{POTÈNCIA}\\
+\\
+$P = \frac{W}{\Delta t}$ 
+$P_{inst} = \dv{W}{t} = \vec{F} \cdot \vec{v}$\\
+\end{tcolorbox}
+
+\subsection{Energies}
+
+\begin{tcolorbox}[
+  title=Fórmues bàsiques,
+  colback=DarkOliveGreen!5!white,
+  colframe=DarkOliveGreen!70!black,
+  coltitle=white,
+  colbacktitle=DarkOliveGreen!70!black,
+  fonttitle=\bfseries,
+  arc=6pt,
+  boxrule=0.8pt
+]
+
+\textbf{ENERGIA CINÈTICA}\\ 
+\\
+$K = \frac{1}{2} mv^2$\\
+$W = \Delta K$\\
+\\
+\textbf{ENERGIA POTENCIAL}\\
+\\
+Aquesta és la funció respecte la posició al computar la integral negativa d'una força que es fa;
+\\
+$U = \int_C -F \cdot d\vec{r}$ 
+$W = -\Delta U$\\
+\\
+\textbf{ENERGIA MECÀNICA}\\
+\\
+$E = U + K$\\
+$\Delta E = 0 \rightleftarrows$ Només actuen forçes conservatives\\
+$\Delta E = W_{fnc} \rightleftarrows$ Si actuen forçes no conservatives\\ 
+\\
+\textbf{ENERGIES CONEGUDES}\\
+\\
+$U = \frac{1}{2}k \Delta x^2$\\
+$U = - \frac{GMm}{r}$\\
+$U = mgy$\\
+\end{tcolorbox}
 \end{document}
