@@ -1076,7 +1076,15 @@ On li adjuntem un input \textbf{x} i en surt un output \textbf{y}, no només só
     \item $f(\lambda u) = \lambda f(u)$
 \end{itemize}
 
-\subsection{Forma lineal d'un Vector (El dual d'un vector)}
+Podem anomenar una \textbf{aplicació lineal}, si és lineal (és a dir homogenia i de 1r grau) i es compleix que si;
+
+\[u = v-w\]
+
+Llavors necessariament;
+
+\[f(u) = f(v)- f(w)\]
+
+\textbf{Forma lineal d'un Vector (El dual d'un vector)}
 
 Si fem una aplicació de la forma, amb $A = \begin{pmatrix}
     a_1 & a_2 & \dots & a_n
@@ -1117,4 +1125,165 @@ Que simplement és una matriu $1\cross 1$ de la forma $\begin{pmatrix}
 
     I obtenim que $f(x,y) = (x+2y, 2x+y)$
 \end{examplebox}
+
+\noindent\rule{\linewidth}{0.4pt}
+
+\textbf{Cas Concret}:
+
+\[T = \begin{pmatrix}
+    1 & 2 & 1\\
+    2 & 3 & 4
+\end{pmatrix}\]
+
+\[f: \R^3 \rightarrow \R^2\]
+\[\begin{pmatrix}
+    x\\
+    y\\
+    z
+\end{pmatrix} \rightarrow T \begin{pmatrix}
+    x\\
+    y\\
+    z
+\end{pmatrix} = \begin{pmatrix}
+    x + 2y + z \\
+    2x + 3y + 4z
+\end{pmatrix}\]
+
+Podem escriure la funció $f$ com aquesa aplicació lineal o com $f(x,y,z) = (x+2y+z, 2x+3y+4z)$. Podem pensar \textit{quina serà la base d'aquesta aplicació lineal?}
+
+\[f(1,0,0) = (1,3)\]
+\[f(0,1,0) = (2,3)\]
+\[f(0,0,1) = (1,4)\]
+
+\textcolor{red}{\textbf{Si mirem, les bases del vector inicial corresponen amb les columnes de la matriu aplicació lineal}}.
+
+Per trobar el que a càlcul li diriem \textit{funció inversa}.
+
+Si tenim $f(1,1,1) = (2,1), f(0,1,1) = (0,0), f(2,3,1) = (5,7)$ i volem saber el valor de $f(2026,2026,2027)$. 
+
+Com que $(1,1,1), (0,1,1), (2,3,1)$ és base de $\R^3$ i són \textbf{linealment independents}.
+
+Sabem que $(x,y,z) \in \R^3 = \mu_1 (1,1,1) + \mu_2(0,1,1) + \mu_3 (2,3,1)$, obtenint un vector qualsevol en la base d'$\R^3$, $(\mu_1, \mu_2, \mu_3)_B$.
+
+\[f(e) = M(a_n \leftarrow B)\] (e en cordenades de B). Calculem $f(e)$ en coordenades canòniques
+
+\[f(\begin{pmatrix}
+    \mu_1 \\
+    \mu_2 \\
+    \mu_3
+\end{pmatrix}) = \begin{pmatrix}
+    2 & 0 & 5\\
+    1 & 0 & 7
+\end{pmatrix} \begin{pmatrix}
+    \mu_1 \\
+    \mu_2 \\
+    \mu_3
+\end{pmatrix}\]
+
+Pero $\mu_1 \neq 2026, \mu_2 \neq \mu_3 \neq 2027$ ja que no son vectors dins de la base b, ho podem comprovar intentant-los construir \textbf{com a combinació lineal de la base}.
+
+Per tant $\begin{pmatrix}
+    2026 \\
+    2027\\
+    2027
+\end{pmatrix} = \mu_1 \begin{pmatrix}
+    1\\
+    1\\
+    1
+\end{pmatrix} + \mu_2 \begin{pmatrix}
+    0\\
+    1\\
+    1
+\end{pmatrix} + \mu_3 \begin{pmatrix}
+    2\\
+    3\\
+    1
+\end{pmatrix}$
+
+i ara si que podem fer $f(\begin{pmatrix}
+    2026\\
+    1\\
+    0
+\end{pmatrix}) = \begin{pmatrix}
+    4052\\
+    2026
+\end{pmatrix}$
+
+\subsection{Aplicacions Injectives, Exhaustives i Bijectives}
+
+\subsubsection{Aplicació Injectiva}
+
+Una aplicació és \textbf{injectiva} sempre que;
+
+\[f(e) = f(v), e=v\]
+
+I l'anomenem \textit{monomorfisme}
+
+És injectiva si $\dim \ker(f) = 0$ és a dir tots els vectors que fan 0 la funció (\textit{nucli}) tenen dimensió zero.
+
+\subsubsection{Aplicació Exhaustiva}
+
+Una aplicació és \textbf{exhaustiva} sempre que:
+
+\[\forall w \in E_2 \exists e \in E_1 \mid  f(e) = w\]
+
+I l'anomenem \textit{eplomorfisme}
+
+És exhaustiva si $\dim E_2 = \dim \Im(E_1)$
+
+\subsubsection{Aplicació Bijectiva}
+
+Una aplicació és \textbf{bijectiva} sempre que és \textit{exhaustiva i injectiva}
+
+I l'anomenem \textit{isomorfisme}
+
+\begin{examplebox}{}
+    Quin tipus d'aplicació és;
+
+    \[f: \R^3 \rightarrow \R^2\]
+    \[\begin{pmatrix}
+        x\\
+        y\\
+        z
+    \end{pmatrix} \rightarrow \begin{pmatrix}
+        1 & 2 & 1\\
+        2 & 1 & 3
+    \end{pmatrix}\begin{pmatrix}
+        x\\
+        y\\
+        z
+    \end{pmatrix}\]
+
+    Podem veure que amb la matriu resultant, \textbf{f és lineal}.
+
+    És injectiva?
+
+    \[\ker f = \{\lambda\begin{pmatrix}
+    -5\\
+    1\\
+    3
+    \end{pmatrix}\mid \lambda\in\R\}\].
+
+    Per tant $\dim \ker f \neq 0$ i \textbf{no es injectiva}
+
+    És exhaustiva?
+
+    Volem mirar si $Im(f) = \R^2$. Si manipulem la matriu resultant ens surt; $\begin{pmatrix}
+        x + 2y + z\\
+        -3y + z
+    \end{pmatrix}$ per tant $\dim Im(f) = Rang(A') = 2 = \dim R^2$
+
+    \textbf{és exhaustiva}.
+
+    Com que és exhaustiva pero no injectiva \textbf{no es bijectiva}.
+
+\end{examplebox}
+
+\begin{proof}
+    1: Si monomorfisme, $f(0) = f(0+0) = f(0) + f(0) = 0+0 = 0$. Tota f lineal en una f(\textbf{vector zero}) tenim $\vec{0_E} \leftarrow \ker f$, com és monomrofisme només serà cert $\dim \ker f = 0$ si $\ker = (0,\dots,0)$ pel lema és injectiva.
+\end{proof}
+
+\begin{proof}
+    2:
+\end{proof}
 \end{document}
