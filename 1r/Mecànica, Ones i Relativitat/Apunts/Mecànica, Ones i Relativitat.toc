@@ -25,17 +25,17 @@
 \contentsline {subsection}{\numberline {3.2}Moment Lineal}{16}{subsection.3.2}%
 \contentsline {subsection}{\numberline {3.3}Centre de Masses}{18}{subsection.3.3}%
 \contentsline {subsection}{\numberline {3.4}Repàs: Producte Vectorial}{19}{subsection.3.4}%
-\contentsline {subsection}{\numberline {3.5}Moment de Forces}{19}{subsection.3.5}%
-\contentsline {section}{\numberline {4}Dinàmica dels Sistemes de Partícules II}{20}{section.4}%
+\contentsline {subsection}{\numberline {3.5}Moment de Forces}{20}{subsection.3.5}%
+\contentsline {section}{\numberline {4}Dinàmica dels Sistemes de Partícules II}{21}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Dinàmica de Particules en altres Sistemes de Referència}{22}{subsection.4.1}%
-\contentsline {section}{\numberline {5}Treball I Energies}{22}{section.5}%
+\contentsline {section}{\numberline {5}Treball I Energies}{23}{section.5}%
 \contentsline {subsection}{\numberline {5.1}Treball}{23}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Energies}{23}{subsection.5.2}%
-\contentsline {subsubsection}{\numberline {5.2.1}Energia Cinètica}{23}{subsubsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2}Energies}{24}{subsection.5.2}%
+\contentsline {subsubsection}{\numberline {5.2.1}Energia Cinètica}{24}{subsubsection.5.2.1}%
 \contentsline {subsubsection}{\numberline {5.2.2}Energia Potencial ($\exists $ Per Forçes Conserviatives)}{24}{subsubsection.5.2.2}%
 \contentsline {subsection}{\numberline {5.3}Energia Mecànica}{25}{subsection.5.3}%
 \contentsline {subsection}{\numberline {5.4}Energia potencial gravitatoria (alçades petites)}{25}{subsection.5.4}%
 \contentsline {subsection}{\numberline {5.5}Energia potencial gravitatoria (alçades grans)}{25}{subsection.5.5}%
 \contentsline {subsubsection}{\numberline {5.5.1}Gràfica Funció Energia}{26}{subsubsection.5.5.1}%
 \contentsline {subsection}{\numberline {5.6}Treball i Energia en Sistemes de Partícules}{26}{subsection.5.6}%
-\contentsline {section}{\numberline {6}Ones}{26}{section.6}%
+\contentsline {section}{\numberline {6}Ones}{27}{section.6}%

@@ -1,4 +1,4 @@
-\documentclass[12pt]{article}
+\documentclass[11pt]{article}
 
 % ============================================================
 %                     CONFIGURACIÓ BÀSICA
@@ -58,7 +58,7 @@ Aquest document recull les definicions, demostracions i fòrmules bàsiques per 
 \end{abstract}
 
 \begin{tcolorbox}[
-  title=Sistemes de Referència,
+  title= Canvis de Base,
   colback=RoyalBlue!5!white,
   colframe=RoyalBlue!70!black,
   coltitle=white,
@@ -77,11 +77,11 @@ Fem servir el \textbf{canvi de bases} per conveniència, quan el sistema es fa m
 \end{tcolorbox}
 
 \begin{tcolorbox}[
-  title=Canvis de Base,
-  colback=RoyalBlue!5!white,
-  colframe=RoyalBlue!70!black,
+  title=Sistemes de Referència,
+  colback=SlateGray!5!white,
+  colframe=SlateGray!70!black,
   coltitle=white,
-  colbacktitle=RoyalBlue!70!black,
+  colbacktitle=SlateGray!70!black,
   fonttitle=\bfseries,
   arc=6pt,
   boxrule=0.8pt
@@ -89,10 +89,16 @@ Fem servir el \textbf{canvi de bases} per conveniència, quan el sistema es fa m
 
 \textbf{RELACIÓ}\\
 \\
-$\vec{r} = \vec{R} + \vec{r'}$\\
+$F' = m\vec{a} + M\ddot{\vec{R'}}$\\
 \\
-Fem servir el \textbf{canvi de bases} per conveniència, quan el sistema es fa més fàcil. Hi ha bases que depenen del temps com els \textit{vectors de frenet}, o d'altres que no com \textit{la base polar} que per problemes circulars és molt més fàcil. Sempre hem de deixar estipulat com és el canvi en les bases i com afecten a tots els components del problema.
+Fem servir un canvi en el sistema de referència (\textit{intercial o no inercial}) per facilitar el problema. Si treballem en un inercial, (és a dir que no es mou o es mou a $\vec{v} = cte$) la 2a Llei de Newton aplica igual, pero quan no és intercial, ($\ddot{\vec{R'}} \neq 0$) i hem d'afegir una força imaginaria que li diem \textbf{força d'inèrcia} com la que sentim quan;
 
+\begin{itemize}
+  \item Es para el tren
+  \item Quan estem en un cotxe donant una volta (Força Centrifuga)
+\end{itemize}
+
+Aquestes es fan per equilibrar el sistema.
 \end{tcolorbox}
 
 
@@ -282,10 +288,10 @@ $\vec{F}_{12} = -\vec{F}_{21}$\\
 
 \begin{tcolorbox}[
     title=Fórmules Bàsiques,
-    colback=IndianRed!5!white,
-    colframe=IndianRed!70!black,
+    colback=RosyBrown!5!white,
+    colframe=RosyBrown!70!black,
     coltitle=white,
-    colbacktitle=IndianRed!70!black,
+    colbacktitle=RosyBrown!70!black,
     fonttitle=\bfseries,
     arc=6pt,
     boxrule=0.8pt
