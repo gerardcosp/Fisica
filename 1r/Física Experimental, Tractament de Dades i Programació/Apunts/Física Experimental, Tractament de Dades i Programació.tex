@@ -344,4 +344,103 @@ $10^{24}$ & yotta & Y  & $10^{-24}$ & yocto & y \\
 \hline
 \end{tabular}
 \end{table}
+
+\section{Introducció a l'Anàlisi Dimensional}
+
+Cada magnitud física (temps, distància, \dots), té la seva dimensió. Amb les dimensions podem fer \textit{operacions} per poder analizar les dimensions que té un objecte;
+
+En el S.I li podem otorgar dimensions a les magnitud de manera que queda;
+
+\begin{itemize}
+    \item $t = [T]$
+    \item $l = [L]$
+    \item $m = [M]$
+    \item $I = [I]$
+    \item $T = [\Theta]$
+    \item $n = [N]$
+    \item $I_e = [J]$
+\end{itemize}
+
+L'ànalisi dimensional tracta d'analitzar les dimensions de les unitats \textbf{simples i derivades}. Parlem d'una magnitud qualsevol Q quan li podem establir dimensió $[Q] \equiv \dim Q$.
+
+Podem escriure les dimensions com a equacions dimensionals del estil;
+
+\[[Q] = T^\alpha L^\delta M^\beta I^\gamma \Theta^\epsilon N^\xi J^\eta \]
+
+On $\alpha,\beta,\delta,\gamma,\epsilon,\xi,\eta \in \R$ i solen ser enters o fraccionaris. \textcolor{red}{\textbf{Tant les constants numériques com els radiants o els estereoradiants tenen dimensió 1 per tant NO apareixen a l'equació dimensional.}}
+
+\begin{examplebox}{}
+    Troba l'equació de dimensions de \textit{la velocitat}.
+
+    \[v = \frac{d}{t}; [v] = \frac{[d]}{[t]}= \frac{M}{T} = MT^{.1}\]
+
+    És a dir podem verificar que experimentalment es compleix ja que les dimensions cuadren.
+
+\end{examplebox}
+
+Aquesta pràctica té 3 principals beneficis;
+
+\begin{itemize}
+    \item Trobar l'equació de dimensions d'una unitat derivada (com la velocitat en el cas anterior)
+    \item Verificar la coherència experimental d'una Llei Física (igualant les dimensions si ens surt una certesa la llei, experimentalment, és correcte).
+    \item Establir una relació entre unitats quan no coneixem la llei fisica.
+    \begin{examplebox}{}
+        Sabem que una roda gira amb una veloctiat, té un radi i massa, i sabem que hi ha una força, \textbf{troba la relació entre la força i les 3 magnituds} $F = f(m,v,r)$;
+        
+        \[[F] = [m]^\alpha[v]^\beta[r]^\gamma\]
+        \[MLT^{-2} = M^\alpha M^\beta T^{-\beta} L^{\gamma}\]
+
+
+    Resolent obtenim que;
+
+    \[1 = \alpha -\beta\]
+    \[1 = \gamma\]
+    \[-2 =-\beta\]
+
+    I com a solució obtenim que $\alpha = 1, \gamma = 1, \beta = 2$. I si ho posem a la primera equació obtenim que *$F \propto \frac{mv^2}{r}$. I nosaltres que ja tenim un coneixement bàsic de física podem \textbf{verificar que és veritat}.
+
+    * Poso $\propto$ perque si recordem, les constants numèriques no tenen dimensió i no les podem conèixer.
+    \end{examplebox}
+\end{itemize}
+
+\subsection{Factors de Conversió}
+
+Podem usar aquest mateix anàlisi per fer \textbf{factors de conversió} una mica més complicats. Ho ensenyarem amb un exemple;
+
+\begin{examplebox}{}
+    Volem fer un canvi d'unitats d'un objecte $\frac{st}{ft^3} \rightarrow \frac{kg}{m^2}$.
+
+    Si sabem que 1(stone) = 14(lliures) = 6,35 kg i que 1(foot) = 30,48(centimetres) = 0,3048 (metres)
+
+    Savem que podem descomposar una magnitud fisica com $\rho = \{\rho\}[\rho]$, per tant en aquest cas el que volem trobar són dos valor idèntics, \textbf{expressats en sistemes diferents};
+
+    \[\{\rho\}[\rho] = \{\rho'\}[\rho]'\]
+    \[1 ML^{-3} = {\rho'}M'L'^{-3}\]
+
+    Si aïllem $\rho'$ obtenim el factor de conversió; $\rho' = \frac{ML^{-3}}{M'L'^{-3}}$. Com que tenim les relacions;
+
+    $\{\rho'\} = \frac{6,35kg \cdot(0,3048m^{-3})}{kg \cdot m^{-3}} = 0,224 \frac{kg}{m^3}$
+\end{examplebox}
+
+\section{Error, Precisió i Càlcul d'Incerteses}
+
+Si nosaltres fem una suma, el resultat no pot tenir més xifres significatives que el que en té menys; $1,35m + 1,35\mu m = 1,35 m$
+
+Si les operacions són el producte o la divisió, el nombre de xifres significatives del resultat ha de ser el que correspongui al factor que tingui menys xifres significatives $2.233 kg \cdot 5.3m/s^2 = 12N$
+
+\textbf{L'Ordre de Magnitud} és el valor en potència de 10 a la que correspon aquesta mesura (\textit{notació cientifica}), $0.002 = 2\cdot 10^{-3}$ té ordre $10^{-3}$
+
+Una mesura serveix per determinar el valor del mesurand (la magnitud concreta que es vol mesurar), i per això ha d’especificar bé el mesurand, el mètode i el procediment de mesura.
+
+El resultat és sempre una aproximació del valor real, de manera que només està complet si va acompanyat de la incertesa de l’estimació. $V = (V' \pm I)\{V\}$
+
+Sovint es fan diverses mesures en condicions de repetibilitat. Les diferències entre elles s’atribueixen al fet que les magnituds d’influència no es mantenen exactament constants.
+
+Com ja vàrem dir al tema 1, una mesura té imperfeccions que originen un \textbf{error} en el resultat de la mesura. Pot ser de dos tipus:
+
+\begin{itemize}
+    \item Error \textbf{sistemàtic}: no es pot eliminar, però sovint es pot reduir aplicant \textit{correccions} si coneixem la font de l'error (instruments, ambient, \dots). Després de la correcció, el seu valor esperat és zero.
+    \item Error \textbf{aleatori}: prové de variacions impredictibles de les magnituds influents. No es pot compensar, però es pot reduir \textit{incrementant el nombre d'observacions}. El seu valor esperat és zero.
+\end{itemize}
+
 \end{document}
