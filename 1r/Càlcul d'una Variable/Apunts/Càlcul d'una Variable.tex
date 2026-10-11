@@ -817,5 +817,339 @@ Podem definir que;
 
     \end{examplebox}
 
+    \textbf{TEOREMA}
+
+    Si $\{a_n\}$ és creixent / decreixent (comprovem que $a_n \leq a_{n+1}$ o $a_n \leq a_{n-1}$ per inducció), monòtona i esta fitada (busquem $L$ i resolem), llavors podem afirmar que \textcolor{red}{\textbf{$\{a_n\}$ té límit i convergeix a L.}}
+
+    \subsubsection{Successions Monòtones}
+
+    \[\boxed{Creixent: a_{n+1} \geq a_n}\]
+    \[\boxed{Decreixent: a_{n+1} \leq a_n}\]
+
+    $\{a_n\} = \sum_{k = 1}^{1}\frac{1}{k}$ és creixent?
+
+    \textit{Cas Base:}
+
+    $a_2 \geq a_{1} = 1 + \frac{1}{2} \geq 1 $. Comprovat que pel cas base és creixent.
+
+    \textit{Cas Inductiu:}
+
+    Com que $\frac{1}{n+1} > 0$ a qualsevol $a_n + \frac{1}{n+1} \geq a_n$ i pertant com que es compleix pel primer es compleix per tots els altres que diem, per això la serie és \textbf{monòtona i creixent}. 
     
+    \subsubsection{Series Fitades}
+
+    Anomenem que una serie esta fitada si es compleix;
+
+    \[\forall a_n > 0 \exists k>0 \mid a_n \leq k\]
+    \[\forall a_n > 0 \exists -k>0 \mid a_n \geq k\]
+
+    Es a dir que una successió pren un valor màxim de k que solem anomenar $L$.
+
+    \begin{examplebox}{}
+        Si tenim la serie $a_{n+1} = \sqrt{4+3a_n}$ on $a_1 = 1$
+
+        Primer comprovem si és monòtona i creixent o decreixent, $a_2 = \sqrt{4+3} = \sqrt{7}$, si ha de ser algo, com que $a_2 > a_1$ serà \textbf{creixent} ara veiem si es o no monòtona.
+
+        Partim de que $a_n \geq a_{n+1}$ i podem fer operacions aritmétiques per arribar a;
+
+        \[4 + 3a_n \geq 4+3a_{n+1}\]
+
+        Si apliquem l'arrel quadrada als dos cantons;
+
+        \[a_{n+2} \geq a_{n+1}\]
+
+        Per tant \textbf{la serie és monòtona i creixent}, ara mirem si esta fitada, com que si ho estiguès $a_n \rightarrow k, a_{n+1}\rightarrow k$
+
+        \[k = \sqrt{4+3k}; k^2 - 3k - 4 = 0\]
+
+        Obtenim com a solucions $(k-4)(k+1)$ com que $k > 0$, aquesta serie \textbf{esta fitada i tindrà límit a} $k = 4$
+    \end{examplebox}
+
+    \subsubsection{Resolució de Series}
+
+    \textbf{SERIE GEOMÈTRICA}
+
+    Hi ha una serie que ens ajudarà molt alhora d'estudiar altres series; la \textbf{serie geomètrica} ès una serie que te la forma;
+
+    \[X^0 + X^1 + \dots + X^n\]
+
+    I si $X < 1$ podem demostrar que convergeix a $\frac{a_1}{1-X}$ i això ho podem aplicar a qualsevol de les nostres series per facilitar-los la vida.
+
+    \noindent\textbf{SANDVITX}
+
+    Aquest ja té un capítol dedicat sencer al tema anterior, però es basa en que si tenim $a_n$ i volem saber el límit, hem de trobar $b_n < a_n < c_n$ on $b_n, c_n \rightarrow L$ i podrem afirmar que el límit és L
+
+    \noindent\textbf{CRITERI DEL QUOCIENT}
+
+    Aquest criteri ens diu que si el $\lim \abs{\frac{a_{n+1}}{a_n} } < 1$ llavors com que el terme d'abaix és mes gran, $\lim a_n = 0$
+
+    \noindent\textbf{CRITERI DE L'ARREL}
+
+    Si tenim una succesió $a_n > 0 \forall n\in N$. Si existeix límit es te que;
+    
+    \[\lim \frac{a_n}{a_{n-1}} = \lim \sqrt[n]{a_n}\]
+
+    \noindent\textbf{EXPONENCIALS}
+
+    Sempre que tenim una indeterminació (ja explicaré el que és) $1^{\infty}$ hem d'aplicar canvis per poder arribar a una expressió $e^{\lim a_n}$. Ho podem manipular algebraicament o fer-ho amb la fòrmula;
+
+    \[\lim_{x \to a} f(x)^{g(x)} = e^{\lim_{x \to a} g(x) \cdot [f(x) - 1]}\]
+
+    \noindent\textbf{ALTRES AJUDES}
+
+    Hi ha altres propietats que ens poden ajudar;
+
+    \begin{itemize}
+        \item Si tenim un límit $\lim(a_n - a_{n-1}) = \lim \frac{a_n}{n}$
+    \end{itemize}
+
+\section{Funcions}
+
+Fins ara hem treballat amb una serie de successions sobre la recta real, però i si a cada $a_n$ li assignem una imatge sobre un altre eix $f(a_n)$ doncs obtenim una funció qualsevol, en aquestes funcions podem fer diverses operacions com \textbf{limits, derivades o integrals} per així estudiar el seu comportament.
+\subsection{Límits de Funcions I Continuïtat}
+
+Podem definir una \textit{funció} com una \textbf{aplicació lieal} $f: D \rightarrow \R^2$. Com podem saber si és continua? O com es comporta?
+
+Doncs per això tenim els límits, un límit ens ensenya o ens dirigeix cap on \textbf{tendeix la funció}, és a dir tots els punts del voltant en un intèrval $\delta \epsilon$ cap on tendeixen, així que és cert que $f(x) = 4x$; $f(2) = \lim_{x \rightarrow} 4x = 8$ peró tenen significats totalment diferents.
+
+Volem que $\abs{f(x) - 4}$ sigui pràcitcament 0 (és a dir s'aproximi tot el que pugui a una distància 0). Per això podem \textbf{definir el límit com;}
+
+\[\lim_{x \rightarrow a} f(x) = L\]
+\[\forall \epsilon > 0 \exists \delta > 0 \mid x \in D, \abs{x-a} < \delta \rightarrow \abs{f(x) - l} < \epsilon\]
+
+És a die que volem trobar una epislon que faci molt petita la distància i l'intèrval del límit, que es faci pròxim a 0
+
+\begin{center}
+\begin{tikzpicture}[>=stealth, scale=0.9]
+
+    % Eixos
+    \draw[->, thick] (-0.3,0) -- (7,0) node[right] {$x$};
+    \draw[->, thick] (0,-0.3) -- (0,6) node[above] {$f(x)$};
+
+    % Paràmetres visuals
+    \def\a{3.5}
+    \def\L{3}
+    \def\d{0.45}
+    \def\e{0.45}
+
+    % Franja delta (vertical)
+    \fill[red!15] ({\a-\d},0) rectangle ({\a+\d},5.3);
+    \draw[red!70!black, dashed, thick]
+        ({\a-\d},0) -- ({\a-\d},5.3);
+    \draw[red!70!black, dashed, thick]
+        ({\a+\d},0) -- ({\a+\d},5.3);
+
+    % Franja epsilon (horitzontal)
+    \fill[blue!15] (0,{\L-\e}) rectangle (6.5,{\L+\e});
+    \draw[blue!60!black, dashed, thick]
+        (0,{\L-\e}) -- (6.5,{\L-\e});
+    \draw[blue!60!black, dashed, thick]
+        (0,{\L+\e}) -- (6.5,{\L+\e});
+
+    % Intersecció de les dues franges
+    \draw[thick, purple!80!black]
+        ({\a-\d},{\L-\e}) rectangle ({\a+\d},{\L+\e});
+
+    % Funció contínua que passa pel punt (a,L)
+    \draw[very thick, teal!70!black, domain=0.6:6.2, samples=100]
+        plot (\x,{\L+0.55*(\x-\a)+0.12*(\x-\a)^2});
+
+    % Punt del límit
+    \fill[purple!80!black] (\a,\L) circle (2.5pt);
+
+    % Projeccions a i L
+    \draw[gray, thin] (\a,0) -- (\a,\L);
+    \draw[gray, thin] (0,\L) -- (\a,\L);
+    \node[below, font=\small] at (\a,0) {$a$};
+    \node[left, font=\small] at (0,\L) {$L$};
+
+    % Delta
+    \draw[<->, red!70!black, thick]
+        ({\a-\d},-0.45) -- node[below,font=\small] {$\delta$}
+        ({\a+\d},-0.45);
+
+    % Epsilon
+    \draw[<->, blue!60!black, thick]
+        (6.7,{\L-\e}) -- node[right,font=\small] {$\varepsilon$}
+        (6.7,{\L+\e});
+
+
+\end{tikzpicture}
+\end{center}
+
+\subsubsection{Límits Laterals}
+
+Parlem de limits laterals quan ens referim als epsilon que venen per un cantó o per l'altre, i diem que $\lim_{x\rightarrow a}f(x) \exists \leftrightarrow \lim_{x\rightarrow a^+}f(x) = \lim_{x\rightarrow a^-}f(x)$. 
+
+Definim el límit lateral com $\lim_{x \rightarrow a^{\pm}}f(x) = L_{\pm} \equiv \forall \epsilon > 0 \exists \delta >0 \mid x\in D, a\pm \delta < a \rightarrow \abs{f(x) - L_{\pm}} < \epsilon$. 
+
+\textbf{Propietats dels límits}
+
+\begin{itemize}
+    \item Si $\exists L$ és únic
+    \item Si $\exists L$ la funció es troba fitada (si no és infinit)
+    \item Els límits pertanyen sumes aritmétiques sempre que dues funcions tinguin el mateix domini
+    \begin{itemize}
+        \item $\lim_{x\rightarrow a} (f+g)(x) = \lim_{x\rightarrow a} f(x)+\lim_{x\rightarrow a} g(x) = l_1 + l_2$
+        \item $\lim_{x\rightarrow a} (f\cdot g)(x) = \lim_{x\rightarrow a} f(x)\cdot\lim_{x\rightarrow a} g(x) = l_1 \cdot l_2$
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{Límits Infinits}
+
+El límit d'una funció pot ser $(k\in \R, \pm \infty, \infty)$ i també podem estudiar $\lim_{x\rightarrow \pm \infty, \infty}$
+
+\noindent \boxed{\textbf{CAS 1}} $\lim_{x \rightarrow a} f(x) = + \infty$
+
+\[\forall k > 0,\ \exists \delta > 0 \mid\left(0 < |x-a| < \delta,\ x \in D\right)\implies f(x) > k\]
+
+\begin{center}
+\begin{tikzpicture}[>=stealth, scale=0.85]
+
+    % Eixos
+    \draw[->, thick] (-0.3,0) -- (7,0) node[right] {$x$};
+    \draw[->, thick] (0,-0.3) -- (0,6) node[above] {$f(x)$};
+
+    % Asímptota vertical x=a
+    \draw[gray, dashed, thick] (3.5,0) -- (3.5,5.7);
+    \node[below, font=\small] at (3.5,0) {$a$};
+
+    % Funció que tendeix a + infinit pels dos costats
+    \draw[blue!60!black, very thick, domain=0.5:3.18, samples=100]
+        plot (\x,{0.65+1.0/((\x-3.5)^2)});
+    \draw[blue!60!black, very thick, domain=3.82:6.5, samples=100]
+        plot (\x,{0.65+1.0/((\x-3.5)^2)});
+    % Fletxes de tendència cap a infi
+
+    % Recta horitzontal y=k
+    \draw[red!70!black, thick, dashed] (0,2.1) -- (6.6,2.1);
+    \node[left, font=\small, red!70!black] at (0,2.1) {$k$};
+     \draw[red!70!black, thick, dashed] (0,3.1) -- (6.6,3.1);
+    \node[left, font=\small, red!70!black] at (0,3.1) {$k' > k$};
+
+    % Interval delta al voltant de a
+    \draw[red!70!black, dashed] (2.9,0.25) -- (2.9,-0.25);
+    \draw[red!70!black, dashed] (4.1,0.25) -- (4.1,-0.25);
+    \draw[<->, red!70!black, thick]
+        (2.9,0.55) -- node[above,font=\small] {$\delta$} (4.1,0.55);
+
+\end{tikzpicture}
+\end{center}
+
+\noindent \boxed{\textbf{CAS 2}} $\lim_{x \rightarrow a} f(x) = - \infty$
+
+\[\forall k < 0,\ \exists \delta > 0 \mid\left(0 < |x-a| < \delta,\ x \in D\right)\implies f(x) < k\]
+
+
+\begin{center}
+\begin{tikzpicture}[>=stealth, scale=0.85]
+
+    % Eixos
+    \draw[->, thick] (-0.3,0) -- (7,0) node[right] {$x$};
+    \draw[->, thick] (0,-4.5) -- (0,1) node[above] {$f(x)$};
+
+    % Asímptota vertical x=a
+    \draw[gray, dashed, thick] (3.5,1) -- (3.5,-4.3);
+    \node[above, font=\small] at (3.5,0) {$a$};
+
+    % Funció que tendeix a - infinit pels dos costats
+    \draw[blue!60!black, very thick, domain=0.5:3.18, samples=100]
+        plot (\x,{-0.65-1.0/((\x-3.5)^2)});
+    \draw[blue!60!black, very thick, domain=3.82:6.5, samples=100]
+        plot (\x,{-0.65-1.0/((\x-3.5)^2)});
+
+    % Recta horitzontal y=k
+    \draw[red!70!black, thick, dashed] (0,-2.1) -- (6.6,-2.1);
+    \node[left, font=\small, red!70!black] at (0,-2.1) {$k$};
+
+    \draw[red!70!black, thick, dashed] (0,-3.1) -- (6.6,-3.1);
+    \node[left, font=\small, red!70!black] at (0,-3.1) {$k'<k$};
+
+    % Interval delta al voltant de a
+    \draw[red!70!black, dashed] (2.9,0.25) -- (2.9,-0.25);
+    \draw[red!70!black, dashed] (4.1,0.25) -- (4.1,-0.25);
+    \draw[<->, red!70!black, thick]
+        (2.9,0.55) -- node[above,font=\small] {$\delta$} (4.1,0.55);
+
+\end{tikzpicture}
+\end{center}
+
+\noindent \boxed{\textbf{CAS 3}} $\lim_{x \rightarrow a} f(x) = \infty$
+
+Parlem de que tendeix a $\infty$ sense signe quan \textbf{no sabem el signe o els dos limits laterals van cap a infinits oposats}.
+
+\textbf{Operacions amb Límits al Infinit}
+
+Aquí podem fer operacions com la suma, la resta, el producre, \dots, pero no tots són acceptables, de fet hi ha uns casos on no es pot fer res més que estudiar la funció; s'anomenen \textbf{indeterminacions}, tenim les seguents;
+
+    \begin{itemize}
+        \item $0 \cdot \infty$
+        \item $\frac{\infty}{\infty}$
+        \item $\frac{0}{0}$
+        \item $\infty - \infty$
+        \item $1^{\infty}$ (e)
+        \item $0^0$
+        \item $\infty ^0$
+    \end{itemize}
+
+\subsubsection{Continuïtat}
+
+Els altres anys definiem la continuïtat com \textit{és continua si podem dibuixar-la sense aixecar el boli}. És una bona definició però no es gens rigorosa, diem que \textbf{$f$ és continua en $a$} $\leftrightarrow$
+
+\begin{itemize}
+    \item $a \in D$
+    \item $\lim_{x \rightarrow a} \exists \therefore \lim_{x \rightarrow a^+} = \lim_{x \rightarrow a^-}$
+    \item $\lim_{x\rightarrow a} = f(a)$
+\end{itemize}
+
+Aquestes condicions també les podem escriure com;
+
+\[\forall \epsilon > 0 \exists \delta > 0 \mid \abs{x-a} < \delta \rightarrow \abs{f(x) - f(a)} < E\]
+
+Osigui que com més s'aproxima $x$ a $a$, més s'aproxima $f(x)$ a $f(a)$.
+
+
+\begin{center}
+\begin{tikzpicture}[>=stealth, scale=1]
+
+    % Eixos de coordenades
+    \draw[->, thick] (-0.3,0) -- (7,0) node[right] {$x$};
+    \draw[->, thick] (0,-0.3) -- (0,5) node[above] {$f(x)$};
+
+    % Punt a i f(a)
+    \coordinate (A) at (4.5,3.2);
+    \fill (A) circle (1.8pt);
+    \node[below, font=\small] at (4.5,0) {$a$};
+    \node[left, font=\small] at (0,3.2) {$f(a)$};
+
+    % Funció contínua
+    \draw[thick, blue!60!black, smooth, domain=0.7:6.2, samples=100]
+        plot (\x,{0.12*(\x-4.5)^2+3.2});
+
+    % Punt (a,f(a))
+    \fill[blue!60!black] (4.5,3.2) circle (2pt);
+
+    % Successió x_n que s'aproxima a a
+    \foreach \x in {1.2,2.0,2.8,3.4,3.8,4.05,4.22,4.32} {
+        \fill[red!70!black] (\x,0) circle (1.5pt);
+        \draw[red!70!black, dashed, thin]
+            (\x,0) -- (\x,{0.12*(\x-4.5)^2+3.2});
+        \fill[red!70!black]
+            (\x,{0.12*(\x-4.5)^2+3.2}) circle (1.5pt);
+    }
+
+    % Etiqueta de la successió
+    \node[below, font=\scriptsize, red!70!black]
+        at (2.6,-0.15) {$x_n \rightarrow a$};
+
+    % Valors f(x_n)
+    \node[left, font=\scriptsize, red!70!black]
+        at (0,3.65) {$f(x_n)$};
+
+  
+\end{tikzpicture}
+\end{center}
+
+\subsection{Derivades}
+\subsection{Integrals}    
 \end{document}
