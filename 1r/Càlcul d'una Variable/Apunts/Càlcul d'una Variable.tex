@@ -977,6 +977,18 @@ Volem que $\abs{f(x) - 4}$ sigui pràcitcament 0 (és a dir s'aproximi tot el qu
 \end{tikzpicture}
 \end{center}
 
+Llavors per comprovar que es compleix la definició de límit en un límit $L = \lim_{x\rightarrow a} f(x)$, apliquem la definició i obtenim que $\abs{x-a} < \delta$ i $\abs{f(x) - L} < \varepsilon$, i (com en les series voliem trobar $n(\varepsilon)$) ara volem trobar una relació entre $\delta, \varepsilon$, manipulant $\varepsilon$
+
+\begin{examplebox}{}
+    Tenim $\lim_{x\rightarrow 2} x^2 = 4$;
+
+    Segons les nostres condicions $\abs{x-2} < \delta$ i $\abs{x^2 - 4} < \varepsilon$, ara hem de treballar amb la segona i que ens aparegui $\delta$.
+
+    \[\abs{x^2 - 4} = \abs{x+2} \abs{x-2}\] com que $\delta > 0$, volem controlar $\abs{x+2}$, quan x s'aproxima a 2 $\abs{x-2} < 1$, per tant $1<x<3$ i si sumem $3<x+2<5$. Per tant com a màxim serà 5.
+
+    $5\abs{x-2}<\varepsilon$ però $\abs{x-2} < delta$ per tant com més petit fem delta més petit es fa epsilon i així aproximant-nos més al límit.
+\end{examplebox}
+
 \subsubsection{Límits Laterals}
 
 Parlem de limits laterals quan ens referim als epsilon que venen per un cantó o per l'altre, i diem que $\lim_{x\rightarrow a}f(x) \exists \leftrightarrow \lim_{x\rightarrow a^+}f(x) = \lim_{x\rightarrow a^-}f(x)$. 
