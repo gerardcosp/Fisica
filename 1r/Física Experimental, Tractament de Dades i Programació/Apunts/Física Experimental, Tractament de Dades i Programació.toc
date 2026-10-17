@@ -8,3 +8,8 @@
 \contentsline {section}{\numberline {4}Introducció a l'Anàlisi Dimensional}{5}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Factors de Conversió}{7}{subsection.4.1}%
 \contentsline {section}{\numberline {5}Error, Precisió i Càlcul d'Incerteses}{8}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Errors}{8}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Incerteses}{8}{subsection.5.2}%
+\contentsline {subsubsection}{\numberline {5.2.1}Incertesa Estàndard}{10}{subsubsection.5.2.1}%
+\contentsline {subsubsection}{\numberline {5.2.2}Incertesa Combinada}{10}{subsubsection.5.2.2}%
+\contentsline {subsubsection}{\numberline {5.2.3}Incertesa Expandida}{10}{subsubsection.5.2.3}%

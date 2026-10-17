@@ -118,6 +118,9 @@
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
+\newcommand{\lonepair}[2]{%
+  \fill ([shift={({#2+14}:0.30)}]#1.center) circle (1pt);
+  \fill ([shift={({#2-14}:0.30)}]#1.center) circle (1pt);}
 
 % -------------------------------------------------
 % DOCUMENT STYLE
@@ -539,4 +542,85 @@ Com hem vist al tema 1, hi ha electrons amb \textbf{electronegativitats} ($\chi$
 
     Si no coincideixen CF juguem amb els enllaços dobles i triples fins que obtinguem la correcte.
 \end{examplebox}
+
+Per construir bé l'estructura de Lewis, volem el mínim re repartició de càrregues formals, és a dir si podem fer que 2 tinguin -1 en comptes de 4 tenir -1, és millor. Per exemple $H_3PO_4$
+
+\begin{center}
+\begin{tikzpicture}[
+    every node/.style={inner sep=1pt, font=\large},
+    bond/.style={shorten >=5pt, shorten <=5pt, line width=0.8pt}
+]
+  % Àtoms
+  \node (P)  at (0,0)     {P};
+  \node (O1) at (0,2)     {O};
+  \node (O2) at (-2,0)    {O};
+  \node (O3) at (2,0)     {O};
+  \node (O4) at (0,-2)    {O};
+  \node (H2) at (-3.5,0)  {H};
+  \node (H3) at (3.5,0)   {H};
+  \node (H4) at (0,-3.5)  {H};
+ 
+  % Doble enllaç P=O
+  \draw[bond] ([xshift=-1.6pt]P.center) -- ([xshift=-1.6pt]O1.center);
+  \draw[bond] ([xshift= 1.6pt]P.center) -- ([xshift= 1.6pt]O1.center);
+ 
+  % Enllaços simples P--O i O--H
+  \draw[bond] (P)  -- (O2);
+  \draw[bond] (P)  -- (O3);
+  \draw[bond] (P)  -- (O4);
+  \draw[bond] (O2) -- (H2);
+  \draw[bond] (O3) -- (H3);
+  \draw[bond] (O4) -- (H4);
+ 
+  % Parells d'electrons solitaris
+  \lonepair{O1}{150}\lonepair{O1}{30}
+  \lonepair{O2}{90} \lonepair{O2}{270}
+  \lonepair{O3}{90} \lonepair{O3}{270}
+  \lonepair{O4}{0}  \lonepair{O4}{180}
+\end{tikzpicture}
+ 
+\vspace{0.3cm}
+\end{center}
+
+Pot ser que tinguem una molecula amb dos enllaços però només un és doble, anomenem \textbf{formes ressonants} a aquelles que són equivalents (en aquest cas l'enllaç al altre àtom) per això quan fem l'ordre d'enllaç $O.E = \frac{1 + 2}{2} = \frac{3}{2} = 1.5$ és a dir que cada enllaç realment val 1.5 però ho hem d'expressar amb les formes ressonants perque sinó no podem representar un enllaç 1.5
+\subsection{TRPECV / VSEPR [Teoria de Repulsió de Parells d'Electrons de la Capa De València]}
+
+Aquesta teoria es basa en donar \textbf{una estructura tridimensional} a les molècules \textit{un cop tenim l'estructura de Lewis}.
+
+Denominem qualsevol molècula amb 3 lletres i 3 coeficients $A_{\alpha}X_{\beta}E_{\gamma}$, on;
+ 
+\begin{itemize}
+    \item A: El nombre d'àtoms centrals (normalment 1)
+    \item X: El nombre d'àtoms radicals
+    \item E: Nombre de \textit{parells} d'electrons desparellats
+\end{itemize}
+
+La teoria de repulsió dels parells d'electrons de la capa de valència (RPECV) parteix d'una idea senzilla: els parells d'electrons al voltant de l'àtom central, tant els d'enllaç com els solitaris, es repel·leixen entre ells.
+
+Per tant, \textbf{la geometria que adopta la molècula és aquella que col·loca aquests parells el més lluny possible els uns dels altres, és a dir, la que minimitza la repulsió entre ells}. Segons el nombre de parells, això dona lloc a les geometries lineal, trigonal plana, tetraèdrica, bipiràmide trigonal i octaèdrica.
+
+Així obtenim aquesta taula que ens indica les estructures en funció de la nostra nomenclatura.
+
+\begin{center}
+    \includegraphics[width = .35\textwidth]{VSEPR_Taula.png}
+\end{center}
+
+\begin{examplebox}{}
+    \begin{itemize}
+        \item Dibuixa una estructura de Lewis plausible.
+        \item Determina el nombre de grups d'electrons i identifica'ls com a parells d'enllaç o parells solitaris.
+        \item Els enllaços múltiples compten com un sol grup d'electrons.
+        \item Estableix la geometria dels grups d'electrons.
+        \item Determina la geometria molecular.
+        \item Si hi ha més d'un àtom central, es poden tractar de manera individual.
+    \end{itemize}    
+\end{examplebox}
+
+\subsection{Moment Dipolar}
+\subsection{Energia d'Enllaç}
+\subsection{Teoria del Enllaç de València}
+
+\subsubsection{Recobriment Sigma (\texorpdfstring{$\sigma$}{sigma})}
+\subsubsection{Recobriment Pi (\texorpdfstring{$\pi$}{pi})}
+
 \end{document}

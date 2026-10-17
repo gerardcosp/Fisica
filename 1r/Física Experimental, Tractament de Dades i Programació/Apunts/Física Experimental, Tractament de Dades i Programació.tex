@@ -15,6 +15,7 @@
 \usepackage{amsthm}
 \usepackage{mathtools}
 \usepackage{yhmath}
+\usepackage{listings}
 
 % Physics notation
 \usepackage{physics}
@@ -86,6 +87,36 @@
     },
     before upper={\setlength{\parskip}{7pt}}
 }
+
+\definecolor{codeBg}{HTML}{1A1D29}       % bluish black
+\definecolor{codeText}{HTML}{E6E6E6}     % plain text (variables, strings, etc.)
+\definecolor{codeKeyword}{HTML}{F86D7C}  % keywords (def, if, return...)
+\definecolor{codeComment}{HTML}{6B7280}  % comments
+\definecolor{codeLineNum}{HTML}{5A6070}  % line numbers
+
+\lstdefinestyle{ide}{
+    language=Python,
+    backgroundcolor=\color{codeBg},
+    basicstyle=\ttfamily\small\color{codeText},
+    keywordstyle=\color{codeKeyword}\bfseries,
+    commentstyle=\color{codeComment},
+    stringstyle=\color{codeText},
+    identifierstyle=\color{codeText},
+    numbers=left,
+    numberstyle=\tiny\color{codeLineNum},
+    numbersep=8pt,
+    frame=none,
+    breaklines=true,
+    showstringspaces=false,
+    columns=fullflexible,
+    keepspaces=true,
+    tabsize=4,
+    xleftmargin=15pt,
+    aboveskip=10pt,
+    belowskip=10pt
+}
+
+\lstset{style=ide}
 
 % -------------------------------------------------
 % DOCUMENT FORMATTING
@@ -436,11 +467,63 @@ El resultat és sempre una aproximació del valor real, de manera que només est
 
 Sovint es fan diverses mesures en condicions de repetibilitat. Les diferències entre elles s’atribueixen al fet que les magnituds d’influència no es mantenen exactament constants.
 
+\subsection{Errors}
+
 Com ja vàrem dir al tema 1, una mesura té imperfeccions que originen un \textbf{error} en el resultat de la mesura. Pot ser de dos tipus:
 
 \begin{itemize}
     \item Error \textbf{sistemàtic}: no es pot eliminar, però sovint es pot reduir aplicant \textit{correccions} si coneixem la font de l'error (instruments, ambient, \dots). Després de la correcció, el seu valor esperat és zero.
     \item Error \textbf{aleatori}: prové de variacions impredictibles de les magnituds influents. No es pot compensar, però es pot reduir \textit{incrementant el nombre d'observacions}. El seu valor esperat és zero.
 \end{itemize}
+
+\subsection{Incerteses}
+
+La incertesa del resultat d'una mesura reflecteix \textbf{la manca de coneixement exacte del resultat del valor del mesurand}. Sempre hi haura una incertesa degut als \textit{errors aleatoris}. En la pràctica hi ha moltes fonts d'incertesa
+
+\begin{itemize}
+    \item La definició incompleta del mesurand
+    \item La realització imperfecta de la definició del mesurand
+    \item La presa de mostres no representatives (la mostra presa pot no representar el mesurand definit)
+    \item Coneixement inadequat dels efectes de les condicions que envolten la mesura o mesura d’aquestes condicions
+    \item Predisposició personal en la lectura dels aparells analògics de mesura
+    \item Resolució finita del instrument o llindar de registre del mateix
+    \item Valors inexactes dels estàndards de mesura i dels materials de referència
+    \item Valors inexactes de constants i d’altres paràmetres obtinguts a partir de fonts externes i utilitzats en l’algoritme de reducció de dades
+    \item Aproximacions i assumpcions incorporades en el mètode i procediment de mesura
+    \item Variacions en observacions repetides del mesurand sota condicions aparentment idèntique
+\end{itemize}
+
+La \textit{ISO}, agrupa les incerteses en 2 tipus (no vol dir que siguin diferents sinó que s'evaluen de manera diferent);
+
+\begin{itemize}
+    \item \textbf{Incerteses de tipus A:}
+
+    La variança estimada $u^2$ que caracteritza una component d'incertesa s'avalua \textbf{a partir de sèries d'observacions repetides}.
+
+    \begin{itemize}
+        \item $u^2$ és la variança estimada estadísticament $s^2$.
+        \item La desviació estàndard estimada és l'arrel positiva de $u^2$:
+        \[
+            u = s
+        \]
+        \item Per conveniència, de vegades s'anomena \textbf{incertesa estàndard de tipus A}.
+        \item S'obté a partir d'una \textbf{funció densitat de probabilitat derivada d'una distribució de freqüències observada}.
+    \end{itemize}
+
+    \item \textbf{Incerteses de tipus B:}
+
+    La variança estimada $u^2$ s'avalua \textbf{utilitzant els coneixements disponibles}.
+
+    \begin{itemize}
+        \item La desviació estàndard estimada $u$ de vegades s'anomena \textbf{incertesa estàndard de tipus B}.
+        \item S'obté a partir d'una \textbf{funció densitat de probabilitat assumida}, basada en el grau de creença que succeeixi un determinat esdeveniment (sovint anomenada \textbf{probabilitat subjectiva}).
+    \end{itemize}
+
+    \item \textbf{Observació:} les dues aproximacions utilitzen interpretacions conegudes de probabilitat.
+\end{itemize}
+
+\subsubsection{Incertesa Estàndard}
+\subsubsection{Incertesa Combinada}
+\subsubsection{Incertesa Expandida}
 
 \end{document}

@@ -29,7 +29,7 @@
 % ============================================================
 
 \graphicspath{{./images/}}
-
+\usepackage{hyperref}
 \linespread{1.25}
 
 % ============================================================
@@ -54,7 +54,7 @@
 \maketitle
 
 \begin{abstract}
-Aquest document recull les definicions, demostracions i fòrmules bàsiques per comprebdre \textbf{l'assignatura de MOiR}. \footnote{Aquest document s'anirà actualitzant a mesura que avançi el semmestre.}
+Aquest document recull les definicions, demostracions i fòrmules bàsiques per comprebdre \textbf{l'assignatura de MOiR}. \footnote{Aquest document s'anirà actualitzant a mesura que avançi el semmestre.}  \href{https://www.youtube.com/playlist?list=PLHUo38kJ-fy_nZMtgL7zuIbyaXeBjjC-e}{Llista de reproducció de YouTube}
 \end{abstract}
 
 \begin{tcolorbox}[
@@ -808,6 +808,33 @@ Tenim \textbf{3 tipus de xocs} i cadascuna implica les seves condicions;
 
 \end{tcolorbox}
 
+\subsection{Relació de Magnituds en un SR}
+
+\begin{tcolorbox}[
+    colback=white,
+    colframe=black,
+    boxrule=0.8pt,
+    arc=0pt
+]
+
+\textbf{VELOCITAT}
+
+$\vec{v_C} = \vec{v}_{CM} + \vec{\omega}\cross \vec{r}_{C/CM}$
+
+\textbf{ACCELERACIÓ}
+
+$\vec{a_C} = \vec{a}_{CM} + \vec{\alpha}\cross \vec{r}_{C/CM} + \vec{\omega} \cross (\vec{\omega \cross \vec{r}_{C/CM}})$
+
+\textbf{MOMENT ANGULAR}
+
+$\vec{L_0} = \vec{L}_{CM} + \vec{R} \cross \vec{P}$
+
+\textbf{STEINER}
+
+$I_e = I_{CM} + md^2$
+
+\end{tcolorbox}
+
 \section{Treball i Energia}
 
 \subsection{Treball}
@@ -865,6 +892,7 @@ $W = -\Delta U$\\
 $E = U + K$\\
 $\Delta E = 0 \rightleftarrows$ Només actuen forçes conservatives\\
 $\Delta E = W_{fnc} \rightleftarrows$ Si actuen forçes no conservatives\\ 
+$W = \Delta K + \Delta U$\\
 \\
 \textbf{ENERGIES CONEGUDES}\\
 \\
@@ -872,4 +900,8 @@ $U = \frac{1}{2}k \Delta x^2$\\
 $U = - \frac{GMm}{r}$\\
 $U = mgy$\\
 \end{tcolorbox}
+\begin{center}
+    \includegraphics[width=.8\textwidth]{Imatge_Moments_D'Inèrcia.png}
+\end{center}
+
 \end{document}
