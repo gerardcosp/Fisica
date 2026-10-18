@@ -1,15 +1,21 @@
-\contentsline {section}{\numberline {1}Metrologia}{2}{section.1}%
-\contentsline {subsection}{\numberline {1.1}Termes Importants}{2}{subsection.1.1}%
-\contentsline {subsubsection}{\numberline {1.1.1}Errors}{3}{subsubsection.1.1.1}%
-\contentsline {subsection}{\numberline {1.2}Xifres Significatives}{3}{subsection.1.2}%
-\contentsline {section}{\numberline {2}Càlcul d'Incerteses}{3}{section.2}%
-\contentsline {section}{\numberline {3}Observables, Magnituds, Unitats i Sistemes d'Unitats}{4}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Sistema d'Unitats}{4}{subsection.3.1}%
-\contentsline {section}{\numberline {4}Introducció a l'Anàlisi Dimensional}{5}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Factors de Conversió}{7}{subsection.4.1}%
-\contentsline {section}{\numberline {5}Error, Precisió i Càlcul d'Incerteses}{8}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Errors}{8}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Incerteses}{8}{subsection.5.2}%
-\contentsline {subsubsection}{\numberline {5.2.1}Incertesa Estàndard}{10}{subsubsection.5.2.1}%
-\contentsline {subsubsection}{\numberline {5.2.2}Incertesa Combinada}{10}{subsubsection.5.2.2}%
-\contentsline {subsubsection}{\numberline {5.2.3}Incertesa Expandida}{10}{subsubsection.5.2.3}%
+\contentsline {section}{\numberline {1}Metrologia}{3}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Termes Importants}{3}{subsection.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.1}Errors}{4}{subsubsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.2}Xifres Significatives}{4}{subsection.1.2}%
+\contentsline {section}{\numberline {2}Càlcul d'Incerteses}{4}{section.2}%
+\contentsline {section}{\numberline {3}Observables, Magnituds, Unitats i Sistemes d'Unitats}{5}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Sistema d'Unitats}{5}{subsection.3.1}%
+\contentsline {section}{\numberline {4}Introducció a l'Anàlisi Dimensional}{6}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Factors de Conversió}{8}{subsection.4.1}%
+\contentsline {section}{\numberline {5}Error, Precisió i Càlcul d'Incerteses}{9}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Errors}{9}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Incerteses}{9}{subsection.5.2}%
+\contentsline {subsubsection}{\numberline {5.2.1}Incertesa Estàndard}{11}{subsubsection.5.2.1}%
+\contentsline {subsubsection}{\numberline {5.2.2}Incertesa Combinada}{11}{subsubsection.5.2.2}%
+\contentsline {subsubsection}{\numberline {5.2.3}Incertesa Expandida}{11}{subsubsection.5.2.3}%
+\contentsline {subsection}{\numberline {5.3}Model de Mesura}{12}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Mitjana, Variància i Desviació Estàndard}{13}{subsection.5.4}%
+\contentsline {subsubsection}{\numberline {5.4.1}Mitjana}{13}{subsubsection.5.4.1}%
+\contentsline {subsubsection}{\numberline {5.4.2}Variància i Desviació Estàndard}{13}{subsubsection.5.4.2}%
+\contentsline {subsection}{\numberline {5.5}Arrodoniment de Valors}{14}{subsection.5.5}%
+\contentsline {subsubsection}{\numberline {5.5.1}Errades Freqüents en l'Escriptura}{14}{subsubsection.5.5.1}%

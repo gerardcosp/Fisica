@@ -523,7 +523,143 @@ La \textit{ISO}, agrupa les incerteses en 2 tipus (no vol dir que siguin diferen
 \end{itemize}
 
 \subsubsection{Incertesa Estàndard}
+
+La incertesa estàndard no té un valor numèric únic i universal per defecte (no és, per exemple, ``5'' o ``10''): el seu valor depèn per complet de les teves dades o de l'instrument que utilitzis.
+
+Tanmateix, el terme \emph{estàndard} significa matemàticament que equival exactament a \textbf{1 desviació estàndard} ($k = 1$). Això li dona unes propietats estadístiques fixes si les dades segueixen una distribució normal.
+
+Quan deixes la incertesa en el seu valor estàndard ($u$):
+
+\begin{itemize}
+  \item Té un factor de cobertura $k = 1$.
+  \item Representa una probabilitat (nivell de confiança) del $68{,}27\,\%$ que el valor real es trobi dins de l'interval calculat:
+        \[
+          x - u \;\le\; x_{\text{real}} \;\le\; x + u .
+        \]
+  \item \textbf{Nota:} per augmentar aquesta seguretat fins a aproximadament el $95\,\%$, es multiplica la incertesa estàndard per un factor $k = 2$ i s'obté la \emph{incertesa expandida} ($U$) (5.2.3):
+        \[
+          U = k\,u = 2\,u .
+        \]
+\end{itemize}
+
 \subsubsection{Incertesa Combinada}
+
+Anomenem \textbf{incertesa combinada} $u_c$ a la combinació d'incerteses $u_c = \sum u_i$ de cada experiment;
+
+La incertesa estàndard combinada $u_c(y)$ és l'arrel quadrada positiva de la variança combinada:
+
+\[
+  u_c(y) = \sqrt{\sum_{i=1}^{N} (\pdv{f}{x_i})^{2} u^2(x_i)
+  \;+\; 2\sum_{i=1}^{N-1}\sum_{j=i+1}^{N}
+  \pdv{f}{x_i}\,\pdv{f}{x_j}\,
+  u(x_i,x_j)}
+\]
+
 \subsubsection{Incertesa Expandida}
+
+A vegades no ens val que una incertesa sigui tan gran, és a dir que \textbf{la volem reduïr}. Això ho fem amb les \textbf{incerteses expandides}, es a dir agafem l'estàndard i la multipliquem per un factor k (\textbf{factor de cobriment}) per fer-la més gran.
+
+\begin{center}
+    \begin{tikzpicture}
+\begin{axis}[
+  width=11cm, height=6.5cm,
+  axis lines=left,
+  xmin=-4, xmax=4, ymin=0, ymax=0.48,
+  xtick={-1,0,1}, xticklabels={$-u$,$0$,$u$},
+  ytick=\empty,
+  samples=120,
+  title={Incertesa estàndard ($k=1$):
+         $\displaystyle\int_{-u}^{u} f(x)\,\mathrm{d}x = 68{,}27\,\%$}
+]
+  % àrea ombrejada
+  \addplot[domain=-1:1, fill=blue!25, draw=none]
+    {exp(-x^2/2)/sqrt(2*pi)} \closedcycle;
+  % corba de Gauss
+  \addplot[domain=-4:4, thick, blue]
+    {exp(-x^2/2)/sqrt(2*pi)};
+  % línies verticals en -u i u
+  \draw[dashed] (axis cs:-1,0) -- (axis cs:-1,{exp(-0.5)/sqrt(2*pi)});
+  \draw[dashed] (axis cs:1,0)  -- (axis cs:1,{exp(-0.5)/sqrt(2*pi)});
+  \node at (axis cs:0,0.15) {$68{,}27\,\%$};
+\end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\begin{axis}[
+  width=11cm, height=6.5cm,
+  axis lines=left,
+  xmin=-4, xmax=4, ymin=0, ymax=0.48,
+  xtick={-1.645,0,1.645}, xticklabels={$-U$,$0$,$U$},
+  ytick=\empty,
+  samples=120,
+  title={Incertesa expandida (90\,\%):
+         $\displaystyle\int_{-U}^{U} f(x)\,\mathrm{d}x = 90\,\%$,
+         \quad $U = k\,u \approx 1{,}645\,u$}
+]
+  \addplot[domain=-1.645:1.645, fill=red!25, draw=none]
+    {exp(-x^2/2)/sqrt(2*pi)} \closedcycle;
+  \addplot[domain=-4:4, thick, red!70!black]
+    {exp(-x^2/2)/sqrt(2*pi)};
+  \draw[dashed] (axis cs:-1.645,0) -- (axis cs:-1.645,{exp(-1.645^2/2)/sqrt(2*pi)});
+  \draw[dashed] (axis cs:1.645,0)  -- (axis cs:1.645,{exp(-1.645^2/2)/sqrt(2*pi)});
+  \node at (axis cs:0,0.15) {$90\,\%$};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+\subsection{Model de Mesura}
+
+Normalment no mesurem una magnitud $Y$ directament, sinó que ho fem a partir de altres $N$ magnituds $X_1, X_2,\dots, X_N$, llavors podem escriure;
+
+\[Y = f(X_1, X_2, \dots, X_N)\]
+
+Aquestes \textit{magnituds d'entrada $X_i$}, es poden classificar com;
+
+\begin{itemize}
+    \item Magnituds obtingudes de les observacions (Longitud, Temps, \dots)
+    \item Magnituds obtingudes de patrons certificats, referencies o publicacions (Constant de Planck, Constant Gravitatoria,\dots)
+\end{itemize}
+
+De manera similar obtenim l'estimació de $Y$, $y$, amb la funció d'estimacions $X_i$, $x_i$;
+
+\[y = f(x_1,x_2,\dots,x_N)\]
+
+La desviació típica associada a l'estimació del valor de sortida $y$, es denomina \textbf{incertesa típica combinada} i és representada $u_c(y)$, que esta associada a la funció $f(x_1,x_2,\dots,x_n)$ on cada estimació $x_i$, és obtinguda a partir d'una distribució de valors possibles dde $X_i$, es pot basar en una \textit{distribució de freqüències} (Tipus A) o una \textit{distribució a priori} (Tipus B) [Ambdós cassos s'utilitza per representar el nostre nivell de certesa].
+
+\subsection{Mitjana, Variància i Desviació Estàndard}
+
+\subsubsection{Mitjana}
+
+En la major part dels cassos, la millor estimació disponible de l'esperança matemàtica $\mu_e$ d'una magnitud $q$ que varia al atzar, és de la que s'han obtingut $n$ observacions \textit{en les mateixes condicions}. El resultat $\bar{q}$ és la \textbf{mitjana aritmètica de les observacions}.
+
+\[\bar{q} = \frac{1}{n} \sum_{k = 1}^{n} q_k\]
+
+\subsubsection{Variància i Desviació Estàndard}
+
+Els valors de les observacions individuals $q_k$ difereixen en raò de les variacions aleatories de les magnituds de les que venen o d'efectes aleatoris. La \textbf{variança experimental} de les observacions $\sigma^2$ ve donat per;
+
+\[\sigma^2(q_k) = \frac{1}{n-1} \sum_{j = 1}^{n} (q_j - \bar{q})^2\]
+
+On $\sigma(q_k)$ és la \textbf{desviació típica experimental}, és a dir, $\sigma(q_k) = \sqrt{\frac{1}{n-1} \sum_{j = 1}^{n} (q_j - \bar{q})^2}$.
+
+Podem relacionar les \textit{variacions} amb la \textit{mitjana} de manera que;
+
+\[\sigma^2(\bar{q}) = \frac{\sigma^2(q_k)}{n}\]
+\[\sigma(\bar{q}) = \frac{\sigma(q_k)}{\sqrt{n}}\] (Anomenada la segona, \textit{desviació típica experimental de mesura})
+
+\boxed{n\text{ ha de ser prou gran per garantir que }\bar{q}\text{ proporcioni una estimació fiable}}
+
+\subsection{Arrodoniment de Valors}
+
+Sempre arrodonim a qualsevol nivell (milèssima, centèssima, decena, \dots), \textbf{a partir del 5, inclòs}.
+
+\subsubsection{Errades Freqüents en l'Escriptura}
+
+\begin{itemize}
+  \item \textbf{Unitats i prefixos:} no s'han d'usar indegudament majúscules, minúscules, caràcters rectes o cursius, ja que es confonen magnituds i unitats (les magnituds van en cursiva, les unitats en recte).
+  \item \textbf{Separador de milers:} no s'ha d'utilitzar el punt; cal posar un espai (per exemple, $1\,000$ i no $1.000$).
+  \item \textbf{Separador decimal:} a Espanya s'ha d'utilitzar la coma a la part inferior de la línia, tot i que sovint s'usa el punt.
+  \item \textbf{Prefixos SI:} sempre fan referència a potències de 10, per tant no s'han d'usar per a potències de 2 (telecomunicacions i electrònica), perquè poden causar errors. Per a aquestes existeixen prefixos propis: kibi (Ki), mebi (Mi), gibi (Gi), tebi (Ti), pebi (Pi) i exbi (Ei). Exemple: $1\,\mathrm{KiB} = 2^{10}\,\mathrm{B} = 1024\,\mathrm{B}$.
+\end{itemize}
 
 \end{document}
