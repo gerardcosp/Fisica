@@ -24,5 +24,8 @@
 \contentsline {subsubsection}{\numberline {6.1.1}Límits Laterals}{20}{subsubsection.6.1.1}%
 \contentsline {subsubsection}{\numberline {6.1.2}Límits Infinits}{20}{subsubsection.6.1.2}%
 \contentsline {subsubsection}{\numberline {6.1.3}Continuïtat}{22}{subsubsection.6.1.3}%
-\contentsline {subsection}{\numberline {6.2}Derivades}{23}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}Integrals}{23}{subsection.6.3}%
+\contentsline {subsubsection}{\numberline {6.1.4}Funcions Continues}{23}{subsubsection.6.1.4}%
+\contentsline {subsubsection}{\numberline {6.1.5}Combinació de Funcions Continues}{24}{subsubsection.6.1.5}%
+\contentsline {subsubsection}{\numberline {6.1.6}Discontinuïtats}{24}{subsubsection.6.1.6}%
+\contentsline {subsection}{\numberline {6.2}Derivades}{24}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Integrals}{24}{subsection.6.3}%

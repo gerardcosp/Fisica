@@ -495,9 +495,77 @@ Fila _{nA'} / (0,\dots,0)
 
 És que $\lambda_i = 0$ és a dir que és un sistema homogeni amb solucions $\begin{pmatrix}
     0\\
-    \dots\\
+    \vdots\\
     0\\
 \end{pmatrix}$. 
+
+\subsubsection{Com escriure un Subespai Vectorial}
+
+Tenim dues maneres d'escriure un subespai vectorial $U \subseteq \mathbb{K}^n$:
+
+\begin{itemize}
+    \item \textbf{(SE1) Equacions paramètriques (per generadors):} 
+    $U$ s'escriu com el subespai generat per uns vectors,
+    \[
+        U = \langle v_1, \dots, v_k \rangle
+        = \{\lambda_1 v_1 + \dots + \lambda_k v_k \mid \lambda_i \in \mathbb{K}\}.
+    \]
+    Si $v_1,\dots,v_k$ són linealment independents, formen una base i $\dim U = k$.
+
+    \item \textbf{(SE2) Equacions implícites (cartesianes):} 
+    $U$ s'escriu com el conjunt de solucions d'un sistema lineal homogeni,
+    \[
+        U = \{(x_1,\dots,x_n) \in \mathbb{K}^n \mid A\,x = 0\},
+    \]
+    on $A$ és una matriu amb $n$ columnes. Es compleix
+    \[
+        \dim U = n - \operatorname{rang}(A).
+    \]
+\end{itemize}
+
+\paragraph{De (SE2) a (SE1): implícites $\to$ paramètriques.}
+\begin{enumerate}
+    \item Resolem el sistema homogeni $A\,x=0$ (per exemple, per Gauss).
+    \item Triem com a paràmetres les $n-\operatorname{rang}(A)$ variables lliures.
+    \item Escrivim la solució general en funció dels paràmetres i separem el coeficient de cada un: els vectors que en surten són una base de $U$.
+\end{enumerate}
+
+\paragraph{Exemple (SE1 $\to$ SE2).}
+Sigui $U = \langle (1,0,1,2),\,(0,1,1,1),\,(1,1,2,3) \rangle \subseteq \mathbb{R}^4$.
+
+Posem els vectors com a columnes i afegim la columna $(x_1,x_2,x_3,x_4)^T$:
+\[
+\left(\begin{array}{ccc|c}
+1 & 0 & 1 & x \\
+0 & 1 & 1 & y \\
+1 & 1 & 2 & z \\
+2 & 1 & 3 & t
+\end{array}\right)
+\]
+
+Escalonem: $F_3 \to F_3 - F_1 - F_2$ i $F_4 \to F_4 - 2F_1 - F_2$:
+\[
+\left(\begin{array}{ccc|c}
+1 & 0 & 1 & x \\
+0 & 1 & 1 & y \\
+0 & 0 & 0 & z - x - y \\
+0 & 0 & 0 & t - 2x - y
+\end{array}\right)
+\]
+
+Només hi ha pivots a les columnes 1 i 2, per tant $k=2$ i el tercer vector sobra
+(de fet $v_3=v_1+v_2$). Perquè $(x,y,z,t)\in U$ el sistema ha de ser compatible,
+és a dir, les files de zeros han de donar $0$ a la darrera columna:
+\[
+U = \left\{ (x,y,z,t)\in\mathbb{R}^4 \;\middle|\;
+\begin{aligned}
+x + y - z &= 0 \\
+2x + y - t &= 0
+\end{aligned}\right\}.
+\]
+Hi ha $n-k = 4-2 = 2$ equacions, com havia de ser.
+
+\emph{Comprovació:} $(1,0,1,2)$ dona $1+0-1=0$ i $2+0-2=0$; $(0,1,1,1)$ dona $0+1-1=0$ i $0+1-1=0$; $(1,1,2,3)$ dona $1+1-2=0$ i $2+1-3=0$.
 
 \subsection{Sistemes de Generadors i Bases}
 
@@ -1279,17 +1347,154 @@ I l'anomenem \textit{isomorfisme}
 
 \end{examplebox}
 
+\noindent\textbf{Proposició.}
+\begin{enumerate}
+    \item $f$ és \textbf{injectiva} (monomorfisme) $\iff \ker f=\{\vec{0}_E\}$.
+    \item $f$ és \textbf{exhaustiva} (epimorfisme) $\iff \operatorname{Im} f=F \iff \dim\operatorname{Im} f=m$.
+\end{enumerate}
+ 
 \begin{proof}
-    1: Si monomorfisme, $f(0) = f(0+0) = f(0) + f(0) = 0+0 = 0$. Tota f lineal en una f(\textbf{vector zero}) tenim $\vec{0_E} \leftarrow \ker f$, com és monomrofisme només serà cert $\dim \ker f = 0$ si $\ker = (0,\dots,0)$ pel lema és injectiva.
+    \textbf{1.} Primer, una observació: per ser $f$ lineal,
+    \[
+        f(\vec{0}_E)=f(\vec{0}_E+\vec{0}_E)=f(\vec{0}_E)+f(\vec{0}_E)
+        \ \Longrightarrow\ f(\vec{0}_E)=\vec{0}_F ,
+    \]
+    és a dir, $\vec{0}_E\in\ker f$ sempre. Només cal veure que no n'hi ha cap altre.
+ 
+    ($\Rightarrow$) Si $f$ és injectiva i $v\in\ker f$, aleshores $f(v)=\vec{0}_F=f(\vec{0}_E)$.
+    Com que $f$ és injectiva, $v=\vec{0}_E$. Per tant $\ker f=\{\vec{0}_E\}$.
+ 
+    ($\Leftarrow$) Suposem $\ker f=\{\vec{0}_E\}$ i que $f(u)=f(v)$. Per linealitat,
+    $f(u-v)=f(u)-f(v)=\vec{0}_F$, així que $u-v\in\ker f=\{\vec{0}_E\}$, és a dir, $u=v$.
+    Per tant $f$ és injectiva.
 \end{proof}
-
+ 
 \begin{proof}
-    2:
+    \textbf{2.} Sempre es compleix $\operatorname{Im} f\subseteq F$, així que només cal
+    comprovar quan val la inclusió contrària.
+ 
+    ($\Rightarrow$) Si $f$ és exhaustiva, tot $w\in F$ s'escriu $w=f(v)$ per a algun $v\in E$,
+    és a dir, $w\in\operatorname{Im} f$. Llavors $F\subseteq\operatorname{Im} f$ i
+    $\operatorname{Im} f=F$.
+ 
+    ($\Leftarrow$) Si $\operatorname{Im} f=F$, tot $w\in F$ és de la forma $f(v)$, que és
+    justament ser exhaustiva.
+ 
+    Finalment, $\operatorname{Im} f$ és un subespai de $F$. En dimensió finita, un
+    subespai amb la mateixa dimensió que l'espai total coincideix amb ell. Per tant
+    $\operatorname{Im} f=F\iff\dim\operatorname{Im} f=m$.
 \end{proof}
+ 
+\bigskip
+\noindent\textbf{Consells per decidir si $f$ és injectiva i/o exhaustiva}
+ 
+\begin{enumerate}
+    \item \textbf{Teorema del rang.} Sempre es compleix
+    \[
+        n=\dim E=\dim\ker f+\dim\operatorname{Im} f ,
+        \qquad \dim\operatorname{Im} f=\operatorname{rang}(A).
+    \]
+    Gairebé tot es redueix a calcular el rang de la matriu $A$.
+ 
+    \item \textbf{Injectiva:} resol $f(v)=\vec{0}$. Si l'única solució és $v=\vec{0}$
+    (cap variable lliure), és injectiva. Amb la matriu: $\operatorname{rang}(A)=n$, és
+    a dir, les \emph{columnes} són linealment independents.
+ 
+    \item \textbf{Exhaustiva:} $\operatorname{Im} f$ és generada per les imatges d'una base
+    de $E$ (les columnes de $A$). Llavors és exhaustiva si
+    $\operatorname{rang}(A)=m$, és a dir, si les \emph{files} són linealment independents.
+ 
+    \item \textbf{Mira primer les dimensions (és gratis):}
+    \begin{itemize}
+        \item Si $n>m$: \emph{segur que no és injectiva} (el nucli té dimensió
+        $\ge n-m>0$). L'exhaustiva s'ha de comprovar amb el rang.
+        \item Si $n<m$: \emph{segur que no és exhaustiva}
+        ($\dim\operatorname{Im} f\le n<m$). La injectiva s'ha de comprovar amb el nucli.
+        \item Si $n=m$: \emph{injectiva $\iff$ exhaustiva $\iff$ bijectiva
+        $\iff\det A\neq0$.}
+    \end{itemize}
+ 
+    \item \textbf{Resum:}
+    \begin{center}
+    \renewcommand{\arraystretch}{1.4}
+    \begin{tabular}{|c|c|c|}
+    \hline
+     & \textbf{Condició} & \textbf{Amb el rang de $A$}\\
+    \hline
+    Injectiva & $\ker f=\{\vec{0}\}$ & $\operatorname{rang}(A)=n$\\
+    \hline
+    Exhaustiva & $\operatorname{Im} f=F$ & $\operatorname{rang}(A)=m$\\
+    \hline
+    Bijectiva & les dues & $\operatorname{rang}(A)=n=m$\\
+    \hline
+    \end{tabular}
+    \end{center}
+\end{enumerate}
 
-\textbf{TEOREMA}
+\boxed{\text{Una aplicació $f$ amb matriu $T$ és bijectiva si $T$ és \textbf{quadrada i invertible}}}
+ 
+\textbf{TEOREMA DE LA DIMENSIÓ}
 
 Sigui $f:E \rightarrow F$ una aplicació lineal i E té dim finita $\dim E \neq \infty$ es té sempre que;
 
 \[dim E = \dim \ker f + \dim Im(f)\]
+
+On \boxed{Imf = \{f(e) \mid e \in E_1\}} i \boxed{ker f = \{ e \mid f(e) = 0 \mid e\in E_1\}}.
+
+\subsection{Composició d'Aplicacions Lineals}
+
+Tenim $f: E_1 \rightarrow E_2$ i $g: E_2 \rightarrow E_3$ aplicacions lineals (ho podem demostrar amb la suma tancada i el producte per escalar).
+
+Si $f$ té la matriu aplicació lineal $T_1$ i $g$, $T_2$, podem definir $g o f$ primer fent primer $f$ i després $g$ ($g(f(v))$) per tant ens queda,
+
+$f: v \rightarrow T_1 v$
+
+$g: T_1 v \rightarrow T_2 T_1 v$
+
+per tant la matriu conjunta és la resultant de la multiplicació $T_2 T_1$. Si canviem l'ordre, l'aplicació lineal ja no és la mateixa perque \textbf{les matrius no sempre commuten.}
+
+\begin{examplebox}{}
+    Si tenim una funció $f$ amb la matriu $A = \begin{pmatrix}
+        a & b & c \\
+        d & e & f\\
+        g & h & i
+    \end{pmatrix}$ i volem trobar $f^{2026}(v) = v'$ el que estem dient (\textit{com que és lineal}) volem fer la multiplicació per la matriu A 2026 cops per tant és $v'$ s'obté fent;
+
+    \[A^{2026} v = v'\]
+\end{examplebox}
+
+\subsection{Canvis de Base amb Aplicacions Lineals}
+
+Geomètricament (amb vectors geometrics) les aplicacions lineals s'utilitzen molt per fer \textbf{canvis de base}, que són molt ùtils a física.
+
+\textbf{Fet.} $E_1 \rightarrow E_2$ i $E_2 \rightarrow E_3$. I fixem 3 bases per cada subespai vectorial;
+
+\begin{itemize}
+    \item $E_1 = \beta$
+    \item $E_2 = e$
+    \item $E_3 = \epsilon$
+\end{itemize}
+
+Deinim l'operació \textbf{canvi de base} amb una \textbf{matriu canvi de base} 
+
+$M(\epsilon \xleftarrow{{gof}} \beta ) = M(\epsilon \xleftarrow{{g}} e )M(e \xleftarrow{{f}} \beta )$
+
+On podem dir que e és l'intermedia, normalment la base canònica que té de matriu $Id_N$.
+
+\begin{examplebox}{}
+    Si volem transformar coordenades d'una base $B_2$ a una base $B_1$, podem multiplicar un vector, escrit en coordenades de $B_2$, per la matriu $M(B_1 \xleftarrow{\mathrm{Id}} B_2)$. Aquesta matriu es pot escriure com:
+
+    \[M(B_1 \xleftarrow{\mathrm{Id}} B_2) = \begin{pmatrix}
+        [u_1]_{B_1} \mid [u_2]_{B_1}
+    \end{pmatrix},\]
+
+    on $B_2=\{u_1,u_2\}$, és a dir, cada columna és un vector de $B_2$ escrit en coordenades de $B_1$.
+\end{examplebox}
+
+Finalment si tenim $M(B_1 \xleftarrow{f} B_2)$ podem passar a coordenades inverses fent \textbf{la matriu inversa};
+
+\[M(B_2 \xleftarrow{^-f} B_1) = M^{-1}(B_1 \xleftarrow{f} B_2)\]
+
+\section{Diagonalització}
+\section{Tensors}
 \end{document}

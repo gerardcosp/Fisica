@@ -910,12 +910,12 @@ Fins ara hem treballat amb una serie de successions sobre la recta real, però i
 
 Podem definir una \textit{funció} com una \textbf{aplicació lieal} $f: D \rightarrow \R^2$. Com podem saber si és continua? O com es comporta?
 
-Doncs per això tenim els límits, un límit ens ensenya o ens dirigeix cap on \textbf{tendeix la funció}, és a dir tots els punts del voltant en un intèrval $\delta \epsilon$ cap on tendeixen, així que és cert que $f(x) = 4x$; $f(2) = \lim_{x \rightarrow} 4x = 8$ peró tenen significats totalment diferents.
+Doncs per això tenim els límits, un límit ens ensenya o ens dirigeix cap on \textbf{tendeix la funció}, és a dir tots els punts del voltant en un intèrval $\delta \varepsilon$ cap on tendeixen, així que és cert que $f(x) = 4x$; $f(2) = \lim_{x \rightarrow} 4x = 8$ peró tenen significats totalment diferents.
 
 Volem que $\abs{f(x) - 4}$ sigui pràcitcament 0 (és a dir s'aproximi tot el que pugui a una distància 0). Per això podem \textbf{definir el límit com;}
 
 \[\lim_{x \rightarrow a} f(x) = L\]
-\[\forall \epsilon > 0 \exists \delta > 0 \mid x \in D, \abs{x-a} < \delta \rightarrow \abs{f(x) - l} < \epsilon\]
+\[\forall \varepsilon > 0 \exists \delta > 0 \mid x \in D, \abs{x-a} < \delta \Rightarrow \abs{f(x) - l} < \varepsilon\]
 
 És a die que volem trobar una epislon que faci molt petita la distància i l'intèrval del límit, que es faci pròxim a 0
 
@@ -993,7 +993,7 @@ Llavors per comprovar que es compleix la definició de límit en un límit $L = 
 
 Parlem de limits laterals quan ens referim als epsilon que venen per un cantó o per l'altre, i diem que $\lim_{x\rightarrow a}f(x) \exists \leftrightarrow \lim_{x\rightarrow a^+}f(x) = \lim_{x\rightarrow a^-}f(x)$. 
 
-Definim el límit lateral com $\lim_{x \rightarrow a^{\pm}}f(x) = L_{\pm} \equiv \forall \epsilon > 0 \exists \delta >0 \mid x\in D, a\pm \delta < a \rightarrow \abs{f(x) - L_{\pm}} < \epsilon$. 
+Definim el límit lateral com $\lim_{x \rightarrow a^{\pm}}f(x) = L_{\pm} \equiv \forall \varepsilon > 0 \exists \delta >0 \mid x\in D, a\pm \delta < a \rightarrow \abs{f(x) - L_{\pm}} < \varepsilon$. 
 
 \textbf{Propietats dels límits}
 
@@ -1116,7 +1116,7 @@ Els altres anys definiem la continuïtat com \textit{és continua si podem dibui
 
 Aquestes condicions també les podem escriure com;
 
-\[\forall \epsilon > 0 \exists \delta > 0 \mid \abs{x-a} < \delta \rightarrow \abs{f(x) - f(a)} < E\]
+\[\forall \varepsilon > 0 \exists \delta > 0 \mid \abs{x-a} < \delta \Rightarrow \abs{f(x) - f(a)} < E\]
 
 Osigui que com més s'aproxima $x$ a $a$, més s'aproxima $f(x)$ a $f(a)$.
 
@@ -1161,6 +1161,86 @@ Osigui que com més s'aproxima $x$ a $a$, més s'aproxima $f(x)$ a $f(a)$.
   
 \end{tikzpicture}
 \end{center}
+
+Per tant per comprovar si una funció és continua en un punt, fem el mateix que en el límit però amb $\abs{x-a}$ i $\abs{f(x) - f(a)}$.
+
+\subsubsection{Funcions Continues}
+
+Una funció f és continua si $\lim_{x\rightarrow a} f(x) = f(a)$ per tant es compleix;
+
+\[\forall \varepsilon > 0 \exists \delta > 0 \mid x \in D \abs{x-a} < \delta \Rightarrow \abs{f(x) - f(a)} < \varepsilon\]
+
+De mateixa manera, si ho fem per series;
+
+\[\forall \{x_n \in D\} \rightarrow a \Rightarrow \{f(x_n)\} \rightarrow f(a)\]
+
+\textbf{Funcions Continues}
+
+\begin{itemize}
+    \item Constant: $f(x) = k$, $k \in \R$
+    
+    Donat $\varepsilon > 0$, $\abs{f(x) - f(a)} = \abs{k-k} = 0 < \varepsilon$, per tant la diferència de funcions serà sempre mès petita que qualsevol $\varepsilon > 0$ que demanem.
+
+    \item Lineal: $f(x) = \alpha x + \beta$, $\alpha, \beta \in \R$
+    
+    Donat $\varepsilon > 0$, $\abs{f(x) - f(a)} = \abs{\alpha x + b- \alpha a - b} = \abs{\alpha}\abs{x-a} < \varepsilon$, per tant la diferència de funcions serà sempre mès petita que $\frac{\varepsilon}{\abs{\alpha}}$ per tant $\delta < \frac{\varepsilon}{\abs{\alpha}}$
+
+    \item Exponencials: $f(x) = b^x$, $b > 1$
+    \item Sinus: $f(x) = \sin x$
+    \item Cosinus:: $f(x) = \cos x$
+\end{itemize}
+
+\subsubsection{Combinació de Funcions Continues}
+
+Siguin $f,g$ de mateix domini $D$ dues funcions continues en $a \in D$
+
+\begin{itemize}
+    \item $(f+g)(x) = f(x) + g(x) \rightarrow$ és continua
+    \item $(f\cdot g)(x) = f(x) \cdot g(x) \rightarrow$ és continua
+    \item $(\frac{f}{g})(x) = \frac{f(x)}{g(x)}\rightarrow$ és continua $\leftrightarrow g(a) \neq 0$ 
+    \item $(f o g)(x) = f(g(x)) \rightarrow$ és continua i el domini serà la intersecció de dominis
+\end{itemize}
+
+\subsubsection{Discontinuïtats}
+
+Hi ha diversos tipus de \textbf{discontinuïtats}.
+
+\begin{itemize}
+    \item \textbf{Evitable:} $\lim_{x\to a}f(x)=L\neq f(a)$, o bé $f(a)$ no existeix. \hfill
+    \begin{tikzpicture}[scale=0.45,baseline=(current bounding box.center)]
+      \draw[->] (0,0)--(3.2,0); \draw[->] (0,0)--(0,3);
+      \draw[blue,thick] (0.2,0.72)--(2.8,2.28);
+      \draw[fill=white,draw=blue] (1.5,1.5) circle (0.1);
+      \fill[red] (1.5,0.5) circle (0.1);
+    \end{tikzpicture}
+
+    \item \textbf{Inevitable (de salt):} límits laterals finits i $L_1\neq L_2$. \hfill
+    \begin{tikzpicture}[scale=0.45,baseline=(current bounding box.center)]
+      \draw[->] (0,0)--(3.2,0); \draw[->] (0,0)--(0,3);
+      \draw[blue,thick] (0.2,0.8)--(1.5,0.8);
+      \draw[blue,thick] (1.5,2.2)--(2.8,2.2);
+      \draw[fill=white,draw=blue] (1.5,0.8) circle (0.1);
+      \fill[blue] (1.5,2.2) circle (0.1);
+    \end{tikzpicture}
+
+    \item \textbf{Oscil·latòria:} un límit lateral no existeix (tendeix a valors diferents). \hfill
+    \begin{tikzpicture}[scale=0.45,baseline=(current bounding box.center)]
+      \draw[->] (-1.7,0)--(1.7,0); \draw[->] (0,-1.4)--(0,1.4);
+      \draw[blue,thick,domain=0.03:1.5,samples=400,smooth] plot (\x,{sin(deg(0.5/\x))});
+      \draw[blue,thick,domain=-1.5:-0.03,samples=400,smooth] plot (\x,{sin(deg(0.5/\x))});
+    \end{tikzpicture}
+
+    \item \textbf{Infinita:} algun límit lateral és $\pm\infty$. \hfill
+    \begin{tikzpicture}[scale=0.45,baseline=(current bounding box.center)]
+      \draw[->] (0,0)--(3.2,0); \draw[->] (0,-1.7)--(0,1.7);
+      \begin{scope}
+        \clip (0,-1.6) rectangle (3,1.6);
+        \draw[blue,thick,domain=0.2:1.45,samples=100] plot (\x,{0.5/(\x-1.5)});
+        \draw[blue,thick,domain=1.55:2.8,samples=100] plot (\x,{0.5/(\x-1.5)});
+      \end{scope}
+      \draw[red,dashed] (1.5,-1.6)--(1.5,1.6);
+    \end{tikzpicture}
+\end{itemize}
 
 \subsection{Derivades}
 \subsection{Integrals}    
