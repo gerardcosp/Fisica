@@ -1782,9 +1782,6 @@ Si $\vec{F}_{total}^{externa} = 0$, el moment no varia i $\vec{P}$ és constant.
         \draw[thick] (7,1.07)--(7,0.35);
         \node[above] at (7,1.5) {$m'$};
 
-        \node[above] at (4,2) {Inicialment, tots dos estan en repòs};
-        \node[below] at (4,-0.65) {$\vec P_{\mathrm{total}}=0$};
-
     \end{tikzpicture}
     \end{center}
 
@@ -1804,7 +1801,6 @@ Si $\vec{F}_{total}^{externa} = 0$, el moment no varia i $\vec{P}$ és constant.
         % Superfície de gel
         \fill[cyan!8] (-0.5,-0.1) rectangle (9,0.05);
         \draw[thick] (-0.5,0.05)--(9,0.05);
-        \node[below] at (4.25,-0.1) {Superfície sense fricció};
 
         % Persona A
         \fill[orange!75!brown] (1,1.25) circle (0.18);
@@ -1841,10 +1837,6 @@ Si $\vec{F}_{total}^{externa} = 0$, el moment no varia i $\vec{P}$ és constant.
         % Velocitat de la persona B
         \draw[->,very thick,red] (7.3,1.8)--(8,1.8);
         \node[above,red] at (7.65,1.8) {$\vec v_B$};
-
-        \node[below] at (4.25,-0.65)
-        {$\vec P_{\mathrm{total}}=\vec P_A+\vec P_{m_1}+\vec P_B+\vec P_{m_2}=0$};
-
     \end{tikzpicture}
     \end{center}
 
@@ -1920,10 +1912,9 @@ M\vec a_{\mathrm{CM}}=\vec F_{\mathrm{ext}}
 
 Calcular el CM d'un \textbf{sòlid rígid}.
 
-% DIBUIX CUB DIVIDIT EN ELEMENTS DIFERENCIALS dV
 \begin{center}
-\begin{tikzpicture}[scale=1.0,>=Stealth]
-    % Vèrtexs del cub gran
+\begin{tikzpicture}[scale=1.0,>=Stealth,line join=round]
+
     \coordinate (A) at (0,0);
     \coordinate (B) at (3,0);
     \coordinate (C) at (3,3);
@@ -1933,54 +1924,43 @@ Calcular el CM d'un \textbf{sòlid rígid}.
     \coordinate (G) at (4,3.8);
     \coordinate (H) at (1,3.8);
 
-    % Caixes de la cara frontal, dividida en cubs petits
-    \foreach \x in {0,0.5,...,2.5}{
-        \foreach \y in {0,0.5,...,2.5}{
-            \draw[blue!45,thin] (\x,\y) rectangle ++(0.5,0.5);
-        }
+    \fill[blue!12] (A)--(B)--(C)--(D)--cycle;
+    \fill[blue!22] (B)--(F)--(G)--(C)--cycle;
+    \fill[blue!30] (D)--(C)--(G)--(H)--cycle;
+
+    \foreach \i in {1,...,5}{
+        \draw[blue!45,thin] ({3*\i/6},0)--({3*\i/6},3);
+        \draw[blue!45,thin] (0,{3*\i/6})--(3,{3*\i/6});
     }
 
-    % Caixes de la cara superior
-    \foreach \x in {0,0.5,...,2.5}{
-        \foreach \z in {0,0.5,...,2.5}{
-            \draw[blue!45,thin] (\x+\z*0.333,\z*0.267+3) -- ++(0.5,0)
-                -- ++(0.333,0.267) -- ++(-0.5,0) -- cycle;
-        }
+    \foreach \i in {1,...,5}{
+        \draw[blue!45,thin]
+            ({3*\i/6},3)--({3*\i/6+1},3.8);
+        \draw[blue!45,thin]
+            ({\i/6}, {3+0.8*\i/6})--
+            ({3+\i/6},{3+0.8*\i/6});
     }
 
-    % Cub en perspectiva, amb subdivisions a les cares laterals
-    \fill[blue!8] (A)--(B)--(C)--(D)--cycle;
-    \fill[blue!15] (B)--(F)--(G)--(C)--cycle;
-    \fill[blue!20] (D)--(C)--(G)--(H)--cycle;
-
-    % Recalcular subdivisions de la cara frontal
-    \foreach \x in {0,0.5,...,3}{
-        \draw[blue!45,thin] (\x,0)--(\x,3);
-    }
-    \foreach \y in {0,0.5,...,3}{
-        \draw[blue!45,thin] (0,\y)--(3,\y);
+    \foreach \i in {1,...,5}{
+        \draw[blue!45,thin]
+            (3,{3*\i/6})--(4,{3*\i/6+0.8});
+        \draw[blue!45,thin]
+            ({3+\i/6}, {0.8*\i/6})--
+            ({3+\i/6},{3+0.8*\i/6});
     }
 
-    % Subdivisions de la cara dreta
-    \foreach \t in {0,0.5,...,3}{
-        \draw[blue!45,thin] (3+\t/3,\t*0.267)--(3+\t/3,3+\t*0.267);
-        \draw[blue!45,thin] (3,\t)--(4,\t+0.8);
-    }
+    \fill[orange!65] (1.5,1.5) rectangle (2,2);
+    \draw[thick,orange!80!black] (1.5,1.5) rectangle (2,2);
 
-    % Arestes exteriors
+    \draw[->,thick,orange!80!black] (2,1.75)--(3.25,2.15);
+    \node[orange!80!black,right] at (3.25,2.15) {$dV$};
+    \node[orange!80!black,below] at (1.75,1.45) {$dm=\rho\,dV$};
+
+    \fill[red] (1.5,1.5) circle (2.5pt);
+
     \draw[thick] (A)--(B)--(F)--(G)--(H)--(D)--cycle;
     \draw[thick] (B)--(C)--(D);
     \draw[thick] (C)--(G);
-
-    % Element diferencial de volum ressaltat
-    \fill[orange!60,opacity=0.9] (1.5,1.5) rectangle (2,2);
-    \draw[thick,orange!80!black] (1.5,1.5) rectangle (2,2);
-    \draw[->,thick,orange!80!black] (2,1.75)--(2.8,2.2);
-    \node[orange!80!black,right] at (2.8,2.2) {$dV$};
-    \node[orange!80!black,below] at (1.75,1.5) {$dm=\rho\,dV$};
-
-    % Centre de masses
-    \fill[red] (1.5,1.5) circle (2.5pt);
 
 \end{tikzpicture}
 \end{center}
@@ -2066,7 +2046,7 @@ M_O=rF\sin\theta
     \draw[->,very thick,blue] (-1.4,0.6) -- (-1.4,1.8);
     \draw[->,very thick,red] (1.4,-0.6) -- (1.4,-1.8);
     \node[blue,left] at (-1.4,1.35) {$\vec F$};
-    \node[red,right] at (1.4,-0.1) {$-\vec F$};
+    \node[red,right] at (1.4,-1) {$-\vec F$};
 
     % Distàncies
     \draw[dashed] (-1.4,-1) -- (-1.4,0.5);
@@ -2133,19 +2113,16 @@ Aqui ja no estudiem les \textbf{situacions en equilibri}, sinó que $\vec{M} \ne
 \fill[red!70!black] (1.7,2.1) circle (2.5pt);
 \draw[->, very thick, red!70!black]
     (3,2.1) -- (1.7,2.1)
-    node[midway, above] {$\vec{\eta}_i$};
+    node[left] {$\vec{\eta}_i$};
 
 % Radi de trajectòria circular
 \draw[dashed, red!60!black] (3,2.1) ellipse (1.3 and 0.45);
-\node[red!70!black] at (4.5,2.4) {\small trajectòria};
+\node[red!70!black] at (4.5,2.4) {\small };
 
 % Velocitat angular
 \draw[->, very thick, orange!85!black]
-    (3.55,2.6) arc[start angle=35,end angle=320,x radius=0.55,y radius=0.35];
-\node[orange!85!black] at (4.1,3.0) {$\omega$};
-
-% Indicació sòlid rígid
-\node[blue!70!black] at (0.9,-0.2) {Sòlid rígid};
+    (3.55,4) arc[start angle=35,end angle=320,x radius=0.55,y radius=0.35];
+\node[orange!85!black] at (4.1,4.5) {$\omega$};
 
 \end{tikzpicture}
 \end{center}
@@ -2172,43 +2149,6 @@ Anomenem a la suma de $\sum m_i\eta_i^2 = I_e$ \textbf{moment d'inèrcia respect
 
 Ara si tenim un sólid rígid compost per \textit{moltíssimes masses individuals el podem descomposar de manera que};
 
-\begin{center}
-\begin{tikzpicture}[>=Stealth, scale=1.0]
-
-% Eix de rotació
-\draw[dashed, very thick, gray!70] (3,-0.3) -- (3,4.5);
-\node[above] at (3,4.5) {$e$};
-
-% Cos rígid
-\draw[thick, blue!60!black, fill=blue!8]
-    (3,2.1) ellipse (2.0 and 1.5);
-
-% Partícules petites que representen dm
-\foreach \x/\y in {
-1.6/1.5,2.0/1.0,2.3/1.8,2.1/2.5,
-2.5/3.0,3.0/1.1,3.0/2.8,3.6/1.0,
-3.7/1.7,3.5/2.5,4.0/2.2,4.2/1.5
-} {
-    \fill[blue!70!black] (\x,\y) circle (2.2pt);
-}
-
-% Element diferencial de massa
-\fill[red!70!black] (4.2,2.2) circle (4pt);
-\node[right] at (4.25,2.2) {$dm=\rho\,dV$};
-
-% Distància a l'eix
-\draw[<->, very thick, red!70!black]
-    (3,2.2) -- (4.2,2.2)
-    node[midway, above] {$\eta$};
-
-% Velocitat tangencial
-\draw[->, very thick, green!50!black]
-    (4.2,2.2) -- (4.2,3.0)
-    node[above] {$\vec v=\vec\omega\times\vec\eta$};
-
-\end{tikzpicture}
-\end{center}
-
 Podem dividir el cos en petits increments de massa $dm$ i volum $\rho dV$ i cadascun rep una $\vec{\eta}$ i una moment lineal $dm \cdot \vec{v} = dm \vec{\eta}\omega$, podem definir el seu \textbf{moment inercial} com;
 
 \[I_e = \int_V \eta^2 dm = \int_V \eta^2 \rho dV\]
@@ -2232,64 +2172,6 @@ M_e^{\mathrm{ext}}=I_e\alpha
 \subsection{Dinàmica de Particules en altres Sistemes de Referència}
 
 Si tenim un CM (amb un objecte a una distància $\vec{r'_i}$) que es mou respecte el temps amb $\vec{R(t)}$, podem estudiar-lo fàcilment ja que sabem que $\vec{r} = \vec{R(t)} + \vec{r'_i}$ on $\vec{r}$ és el vector posició des del $\vec{0}$.
-
-% ---------------- DIBUIX: CANVI DE SISTEMA DE REFERÈNCIA ----------------
-
-\begin{center}
-\begin{tikzpicture}[>=Stealth, scale=1.0]
-
-% ---------------- SISTEMA FIX O ----------------
-
-\draw[->, thick, gray!70] (-0.3,0) -- (7,0) node[right] {$x$};
-\draw[->, thick, gray!70] (0,-0.3) -- (0,4.5) node[above] {$y$};
-
-\node[below left] at (0,0) {$O$};
-
-% ---------------- CENTRE DE MASSES ----------------
-
-\coordinate (CM) at (3.5,2.0);
-
-\shade[ball color=orange!75] (CM) circle (0.18);
-\node[below right] at (CM) {$CM$};
-
-% Vector posició R
-\draw[->, very thick, red!70!black]
-    (0,0) -- (CM)
-    node[midway, below right] {$\vec R(t)$};
-
-% ---------------- SISTEMA MÒBIL O' ----------------
-
-\coordinate (Oprime) at (3.5,2.0);
-
-\draw[->, thick, blue!60!black]
-    (Oprime) -- ++(2.7,0)
-    node[right] {$x'$};
-
-\draw[->, thick, blue!60!black]
-    (Oprime) -- ++(0,2.0)
-    node[above] {$y'$};
-
-\node[below left] at (Oprime) {$O'=CM$};
-
-% ---------------- PARTÍCULA ----------------
-
-\coordinate (P) at (5.3,3.1);
-
-\shade[ball color=blue!60!cyan] (P) circle (0.13);
-\node[above right] at (P) {$m_i$};
-
-% Vector posició relativa r'i
-\draw[->, very thick, blue!70!black]
-    (Oprime) -- (P)
-    node[midway, above left] {$\vec r'_i$};
-
-% Vector posició absoluta ri
-\draw[->, very thick, green!50!black]
-    (0,0) -- (P)
-    node[midway, above left] {$\vec r_i$};
-
-\end{tikzpicture}
-\end{center}
 
 Sabem que $\vec{L}_{CM}$ (moment angular respecte el centre de masses) és $= \vec{r'_1}\cross\vec{p'_1} + \vec{r'_2}\cross\vec{p'_2} + \dots$, també sabem que $\vec{r'_i} = (\vec{r_i} - \vec{R})$ i que $\vec{p'_i} = (\vec{p_i} - m\dot{\vec{R}})$.
 
@@ -2427,44 +2309,6 @@ Anomenem \textit{potència}, a la magnitud que estudia el canvi de treball respe
 Anomenem \textit{potència instantània}, a $\dv{W}{t} = \dv{\vec{F} \cdot \vec{R}}{t}$, si F és constant $P = \vec{F} \dv{\vec{r}}{t} = \vec{F} \cdot \vec{v}$
 Ara si considerem una \textbf{força no constant} i una \textbf{posició variable}, com una corba (C) on la força que actua cap a dins canvia cada instant.
 
-\begin{center}
-\begin{tikzpicture}[>=Stealth, scale=1.0]
-
-% Eixos
-\draw[->, thick, gray!60] (-0.2,0) -- (7,0) node[right] {$x$};
-\draw[->, thick, gray!60] (0,-0.2) -- (0,4.5) node[above] {$y$};
-
-% Camí corb
-\draw[
-    thick,
-    blue!70!black,
-    domain=0.6:6.2,
-    samples=200,
-    variable=\x
-] plot ({\x},{0.4+0.35*\x+0.25*sin(75*\x)});
-
-\node[blue!70!black] at (5.8,3.4) {$C$};
-
-% Partícula
-\coordinate (P) at (3.2,{0.4+0.35*3.2+0.25*sin(75*3.2)});
-\fill[gray!25] (P) circle (0.13);
-\draw[thick, gray!70!black] (P) circle (0.13);
-\node[above left] at (P) {$m$};
-
-% Força variable
-\draw[->, very thick, red!70!black] (P) -- ++(-0.3,1.0);
-
-% Desplaçament diferencial
-\draw[->, very thick, green!50!black] (P) -- ++(0.65,0.3);
-
-% Aproximació per segments
-
-\node[below] at (2.2,0.8) {\small $\Delta\vec r_1$};
-\node[below] at (4.0,1.3) {\small $\Delta\vec r_2$};
-
-\end{tikzpicture}
-\end{center}
-
 Podem aproximar el treball si dividim la corba i $W \approx \vec{F_1}\Delta \vec{r_1} + \vec{F_2}\Delta \vec{r_2} + \dots$
 
 Pero podem igualar-ho si fem aquests $\Delta \vec{r_i}$ infinitéssimament petits i els convertíssim a $d\vec{r}$ és a dir quan prens el límit de $\Delta r \rightarrow 0$;
@@ -2509,7 +2353,7 @@ Al contrari que el treball, l'energia cinètica \textbf{si que esta associada a 
         variable=\x
     ] plot ({\x},{0.5+0.35*\x+0.35*sin(65*\x)});
 
-    \node[blue!70!black] at (3.5,2.2) {$\tau$};
+    \node[blue!70!black] at (1,1.5) {$\tau$};
 
     % Punts inicial i final
     \coordinate (A) at (0.7,{0.5+0.35*0.7+0.35*sin(65*0.7)});
@@ -2534,7 +2378,7 @@ Al contrari que el treball, l'energia cinètica \textbf{si que esta associada a 
 
     % Desplaçament diferencial
     \draw[->, thick, green!50!black]
-        (4.4,2.5) -- (4.8,2.75)
+        (3.5,{0.5+0.35*3.5+0.35*sin(65*3.5)}) -- ++(0.7, 0.2)
         node[right] {$d\vec r$};
 
     \end{tikzpicture}
@@ -2578,24 +2422,15 @@ Per a una força conservativa $\vec F$, anomenem energia potencial $V$ la funci�
     \node at (3.65,1.5) {$m$};
 
     % Eix x
-    \draw[->, thick, gray!60] (0,0.5) -- (5.5,0.5) node[right] {$x$};
-
-    % Posicions
-    \draw[dashed, gray!60] (3.2,0.5) -- (3.2,1.0);
-    \draw[dashed, gray!60] (4.1,0.5) -- (4.1,1.0);
-    \node[below] at (3.2,0.5) {$x_1$};
-    \node[below] at (4.1,0.5) {$x_2$};
+    \draw[->, thick, gray!60] (0,1) -- (5.5,1) node[right] {$x$};
 
     % Desplaçament
     \draw[<->, thick, green!50!black] (3.2,2.3) -- (4.1,2.3);
     \node[above] at (3.65,2.3) {$\Delta x$};
 
     % Forces
-    \draw[->, very thick, red!70!black] (3.2,1.5) -- (2.3,1.5)
-        node[midway, above] {$\vec F=-kx\vec i$};
-
-    \draw[->, very thick, orange!80!black] (3.65,0.95) -- (4.6,0.95)
-        node[right] {$\vec F_{\mathrm{ext}}$};
+    \draw[->, very thick, red!70!black] (3.2,0.95) -- (2.3,0.95)
+        node[midway, below] {$\vec F=-kx\vec i$};
 
     \end{tikzpicture}
     \end{center}
@@ -2641,13 +2476,11 @@ A poques distàncies podem representar un objecte de massa amb un Pes que actua 
     variable=\x
 ] plot ({\x},{4.2-0.18*(\x-1.2)-0.12*(\x-1.2)^2});
 
-\node[blue!70!black] at (5.5,3.1) {$C$};
-
 % ---------------- PUNTS INICIAL I FINAL ----------------
 
 \coordinate (I) at (1.2,4.2);
-\coordinate (F) at (6,1.5);
-\coordinate (M) at (3.4,3.6);
+\coordinate (F) at (6,0.65);
+\coordinate (M) at (3.4,3.2);
 
 \fill[blue!70!black] (I) circle (2.5pt);
 \fill[blue!70!black] (F) circle (2.5pt);
@@ -2658,7 +2491,7 @@ A poques distàncies podem representar un objecte de massa amb un Pes que actua 
 % ---------------- ALTURES ----------------
 
 \draw[dashed, gray!60] (0,4.2) -- (I);
-\draw[dashed, gray!60] (0,1.5) -- (F);
+\draw[dashed, gray!60] (0,0.65) -- (F);
 
 \node[left] at (0,4.2) {$y_i$};
 \node[left] at (0,1.5) {$y_f$};
@@ -2671,13 +2504,9 @@ A poques distàncies podem representar un objecte de massa amb un Pes que actua 
 \node[above right] at (M) {$m$};
 
 \draw[->, very thick, red!75!black]
-    (3.4,3.45) -- (3.4,2.55)
-    node[midway, right] {$\vec{P}=-mg\vec{j}$};
+    (M) -- (3.4,2.2)
+    node[below] {$\vec{P}=-mg\vec{j}$};
 
-% ---------------- DIRECCIÓ DEL MOVIMENT ----------------
-
-\draw[->, thick, blue!70!black]
-    (4.6,3.15) -- (4.95,2.85);
 
 \end{tikzpicture}
 \end{center}
@@ -2747,7 +2576,7 @@ Sempre podem dibuixar la gràfica de \textbf{Energia respecte posició}. Recorde
 
 % Eixos
 \draw[->, thick, gray!70] (0,0) -- (7,0) node[right] {$r$};
-\draw[->, thick, gray!70] (0,-3.5) -- (0,2) node[above] {$U,E$};
+\draw[->, thick, gray!70] (0,-3.5) -- (0,2) node[above] {$E$};
 
 % Energia potencial U(r) = -GMm/r
 \draw[
@@ -2778,8 +2607,8 @@ Sempre podem dibuixar la gràfica de \textbf{Energia respecte posició}. Recorde
 \node[above] at (2.27,0) {$r_{\max}$};
 
 % Etiquetes
-\node[blue!70!black] at (4.4,-0.25) {$U(r)=-\dfrac{GMm}{r}$};
-\node[green!40!black] at (1.2,0.25) {$K=E-U$};
+\node[blue!70!black] at (3,-2) {$U(r)=-\dfrac{GMm}{r}$};
+\node[green!40!black] at (2.5,1) {$K=E-U$};
 
 \end{tikzpicture}
 \end{center}
@@ -2960,12 +2789,51 @@ En manera d'exemple, podem lligar un extrem al $(0, y(x))$ amb una massa m i est
 
 \noindent $m \rightarrow \infty$ es dona que $g_{incident}(x-ct) = - g_{reflectit}(x+ct)$
 
-\begin{examplebox}{Corda Lligada}
-    
-\end{examplebox}
+\begin{examplebox}{Corda}
 
-\begin{examplebox}{Corda Lliure}
-    
+    Tenim un pols incident $g_{in}(t-x/c)$ i un reflectit $g_{re}(x+c/t)$ i anomenem $y(t)$ la posició de l'anella.
+
+    \[q(x,t) = g_{in}(t-x/c) + g_{re}(t+x/c)\]
+
+    Per la segona llei de newton;
+
+    $N - T\cos \theta = 0$
+
+    $-T\sin \theta = m\ddot{y}(t)$
+
+    Si tractem amb petites pertorbacions;
+
+    $N-T = 0$
+
+    $-Tq'(0,t) = m\ddot{y}(t)$
+
+    Sabem que s'ha de complir que $q(0,t) = y(t)$ i per tant $q'(x.t) = -\frac{1}{c} \dot{g}_{in}(t-x/c) + \frac{1}{c}\dot{g}_{re}(t+x/c) = -\frac{m}{T} \ddot{y}(t)$ en t=0 (vist a la segona equacio de peitites pertorbacions)
+
+    \[\dot{g}_{in}(t) - \dot{g}_{re}(t) = \frac{mc}{T} \ddot{y}(t)\]
+    \[\dot{g}_{in}(t) + \dot{g}_{re}(t) = \dot{y}(t)\] (si derivem els membres de l'igualtat $q(0,t) = y(x)$)
+
+    Obetenim sumant membre a membre;
+
+    \[\boxed{\frac{mc}{T} \ddot{y}(t) + \dot{y}(t) = 2\dot{g}_{in}(t)}\] 
+
+    \noindent \boxed{Corda Lligada}
+
+    Estudiem $m \rightarrow \infty$
+
+    \[\ddot{y}(t)+ \frac{T}{mc}\dot{y}(t) = \frac{2T}{mc}\dot{g}_{in}(t) \rightarrow \ddot{y}(t) = 0\]
+
+    Podem interpretar que l'anella \textbf{no es mou} i $\forall t, y(t)= 0$ per tant de l'equació $g_{in}(t) + g_{re}(t) = y(t)$, la ona reflectida serà igual a la menys incident.
+
+    \noindent \boxed{Corda Lliure}
+
+    Estudiem $m \rightarrow 0$
+
+    De l'equació $\frac{mc}{T}\ddot{y}(t) + \dot{y}(t) = 2\dot{g}_{in}(t)$, si fem que la massa sigui molt petita;
+
+    \[\dot{y}(t) = 2\dot{g}_{in}(t) \therefore y(t) = 2\dot{g}_{in}(t) + k\]
+
+    Podem interpretar que l'anella es mou \textbf{el doble de l'alçada} que té l'ona, per tant de l'equació $g_{in}(t) + g_{re}(t) = y(t)$, la ona reflectida serà igual a la incident.
+
 \end{examplebox}
 
 \subsection{Moviment Ondulatori}
