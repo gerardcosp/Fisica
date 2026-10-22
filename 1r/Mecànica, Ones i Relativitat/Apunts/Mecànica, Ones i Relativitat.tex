@@ -38,22 +38,6 @@
 \usepackage[dvipsnames,svgnames,x11names]{xcolor}
 \usepackage{tcolorbox}
 \tcbuselibrary{skins,breakable}
-\newtcolorbox{demobox}[1][]{
-    enhanced,
-    breakable,
-    colback=black!2,
-    colframe=black!70,
-    boxrule=0pt,
-    borderline west={2pt}{0pt}{black!70},
-    sharp corners,
-    left=10pt,
-    right=7pt,
-    top=6pt,
-    bottom=6pt,
-    fonttitle=\bfseries,
-    title={Demostració},
-    #1
-}
 
 \newtcolorbox{examplebox}[1]{
     enhanced,
@@ -119,6 +103,7 @@
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
+\renewcommand{\proofname}{Demostració}
 
 % -------------------------------------------------
 % DOCUMENT STYLE
@@ -200,11 +185,11 @@
 \tableofcontents
 
 \newpage
-\section{Cinemàtica (Descripció del moviment)}
+\section{Cinemàtica}
 
 Considerem una partícula puntual (0-D), la posició d'aquest punt la podem descriure com un vector en un eix 3-D ($\vec{r}$).
 
-En qualsevol sistema de coordenades tenim els \textbf{vectors unitaris} són vectors que pertanyen al espai i defineixen la nostra base de manera que ($\abs{\vec{u_i}} = 1u$). En les nostres bases cartesianes tenim els vectors ($\vec{i}, \vec{j}, \vec{k}$) per tant podem descriure el \textit{vector posició} com
+En qualsevol sistema de coordenades, els vectors \textbf{$\vec{i}, \vec{j}, \vec{k}$} són mútuament perpendiculars i fixos en el temps. Aquests vectors pertanyen a l'espai i defineixen la nostra base, de manera que $\abs{\vec{u_i}} = 1u$. En les bases cartesianes, podem descriure el \textit{vector posició} com
 
 \[\vec{r} = x\vec{i} + y\vec{j} + z\vec{k}\]
 
@@ -248,14 +233,14 @@ Per tant podem dir que;
 I anomenem a aquesta igualtat, \textbf{equació del moviment}.
 
 \begin{examplebox}{1}
-    Una particula descriu una corba $\vec{r}(t) = R\cos(\omega t)\vec{i} + R\sin(\omega t)\vec{j}$ si pensem una mica, \textbf{és un document en dos dimensions}. Per saber la trajectoria calculem $\abs{\vec{r}(t)}$ i amb l'identitat pitagòrica ens queda que la trajectoria respecte l'origen és $R^2$ que no és més que una constant.
+    Una particula descriu una corba $\vec{r}(t) = R\cos(\omega t)\vec{i} + R\sin(\omega t)\vec{j}$ si pensem una mica, \textbf{és un document en dos dimensions}. Per saber la trajectoria calculem $\abs{\vec{r}(t)}$ i amb l'identitat pitagòrica ens queda que la trajectoria respecte l'origen és $R^2$ que no és més que una constant ($x = R\cos(\omega t), y = R\sin (\omega t) \therefore x^2 + y^2 = R^2$ i per tant $\forall t \abs{\vec{r}} = R$).
 
     Si pensem encara una mica més la trajectoria constant i que sempre té la mateixa distàncai és la circular per tant aquella igualtat determina un \textbf{moviment circular}
 \end{examplebox}
 
 \subsection{Velocitats}
 
-Quan hi ha un canvi en el temps i un canvi en la posició ($\Delta t, \Delta \vec{r}$) Apareix un vector $\vec{v}$ que també depèn de t i ens diu com ha canviar la posició en aquell temps. El vector apuntarà en direcció a la secant entre els vectors $\vec{r_0}, \vec{r_1}$ i és calcula de manera $v_m = \frac{\Delta \vec{r}}{\Delta t}$.
+Quan hi ha un canvi en el temps i un canvi en la posició ($\Delta t, \Delta \vec{r}$) Apareix un vector $\vec{v}$ que també depèn de t i ens diu com ha canviar la posició en aquell temps. El vector apuntarà en direcció a la secant entre els vectors $\vec{r_0}, \vec{r_1}$ i és calcula de manera $v_m = \frac{\Delta \vec{r}}{\Delta t}$, tot i que si fem una volta circular i acabem al mateix lloc que començem no vol dir que $\vec{v}_m = \frac{\vec{r}_i - \vec{r}_f}{\Delta t} = \frac{0}{\Delta t} = 0$
 
 \begin{center}
     \begin{tikzpicture}[>=Stealth, scale=1]
@@ -458,7 +443,7 @@ Que bàsicament ens dona el canvi de velocitat respeccte el petitíssim canvi de
 
 \subsection{MRU}
 
-Parlem de MRU quan $\Delta v = 0$ és a dir que la velocitat és constant i que el canvi de posició és sempre el mateix.
+Parlem de MRU quan $\Delta v = 0$ i quan només es mou en una línea (pot ser un eix o una recta) és a dir que la velocitat és constant i que el canvi de posició és sempre el mateix.
 
 \begin{center}
 \begin{tikzpicture}[>=Stealth, scale=0.9]
@@ -549,6 +534,7 @@ Podem escollir el nostre sistema de referència com vulguem pero estem \textbf{o
 
 \begin{itemize}
     \item Axioma I: El temps és absolut (\textit{transcorre al mateix ritme per tothom})
+    En la mecànica clàssica newtoniana, el temps es considera absolut i les transformacions entre sistemes de referència inercials segueixen les transformacions de Galileu. Aquestes hipòtesis no són vàlides en general en la relativitat especial d’Einstein.
     \item Axioma II: Espai absolut (\textit{Tot es troba al mateix espai})
 \end{itemize}
 
@@ -602,7 +588,7 @@ Podem distingir \textbf{dos tipus de sistema}.
 
 \begin{itemize}
     \item \textbf{Inercials}; El sistema \textit{es troba o en repòs o en velocitat constant}, per tant la 2a Llei de Newton no es veu alterada de cap manera. $\Sigma \vec{F} = m\vec{a}$
-    \item \textbf{No Inercials}; El sistema \textit{experimenta una acceleració} $\ddot{\vec{R'}}$ i per tant en el nou sistema s'ha de contrarestar 3ª Llei de Newton, la 2a es manté pero hem d'afegir $\Sigma \vec{F} - m\ddot{\vec{R'}} = m\vec{a}$ on podem dir que $-m\ddot{\vec{R'}} = F_{\text{inèrcia}}$ que és una força "inventada" (\textbf{no existeix pero s'experimenta}).
+    \item \textbf{No Inercials}; El sistema \textit{experimenta una acceleració} $\ddot{\vec{R'}}$ i per tant, en un sistema de referència no inercial, la segona llei de Newton es pot aplicar introduint les forces fictícies corresponents. Aquestes forces apareixen a causa de l’acceleració del sistema de referència i no són forces d’interacció entre dos cossos. La 2a es manté pero hem d'afegir $\Sigma \vec{F} - m\ddot{\vec{R'}} = m\vec{a}$ on podem dir que $-m\ddot{\vec{R'}} = F_{\text{inèrcia}}$ que és una força "inventada" (\textbf{no existeix pero s'experimenta}).
 \end{itemize}
 
 \begin{center}
@@ -688,7 +674,7 @@ Podem distingir \textbf{dos tipus de sistema}.
 
 \end{center}
 
-\begin{demobox}
+\begin{proof}
     Si tenim les coordenades \textbf{R} i \textbf{R'}, un sistema inercial té unes cordenades;
 
     $ \begin{pmatrix}
@@ -703,7 +689,7 @@ En els sistemes no inercials com que $\ddot{\vec{R}} \neq 0$, obtenim que $\vec{
 \[\text{Força Intercial =} -m \ddot{\vec{R}}\]
 
 De manera que obtenim $\vec{F} + \vec{F_i} = m \ddot{\vec{r}}$
-\end{demobox}
+\end{proof}
 
 \subsection{MCU i MCUA}
 
@@ -770,12 +756,12 @@ Recordem que per molt que hi hagi una velocitat tangencial que existeixi $v$ es 
 
 Podem veure fàcilment que $\vec{e_r}, \vec{e_{\varphi}}$ depenen de $\varphi$ i del temps, de manera que $\dv{}{t}\vec{e_r} = \dot{\varphi} \vec{e_{\varphi}}$ i que $\dv{}{t}\vec{e_{\varphi}} = -\dot{\varphi} \vec{ e_{r}}$ de manera que podem descriure un vector \textbf{$\vec{r} = r\vec{e_r}$} i derivar-lo respecte del temps per \textbf{obtenir la velocitat.}
 
-\begin{demobox}
+\begin{proof}
 \[\vec{v} = \dot{\vec{r}} = \dv{}{t}r\vec{e_r} = r \dot{\varphi}\vec{e_\varphi}\]
 \[\dot{\varphi} \equiv \omega\]
-\end{demobox}
+\end{proof}
 
-Acabem amb la relació de que $v = r\omega$ i va en direcció \textbf{tangencial al moviment}. Ara, quan apareix un canvi en la velocitat apareix una acceleració, tal i com hem descrit als altres moviments, pero ara com que $\omega$ i $\vec{e_{\varphi}}$ depenen de temps és dona la regla del producte
+En coordenades polars, la velocitat té una component radial, associada al canvi de distància respecte de l’origen, i una component tangencial, associada al canvi de l’angle. Si el radi és constant, la velocitat és exclusivament tangencial i el seu mòdul és $v=R\omega$. Ara, quan apareix un canvi en la velocitat apareix una acceleració, tal i com hem descrit als altres moviments, pero ara com que $\omega$ i $\vec{e_{\varphi}}$ depenen de temps és dona la regla del producte
 
 \begin{center}
 \begin{tikzpicture}[>=Stealth, scale=1]
@@ -824,18 +810,34 @@ Acabem amb la relació de que $v = r\omega$ i va en direcció \textbf{tangencial
 \end{tikzpicture}
 \end{center}
 
-\begin{demobox}
+\begin{proof}
     \[\vec{a} = \dot{\vec{v}} = \ddot{\vec{r}} = r\ddot{\varphi}\vec{e_{\varphi}} - r\dot{\varphi}\dot{\varphi} \vec{e_r}\]
     \[\ddot{\varphi} \equiv \alpha\]
-\end{demobox}
+\end{proof}
 
-Per tant tenim dues acceleracions, una que es diu \textbf{tangencial} $a_t = r\alpha$ que va en direcció tangencial a la trajectoria i la \textbf{normal} que va en oposat al vector director $\vec{e_r}$ i que és $a_n = r\omega^2 = \frac{v^2}{r}$.
+En el moviment circular de radi constant, l’acceleració total es descompon en dues components:
+
+\begin{itemize}
+    \item \textbf{Acceleració tangencial ($a_t$):} Va en direcció tangencial a la trajectòria i modifica el mòdul de la velocitat. La seva expressió és:
+    \[
+    a_t = r\alpha
+    \]
+    
+    \item \textbf{Acceleració normal o centrípeta ($a_n$):} Apunta cap al centre de la circumferència, en sentit oposat al vector director radial $\vec{e_r}$, i modifica la direcció de la velocitat. La seva expressió ve donada per:
+    \[
+    a_n = r\omega^2 = \frac{v^2}{r}
+    \]
+\end{itemize}
 
 L'acceleració normal és centripeta i per tant crea una força centripeta al cos.
 
 \subsection{Moviment General en 2D}
 
-Aquí tot i que determinem $\vec{r}(t)$ en les bases cartesianes $\vec{i}, \vec{j}$ despres usem la nostra base propia que canvia en funció del temps amb \textbf{els vectors de frenet} on $e_1$ pren la direcció de la velocitat i l'acceleració tangencial i $e_2$ pren el sentit de l'acceleració normal.
+Aquí tot i que determinem $\vec{r}(t)$ en les bases cartesianes $\vec{i}, \vec{j}$ despres usem la nostra base propia que canvia en funció del temps amb \textbf{els vectors de frenet}. El vector unitari tangent $\vec e_1$ té la direcció de la velocitat. El vector unitari normal $\vec e_2$ és perpendicular a $\vec e_1$ i apunta cap al centre de curvatura quan la trajectòria té curvatura no nul·la.
+
+\[
+\vec a=\frac{dv}{dt}\vec e_1+\frac{v^2}{R}\vec e_2
+\]
 
 Donat $r(t)$ podem trobar $v(t)$ fàcilment derivant la posció. Amb això podem determinar el nostre \textbf{primer vector de frenet}, de manera que $\vec{e_1} = \frac{\dot{\vec{x}}(t)}{\abs{\dot{\vec{x}}(t)}} = \frac{\vec{v}(t)}{\abs{\vec{v}(t)}}$. I si derivem podem trobar el \textbf{segon vector de frenet}, de manera que; $\vec{e_2} = \frac{\dot{\vec{e_1}}}{\abs{\dot{\vec{e_1}}}}$ ja que han de formar una base;
 
@@ -884,11 +886,11 @@ Donat $r(t)$ podem trobar $v(t)$ fàcilment derivant la posció. Amb això podem
 \end{tikzpicture}
 \end{center}
 
-\begin{demobox}
+\begin{proof}
     \[\abs{\vec{e_1}}^2 = 1\]
     \[\dv{}{t}\abs{\vec{e_1}}^2 = 1  \]
     \[2 \abs{\dot{\vec{e_1}}} \cdot \abs{\vec{e_1}} = 0\]
-\end{demobox}
+\end{proof}
 
 Quan ja tenim la nostra base, per definició donem la velocitat com $\vec{v}(t) = v\vec{e_1}$. I simplement si volem trobar l'acceleració derivem usant la regla de la cadena;
 
@@ -898,7 +900,7 @@ Quan ja tenim la nostra base, per definició donem la velocitat com $\vec{v}(t) 
 
 On un altre cop tenim l'acceleració tangencial i l'acceleració normal una apuntant en cada direcció i el mòdul d'aquestes indica l'acceleració del nostre cos.
 
-Denominem K al recíproc del Radi de corbatura, k (en $m^-1$) ens indica com canvia l'angle $\varphi$ respecte de l'elongació, $\frac{\Delta \varphi}{\Delta s}$, si prenem el límit a $\Delta s$ quan s'aproxima a 0, estem mirant l'angle instantani i el canvi d'aquest $k = \abs{\frac{\dv{\varphi}{t}}{\dv{s}{t}}} = \abs{\frac{\dot{\varphi}}{v}}$.
+Denominem $\kappa$ al recíproc del Radi de corbatura, $\kappa$ (en $m^-1$) ens indica com canvia l'angle $\varphi$ respecte de l'elongació, $\frac{\Delta \varphi}{\Delta s}$, si prenem el límit a $\Delta s$ quan s'aproxima a 0, estem mirant l'angle instantani i el canvi d'aquest $\kappa = \abs{\frac{\dv{\varphi}{t}}{\dv{s}{t}}} = \abs{\frac{\dot{\varphi}}{v}}$.
 
 Si ens fixem amb com definim \textbf{els vectors de frenet} en l'espai amb $\varphi$, $\vec{e_1} = \vec{i}\cos \varphi + \vec{j} \sin \varphi$, de manera que $\abs{\vec{e_1}} = \dot{\varphi}$, per tant;
 
@@ -962,10 +964,10 @@ Si sabem que $\vec{v} = \dv{\vec{r}}{t}$ doncs quan afegim tots els trossos \tex
 
 Pero que fem quan no ens parlen de temps i ens donen una funció arbitraria? Doncs proposem x = t, de manera que desenvolupant.
 
-\begin{demobox}
+\begin{proof}
     \[\dot{x} = \dv{x}{x} = 1, \dot{y} = \dv{y}{x} = y'\]
     \[\int_{x_0}^{x} \abs{\dot{x}\vec{i} + \dot{y}\vec{j}} = \int_{x_0}^{x} \sqrt{1+y'}\]
-\end{demobox}
+\end{proof}
 
 Per acabar podem distingir magnituds que \textbf{depenen del temps} com;
 
@@ -1128,9 +1130,9 @@ Estudia el \textbf{moviment dels objectes}, des de les forçes que el pertorben.
 Per poder predir el moviment usem les \textbf{3 lleis de Newton}
 
 \begin{itemize}
-    \item \textit{Llei de l'inèrcia}; Un cos en repos no experimenta un canvi si no es pertorbat. 
+    \item \textit{Llei de l'inèrcia}; En un sistema de referència inercial, si la força resultant sobre un cos és nul·la, aquest manté la seva velocitat constant. El repòs és un cas particular d’aquesta situació.
     \item \textit{Segona Llei}; Una força actua sobre un cos \textbf{otorgant-li acceleració}, $F = m\vec{a}$
-    \item \textit{Acció-Reacció}; Si un objecte fa força sobre un altre, aquell altre li fa una contrària en \textbf{sentit oposat}, pero aquesta mai s'aplica si tractem el conjunt com un únic cos perque sinò seria $\Sigma \vec{F} = m\vec{a}$
+    \item \textit{Acció-Reacció}; Si un cos A exerceix una força sobre un cos B, el cos B exerceix simultàniament sobre A una força d’igual mòdul i direcció, però de sentit contrari. Aquestes forces actuen sobre cossos diferents i, per això, no es cancel·len en el diagrama de forces d’un únic cos.
 \end{itemize}
 
 \begin{center}
@@ -1217,7 +1219,7 @@ El que realment es vol trobar és la força que pertorba aquell cos i li dona un
 
 \subsection{Forces}
 
-Sobre qualsevol cos pot actuar una força. Si ens trobem a la terra un cos X rep \textbf{un pes} i la terra genera una força en sentit oposat (\textit{tercera llei de Newton}). Però que passa si ens trobem assobre d'una superficie. No caiem cap abaix, això indica \textbf{que existeix una força en reacció a una superficie}. Aquesta és la força normal que és \textit{perpendicular a la superficie de repòs}, aquesta força, naturalment, genera una força' en sentit oposat com a reacció d'aquella. L'acceleració que obté la terra del pes d'un objecte X és infinitéssimament petita per això mai es té en compte.
+Sobre qualsevol cos pot actuar una força. A prop de la superfície terrestre, la Terra exerceix sobre un cos una força gravitatòria anomenada pes. Quan el cos està en contacte amb una superfície, aquesta pot exercir-hi una força normal perpendicular a la superfície de contacte. El pes i la força normal actuen sobre el mateix cos, de manera que no constitueixen un parell d’acció-reacció. La força de reacció al pes és la força gravitatòria que el cos exerceix sobre la Terra, aquesta força, naturalment, genera una força en sentit oposat com a reacció d'aquella. L'acceleració que obté la terra del pes d'un objecte X és infinitéssimament petita per això mai es té en compte.
 
 \[P = P' \leftrightarrow m_T \cdot a_t = m_X \cdot g\]
 
@@ -1313,7 +1315,16 @@ Si $\omega \downarrow (\text{ha de}), R \uparrow$
 
 En alguns moments, els efectes de la gravetat $g$ poden semblar indistingibles (\textbf{caiguda lliure}). Segons un teorema la \textit{massa gravitatoria (la massa d'un cos que experimenta la gravetat)} i la \textit{massa inercial (la massa que obté una acceleració)} són les mateixes de manera que en $F = ma = G\frac{Mm}{r^2}$ es simplifiquen i obtenim $\vec{a} = -G\frac{M}{r^2} \vec{u_r}$
 
-De manera que \textbf{la massa no influeix}, quan diem "cancelar la gravetat" ens referim a estar en una situació de \textbf{caiguda lliure} on $a = g$ de manera que tot cau en sincronització a la gravetat i $F + N = mg$, $N = mg - mg = 0$ no hi ha recolzament del terra i segons el sistema $a = 0$ i \textit{els objectes floten}
+En caiguda lliure, un cos està sotmès essencialment a la força gravitatòria i té una acceleració $\vec a=\vec g$. Si tant el cos com el seu entorn cauen amb la mateixa acceleració, la força normal pot ser nul·la i es produeix una situació d’ingravidesa aparent. Això no significa que la gravetat hagi desaparegut.
+
+\[
+\sum\vec F=m\vec a
+\]
+
+\[
+mg-N=mg
+\quad\Longrightarrow\quad N=0
+\]
 
 \begin{center}
 
@@ -1406,7 +1417,9 @@ De manera que \textbf{la massa no influeix}, quan diem "cancelar la gravetat" en
 
 \subsection{Forces de Fregament}
 
-En qualevol cos que es mou \textbf{sobre una superficie}. Com que les superficies mai són completament regulars, experimenta \textit{una restricció} alhora de moure's. Si dibuixem la força de fregament en sentit oposat no vol dir que es mou la contrari, ja que \textbf{és proporcional a la força que fa moure l'objecte}, si no hi ha força no hi ha força de fregament.
+En qualevol cos que es mou \textbf{sobre una superficie}. Com que les superficies mai són completament regulars, experimenta \textit{una restricció} alhora de moure's. Si dibuixem la força de fregament en sentit oposat no vol dir que es mou la contrari, ja que \textbf{és proporcional a la força que fa moure l'objecte}.
+
+La força de fregament s’oposa al lliscament relatiu o a la tendència al lliscament entre les superfícies en contacte. El fregament estàtic pot existir encara que el cos estigui en repòs i no hi hagi cap força horitzontal aplicada, i s’ajusta al valor necessari per impedir el lliscament fins a un màxim.
 
 S'ha vist que $F_f \propto F_N$ de manera que;
 
@@ -1491,9 +1504,9 @@ En aquests apartats estudiarem els \textbf{cassos particulars que ens podem trob
 
 \subsubsection{Cordes Ideals}
 
-Anomenem \textit{corda ideal a aquella corda tensionada que té $\Delta m\approx 0$}. Podem demostrar que aquesta força transporta la mateixa tensió en tots els seus punts $ds$.
+Una corda ideal \textit{es considera inextensible i de massa negligible}. En aquestes condicions, la tensió és uniforme al llarg de cada tram recte de corda ideal, sempre que no hi hagi altres efectes o interaccions que n’alterin la tensió.
 
-\begin{demobox}
+\begin{proof}
     Si tenim una corda de llargada \textbf{L} i ho separem en troços petits on estiren 2 tensions obtenim que $T - T' = \Delta m\cdot a$ per tant;
     
     \begin{center}
@@ -1553,13 +1566,15 @@ Anomenem \textit{corda ideal a aquella corda tensionada que té $\Delta m\approx
     \end{center}
 
     $T-T' = 0a \therefore T = T'$ i així demostm la propietat.
-\end{demobox}
+\end{proof}
 
 Recordar que en tensions \textbf{per la 3ª llei de Newton}, tota tensió té una altra al altre extrem de la corda i una que fa sobre la superficie de la mateixa magnitud que anomenem $F_s$.
 
 \subsubsection{Politjes}
 
-En tot sistema de politjes com hem demostrat abans esta fet amb \textbf{cordes ideals}, mentre no sigui una corda diferent. I que en cada politja podem diferenciar \textbf{força d'entrada ($F_i$)} i \textbf{força de sortida ($F_f$)} on obtenim que $F_i = 2F_f$ per cada politja on entra 1 força i en surten dues.
+En una politja ideal, la relació entre la força aplicada i la força resultant depèn de la configuració del sistema i del nombre de trams de corda que sostenen la càrrega. En una politja mòbil ideal sostinguda per dos trams amb la mateixa tensió, la força total cap amunt és \(2T\).
+
+Si la politja no és ideal (Tema 5) ens trobarem que hem d'aplicar dues tensions i dues acceleracions diferents.
 
 \subsubsection{Rodes}
 
@@ -1570,7 +1585,11 @@ Podem diferenciar 2 situacions d'una roda;
     \item \textbf{Llisca};(és troba en fregament dinàmic $\mu_d$)
 \end{itemize}
 
-Una roda es mou \textbf{transversalment} amb una velocitat $v = \omega R$ pero cada punt pren una suma de vectors i adalt surt $v = 2v = 2\omega R$ i abaix $v = v-v = 0$. Llavors quan abaix tenim una velocitat diem que ha entrat en lliscament, i si estem en un vehicle el que volem evitar es que llisqui per aixó l'acceleració màxima o qualsevol cosa que li afegim hauria de ser $\leq \mu_e N$
+Una roda es mou \textbf{transversalment} amb una velocitat $v = \omega R$ pero cada punt pren una suma de vectors i adalt surt $v = 2v = 2\omega R$ i abaix $v = v-v = 0$. En el rodament sense lliscament sobre una superfície fixa, el punt de contacte de la roda amb la superfície té velocitat instantània nul·la respecte de la superfície. Això no implica que la força de fregament sigui nul·la: pot existir fregament estàtic. Si hi ha lliscament relatiu al punt de contacte, el fregament és dinàmic, hauria de ser $\leq \mu_e N$
+
+\[
+v_{\mathrm{CM}}=\omega R
+\]
 
 \section{Dinàmica dels Sistemes de Partícules I}
 
@@ -1582,11 +1601,19 @@ En un inici les lleis de Newton estan formulades \textbf{per punts al espai en 0
 
 Considerem una particula de massa $m$ amb velocitat $\vec{v}$ i es pot definit el \textbf{moment lineal com}; $\vec{p} = m\vec{v}$;
 
-\begin{demobox}
+\begin{proof}
     Segons la 3ª Llei de Newton; $\vec{f} = m\vec{a} = m \dv{\vec{v}}{t} = \dv{m\vec{v}}{t} = \dv{\vec{p}}{t} $
 
-    De manera que definim \textbf{la força com a la derivada del moment lineal}.
-\end{demobox}
+    La segona llei de Newton estableix \textbf{que la força resultant externa sobre una partícula és igual a la derivada temporal del seu moment lineal}. Si la massa és constant, aquesta expressió equival a \(\vec F_{\mathrm{resultant}}=m\vec a\).
+
+    \[
+    \vec p=m\vec v
+    \]
+
+    \[
+    \frac{d\vec p}{dt}=\vec F_{\mathrm{resultant}}
+    \]
+\end{proof}
 
 Ara bé, com és que en la llei de Newton mai posem les forçes entre els cossos si parlem del sistema total?
 
@@ -1722,7 +1749,7 @@ Pel teorema $\dv{\vec{P}}{t} = \vec{F} = \vec{f_1} + \dots + \vec{f_n}$. Com que
 
 Si $\vec{F}_{total}^{externa} = 0$, el moment no varia i $\vec{P}$ és constant.
 
-\textcolor{red}{\textbf{Si el moment linal és zero, vol dir que el CM no es desplaça}}.
+\textcolor{red}{\textbf{Si el moment lineal total d’un sistema és nul en un instant, la velocitat del centre de masses és nul·la en aquell instant. Això no implica necessàriament que el centre de masses romangui en repòs en tot moment. Si la força resultant externa és nul·la, el moment lineal total es conserva.}}.
 
 \begin{examplebox}{Conservació del moment}
     Moment Lineal, exemple bàsic;
@@ -1767,7 +1794,7 @@ Si $\vec{F}_{total}^{externa} = 0$, el moment no varia i $\vec{P}$ és constant.
 \end{examplebox}
 
 \begin{examplebox}{Xoc Esàstic}
-    La diferència es que en aquests, com que res s'uneix $\Delta K = 0$ sempre i podem imposar aquesta condició i la $\Delta \vec{p} = 0$
+    En un xoc elàstic d’un sistema aïllat, es conserven el moment lineal total i l’energia cinètica total. Que els cossos quedin units o separats no és, per si sol, el criteri que determina si el xoc és elàstic. Podem imposar $\Delta K = 0$ i $\Delta \vec{p} = 0$
 
     Si tenim dos blocs de massa $m, M$ amb velocitats $v, V$, podem imposar per trobar la final
 
@@ -1800,7 +1827,16 @@ Anomenem centre de masses d'un sistema $M = (m_1, \dots, m_n)$. El centre de mas
 
 I descrivim el sistema com a $\vec{P} = M\dot{\vec{R}}$ i $\vec{F} = M \ddot{\vec{R}}$ (Així reduïm el moviment d'un sistema a un únic lloc).
 
-Parlem del \textbf{sistema centre de masses a aquell sistema} que uneix totes les particules i \textbf{si actuen només forçes conservatives,} sol tenir el centre de masses invariable
+Parlem del \textbf{sistema centre de masses a aquell sistema} que uneix totes les particules. El moviment del centre de masses depèn de la força resultant externa sobre el sistema. Les forces internes no determinen l’acceleració del centre de masses quan es consideren les interaccions internes en el sistema complet.
+
+\[
+\vec R_{\mathrm{CM}}
+=\frac{1}{M}\sum_i m_i\vec r_i
+\]
+
+\[
+M\vec a_{\mathrm{CM}}=\vec F_{\mathrm{ext}}
+\]
 
 Calcular el CM d'un \textbf{sòlid rígid}.
 
@@ -1850,9 +1886,19 @@ Sabem que $\vec{F}_{total}^{externa} = M \ddot{R}$, podriem pensar que al aplica
 
 Si veiem en el dibuix, l'objecte no gira $\Leftrightarrow$ les forçes s'apliquen a la mateixa distància, si s'apliquen en diverses pot apareixer un \textbf{torque}, aixó si i només si són perpendiculars a l'eix central (el que passa pel CM)
 
+El moment d’una força respecte d’un punt mesura la tendència d’aquesta força a produir rotació al voltant del punt. Depèn del vector que va des del punt de referència fins al punt d’aplicació de la força, i del vector força.
+
+\[
+\vec M_O=\vec r\times\vec F
+\]
+
+\[
+M_O=rF\sin\theta
+\]
+
 % DIBUIX MOMENTS PARALELS SENSE EFECTE
 
-Anomenem \textbf{moment angular} al $\vec{L} = \vec{r} \cross \vec{p}$ per cada moment que actua en un cos i per tant $\vec{L_t} = \sum \vec{L_i}$. Aquest moment és sempre perpendicular a la direcció de rotació.
+Anomenem \textbf{moment angular} al $\vec{L} = \vec{r} \cross \vec{p}$ per cada moment que actua en un cos i per tant $\vec{L_t} = \sum \vec{L_i}$. El moment angular d’una partícula respecte d’un punt \(O\) és el producte vectorial entre el seu vector de posició respecte d’aquest punt i el seu moment lineal. En general, el moment angular d’un sòlid no ha de ser paral·lel a la seva velocitat angular (és a dir perpendicular al moviment).
 
 \textbf{Teorema}: 
 
@@ -1905,7 +1951,7 @@ Diem que $(xv_y - yv_x) = \eta v$ ja que si fem el producte vectorial un altre c
 
 \[L_e = \sum l_i = \omega(m_1\eta_1^2 + m_2\eta_2^2 + \dots)\]
 
-Anomenem a la suma de $\sum m_i\eta_i^2 = I_e$ \textbf{moment d'inèrcia respecte e} (trivialment com que depèn de $\eta$ al canviar l'eix, el moment també canvia [però al canviar l'origen no canvia el moment d'inèrcia ja que tots pertanyen al eix]). Obtenim que $\boxed{L_e = I_e\omega}$
+Anomenem a la suma de $\sum m_i\eta_i^2 = I_e$ \textbf{moment d'inèrcia respecte e} (trivialment com que depèn de $\eta$ (Quant més allunyada estigui la massa de l’eix, més gran serà la seva contribució al moment d’inèrcia.)al canviar l'eix, el moment també canvia [però al canviar l'origen no canvia el moment d'inèrcia ja que tots pertanyen al eix]). Obtenim que $\boxed{L_e = I_e\omega}$
 
 Ara si tenim un sólid rígid compost per \textit{moltíssimes masses individuals el podem descomposar de manera que};
 
@@ -1925,7 +1971,11 @@ Si en un sistema on no hi ha moment de forçes externes, com el de la ballerina 
 
 Si aquesta ballerina gira amb les cames obertes (amb un radi de gir $\eta$) i una $\omega$, si canvia el seu radi de gir (tanca les cames) $\eta' < \eta$, com que el moment és constant apareix $\omega' > \omega$.
 
-Si $\vec{M_e}^{ext}$ no és 0, és a dir que hi ha una força paral·lela al eix, $\vec{M_e}^{ext} = I_e\dot{\omega} = I_e \alpha$.
+Per a un sòlid que gira al voltant d’un eix fix i amb moment d’inèrcia constant respecte d’aquest eix, el moment de les forces externes projectat sobre l’eix és igual al moment d’inèrcia multiplicat per l’acceleració angular.
+
+\[
+M_e^{\mathrm{ext}}=I_e\alpha
+\]
 
 \subsection{Dinàmica de Particules en altres Sistemes de Referència}
 
@@ -1948,7 +1998,10 @@ I com que les podem igualar, \textbf{fins i tot si el CM es troba accelerat};
 \begin{examplebox}{}
     Diguem que la terra és un \textit{sòlid rígid}, i es mou en una òrbita, per determinar la òrbita del centre total, ($\vec{L_0}$) aïllem de l'equació,
 
-    \[\vec{L_0} = \vec{L}_{CM} + \vec{R} \cross\vec{P}\]
+\[
+\vec L_O=\vec L_{\mathrm{CM}}
++\vec R_{\mathrm{CM}}\times\vec P
+\]
 
     Per tant el que fem és sumar el gir del centre de masses (el propi de la terra) i el de l'orbita per obtenir el total.
 
@@ -1965,7 +2018,7 @@ Suposem que una força es \textbf{desplaça} en línea recta amb una \textbf{for
 
 % DIBUIX BOLA AMB FORçA DESPLAÇANT SE
 
-Anomentem treball a la magnitud que estudia el desplaçament d'una força en una distància; $\boxed{W = \vec{F} \cdot \Delta \vec{r} \mid N \cross m = J}$, ens podem trobar amb 3 situacions possibles;
+El treball d’una força és una magnitud escalar que quantifica l’energia transferida per aquesta força durant un desplaçament. Per a una força constant, és el producte escalar entre la força i el desplaçament. $\boxed{W = \vec{F} \cdot \Delta \vec{r} \mid N \cross m = J}$, ens podem trobar amb 3 situacions possibles;
 
 \begin{itemize}
     \item $W > 0$; A favor del moviment, és a dir en compensació amb el desplaçament
@@ -2007,7 +2060,7 @@ Al contrari que el treball, l'energia cinètica \textbf{si que esta associada a 
 
 \[W = \Delta K = K_f - K_i\]
 
-\begin{demobox}
+\begin{proof}
     Suposem que una particula de massa $m$ on actua $\vec{F}_{tot}$ que fa un camí $\tau$.
 
     % DIBUIX CAMÍ
@@ -2016,7 +2069,7 @@ Al contrari que el treball, l'energia cinètica \textbf{si que esta associada a 
 
     \[W = m\int_{t_i}^{t_f} \dv{\vec{v}}{t} \vec{v}dt = \frac{1}{2}m \int_{t_i}^{t_f} \dv{v^2}{t}dt = \frac{1}{2}m[v(t)]^{t_f}_{t_i}  = \frac{1}{2}mv^2\]
 
-\end{demobox}
+\end{proof}
 
 \subsubsection{\texorpdfstring{Energia Potencial ($\exists$ Per Forçes Conserviatives)}{Energia Potencial (Per Forçes Conserviatives)}}
 
@@ -2121,5 +2174,243 @@ Si volem calcular el moment d'Inèrcia en un eix paral·lel al d'un altre $e$ po
 
 Amb això podem demostrar que $L_{e'} = L_e + \vec{R} \cross \vec{P}$ per a qualsevol punt del nostre sistema.
 
-\section{Ones}
+\section{Ones I}
+
+Una ona és \textbf{una pertorbació} que es propaga en l’espai i en el temps, transportant energia sense que hi hagi, en general, un transport net de matèria acompanyant la propagació.
+
+En una ona, cada punt d'aquesta es mou en un \textit{moviment harmònic simple} [$q(x) = A\cos(\omega t + \varphi_0)$] i si unim tots els moviments tenim una \textit{ona harmònica}, però com arribem a l'equació d'ona que tots sabem?
+\[\boxed{q(x,t) = A\cos(\omega t - kx + \varphi_0)}\]
+
+P.D, Anomenem $\dot{q}(x,t)$ quan parlem de $\pdv{q}{t}$ i parlem de $q'(x,t)$ quan parlem de $\pdv{q}{x}$
+
+\subsection{Definició d'una Ona}
+
+Com hem dit abans una ona \textit{transporta una pertorbació}, aquesta es mou a velocitat constant $\therefore \ddot{q} = 0$ (anomenada velocitat de propagació). El qui genera l'ona és \textbf{l'emissor} i pot estar polaritzada \textbf{verticalment o horitzontalment} en el sentit en que es doni el moviment en $q(0,t)$ (si el sentit de la pertorbació no és paral·lel al del moviment de l'ona).
+
+Hi ha dos tipus de moviment en les ones;
+
+\begin{itemize}
+    \item \textbf{Ones transversals}: Ona en què la vibració és perpendicular a la direcció de propagació.
+    \item \textbf{Ones longitudinals}: Ona en què la vibració és paral·lela a la direcció de propagació.
+    \item \textbf{Ones en 2D}: Com les ones d'aigua
+    \item Un \textbf{front d’ona} és el conjunt de punts d’un medi que tenen la mateixa fase en un instant determinat. En dues dimensions és una línia i en tres dimensions és una superfície.
+    \item \textbf{Ones en 3D}: Com el só dels altaveus que s'expandeixen esfèricament
+    Aquí poden haver \textbf{variacions de pressió i densitat de l'aigua}
+\end{itemize}
+
+Una ona mecànica, que és la que treballarem en Ones I, és aquella que és material (Una corda, l'aigua, el só, \dots). En Ones II treballarem amb la llum, ones electromagnètiques \dots
+
+Però que és una ona i que no ho és?
+
+\noindent - Podem dir que una ona és un tràfic de cotxes 
+\noindent - Una onada d'espectadors
+
+Però com ho podem saber? Doncs \textbf{una ona és una ona si compleix l'equació d'ona}.
+
+\subsubsection{Equació d'Ona}
+
+Demostrarem com funciona una ona a partir d'una corda però una ona no només és una corda en moviment, sinó que és molt més.
+
+% Dibuix corda demostració
+
+Si tenim una corda de longitud $L$, densitat $\rho$ i amb els extrems fixos en tensió $T$, podem obtenir les equacions de Newton.
+
+\[T(x+dx)\cos \theta_2 - T(x)\cos \theta_1 = 0\]
+\[T(x+dx)\sin \theta_2 - T(x)\sin \theta_1 = \rho dl \ddot{q}(x)\]
+
+Si prenem una distància $\abs{x - x+dx}<<$ podem afirmar que $\abs{q(x)} < \varepsilon L, \abs{q'(x)} < \varepsilon$, $\varepsilon << 1$ $L \geq x \geq 0$.
+
+Quan prenem distàncies tan petites podem fer una serie d'afirmacions: \textcolor{red}{$\cos \theta_i \approx 1$, $\sin \theta_i \approx \theta_i$ i com que la tangent és la pendent $\sin \theta_i \approx tan\theta_i = q'(x)$, $dl \approx dx$.}
+
+\[T(x+dx) - T(x) = 0\]
+\[T(x+dx)q'(x+dx) - T(x)q'(x) = \rho dx \ddot{q}(x)\]
+
+I finalement podem recordar que
+\[\boxed{\textcolor{red}{f'(x) = \frac{f(x+dx) - f(x)}{dx}}}\]
+
+\[\boxed{f(x+dx) \approx f(x) + f'(x)dx}\]
+
+Per tant podem aproximar a;
+
+\[T'(x) = 0\]
+\[T(x) q''(x)dx + T'(x)q'(x) dx = \rho \ddot{q}(x)dx\]
+
+Podem estudiar $Tq''(x) = \rho \ddot{q}(x)$ si sabem que \boxed{c = \sqrt{\frac{T}{\rho}}}, $q''(x) = \frac{1}{c^2} \ddot{q}(x)$ que si utilitzem la notació de derivades parcials (derivem una funció multivariable només respecte una);
+
+\[\pdv[2]{q(x,t)}{x} - \frac{1}{c^2}\pdv[2]{q(x,t)}{t} = 0\]
+
+Responent a la pregunta d'abans, una ona \textbf{és una ona} si ens respecta aquesta equació.
+
+Ara, resoldre aquesta equació per $q(x,t)$ és molt dificil però ens surt que és, $q(x,t) = f_-(x-ct) + f_+(x+ct)$ és a dir dues funcions inventades (que compleixin l'equacio) tals que una es mogui cap a la dreta ($x-ct$) (l'incident) i l'altre a l'esquerra ($x+ct$) (el reflectit) a una \textbf{velocitat de propagació} $c$. Equivalentment és pot escriure $q(x,t) = g_-(t-x/c) + g_+(t+x/c)$. Però és important saber que les pertorbacions no es deformen.
+
+Com que parlem de funcions i derivades, existeix linealitat per \textbf{suma tancada i producte per escalar}. Per tant quan més endavant parlem d'interaccions si $q_1(x,t), q_2(x,t)$ és solució, $q_t(x,t) = \lambda_1 q_1(x,t) + \lambda_2 q_2(x,t)$ també ho és.
+
+En manera d'exemple, podem lligar un extrem al $(0, y(x))$ amb una massa m i estudiar el comportament  de l'ona.
+
+\noindent $m \rightarrow 0$ es dona que la massa m puja 2 vegades l'amplitud i $g_{incident}(x-ct) = g_{reflectit}(x+ct)$
+
+\noindent $m \rightarrow \infty$ es dona que $g_{incident}(x-ct) = - g_{reflectit}(x+ct)$
+
+\begin{examplebox}{Corda Lligada}
+    
+\end{examplebox}
+
+\begin{examplebox}{Corda Lliure}
+    
+\end{examplebox}
+
+\subsection{Moviment Ondulatori}
+
+Ara que ja sabem d'on venen les ones podem respondre a la pregunta d'abans, si tenim un \textit{MHI} amb la forma $y(t) = A \cos(\omega t)$ i ara substituïm $t \rightarrow t - x/c$ obtenim l'equació de l'ona.
+
+$q(x,t) = A\cos[\omega(t-x/c) + \varphi_0]$
+
+I tenim diverses noves variables;
+
+\begin{itemize}
+    \item \textbf{k}: Número d'ona $k = \frac{\omega}{c}$
+    \item \textbf{$\omega$}: Freqüència Angular, Velocitat Angular
+    \item \textbf{$\varphi_0$}: Angle inicial
+    \item \textbf{Freqüència}: $f = \frac{1}{T}$
+    \item \textbf{Periòde}: $T = \frac{2\pi}{\omega}$
+    \item \textbf{Velocitat de propagació}: $c = \lambda f$
+    \item \textbf{$\lambda$}: Longitud d'ona $\lambda = \frac{2\pi}{k} = \frac{2\pi c}{\omega}$
+    \item \textbf{Diferència de Fase $\Delta \varphi$}: $\Delta \varphi = k \Delta x$
+\end{itemize}
+
+\subsubsection{Interaccions entre Ones (Principi de Superposició)}
+
+Si tenim dues ones harmòniques
+\begin{align*}
+    q_1(x,t) &= A_1\cos(\omega t - kx + \varphi_1),\\
+    q_2(x,t) &= A_2\cos(\omega t - kx + \varphi_2),
+\end{align*}
+si sumem les ones, obtenim que la suma de dues ones harmòniques amb el mateix $\omega$, obtenim $q_t(x,t) = C\cos(\omega t -kx + \varphi_0)$, la superposició és harmònica i \textbf{podem estudiar C en funció dels angles inicials}
+
+\[C = \sqrt{A_1^2 + A_2^2 + 2A_1A_2\cos(\varphi_1 - \varphi_2)}\]
+
+\begin{itemize}
+    \item Si $\varphi_1 - \varphi_2 = 0, 2\pi$ les amplituds $C = A_1 + A_2$ es sumen (\textbf{Interferència Constructiva})
+    \item Si $\varphi_1 - \varphi_2 = \pm \pi$ les amplituds $C = \abs{A_1 - A_2}$ es resten (\textbf{Interferència Destructiva})
+\end{itemize}
+
+Si tenen diferentes $\omega$ batements, la suma de dos angles, es pot desriure com;
+
+\begin{align*}
+    q_1(x,t) &= A_1\cos(\omega_1 t - \frac{w_1}{c}x),\\
+    q_2(x,t) &= A_2\cos(\omega_2 t - \frac{w_2}{c}x),
+\end{align*}
+
+La suma esta definida per $q_t(x,t) = 2A \cos[\frac{\omega_1 - \omega_2}{2}(t-\frac{x}{c})]\cos[\frac{\omega_1 + \omega_2}{2}(t - \frac{x}{c})]$ On \textbf{el primer terme definieix com canvia l'amplitud i el segon com es propaga l'ona}.
+
+\begin{proof}
+    
+\[
+q_1(x,t)=A\cos\left(\omega_1t-\frac{\omega_1}{c}x\right)
+\]
+
+\[
+q_2(x,t)=A\cos\left(\omega_2t-\frac{\omega_2}{c}x\right)
+\]
+
+\[
+q_t(x,t)=q_1(x,t)+q_2(x,t)
+\]
+
+\[
+\begin{aligned}
+q(x,t)
+&=A\cos\left(\omega_1t-\frac{\omega_1}{c}x\right)
++A\cos\left(\omega_2t-\frac{\omega_2}{c}x\right)\\[6pt]
+&=2A\cos\left[
+\frac{1}{2}\left(
+\omega_1t-\frac{\omega_1}{c}x
+-\omega_2t+\frac{\omega_2}{c}x
+\right)\right]\\
+&\qquad\cdot\cos\left[
+\frac{1}{2}\left(
+\omega_1t-\frac{\omega_1}{c}x
++\omega_2t-\frac{\omega_2}{c}x
+\right)\right]\\[6pt]
+&=2A\cos\left[
+\frac{\omega_1-\omega_2}{2}
+\left(t-\frac{x}{c}\right)
+\right]
+\cos\left[
+\frac{\omega_1+\omega_2}{2}
+\left(t-\frac{x}{c}\right)
+\right].
+\end{aligned}
+\]
+
+\end{proof}
+
+\noindent \boxed{\frac{\abs{\omega_1 - \omega_2}}{\abs{\omega_1 + \omega_2}} << 1}
+
+El primer terme varia lentament i el segon ràpidament per tant el terme de moviment s'acobla a l'estructura que té el primer.
+
+%Dibuix superposició d'ones
+
+\subsubsection{Ones Estacionàries}
+
+Si tenim una corda de densitat $\rho$ i de longitud $L$ amb els extrems fixos per una tensió $T$ per exemple una guitarra. Generem ones harmòniques $A_{\mp}\cos(\omega t \mp kx)$ és a dir \textbf{ones que es van reflecitint}, obtenim l'ona estacionaria com;
+
+\[q(x,t) = A\cos(\omega t -kx) - A\cos(\omega t + kx)\]
+
+Si expandim amb raons trigonomètriques obtenim que \textbf{la fòrmula d'una ona estacionaria és};
+
+\[q(x,t) = 2A\sin(\omega t)\sin(kx)\]
+
+Perquè sigui una ona estacionària amb els dos extrems fixos, cal que $q(0,t)=0$ i $q(L,t)=0$, de manera que $kL=n\pi$, amb $n=1,2,\ldots$. Si un extrem és lliure, imposem que la derivada espacial de $q'(x,t) = \pdv{q}{x}$ s'anul·li en aquest extrem; si és a $x=L$, això dona $kL=(n+\tfrac{1}{2})\pi$, amb $n=0,1,\ldots$.
+
+% Condició que q'(x) = 0
+
+Els nòdes són els punts que no es mouen mai, és a dir, $q(x,t)=0$ per a tot $t$. Això passa quan $\sin(n\pi\frac{x}{L})=0$. Els ventres són els punts d'amplitud màxima, on $\left|\sin\!\left(n\pi\frac{x}{L}\right)\right|=1$.
+%dibuix ona estacionaria
+
+Amb els dos extrems fixos, l'equació del mode $n$ ($n=1,2,3,\dots$) és
+$q_n(x,t) \propto \sin\!\left(n\pi\frac{ct}{L} + \varphi_0\right) \sin\!\left(n\pi\frac{x}{L}\right)$.
+
+\textcolor{red}{\textbf{Cada valor de $n$ és un mode d'oscil·lació (l'$n$-èsim harmònic). Si toquem la corda en un nòde d'aquell mode, el mode es manté, perquè el punt ja està quiet, i s'esmorteeixen els modes que hi tenen un ventre.}}
+
+\subsubsection{Energia d'una Ona}
+
+Si tenim una densitat $\rho$, longitud $L$ i tensió $T$. L'energia esta distribuïda en tota la corda, no uniformement, per tant hem de introduïr \textbf{la densitat d'energia}, és a dir una energia $E$ que depèn de \textbf{la distància i del temps}. $\varepsilon(x,t) \mid E(t) \int_{0}^{L} \varepsilon(x,t) dx$.
+
+Però com trobem $\varepsilon(x,t)$; aquesta és l'energia mecànica deguda al segment de la corda entre $(x,x+dx)$ a un temps $t$.
+
+\[\varepsilon(x,t) = dK + dU\]
+\[dK = \frac{1}{2}dm[\dot{q}(x)]^2 = \frac{1}{2}\rho dx [\dot{q}(x)]\]
+
+Per la 3a llei de Newton la potencial és la integral de la menys força que fa l'objecte, per tant $T_y = T\sin\theta \approx T \dv{q}{x} (\text{pendent})$.
+
+\[F = - T \dv{q}{x}\]
+\[dU = \frac{1}{2} (\frac{T}{dx})dq^2\]
+
+Per tant arribem a que;
+
+$\varepsilon(x) dx = \frac{dx}{2}\{\rho[\dot{q}(x)]^2 + T [q'(x)]^2\}$
+
+\subsubsection{Potència d'una Ona}
+
+Per la tercera llei de Newton i el treball $P(x) = F(x)\vec{v}$, a partir de la expressió anterior hem obtingut que;
+
+\[P(x) = -T q'(x)\dot{q}(x) = -T (\pdv{q}{x})(\pdv{q}{t})\]
+
+\textcolor{red}{\textbf{Sempre s'ha de complir que $\pdv{\varepsilon(x,t)}{t} + \pdv{P(x,t)}{x} = 0$ i a això se li anomena equació de continuïtat}}.
+
+També podem demostrar que l'energia de la corda es manté però també es trasllada;
+
+\[\dv{E(t)}{t} = \dv{}{t}\int_{x_1}^{x_2} \varepsilon(x,t) dx = \int_{x_1}^{x_2} \pdv{\varepsilon(x,t)}{x} dx = -\int_{x_1}^{x_2}\pdv{P(x,t)}{x} dx = P(x_1) - P(x_2)\]
+\[dE = (P(x_1) - P(x_2)) dt\]
+
+Per tant el canvi d'energia no només és constant sinò que es trasllada al llarg del temps.
+
+%Dibuix energies en una corda
+
+\section{Ones II}
+
+\section{Relativitat}
+
+
 \end{document}
