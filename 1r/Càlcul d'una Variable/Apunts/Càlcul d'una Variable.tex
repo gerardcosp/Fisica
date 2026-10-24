@@ -38,22 +38,6 @@
 \usepackage[dvipsnames,svgnames,x11names]{xcolor}
 \usepackage{tcolorbox}
 \tcbuselibrary{skins,breakable}
-\newtcolorbox{demobox}[1][]{
-    enhanced,
-    breakable,
-    colback=black!2,
-    colframe=black!70,
-    boxrule=0pt,
-    borderline west={2pt}{0pt}{black!70},
-    sharp corners,
-    left=10pt,
-    right=7pt,
-    top=6pt,
-    bottom=6pt,
-    fonttitle=\bfseries,
-    title={Demostració},
-    #1
-}
 
 \newtcolorbox{examplebox}[1]{
     enhanced,
@@ -120,6 +104,7 @@
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\Q}{\mathbb{Q}}
+\renewcommand{\proofname}{Demostració}
 
 % -------------------------------------------------
 % DOCUMENT STYLE
@@ -230,7 +215,7 @@ Tenim diferents conjunts de Nombres;
 
 Necessitem el conjunt $\R$, ja que els nombres irracionals no els podem obtenir d'una \textbf{fracció} com és $\frac{n}{m}$
 
-\begin{demobox}
+\begin{proof}
     Si volem demostrar perque $\sqrt{2}$ és irracional, podem demostrar per l'absurd (dir el contrari).
     \begin{align*}
         q &= \sqrt{2} = \frac{n}{m} \\
@@ -239,7 +224,7 @@ Necessitem el conjunt $\R$, ja que els nombres irracionals no els podem obtenir 
         \frac{1}{2}n^2 (parell) &= m^2
     \end{align*}
     com que n i m són parells la fracció $\frac{n}{m}$ és reduïble per 2 per tant ens hem equivocat en el principi i $\sqrt{2}$ ha de ser irracional.
-\end{demobox}
+\end{proof}
 
 \subsection{Conjunts de Nombres}
 
@@ -365,7 +350,7 @@ Per exemple, si s'ens dona $2x+3 = 0$,
     \item Dividim per l'element simètric de $2$, $x = \frac{-3}{2}$
 \end{itemize}
 
-\begin{demobox}
+\begin{proof}
     Imaginem que tenim l'exemple de $a\cdot b = 0$ aquí hem de ramificar la solució \textbf{en dos opcions}
     \[a = 0\]
     \begin{center}
@@ -374,7 +359,7 @@ Per exemple, si s'ens dona $2x+3 = 0$,
     \[b = 0\]
     
     I estudiem les altres incògnites a partir d'aquestes.
-\end{demobox}
+\end{proof}
 
 \subsection{Desigualtats}
 
@@ -506,7 +491,7 @@ Només existeix una funció inversa $f\rightarrow f^{-1}$, si la funció $f$ \te
 
 és a dir \textbf{desfà} l'operació d'una funció qualsevol, el procediment és simple;
 
-\begin{demobox}
+\begin{proof}
     Per trobar la funció d'inversa de $f(x) = 3x + 5$, fem servir 4 passos;
 
     \begin{itemize}
@@ -522,7 +507,7 @@ Només existeix una funció inversa $f\rightarrow f^{-1}$, si la funció $f$ \te
         y &= \frac{x-5}{3}\\
         f^{-1}(x) &= \frac{x-5}{3}  
     \end{align*}
-\end{demobox}
+\end{proof}
 
 Si hi ha alguna funció injectiva i \textbf{volem conèixer la inversa} reduïm el domini. Per exemple, definim $f(x)=x^2$ per $x>0$, la inversa $f^{-1}(x) = + \sqrt{x}$
 
@@ -576,7 +561,7 @@ En cada punt podem pendre un $\varepsilon$ que ens mesura la distància entre el
 
 Podem definir que;
 
-\begin{demobox}
+\begin{proof}
     Per tot $\varepsilon > 0 $ existeix un $n_0$ tal que per tot $n>n_0$ es compleix $\abs{a_n - l} < \varepsilon$.
 
     Una successió \(a_n\) tendeix a \(l\) si, per molt a prop que vulguem estar de \(l\), a partir d'un cert moment tots els termes de la successió estan així de prop de \(l\). És a dir que cada cop s'apropa més a l
@@ -591,7 +576,7 @@ Podem definir que;
 
     Si, $\varepsilon = 1$, $n = 1$
     Si, $\varepsilon = 0.1$, $n = 10$ que es confirma (bàsicament hem de veure que $\varepsilon, n$ són inversament proporcionals)
-\end{demobox}
+\end{proof}
 
 \subsubsection{Propietats dels límits de les Successions}
 

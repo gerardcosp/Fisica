@@ -37,22 +37,6 @@
 \usepackage[dvipsnames,svgnames,x11names]{xcolor}
 \usepackage{tcolorbox}
 \tcbuselibrary{skins,breakable}
-\newtcolorbox{demobox}[1][]{
-    enhanced,
-    breakable,
-    colback=black!2,
-    colframe=black!70,
-    boxrule=0pt,
-    borderline west={2pt}{0pt}{black!70},
-    sharp corners,
-    left=10pt,
-    right=7pt,
-    top=6pt,
-    bottom=6pt,
-    fonttitle=\bfseries,
-    title={Demostració},
-    #1
-}
 
 \newtcolorbox{examplebox}[1]{
     enhanced,
@@ -158,6 +142,8 @@
     \vspace{0.4cm}
 }
 
+\renewcommand{\proofname}{Demostració}
+
 % Section appearance
 \renewcommand{\cftsecfont}{%
     \large\bfseries\color{Black}
@@ -257,6 +243,8 @@ L'equació d'Shrödinger té infinites solucions (\textit{comprovat matemàticam
     \item \textbf{s}, spin: Indica com gira l'electró ($\pm \frac{1}{2}$).
 \end{itemize}
 
+\includegraphics[width = 0.5\textwidth]{Orbital Shape.jpg}
+
 De moment per simplificar la nostra vida, estudiarem els electrons als àtoms hidrogenoides. Anomenem \textbf{especie hidrogenoide} a tots aquells àtoms que tenen i \textbf{$e^-$} ($H$, $He^+$, $Li^{2+}$, $Be^{3+}$). Com que l'unica força elèctrica que existeix no te més interaccions podem definir l'energia en funció del orbital de manera;
 
 \[ \boxed{E = \frac{-R_H}{n^2}} (R_H = 2,278\cdot 10^{-18} J = 13,6 eV)\]
@@ -266,16 +254,22 @@ I aquesta energia va en negatiu sempre ja que és una força d'atracció.
 Com he dit abans l'orbital del àtom es descriu per una fiunció $R(r)Y(\theta, \varphi)$, $R^2(r)$ ens determina un núvol de probabilitat on es troba l'electró, com que a la taula de funcions de R ens ensenya que R(r) sempre té la forma $R(r) = Ae^{-kr}$ on $k,A \in \R$ el punt màxim és a 0 que és al nucli.
 Per solucionar aquest problema li multipliquem pel terme radial ($2\pi r$ / $4\pi r^2$) per portar R(0) a un valor més petit i aixi donar una corba on l'integral d'aquesta és la probabilitat de trobar l'electró;
 
-% Corba de probabilidad 1,2,3s
+\begin{center}
+    \includegraphics[width=.5\textwidth]{Screenshot 2026-10-24 at 12.41.30.png}
+    \includegraphics[width=.5\textwidth]{Screenshot 2026-10-24 at 12.42.57.png}
+    \includegraphics[width=.5\textwidth]{Screenshot 2026-10-24 at 12.42.05.png}
+\end{center}
 
-La línea blava indica el màxim de probabilitat i la tronja la meitat. Veiem que com anem afegint més orbitals n ($1_s, 2_s, 3_s$) la gràfica té \textbf{nòdes radials} que indiquen la \textbf{separació entre capes} (el nombre de nòdes és $\boxed{n - l - 1}$) de diversos orbitals. El $3s$ por tenir com veiem àtoms a dins del $1s$ ja que té una petita àrea pero és tan petita que es molt improbable (\textbf{ja que hi haurà més repulsió electrònica}). Si parlem de $Y(\theta, \varphi)$ tenim els \textbf{nòdes angulars} que ens indiquen un canvi de rotació del orbital (el nombre de nòdes. és $\boxed{l}$). Per tans els \textbf{nòdes totals} són $\boxed{n - l - 1 + l = n - 1}$. Com que a partir d'un punt $R^2(r') = 0$ constantment podem afirmar que a partir de $r'$ no hi ha més electrons.
+La línea blava (al punt màxim) indica el màxim de probabilitat i la tronja la meitat (la metitat de l'area sota la corba). Veiem que com anem afegint més orbitals n ($1_s, 2_s, 3_s$) la gràfica té \textbf{nòdes radials} que indiquen la \textbf{separació entre capes} (el nombre de nòdes és $\boxed{n - l - 1}$) de diversos orbitals. El $3s$ por tenir com veiem àtoms a dins del $1s$ ja que té una petita àrea pero és tan petita que es molt improbable (\textbf{ja que hi haurà més repulsió electrònica}). Si parlem de $Y(\theta, \varphi)$ tenim els \textbf{nòdes angulars} que ens indiquen un canvi de rotació del orbital (el nombre de nòdes. és $\boxed{l}$). Per tans els \textbf{nòdes totals} són $\boxed{n - l - 1 + l = n - 1}$. Com que a partir d'un punt $R^2(r') = 0$ constantment podem afirmar que a partir de $r'$ no hi ha més electrons.
 
 En veritat els nòdes són \textbf{canvis de signe} per que així els electrons no poden passar entre les zones, pero com que prenem $R^2(r)$ no ho tenim en compte només quan $R(r) = 0$
 
 A mesura que anem canviant la $l$ apareixen més funcions radials, com les $p$ o les $d$ fins arribar a les 
 
-% Gràfica 3p o algo
-% representació de 2p
+\begin{center}
+     \includegraphics[width=.5\textwidth]{Screenshot 2026-10-24 at 12.42.57.png}
+    \includegraphics[width=.5\textwidth]{Screenshot 2026-10-24 at 12.42.05.png}
+\end{center}
 
 Si veiem la representació d'aquests orbitals en $\R^3$ veiem que a partir del $p$ tenen com plans nodals que semblen \textit{assimptotics}, n'hi ha tans com $l$; plans nodals = \boxed{l}
 
@@ -298,7 +292,9 @@ Ara que he explicar això dels orbitals ens podem preguntar com és que s'ordene
 
 Si mirem com estan representats veiem que cada orbital té tantes linees com electrons/2 pot tenir. És a dir que en cada "casella" por tenir dos electrons \textit{els dos complementaris}. Però aquests segueixen unes normes bàsiques;
 
-% Com s'ordenen els electrons
+\begin{center}
+    \includegraphics[width = 0.5\textwidth]{Aufbau Diagram.jpg}
+\end{center}
 
 \begin{itemize}
     \item Sempre hem d'omplir amb les dues fletxes \textbf{d'abaix a dalt.} $\uparrow\downarrow$
@@ -307,7 +303,7 @@ Si mirem com estan representats veiem que cada orbital té tantes linees com ele
 
 Per fer això tenim el \textit{diagrama d'Aufbau} que ens indica com s'ordenen els electrons. Aquest té unes quantes excepcions que no fa falta saber.
 
-Els diferents elements amb diferents \textbf{configuracions electròniques}, es poden diferenciar per blocs a la taula periodica. I se'ls ajunta per una serie de caracteristiques%Diagrama d'aufbau
+Els diferents elements amb diferents \textbf{configuracions electròniques}, es poden diferenciar per blocs a la taula periodica. I se'ls ajunta per una serie de caracteristiques
 
 \begin{itemize}
     \item \textbf{1. METALLS} - Grup 1 [Alcalins] - Grup 2 [Alcalinoterris]
@@ -356,10 +352,10 @@ Si \# Senar = Paramagnètics
 Si \# Parell = Fem la configuració electrònica per estudiar el cas
 
 Com més electrons desparellats (els que els hi falta per omplir l'octet), més paramagnètic serà.
-\begin{demobox}
+\begin{proof}
 Quan tenim una disposició d'electrons amb forma de $\boxed{\uparrow}\boxed{\uparrow}\boxed{\uparrow}\boxed{\uparrow}\boxed{\uparrow}$, només podem diferenciar els electrons per \textbf{l'energia d'intercanvi que tenen}. 
 
-\end{demobox}
+\end{proof}
 
 \subsection{Radi i Volum atòmic} 
 
@@ -492,6 +488,8 @@ Anomenem \textbf{càrrega formal} (\(CF\)) a la diferència entre el nombre d'el
 \boxed{CF=V-N-\frac{E}{2}}
 \]
 
+Anomenem \textbf{estat d'oxdació} (\(EO\)) a la diferència entre els electrons que té a la ùltima capa amb la dels electrons que l'envolten si considerm l'enllaç covalent
+
 on \(V\) és el nombre d'electrons de valència de l'àtom aïllat, \(N\) el nombre d'electrons no enllaçants i \(E\) el nombre d'electrons compartits en els enllaços.
 
 La suma de totes les càrregues formals ha de ser igual a la càrrega total de la molècula o ió.
@@ -503,9 +501,9 @@ La molècula real és un \textbf{híbrid de ressonància} de totes les formes re
 Com hem vist al tema 1, hi ha electrons amb \textbf{electronegativitats} ($\chi$) diferents, i per tant atrauen (en un compost) de maneres diferents. Podem distingir 3 tipus d'enllaç depenent del tipus de electronegativitat.
 
 \begin{itemize}
-    \item $A ^+ B^-$: Enllaç Iònic, electrons es transfereixen ($\delta = \pm 1$)
-    \item $A^{\delta +}-B^{\delta -}$: Enllaç Covalent-polar ($\delta = \pm 0.2$)
-    \item $A-A$: Enllaç Covalent ($\delta = 0$)
+    \item $A ^+ B^-$: Enllaç Iònic, electrons es transfereixen ($\Delta \chi > 1,7$)
+    \item $A^{\delta +}-B^{\delta -}$: Enllaç Covalent-polar ($\Delta \chi \in \{0,4 - 1,7\}$)
+    \item $A-A$: Enllaç Covalent ($\Delta \chi = 0$)
 \end{itemize}
 
 \subsubsection{Com Dibuixar Lewis}
@@ -617,6 +615,28 @@ Així obtenim aquesta taula que ens indica les estructures en funció de la nost
 \end{examplebox}
 
 \subsection{Moment Dipolar}
+
+Anomenem moment dipolar $\vec{\mu}$ al vector que es genera per una diferència en \textbf{densitat de càrrega $\delta \pm$}. Aquest vector sempre apunta al àtom més electronegatiu, és a dir el que té $\delta -$.
+
+El moment dipolar no és res més que;
+
+\[\vec{\mu} = \vec{q} \cross \vec{r}\] I es mesura en Debytes (C$\cdot$M) [$1D \Rightarrow 3.34\cdot 10^{-30} C\cdot m$].
+
+Si $\Delta \mu_i = 0$ és a dir \textbf{tots els moments polars de la molecula es cancelen}, és una molècula \textit{apolar}, i al contrari, si no es cancelen és polar.
+
+Aquest any ens podem basar en dues regles molt senzilles:
+
+\begin{itemize}
+    \item Si una molècula és simètrica; és apolar
+    \item Si una molècula no és simètrica; l'estudiem
+\end{itemize}
+
+\subsection{Percentatge Iònic}
+
+Per últim del 1r parcial, com he dit abans una molècula pot ser molt iònica (quasibé mai 100\%), poc iònica o covalent, de manera que podem calcular el seu \textbf{caràcter iònic}.
+
+\[CI = \frac{\mu_{exp}}{\mu_{calculat}} \cdot 100 = \frac{\mu_{exp}}{q \cross d} \cdot 100 \]
+
 \subsection{Energia d'Enllaç}
 \subsection{Teoria del Enllaç de València}
 

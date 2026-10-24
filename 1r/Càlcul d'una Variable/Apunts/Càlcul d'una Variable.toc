@@ -19,7 +19,7 @@
 \contentsline {subsubsection}{\numberline {5.1.5}Successions Monòtones}{16}{subsubsection.5.1.5}%
 \contentsline {subsubsection}{\numberline {5.1.6}Series Fitades}{17}{subsubsection.5.1.6}%
 \contentsline {subsubsection}{\numberline {5.1.7}Resolució de Series}{17}{subsubsection.5.1.7}%
-\contentsline {section}{\numberline {6}Funcions}{18}{section.6}%
+\contentsline {section}{\numberline {6}Funcions}{19}{section.6}%
 \contentsline {subsection}{\numberline {6.1}Límits de Funcions I Continuïtat}{19}{subsection.6.1}%
 \contentsline {subsubsection}{\numberline {6.1.1}Límits Laterals}{20}{subsubsection.6.1.1}%
 \contentsline {subsubsection}{\numberline {6.1.2}Límits Infinits}{20}{subsubsection.6.1.2}%

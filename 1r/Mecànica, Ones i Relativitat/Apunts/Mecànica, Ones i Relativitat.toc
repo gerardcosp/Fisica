@@ -7,7 +7,7 @@
 \contentsline {subsection}{\numberline {1.6}MCU i MCUA}{8}{subsection.1.6}%
 \contentsline {subsection}{\numberline {1.7}Moviment General en 2D}{9}{subsection.1.7}%
 \contentsline {subsection}{\numberline {1.8}Distàncies}{11}{subsection.1.8}%
-\contentsline {subsection}{\numberline {1.9}Casos Particulars}{11}{subsection.1.9}%
+\contentsline {subsection}{\numberline {1.9}Casos Particulars}{12}{subsection.1.9}%
 \contentsline {subsubsection}{\numberline {1.9.1}Politjes}{12}{subsubsection.1.9.1}%
 \contentsline {section}{\numberline {2}Dinàmica}{12}{section.2}%
 \contentsline {subsection}{\numberline {2.1}Lleis de Newton}{12}{subsection.2.1}%
@@ -19,7 +19,7 @@
 \contentsline {subsection}{\numberline {2.5}Casos Particulars}{16}{subsection.2.5}%
 \contentsline {subsubsection}{\numberline {2.5.1}Cordes Ideals}{16}{subsubsection.2.5.1}%
 \contentsline {subsubsection}{\numberline {2.5.2}Politjes}{16}{subsubsection.2.5.2}%
-\contentsline {subsubsection}{\numberline {2.5.3}Rodes}{16}{subsubsection.2.5.3}%
+\contentsline {subsubsection}{\numberline {2.5.3}Rodes}{17}{subsubsection.2.5.3}%
 \contentsline {section}{\numberline {3}Dinàmica dels Sistemes de Partícules I}{17}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Estàtica de Sòlids}{17}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}Moment Lineal}{17}{subsection.3.2}%
