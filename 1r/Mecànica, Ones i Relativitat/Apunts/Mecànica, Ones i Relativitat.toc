@@ -48,5 +48,5 @@
 \contentsline {subsubsection}{\numberline {6.2.2}Ones Estacionàries}{38}{subsubsection.6.2.2}%
 \contentsline {subsubsection}{\numberline {6.2.3}Energia d'una Ona}{39}{subsubsection.6.2.3}%
 \contentsline {subsubsection}{\numberline {6.2.4}Potència d'una Ona}{40}{subsubsection.6.2.4}%
-\contentsline {section}{\numberline {7}Ones II}{40}{section.7}%
-\contentsline {section}{\numberline {8}Relativitat}{40}{section.8}%
+\contentsline {section}{\numberline {7}Ones II}{41}{section.7}%
+\contentsline {section}{\numberline {8}Relativitat}{41}{section.8}%

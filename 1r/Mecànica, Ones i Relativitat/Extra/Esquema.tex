@@ -905,7 +905,51 @@ $U = - \frac{GMm}{r}$\\
 $U = mgy$\\
 \end{tcolorbox}
 \begin{center}
-    \includegraphics[width=.8\textwidth]{Imatge_Moments_D'Inèrcia.png}
+    \includegraphics[width=.5\textwidth]{Imatge_Moments_D'Inèrcia.png}
 \end{center}
+
+\section{ONES}
+
+\subsection{ONES I (MECÀNIQUES)}
+
+\begin{tcolorbox}[
+  title=Fórmues bàsiques,
+  colback=Pink!5!white,
+  colframe=Pink!70!black,
+  coltitle=white,
+  colbacktitle=Pink!70!black,
+  fonttitle=\bfseries,
+  arc=6pt,
+  boxrule=0.8pt
+]
+
+\textbf{EQUACIÓ D'UNA ONA}\\ 
+\\
+$\pdv[2]{q}{x} -\frac{1}{c^2} \pdv[2]{q}{t} = 0$\\
+$q(x,t) = f_-(x-ct) + f_+(x+ct)$\\
+\\
+\textbf{EQUACIÓ D'UNA ONA HARMÒNICA}\\
+\\
+$q(x,t) = A\cos(\omega t -kx + \varphi_0)$ \\
+\\
+\textbf{ONES ESTACIONÀRIES}\\
+\\
+$q_t(x,t) = 2A\cos(\omega t)\cos(kx) [\text{cosinus per obert obert / tancat tancat, sinus per obert tancat / tancat obert}]$ \\
+\\
+\textbf{POTÈNCIA D'UNA ONA}\\
+\\
+$P(x,t) = -T q'(x,t) \dot{q}(x,t)$
+\\
+\textbf{ENERGIA D'UNA ONA}\\
+\\
+$\varepsilon(x,t) = \frac{1}{2}[\rho \pdv{q}{t} + T \pdv{q}{x}]$\\
+\\
+\textbf{EQUACIÓ DE CONTINUÏTAT}\\
+\\
+$P(x,t) = c\varepsilon(x,t)$\\
+$\pdv{\varepsilon}{t} + \pdv{P}{t} = 0$ 
+
+
+\end{tcolorbox}
 
 \end{document}

@@ -1683,7 +1683,7 @@ Si $\vec{F}_{total}^{externa} = 0$, el moment no varia i $\vec{P}$ és constant.
     Podem afirmar que \textbf{l'energia es dissipa en forma de calor}.
 \end{examplebox}
 
-\begin{examplebox}{Xoc Esàstic}
+\begin{examplebox}{Xoc Elàstic}
     En un xoc elàstic d’un sistema aïllat, es conserven el moment lineal total i l’energia cinètica total. Que els cossos quedin units o separats no és, per si sol, el criteri que determina si el xoc és elàstic. Podem imposar $\Delta K = 0$ i $\Delta \vec{p} = 0$
 
     Si tenim dos blocs de massa $m, M$ amb velocitats $v, V$, podem imposar per trobar la final
@@ -2808,8 +2808,6 @@ Els nòdes són els punts que no es mouen mai, és a dir, $q(x,t)=0$ per a tot $
 \node[below] at (0,-0.15) {$0$};
 \node[below] at (6,-0.15) {$L$};
 
-
-
 \fill[red!70!black] (0,-1.7) circle (2.5pt);
 \node[right] at (0.2,-1.7) {\small node};
 
@@ -2827,6 +2825,17 @@ Amb els dos extrems fixos, l'equació del mode $n$ ($n=1,2,3,\dots$) és
 $q_n(x,t) \propto \sin\!\left(n\pi\frac{ct}{L} + \varphi_0\right) \sin\!\left(n\pi\frac{x}{L}\right)$.
 
 \textcolor{red}{\textbf{Cada valor de $n$ és un mode d'oscil·lació (l'$n$-èsim harmònic). Si toquem la corda en un nòde d'aquell mode, el mode es manté, perquè el punt ja està quiet, i s'esmorteeixen els modes que hi tenen un ventre.}}
+
+\[
+\boxed{
+\begin{aligned}
+&\text{Si tenim dos cantons tancats o oberts, treballem amb } q(x,t)=2A\sin(\omega t)\cos(kx),\\
+&\text{imposem que } q(0,t), q(L,t)=0 \text{ si és fix, o } q'(0,t), q'(L,t)=0 \text{ si està lliure,}\\
+&\text{i si un està obert i l'altre tancat, treballem amb } 2A\sin(\omega t)\sin(kx) \text{ i imposem que } q'(a,t)=0\\
+&\text{en el lloc obert i } q(b,t)=0 \text{ en el lloc tancat.}
+\end{aligned}
+}
+\]
 
 \subsubsection{Energia d'una Ona}
 
