@@ -1,11 +1,11 @@
-\documentclass[11pt]{article}
+\documentclass[9pt]{article}
 
 % ============================================================
 %                     CONFIGURACIÓ BÀSICA
 % ============================================================
 
 \usepackage[utf8]{inputenc}
-\usepackage[a4paper, margin=1.2cm]{geometry}
+\usepackage[a4paper, margin=0.8cm]{geometry}
 
 % ============================================================
 %                    MATEMÀTIQUES I FÍSICA
@@ -23,6 +23,7 @@
 
 \usepackage[dvipsnames, svgnames, x11names]{xcolor}
 \usepackage{tcolorbox}
+\usepackage{multicol}
 
 % ============================================================
 %                       CONFIGURACIÓ
@@ -43,18 +44,12 @@
 %                         DOCUMENT
 % ============================================================
 
-\title{\textbf{Esquema d'Àlgebra}}
-\author{\textit{Gerard Cosp Lores}}
+\title{\textbf{Conceptes d'Àlgebra}}
 \date{}
-
 \begin{document}
 
 \maketitle
 
-\begin{abstract}
-Aquest document recull les "Maneres de fer" \textbf{l'assignatura d'Àlgebra}. \footnote{Aquest document s'anirà actualitzant a mesura que avançi el semmestre.} 
-\end{abstract}
-
 \begin{tcolorbox}[
     colback=white,
     colframe=black,
@@ -62,43 +57,38 @@ Aquest document recull les "Maneres de fer" \textbf{l'assignatura d'Àlgebra}. \
     arc=0pt
 ]
 
-\textbf{COMPROVACIÓ D'ESPAI I SUBESPAI}
+\begin{multicols}{2}
+
+\begin{itemize}
+    \item \textbf{ESPAI VECTORIAL}: Un espai vectorial E sobre un cos K és un conjunt dotat d'una operació suma de vectors i d'una operació producte per escalar que compleixen els axiomes d'espai vectorial.
+    \item \textbf{SUBESPAI VECTORIAL}: Un subconjunt F $\subseteq$ E és un subespai vectorial si conté el vector 0 i és estable per a suma de vectors i pel producte per escalar.
+    \item \textbf{COMBINACIÓ LINEAL}: Un vector $v$ és combinació lineal de $u_1, \dots, u_n$ si existeixen escalars $\lambda_1, \dots, \lambda_n$ tals que $v = \lambda_1u_1 + \dots + \lambda_nu_n$.
+    \item \textbf{SISTEMA DE GENERADORS}: Una família de vectors és un sistema generador d'un espai vectorial E si qualsevol vector de E es pot expressar com una combinació lineal dels vectors de la família.
+    \item \textbf{FAMILIA L.I}: Una família de vectors és linealment independent si l'única combinació lineal que dona el vector zero es aquella en que $\lambda_i = 0$.
+    \item \textbf{FAMILIA L.I MAXIMAL}: És una família linealment independent a la qual no es pot afegir cap altre vector de l'espai sense perdre l'independència lineal.
+    \item \textbf{BASE}: Una base d'un espai vectorial E és una família de vectors que és simultaneament sistema generador de E i linealment independent entre si.
+    \item \textbf{DIMENSIÓ}: La dimensió d'un espai vectorial finitament generat és el nombre de vectors que té qualsevol de les seves bases.
+    \item \textbf{COORDENADES}: Si $B = (u_1, \dots, u_n)$ és una base de E, les coordenades d'un vector $u \in E$ respecte de B són els escalars $a_1, \dots, a_n$ que compleixen que $u = a_1u_1 + \dots + a_nu_n$.
+    \item \textbf{BASE CANÒNICA}: És la base estandard de $K^n$ formada pels escalars $1,0$ en posicions no repetides ($(1,0,\dots,0), (0,1,\dots,0), (0,\dots,1,0), (0,\dots,0,1)$)
+    \item \textbf{MATRIU CANVI DE BASE}: Són les coordenades del primer vector en columnes expressades en l'altre base.
+    \item \textbf{APLICACIÓ LINEAL}: Una aplicació $f: E \rightarrow V$ és lineal si conserva la suma de vectors i el producte per escalars.
+    \item \textbf{NUCLI D'UNA A.L}: És el conjunt de vectors de l'espai de sortida que tenen com a imatge el vector 0 $\ker f = \{u \in E \mid f(u) = 0\}$
+    \item \textbf{APL. INJECTIVA}: És injectiva si dos vectors no poden tenir la mateixa imatge ($\dim(\ker f) = 0$) [monomorfisme]
+    \item \textbf{APL. EXHAUSTIVA}: És exhaustiva si tot element d'arribada té un element associat de sortida ($\dim (\Im f) = \dim V$) [eplomorfisme]
+    \item \textbf{APL.BIJECIVA}: És exhaustiva quan es cumpleix que és injectiva i exhaustiva [isomordisme]
+    \item \textbf{MATRIU ASSOCIADA A UNA A.L}: És la matriu que representa una aplicació lineal respecte de les bases escollides de sortida i arribada.
+\end{itemize}
+
+\end{multicols}
 
 \end{tcolorbox}
 
-\begin{tcolorbox}[
-    colback=white,
-    colframe=black,
-    boxrule=0.8pt,
-    arc=0pt
-]
+\noindent \textbf{FÒRMULES}
 
-\textbf{TROBAR BASE DEL SUBESPAI}
+Grassman $\dim F + \dim G = \dim F+G + \dim F \cap G$
 
-\textbf{BASE DE LA SUMA I L'INTERSECCIÓ}
+Teorema de dimensions $\dim (Entrada) = \dim \Im(f) + \dim \ker (f)$
 
-\end{tcolorbox}
-
-\begin{tcolorbox}[
-    colback=white,
-    colframe=black,
-    boxrule=0.8pt,
-    arc=0pt
-]
-
-\textbf{TROBAR MATRIU DE L'APLICACIÓ}
-
-\end{tcolorbox}
-
-\begin{tcolorbox}[
-    colback=white,
-    colframe=black,
-    boxrule=0.8pt,
-    arc=0pt
-]
-
-\textbf{CANVI DE BASES}
-
-\end{tcolorbox}
+Canvi de base d'una aplicació $M(B \xLeftarrow{f} B) = M(B \leftarrow C) M(C \xLeftarrow{f} C)M(C \leftarrow B)$
 
 \end{document}
