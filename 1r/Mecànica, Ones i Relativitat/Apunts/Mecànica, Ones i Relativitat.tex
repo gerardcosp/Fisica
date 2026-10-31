@@ -277,33 +277,14 @@ En qualsevol sistema de coordenades, els vectors \textbf{$\vec{i}, \vec{j}, \vec
 \[\vec{r} = x\vec{i} + y\vec{j} + z\vec{k}\]
 
 \begin{center}
-   \begin{tikzpicture}[>=Stealth, scale=1]
-  \draw [<-](-0.2,2.2) -- (-0.2,-0.4);
-  \draw [->](-0.2,-0.4) -- (2.6,-0.4);
-  \node[
-  % draw,
-  inner sep=0pt,
-  align=center,
-  text=black
-] at (-0.2,2.4) {z};
-  \node[
-  % draw,
-  inner sep=0pt,
-  align=center,
-  text=black
-] at (-1.2,-1.5) {x};
-  \node[
-  % draw,
-  inner sep=0pt,
-  align=center,
-  text=black
-] at (2.6,-0.2) {y};
-  \node[inner sep=0pt, align=center, text=red!60!black, node font=\scriptsize, rotate=40] (node2) at (1.5,1.5) {$\vec{r}(t)$};
-  \draw[arrows=-stealth, thick, red!60!black] (-0.2,-0.4) -- (2,1.52);
-  \draw [<-](-1.08,-1.4) -- (1.2,1.2);
-  \draw[->, green!60!black] (-0.2,-0.4) -- (-0.2,0.2);
-\draw[->, yellow!60!black] (-0.2,-0.4) -- (-0.46,-0.69);
-\draw[->, blue!60!black] (-0.2,-0.4) -- (0.29,-0.4);
+\begin{tikzpicture}
+  \draw[ax] (0,0) -- (0,3)       node[above, black] {$z$};
+  \draw[ax] (0,0) -- (3.2,0)     node[right, black] {$y$};
+  \draw[ax] (0,0) -- (-1.3,-1.1) node[below left, black] {$x$};
+  \draw[vB] (0,0) -- (2.2,1.9) node[midway, above left] {$\vec r(t)$};
+  \draw[vG] (0,0) -- (0,0.7)       node[left]       {$\vec e_z$};
+  \draw[vG] (0,0) -- (0.7,0)       node[below]      {$\vec e_y$};
+  \draw[vG] (0,0) -- (-0.45,-0.38) node[below left] {$\vec e_x$};
 \end{tikzpicture}
 \end{center}
 
@@ -326,43 +307,15 @@ I anomenem a aquesta igualtat, \textbf{equació del moviment}.
 Quan hi ha un canvi en el temps i un canvi en la posició ($\Delta t, \Delta \vec{r}$) Apareix un vector $\vec{v}$ que també depèn de t i ens diu com ha canviar la posició en aquell temps. El vector apuntarà en direcció a la secant entre els vectors $\vec{r_0}, \vec{r_1}$ i és calcula de manera $v_m = \frac{\Delta \vec{r}}{\Delta t}$, tot i que si fem una volta circular i acabem al mateix lloc que començem no vol dir que $\vec{v}_m = \frac{\vec{r}_i - \vec{r}_f}{\Delta t} = \frac{0}{\Delta t} = 0$
 
 \begin{center}
-    \begin{tikzpicture}[>=Stealth, scale=1]
-
-    \draw[
-        thick,
-        black
-    ] (0,0.4)
-    .. controls (1.2,0.8) and (2.4,0.2) ..
-    (4.2,2.7);
-
-    \fill[blue!70!black] (0.8,0.65) circle (2.5pt);
-    \fill[blue!70!black] (3.4,1.75) circle (2.5pt);
-
-    \node[below left] at (0.9,0.5) {$\vec r_0$};
-    \node[above] at (3.4,1.9) {$\vec r_1$};
-
-    \draw[
-        ->,
-        very thick,
-        blue!70!black
-    ] (0.8,0.65) -- (3.4,1.75)
-        node[midway, above] {$\Delta\vec r$};
-
-    \draw[
-        dashed,
-        red!75!black,
-        thick
-    ] (0.35,0.46) -- (3.85,1.95)
-        node[midway, below] {\color{red!75!black}};
-
-    \draw[
-        ->,
-        thick,
-        green!50!black
-    ] (3.4,1.75) -- (4.35,2.55)
-        node[above] {\color{green!50!black}$\vec v$};
-
-    \end{tikzpicture}
+\begin{tikzpicture}
+  \draw[curve] (0,0.4) .. controls (1.2,0.8) and (2.4,0.2) .. (4.2,2.7)
+      coordinate[pos=0.25] (A) coordinate[pos=0.75] (B);
+  \draw[aux, cR] ($(A)!-0.2!(B)$) -- ($(A)!1.25!(B)$);
+  \draw[vB] (A) -- (B) node[midway, above] {$\Delta\vec r$};
+  \draw[vG] (B) -- ++(38:1.1) node[above] {$\vec v$};
+  \fill (A) circle (2pt) node[above left]  {$\vec r_0$};
+  \fill (B) circle (2pt) node[below right] {$\vec r_1$};
+\end{tikzpicture}
 \end{center}
 
 Ara. \textbf{I si fem aquest intèrval $\Delta t$ infinitéssimament petit?} és a dir plantejem el límit.
@@ -372,35 +325,14 @@ $\vec{v}(t) \equiv \lim_{\Delta t \rightarrow 0} \frac{\Delta \vec{r}}{\Delta t}
 Que bàsicament ens dona el canvi de posició respeccte el petitíssim canvi de temps, donant així una \textbf{velocitat instantània}. Com que aquesta fa que l'intèrval de $\vec{r}(t)$ estigui més junt, el vector velocitat passa a \textit{ser tangent a la trajectoria}.
 
 \begin{center}
-    \begin{tikzpicture}[>=Stealth, scale=1]
-
-    \draw[
-        thick,
-        black
-    ] (0,0.3)
-    .. controls (1.2,0.5) and (2.3,0.4) ..
-    (3.1,1.5)
-    .. controls (3.7,2.3) and (4.0,3.0) ..
-    (4.7,3.4);
-
-    \fill[black] (3.1,1.5) circle (3pt);
-    \node[left] at (2.9,1.7) {$P(t)$};
-
-    \draw[
-        dashed,
-        red!50!black,
-        thick
-    ] (2.35,0.75) -- (4.05,2.25);
-
-    \draw[
-        ->,
-        very thick,
-        blue!70!black
-    ] (3.1,1.5) -- (4.0,2.3)
-        node[midway, below right] {$\vec v(t)$};
-
-
-    \end{tikzpicture}
+\begin{tikzpicture}
+  \draw[curve] (0,0.3) .. controls (1.2,0.5) and (2.3,0.4) .. (3.1,1.5)
+               .. controls (3.74,2.38) and (4.0,3.0) .. (4.7,3.4);
+  \coordinate (P) at (3.1,1.5);
+  \draw[aux, cR] ($(P)+(54:-1.3)$) -- ($(P)+(54:1.9)$);
+  \draw[vB] (P) -- ++(54:1.3) node[midway, below right] {$\vec v(t)$};
+  \fill (P) circle (2pt) node[above left] {$P(t)$};
+\end{tikzpicture}
 \end{center}
 
 Parlem de \textbf{celeritat o rapidesa} quan fem el mòdul del vector velocitat.
@@ -412,35 +344,12 @@ Parlem de \textbf{celeritat o rapidesa} quan fem el mòdul del vector velocitat.
 Quan hi ha un canvi en el temps i un canvi en la velocitat ($\Delta t, \Delta \dot{\vec{r}}$) Apareix un vector $\vec{a}$ que també depèn de t i ens diu com ha canviar la velocitat en aquell temps. El vector no sempre apuntarà en direcció a la secant entre els vectors $\dot{\vec{r_0}}, \dot{\vec{r_1}}$ i és calcula de manera $a_m = \frac{\Delta \dot{\vec{r}}}{\Delta t}$.
 
 \begin{center}
-    \begin{tikzpicture}[>=Stealth, scale=1]
-
-    \draw[->, black] (0,0) -- (4.5,0)
-        node[right] {$v_x$};
-    \draw[->, black] (0,0) -- (0,3.5)
-        node[above] {$v_y$};
-
-    \draw[
-        ->,
-        very thick,
-        blue!70!black
-    ] (0,0) -- (2.7,0.8)
-        node[midway, above] {$\vec v_0$};
-
-    \draw[
-        ->,
-        very thick,
-        blue!70!black
-    ] (0,0) -- (1.5,2.4)
-        node[midway, left] {$\vec v_1$};
-
-    \draw[
-        ->,
-        very thick,
-        red!75!black
-    ] (2.7,0.8) -- (1.5,2.4)
-        node[midway, right] {$\Delta\vec v$};
-
-    \end{tikzpicture}
+\begin{tikzpicture}
+  \axes{4.3}{3.3}{$v_x$}{$v_y$}
+  \draw[vB] (0,0) -- (2.7,0.8) node[midway, above] {$\vec v_0$};
+  \draw[vB] (0,0) -- (1.5,2.4) node[midway, left]  {$\vec v_1$};
+  \draw[vR] (2.7,0.8) -- (1.5,2.4) node[midway, right] {$\Delta\vec v$};
+\end{tikzpicture}
 \end{center}
 
 Ara. \textbf{I si fem aquest intèrval $\Delta t$ infinitéssimament petit?} és a dir plantejem el límit.
@@ -450,57 +359,21 @@ $\vec{a}(t) \equiv \lim_{\Delta t \rightarrow 0} \frac{\Delta \dot{\vec{r}}}{\De
 Que bàsicament ens dona el canvi de velocitat respeccte el petitíssim canvi de temps, donant així una \textbf{acceleració instantània}. Aquest vector $\vec{a}$ no ha d'apuntar a la tangent de trajectoria, de fet apunta a la tangent de velocitat i el seu sentit és totalment arbitrari. Podem \textbf{desglossar} l'acceleració (al igual que fem amb les components d'una força) en \textit{$a_t$} que és l'acceleració tangencial que segueix la tangent del moviment i \textit{$a_n$} que és la normal que forma un angle de $\frac{\pi}{2}rad$ amb la tangencial.
 
 \begin{center}
-
-\begin{tikzpicture}[>=Stealth, scale=1]
-
-\draw[
-    very thick,
-    black
-] (0,0.3)
-  .. controls (1.2,0.3) and (2.4,0.8) ..
-  (3.4,1.9)
-  .. controls (4.1,2.6) and (4.5,3.2) ..
-  (5.2,3.4);
-
-\fill (3.4,1.9) circle (3pt);
-\node[below left] at (3.4,1.9) {$P$};
-
-\draw[
-    ->,
-    thick,
-    blue!70!black
-] (3.4,1.9) -- (4.65,2.5)
-    node[midway, below] {$\vec e_t$};
-
-\draw[
-    ->,
-    thick,
-    red!70!black
-] (3.4,1.9) -- (2.55,3.15)
-    node[midway, left] {$\vec e_n$};
-
-\draw[
-    ->,
-    very thick,
-    green!50!black
-] (3.4,1.9) -- (4.05,3.15)
-    node[midway, above left] {$\vec a$};
-
-\draw[
-    dashed,
-    gray!60
-] (4.05,3.15) -- (4.65,2.5);
-
-\draw[
-    dashed,
-    gray!60
-] (4.05,3.15) -- (2.55,3.15);
-
-\node at (4.7,2.7) {\scriptsize $a_t$};
-\node at (3.15,3.35) {\scriptsize $a_n$};
-
+\begin{tikzpicture}
+  \def\alp{43}
+  \draw[curve] (0,0.3) .. controls (2.4,0.3) and (4.2,1.4) .. (4.6,3.5)
+      coordinate[pos=0.6] (P);
+  \path (P) ++(\alp:1.4) coordinate (At) ++(\alp+90:1.0) coordinate (Ta);
+  \path (P) ++(\alp+90:1.0) coordinate (An);
+  \draw[aux] (P) -- ++(\alp:2.0);
+  \draw[aux] (P) -- ++(\alp+90:1.5);
+  \draw[aux] (Ta) -- (At) node[below right, black] {$a_t$};
+  \draw[aux] (Ta) -- (An) node[above left, black]  {$a_n$};
+  \draw[vB] (P) -- ++(\alp:1.0)    node[below right] {$\vec e_t$};
+  \draw[vR] (P) -- ++(\alp+90:1.0) node[above left]  {$\vec e_n$};
+  \draw[vG] (P) -- (Ta) node[above right] {$\vec a$};
+  \fill (P) circle (2pt);
 \end{tikzpicture}
-
 \end{center}
 
 \[\ddot{\vec{r}}(t) = \ddot{x}(t)\vec{i} + \ddot{y}(t)\vec{j} + \ddot{z}(t)\vec{k}\]
@@ -510,20 +383,11 @@ Que bàsicament ens dona el canvi de velocitat respeccte el petitíssim canvi de
 Parlem de MRU quan $\Delta v = 0$ i quan només es mou en una línea (pot ser un eix o una recta) és a dir que la velocitat és constant i que el canvi de posició és sempre el mateix.
 
 \begin{center}
-\begin{tikzpicture}[>=Stealth, scale=0.9]
-
-\draw[->] (0,0) -- (5.2,0) node[right] {$t$};
-\draw[->] (0,0) -- (0,3.5) node[above] {$x$};
-
-\draw[
-    very thick,
-    blue!70!black
-] (0.4,0.6) -- (4.7,3.0);
-
-\fill[red!70!black] (1.3,1.1) circle (2.5pt);
-\fill[red!70!black] (2.7,1.9) circle (2.5pt);
-\fill[red!70!black] (4.1,2.65) circle (2.5pt);
-
+\begin{tikzpicture}
+  \axes{5}{3.4}{$t$}{$x$}
+  \draw[curve, cB] (0.4,0.6) -- (4.7,3.0)
+      coordinate[pos=0.2] (a) coordinate[pos=0.5] (b) coordinate[pos=0.8] (c);
+  \foreach \p in {a,b,c}{\fill[cR] (\p) circle (2pt);}
 \end{tikzpicture}
 \end{center}
 
@@ -536,43 +400,21 @@ Sabem que si $\dv{x}{t} = v \therefore dx = v\cdot dt \therefore \int dx = \int 
 Aquí l'acceleració és constant per tant hem de trobar una expressió en funció del temps que ens descrigui la velocitat. Fent servir $\dv{v}{t} = a, \dv[2]{x}{t} = a$, obtenim;
 
 \begin{center}
-\begin{tikzpicture}[>=Stealth, scale=0.9]
-
-\draw[->] (0,0) -- (5.2,0) node[right] {$t$};
-\draw[->] (0,0) -- (0,3.5) node[above] {$v$};
-
-\draw[
-    very thick,
-    red!70!black
-] (0.5,0.8) -- (4.6,3.0);
-
-\fill[blue!70!black] (1.3,1.2) circle (2.5pt);
-\fill[blue!70!black] (3.7,2.55) circle (2.5pt);
-
+\begin{tikzpicture}
+  \axes{5}{3.4}{$t$}{$v$}
+  \draw[curve, cB] (0.5,0.8) -- (4.6,3.0)
+      coordinate[pos=0.25] (a) coordinate[pos=0.75] (b);
+  \foreach \p in {a,b}{\fill[cR] (\p) circle (2pt);}
 \end{tikzpicture}
 \end{center}
 
 \begin{center}
-
-\begin{tikzpicture}[>=Stealth, scale=0.9]
-
-\draw[->] (0,0) -- (5.2,0) node[right] {$t$};
-
-\draw[->] (0,0) -- (0,3.8) node[above] {$x$};
-
-\draw[
-    very thick,
-    red!70!black
-] (0.5,0.6)
-  .. controls (1.5,0.7) and (2.8,1.1) ..
-  (4.6,3.2);
-
-\fill[blue!70!black] (1.3,0.75) circle (2.5pt);
-
-\fill[blue!70!black] (3.7,2.25) circle (2.5pt);
-
+\begin{tikzpicture}
+  \axes{5}{3.4}{$t$}{$x$}
+  \draw[curve, cB] (0.5,0.6) .. controls (1.5,0.7) and (2.8,1.1) .. (4.6,3.2)
+      coordinate[pos=0.25] (a) coordinate[pos=0.7] (b);
+  \foreach \p in {a,b}{\fill[cR] (\p) circle (2pt);}
 \end{tikzpicture}
-
 \end{center}
 
 \[x(t) = x_0 + v(t-t_0) + \frac{1}{2}a(t-t_0)^2\]
@@ -591,37 +433,17 @@ Podem escollir el nostre sistema de referència com vulguem pero estem \textbf{o
 Si definim 2 bases (R i R') que es diferencien pel vector que depèn del temps $\vec{R}(t)$, Per arribar al punt des de R fem servir el vector $\vec{r}$ i per arribar al punt des de R' fem servir $\vec{r'}$. Llavors podem definir $\vec{r}$ com $\vec{r} = \vec{R} + \vec{r'}$
 
 \begin{center}
-\begin{tikzpicture}[>=Stealth, scale=0.85]
-
-\draw[->, thick] (0,0) -- (5,0) node[right] {$x$};
-\draw[->, thick] (0,0) -- (0,3.2) node[above] {$y$};
-
-\fill[red!70!black] (3,1.5) circle (3pt);
-\node[red!70!black] [below] at (3,1.5) {$R'$};
-
-\draw[->, red!70!black, thick]
-    (3,1.5) -- (4.50,1.5)
-    node[right] {$x'$};
-
-\draw[->, red!70!black, thick]
-    (3,1.5) -- (3, 2.9)
-    node[above] {$y'$};
-
-\fill[black] (4.0,3) circle (3pt);
-\node[above right] at (4.0,3) {$P$};
-
-\draw[->, blue!70!black, thick]
-    (0,0) -- (4.0,3)
-    node[midway, above left] {$\vec r$};
-
-    \draw[->, red!70!black, thick]
-    (3,1.5) -- (4.0,3)
-    node[midway, right]  {$\vec r'$};
-
-\draw[->, green!50!black, very thick]
-    (0,0) -- (3,1.5)
-    node[midway, below] {$\vec R$};
-
+\begin{tikzpicture}
+  \axes{4.8}{3.4}{$x$}{$y$}
+  \coordinate (R) at (3,1.5);
+  \coordinate (P) at (4,3);
+  \draw[->, cR, line width=0.6pt] (R) -- ++(1.5,0) node[right] {$x'$};
+  \draw[->, cR, line width=0.6pt] (R) -- ++(0,1.3) node[above] {$y'$};
+  \draw[vG] (0,0) -- (R) node[midway, below right] {$\vec R$};
+  \draw[vB] (0,0) -- (P) node[midway, above left]  {$\vec r$};
+  \draw[vR] (R) -- (P)   node[midway, right]       {$\vec r'$};
+  \fill (R) circle (2pt) node[below right] {$R'$};
+  \fill (P) circle (2pt) node[above right] {$P$};
 \end{tikzpicture}
 \end{center}
 
@@ -635,74 +457,17 @@ Podem distingir \textbf{dos tipus de sistema}.
 \end{itemize}
 
 \begin{center}
-
-\begin{tikzpicture}[>=Stealth, scale=0.85]
-
-\node[
-    black,
-    font=\bfseries
-] at (2.35,2.5) {Sistema inercial};
-
-\draw[
-    thick,
-    gray!60
-] (0.2,0.55) -- (4.5,0.55);
-
-\shade[
-    shading=axis,
-    left color=orange!20,
-    right color=orange!70!black
-] (2.0,0.55) rectangle (2.7,1.15);
-
-\draw[
-    thick,
-    orange!70!black
-] (2.0,0.55) rectangle (2.7,1.15);
-
-\draw[
-    ->,
-    very thick,
-    green!50!black
-] (2.35,1.2) -- (3.7,1.2)
-    node[midway, above] {$\vec V=\text{const.}$};
-
-\node[
-    black,
-    font=\bfseries
-] at (8.35,2.5) {Sistema no inercial};
-
-\draw[
-    thick,
-    gray!60
-] (6.2,0.55) -- (10.5,0.55);
-
-\shade[
-    shading=axis,
-    left color=orange!20,
-    right color=orange!70!black
-] (8.0,0.55) rectangle (8.7,1.15);
-
-\draw[
-    thick,
-    orange!70!black
-] (8.0,0.55) rectangle (8.7,1.15);
-
-\draw[
-    ->,
-    very thick,
-    red!70!black
-] (8.35,1.2) -- (9.5,1.2)
-    node[midway, above] {$\vec a_R\neq0$};
-
-\draw[
-    ->,
-    very thick,
-    green!50!black
-] (8.35,0.45) -- (7.2,0.45)
-    node[midway, below] {$\vec F_i$};
-
+\begin{tikzpicture}
+  \node[black] at (1.7,2.0) {Sistema inercial};
+  \draw[ground] (0,0) -- (3.4,0);
+  \node[body, anchor=south] at (1.7,0) {};
+  \draw[vB] (1.7,1.15) -- ++(1.1,0) node[midway, above] {$\vec V=\text{const.}$};
+  \node[black] at (6.5,2.0) {Sistema no inercial};
+  \draw[ground] (4.8,0) -- (8.2,0);
+  \node[body, anchor=south] (b2) at (6.5,0) {};
+  \draw[vG] (6.5,1.15) -- ++(1.0,0) node[midway, above] {$\vec a_R\neq0$};
+  \draw[vR] (b2.west) -- ++(-0.95,0) node[midway, above] {$\vec F_i$};
 \end{tikzpicture}
-
 \end{center}
 
 \begin{proof}
@@ -727,41 +492,16 @@ De manera que obtenim $\vec{F} + \vec{F_i} = m \ddot{\vec{r}}$
 Poso el MCU i MCUA dins d'aquesta secció ja que per aquests moviments hem de fer un petit canvi de base a cordenades polars.
 
 \begin{center}
-\begin{tikzpicture}[>=Stealth, scale=1]
-
-\draw[->, black] (0,0) -- (4.2,0) node[right] {$x$};
-\draw[->, black] (0,0) -- (0,3.4) node[above] {$y$};
-
-\fill[black] (2.7,2.2) circle (3pt);
-
-\draw[
-    ->,
-    very thick,
-    red!70!black
-] (0,0) -- (2.7,2.2)
-    node[midway, below right] {$\vec r=r\vec e_r$};
-
-\draw[
-    ->,
-    very thick,
-    blue!70!black
-] (2.7,2.2) -- (3.45,2.82)
-    node[right] {$\vec e_r$};
-
-\draw[
-    ->,
-    very thick,
-    green!50!black
-] (2.7,2.2) -- (1.98,2.97)
-    node[above] {$\vec e_\varphi$};
-
-\draw[
-    thick,
-    olive!60!black
-] (0.65,0) arc (0:39:0.65);
-
-\node[olive!60!black] at (0.95,0.28) {$\varphi$};
-
+\begin{tikzpicture}
+  \def\alp{39.2}
+  \axes{4.2}{3.4}{$x$}{$y$}
+  \coordinate (P) at (\alp:3.48);
+  \draw[vB] (0,0) -- (P) node[midway, below right] {$\vec r$};
+  \draw[vR] (P) -- ++(\alp:1)    node[right] {$\vec e_r$};
+  \draw[vG] (P) -- ++(\alp+90:1) node[above] {$\vec e_\varphi$};
+  \draw[cK!70!black, line width=0.6pt] (0.7,0) arc[start angle=0, end angle=\alp, radius=0.7];
+  \node[black] at (20:1.05) {$\varphi$};
+  \fill (P) circle (2pt);
 \end{tikzpicture}
 \end{center}
 
@@ -791,42 +531,16 @@ Equivalentment si volem trobar la velocitat a un lloc diferent del centre de mas
 En coordenades polars, la velocitat té una component radial, associada al canvi de distància respecte de l’origen, i una component tangencial, associada al canvi de l’angle. Si el radi és constant, la velocitat és exclusivament tangencial i el seu mòdul és $v=R\omega$. Ara, quan apareix un canvi en la velocitat apareix una acceleració, tal i com hem descrit als altres moviments, pero ara com que $\omega$ i $\vec{e_{\varphi}}$ depenen de temps és dona la regla del producte
 
 \begin{center}
-\begin{tikzpicture}[>=Stealth, scale=1]
-
-\draw[
-    thick,
-    black
-] (0,0) circle (2);
-
-\fill (0,0) circle (2pt);
-\node[below left] at (0,0) {$O$};
-
-\fill[black] (1.4,1.43) circle (3pt);
-
-\draw[
-    thick,
-    red!70!black
-] (0,0) -- (1.4,1.43)
-    node[midway, above left] {$r$};
-
-\draw[
-    ->,
-    very thick,
-    blue!70!black
-] (1.4,1.43) -- (0.25,2.55)
-    node[midway, above right] {$\vec v$};
-
-\draw[
-    ->,
-    very thick,
-    red!75!black
-] (1.4,1.43) -- (0.55,0.58)
-    node[midway, below right] {$\vec a_n$};
-
-\draw[
-    thick
-] (1.16,1.19) -- (1.39,0.97) -- (1.62,1.20);
-
+\begin{tikzpicture}
+  \def\alp{45.6}
+  \draw[curve] (0,0) circle (2);
+  \coordinate (P) at (\alp:2);
+  \draw[aux] (0,0) -- (P) node[pos=0.3, above left, black] {$r$};
+  \draw[vB] (P) -- ++(\alp+90:1.5)  node[above left]  {$\vec v$};
+  \draw[vG] (P) -- ++(\alp+180:1.1) node[below right] {$\vec a_n$};
+  \draw[cK!70!black, line width=0.5pt] ($(P)+(\alp+180:0.22)$) -- ++(\alp+90:0.22) -- ($(P)+(\alp+90:0.22)$);
+  \fill (P) circle (2pt);
+  \fill (0,0) circle (2pt) node[below left] {$O$};
 \end{tikzpicture}
 \end{center}
 
@@ -862,42 +576,20 @@ Aquí tot i que determinem $\vec{r}(t)$ en les bases cartesianes $\vec{i}, \vec{
 Donat $r(t)$ podem trobar $v(t)$ fàcilment derivant la posció. Amb això podem determinar el nostre \textbf{primer vector de frenet}, de manera que $\vec{e_1} = \frac{\dot{\vec{x}}(t)}{\abs{\dot{\vec{x}}(t)}} = \frac{\vec{v}(t)}{\abs{\vec{v}(t)}}$. I si derivem podem trobar el \textbf{segon vector de frenet}, de manera que; $\vec{e_2} = \frac{\dot{\vec{e_1}}}{\abs{\dot{\vec{e_1}}}}$ ja que han de formar una base;
 
 \begin{center}
-\begin{tikzpicture}[>=Stealth, scale=1]
-
-\draw[
-    very thick,
-    black
-] (0,0.4)
-  .. controls (1.2,0.3) and (2.2,0.8) ..
-  (3.1,1.8)
-  .. controls (3.8,2.5) and (4.2,3.1) ..
-  (4.8,3.25);
-
-\fill[black] (3.1,1.8) circle (3pt);
-
-\draw[
-    ->,
-    very thick,
-    blue!70!black
-] (3.1,1.8) -- (4.2,2.75)
-    node[midway, below right] {$\vec e_1 = a_x$};
-
-\draw[
-    ->,
-    very thick,
-    red!70!black
-] (3.1,1.8) -- (2.15,2.9)
-    node[midway, left] {$\vec e_2 = a_y$};
-
-\draw[
-    ->,
-    thick,
-    green!50!black
-] (3.1,1.8) -- (3.65,2.9)
-    node[above right] {$\vec a$};
-
-\node[below] at (3.1,1.8) {$P$};
-
+\begin{tikzpicture}
+  \def\alp{36}
+  \draw[curve] (0,0.4) .. controls (2.2,0.3) and (4.0,1.4) .. (4.8,3.4)
+      coordinate[pos=0.55] (P);
+  \path (P) ++(\alp:1.3) coordinate (Ax) ++(\alp+90:1.0) coordinate (Ta);
+  \path (P) ++(\alp+90:1.0) coordinate (Ay);
+  \draw[aux] (P) -- ++(\alp:1.9);
+  \draw[aux] (P) -- ++(\alp+90:1.5);
+  \draw[aux] (Ta) -- (Ax) node[below right, black] {$a_x$};
+  \draw[aux] (Ta) -- (Ay) node[above left, black]  {$a_y$};
+  \draw[vB] (P) -- ++(\alp:1.0)    node[below right] {$\vec e_1$};
+  \draw[vR] (P) -- ++(\alp+90:1.0) node[above left]  {$\vec e_2$};
+  \draw[vG] (P) -- (Ta) node[above right] {$\vec a$};
+  \fill (P) circle (2pt);
 \end{tikzpicture}
 \end{center}
 
@@ -928,47 +620,15 @@ Aquest radi de corbatura normalment s'escriu $R(t)$, ja que com hem vist \textbf
 Si sabem que $\vec{v} = \dv{\vec{r}}{t}$ doncs quan afegim tots els trossos \textbf{dr} en una integral podem obtenir la distància recorregura $\int_{t_0}^{t} v(t) dt$. 
 
 \begin{center}
-
-\begin{tikzpicture}[>=Stealth, scale=1]
-
-\draw[
-    very thick,
-    black
-] (0,0.5)
-  .. controls (1,2.7) and (2.5,-0.5) ..
-  (4.8,2.6);
-
-\fill[black] (0,0.5) circle (3pt);
-\node[below left] at (0,0.5) {$P_0$};
-
-\fill[black] (4.8,2.6) circle (3pt);
-\node[above right] at (4.8,2.6) {$P$};
-
-\draw[
-    very thick,
-    blue!70!black
-] (2.20,0.30)
-  .. controls (2.32,0.22) and (2.48,0.27) ..
-  (2.65,0.39);
-
-\draw[
-    thick,
-    blue!70!black
-] (2.16,1.2) -- (2.24,0.24);
-
-\draw[
-    thick,
-    blue!70!black
-] (2.61,1) -- (2.69,0.33);
-
-\node[
-    blue!70!black,
-    fill=white,
-    inner sep=2pt
-] at (2.43,1.2) {$ds$};
-
+\begin{tikzpicture}
+  \draw[curve] (0,0.5) .. controls (1,2.7) and (2.5,-0.5) .. (4.8,2.6)
+      coordinate[pos=0] (P0) coordinate[pos=0.46] (a)
+      coordinate[pos=0.54] (b) coordinate[pos=1] (P);
+  \draw[cB, line width=2.2pt] (a) -- (b);
+  \node[cB] at ($(a)!0.5!(b)+(0,-0.45)$) {$ds$};
+  \fill (P0) circle (2pt) node[below left]  {$P_0$};
+  \fill (P)  circle (2pt) node[above right] {$P$};
 \end{tikzpicture}
-
 \end{center}
 
 Pero que fem quan no ens parlen de temps i ens donen una funció arbitraria? Doncs proposem x = t, de manera que desenvolupant.
@@ -1001,107 +661,18 @@ Aquests són problemes típics o cassos particulars que poden aparèixer al exam
 En un sistema de politjes \textbf{asumim que la longitud $L$ de la corda és constant}, de manera que podem crear un sistema d'equacions amb $s_n \leftrightarrow \Sigma s_n = L$ on relacionem les longituds $s_n$ amb $y_n$ que és la posició de les politjes i que $\dot{y_n} = v_n$ per trobar la relació entre velocitats.
 
 \begin{center}
-
-\begin{tikzpicture}[>=Stealth, scale=1]
-
-    \fill[gray!20] (3,3.5) circle (0.8);
-
-\draw[
-    very thick,
-    gray!65
-] (3,3.5) circle (0.8);
-
-\fill[gray!60] (3,3.5) circle (0.12);
-\draw[
-    line width=5pt,
-    brown!70!black,
-    decorate,
-    decoration={
-        snake,
-        amplitude=0.35pt,
-        segment length=5pt
-    }
-] (2.2,3.5) -- (2.2,0.9);
-
-\draw[
-    line width=5pt,
-    brown!70!black,
-    decorate,
-    decoration={
-        snake,
-        amplitude=0.35pt,
-        segment length=5pt
-    }
-] (2.2,3.5)
-    arc (180:0:0.8);
-
-\draw[
-    line width=5pt,
-    brown!70!black,
-    decorate,
-    decoration={
-        snake,
-        amplitude=0.35pt,
-        segment length=5pt
-    }
-] (3.8,3.5) -- (3.8,0.9);
-
-\shade[
-    shading=axis,
-    left color=orange!20,
-    right color=orange!70!black
-] (1.85,0.25) rectangle (2.55,0.9);
-
-\draw[
-    thick,
-    orange!70!black
-] (1.85,0.25) rectangle (2.55,0.9);
-
-\node at (2.2,0.575) {$m_1$};
-
-\shade[
-    shading=axis,
-    left color=orange!20,
-    right color=orange!70!black
-] (3.45,0.25) rectangle (4.15,0.9);
-
-\draw[
-    thick,
-    orange!70!black
-] (3.45,0.25) rectangle (4.15,0.9);
-
-\node at (3.8,0.575) {$m_2$};
-
-\draw[
-    ->,
-    very thick,
-    green!50!black
-] (2.2,0.2) -- (2.2,-0.65)
-    node[below] {$\vec v_1$};
-
-\draw[
-    ->,
-    very thick,
-    green!50!black
-] (3.8,0.2) -- (3.8,-0.65)
-    node[below] {$\vec v_2$};
-
-\draw[
-    <->,
-    thick,
-    blue!70!black
-] (1.35,0.9) -- (1.35,3.5)
-    node[midway,left] {$y_1$};
-
-\draw[
-    <->,
-    thick,
-    red!70!black
-] (4.65,0.9) -- (4.65,3.5)
-    node[midway,right] {$y_2$};
-
+\begin{tikzpicture}
+  \fill[cK!25] (3,3.5) circle (0.8);
+  \draw[cK, line width=1pt] (3,3.5) circle (0.8);
+  \fill[cK] (3,3.5) circle (2pt);
+  \draw[rope] (2.2,0.9) -- (2.2,3.5) arc[start angle=180, end angle=0, radius=0.8] -- (3.8,0.9);
+  \node[body, anchor=south] at (2.2,0.1) {$m_1$};
+  \node[body, anchor=south] at (3.8,0.1) {$m_2$};
+  \draw[vB] (2.2,0.05) -- ++(0,-0.8) node[midway, left]  {$\vec v_1$};
+  \draw[vB] (3.8,0.05) -- ++(0,-0.8) node[midway, right] {$\vec v_2$};
+  \draw[dim] (1.3,0.9) -- (1.3,3.5) node[midway, left, black]  {$y_1$};
+  \draw[dim] (4.7,0.9) -- (4.7,3.5) node[midway, right, black] {$y_2$};
 \end{tikzpicture}
-
 \end{center}
 
 \[ \dot{y_1} \equiv \mp v_1\]
@@ -1122,59 +693,14 @@ Per poder predir el moviment usem les \textbf{3 lleis de Newton}
 \end{itemize}
 
 \begin{center}
-
-\begin{tikzpicture}[>=Stealth, scale=0.9]
-
-\draw[
-    very thick,
-    gray!60
-] (0.2,0.45) -- (4.9,0.45);
-
-\shade[
-    shading=axis,
-    left color=orange!20,
-    right color=orange!70!black
-] (0.5,0.5) rectangle (1.6,1.6);
-
-\draw[
-    thick,
-    orange!70!black
-] (0.5,0.5) rectangle (1.6,1.6);
-
-\node at (1.05,1.05) {$A$};
-
-\shade[
-    shading=axis,
-    left color=orange!20,
-    right color=orange!70!black
-] (3.5,0.5) rectangle (4.6,1.6);
-
-\draw[
-    thick,
-    orange!70!black
-] (3.5,0.5) rectangle (4.6,1.6);
-
-\node at (4.05,1.05) {$B$};
-
-\draw[
-    ->,
-    very thick,
-    red!70!black
-] (1.6,1.05) -- (3.0,1.05)
-    node[midway, above] {$\vec F_{A\to B}$};
-
-\draw[
-    ->,
-    very thick,
-    blue!70!black
-] (3.5,0.8) -- (2.1,0.8)
-    node[midway, below] {$\vec F_{B\to A}$};
-
-\node at (2.8,2.1)
-    {$\vec F_{A\to B}=-\vec F_{B\to A}$};
-
+\begin{tikzpicture}
+  \draw[ground] (0,0) -- (5.4,0);
+  \node[body, anchor=south] at (0.9,0) {$A$};
+  \node[body, anchor=south] at (4.5,0) {$B$};
+  \draw[vR] (1.5,0.4) -- (2.5,0.4) node[midway, above] {$\vec F_{A\to B}$};
+  \draw[vR] (3.9,0.4) -- (2.9,0.4) node[midway, above] {$\vec F_{B\to A}$};
+  \node[black] at (2.7,1.5) {$\vec F_{A\to B}=-\vec F_{B\to A}$};
 \end{tikzpicture}
-
 \end{center}
 
 Sabem que $\vec{F}$ depèn de $\vec{r}(t), \dot{\vec{r}}(t), t$ i que;
@@ -1196,43 +722,12 @@ Sobre qualsevol cos pot actuar una força. A prop de la superfície terrestre, l
 \[P = P' \leftrightarrow m_T \cdot a_t = m_X \cdot g\]
 
 \begin{center}
-
-\begin{tikzpicture}[>=Stealth, scale=1]
-
-\draw[
-    very thick,
-    gray!70
-] (-0.5,0) -- (4.5,0);
-
-\shade[
-    shading=axis,
-    left color=orange!20,
-    right color=orange!70!black
-] (1.8,0) rectangle (3,1.2);
-
-\draw[
-    thick,
-    orange!70!black
-] (1.8,0) rectangle (3,1.2);
-
-\node at (2.4,0.6) {$m$};
-
-\draw[
-    ->,
-    very thick,
-    red!75!black
-] (2.4,0) -- (2.4,-1.3)
-    node[midway, right] {$\vec P=m\vec g$};
-
-\draw[
-    ->,
-    very thick,
-    blue!70!black
-] (2.4,1.2) -- (2.4,2.5)
-    node[midway, right] {$\vec N$};
-
+\begin{tikzpicture}
+  \draw[ground] (-0.5,0) -- (3.5,0);
+  \node[body, anchor=south] (m) at (1.5,0) {$m$};
+  \draw[vB] (m.north) -- ++(0,1.0)  node[midway, right] {$\vec N$};
+  \draw[vR] (m.south) -- ++(0,-1.0) node[midway, right] {$\vec P=m\vec g$};
 \end{tikzpicture}
-
 \end{center}
 
 \subsection{Camp Gravitatori}
@@ -1244,22 +739,20 @@ Si dos objectes qualsevol tenen massa, es genera una força atractiva entre ells
 On agafa el vector director entre els dos cossos (Cos Origen - Cos Afectat), li dona la volta i ho multiplica per un factor $G\frac{Mm}{r^2}$. També podem obtenir un \textbf{camp vectorial} $g = \frac{\vec{F}}{m}$ on obtenim un conjunt de vectors que al aplicar una massa m obtenen la força de gravitació,
 
 \begin{center}
-    \begin{tikzpicture}[>=Stealth, scale=0.5]
-
-\draw[->] (-4.5,0) -- (4.5,0);
-\draw[->] (0,-4.5) -- (0,4.5);
-
-\foreach \x in {-4,-3.5,...,4}{
-    \foreach \y in {-4,-3.5,...,4}{
-        \pgfmathsetmacro{\r}{sqrt(\x*\x+\y*\y)}
-        \ifdim\r pt>0.1pt
-            \draw[->,orange]
-                (\x,\y) -- 
-                ({\x+0.35*\x/\r},{\y-0.35*\y/\r});
-        \fi
+\begin{tikzpicture}
+  \def\sx{1}\def\sy{-1}
+  \draw[ax] (-2.7,0) -- (2.7,0) node[right, black] {$x$};
+  \draw[ax] (0,-2.7) -- (0,2.7) node[above, black] {$y$};
+  \foreach \i in {-3,...,2}{
+    \foreach \j in {-3,...,2}{
+      \pgfmathsetmacro{\x}{0.8*(\i+0.5)}
+      \pgfmathsetmacro{\y}{0.8*(\j+0.5)}
+      \pgfmathsetmacro{\r}{sqrt(\x*\x+\y*\y)}
+      \draw[->, cR, line width=0.9pt]
+        ({\x-0.25*(\sx)*\x/\r},{\y-0.25*(\sy)*\y/\r}) --
+        ({\x+0.25*(\sx)*\x/\r},{\y+0.25*(\sy)*\y/\r});
     }
-}
-
+  }
 \end{tikzpicture}
 \end{center}
 
@@ -1287,78 +780,16 @@ mg-N=mg
 \]
 
 \begin{center}
-
-\begin{tikzpicture}[>=Stealth, scale=0.9]
-
-\draw[
-    very thick,
-    gray!70
-] (-0.5,0) -- (5,0);
-
-\draw[
-    dashed,
-    gray!50
-] (2.5,4.2) -- (2.5,0.35);
-
-\shade[
-    shading=ball,
-    ball color=blue!55
-] (2.5,3.8) circle (0.28);
-
-\draw[
-    thick,
-    blue!70!black
-] (2.5,3.8) circle (0.28);
-
-\node[left] at (2.15,3.8) {$t_0$};
-
-\shade[
-    shading=ball,
-    ball color=blue!55
-] (2.5,2.5) circle (0.28);
-
-\draw[
-    thick,
-    blue!70!black
-] (2.5,2.5) circle (0.28);
-
-\node[left] at (2.15,2.5) {$t_1$};
-
-\shade[
-    shading=ball,
-    ball color=blue!55
-] (2.5,1.1) circle (0.28);
-
-\draw[
-    thick,
-    blue!70!black
-] (2.5,1.1) circle (0.28);
-
-\node[left] at (2.15,1.1) {$t_2$};
-
-\draw[
-    ->,
-    very thick,
-    red!70!black
-] (2.5,3.5) -- (2.5,2.95)
-    node[right] {$\vec v_0$};
-
-\draw[
-    ->,
-    very thick,
-    red!70!black
-] (2.5,2.2) -- (2.5,1.4)
-    node[right] {$\vec v_1$};
-
-\draw[
-    ->,
-    very thick,
-    green!50!black
-] (3.4,3.8) -- (3.4,2.5)
-    node[midway,right] {$\vec a=\vec g$};
-
+\begin{tikzpicture}
+  \draw[ground] (-0.5,0) -- (5,0);
+  \draw[aux] (2.5,4.3) -- (2.5,0.2);
+  \node[ball] at (2.5,3.8) {};  \node[left] at (2.1,3.8) {$t_0$};
+  \node[ball] at (2.5,2.5) {};  \node[left] at (2.1,2.5) {$t_1$};
+  \node[ball] at (2.5,1.1) {};  \node[left] at (2.1,1.1) {$t_2$};
+  \draw[vB] (2.5,3.45) -- (2.5,2.95) node[midway, right] {$\vec v_0$};
+  \draw[vB] (2.5,2.15) -- (2.5,1.35) node[midway, right] {$\vec v_1$};
+  \draw[vG] (3.6,3.8)  -- (3.6,2.5)  node[midway, right] {$\vec a=\vec g$};
 \end{tikzpicture}
-
 \end{center}
 
 \subsection{Forces de Fregament}
@@ -1372,57 +803,14 @@ S'ha vist que $F_f \propto F_N$ de manera que;
 \[F_f = \mu_{e/d}N\]
 
 \begin{center}
-
-\begin{tikzpicture}[>=Stealth, scale=0.95]
-
-\draw[
-    very thick,
-    gray!70
-] (-0.5,0) -- (5,0);
-
-\shade[
-    shading=axis,
-    left color=orange!20,
-    right color=orange!70!black
-] (2,0) rectangle (3.2,1.2);
-
-\draw[
-    thick,
-    orange!70!black
-] (2,0) rectangle (3.2,1.2);
-
-\node at (2.6,0.6) {$m$};
-
-\draw[
-    ->,
-    very thick,
-    blue!70!black
-] (3.2,0.6) -- (4.8,0.6)
-    node[midway, above] {$\vec F$};
-
-\draw[
-    ->,
-    very thick,
-    red!75!black
-] (2,0.6) -- (0.6,0.6)
-    node[midway, above] {$\vec F_f$};
-
-\draw[
-    ->,
-    thick,
-    green!50!black
-] (2.6,1.2) -- (2.6,2.2)
-    node[midway, right] {$\vec N$};
-
-\draw[
-    ->,
-    thick,
-    red!75!black
-] (2.6,0) -- (2.6,-1)
-    node[midway, right] {$\vec P$};
-
+\begin{tikzpicture}
+  \draw[ground] (-0.5,0) -- (5,0);
+  \node[body, anchor=south] (m) at (2.4,0) {$m$};
+  \draw[vG] (m.east)  -- ++(1.4,0)  node[midway, above] {$\vec F$};
+  \draw[vR] (m.west)  -- ++(-1.4,0) node[midway, above] {$\vec F_f$};
+  \draw[vB] (m.north) -- ++(0,1.0)  node[midway, right] {$\vec N$};
+  \draw[vR] (m.south) -- ++(0,-1.0) node[midway, right] {$\vec P$};
 \end{tikzpicture}
-
 \end{center}
 
 Sabem que $\mu_e, \mu_d \exists$ i que $\mu_e > \mu_d$. On definim $\mu_e$ com a \textit{coeficient estàtic} i $\mu_d$ com a \textit{coeficient dinàmic}
@@ -1439,59 +827,16 @@ Una corda ideal \textit{es considera inextensible i de massa negligible}. En aqu
     Si tenim una corda de llargada \textbf{L} i ho separem en troços petits on estiren 2 tensions obtenim que $T - T' = \Delta m\cdot a$ per tant;
     
     \begin{center}
-        \begin{tikzpicture}[>=Stealth, scale=1]
-
-    \draw[
-        line width=5pt,
-        brown!70!black,
-        decorate,
-        decoration={
-            snake,
-            amplitude=0.35pt,
-            segment length=5pt
-        }
-    ] (1.5,2) -- (4.5,2);
-
-    \draw[
-        ->,
-        very thick,
-        blue!75!black
-    ] (1.5,2) -- (0.2,2)
-    node[midway, above] {\color{blue!75!black}$T$};
-
-    \draw[
-        ->,
-        very thick,
-        red!75!black
-    ] (4.5,2) -- (5.8,2)
-    node[midway, above] {\color{red!75!black}$T'$};
-
-    \fill[brown!70!black] (1.5,2) circle (2.5pt);
-    \fill[brown!70!black] (4.5,2) circle (2.5pt);
-
-    \draw[
-        <->,
-        thick,
-        gray!70
-    ] (1.5,1.25) -- (4.5,1.25)
-    node[midway, fill=white, inner sep=2pt] {$\Delta x$};
-
-    \node[
-        fill=white,
-        inner sep=2pt
-    ] at (3,2.45) {$\Delta m$};
-
-    \draw[
-        dashed,
-        gray!60
-    ] (1.5,1.6) -- (1.5,2.4);
-
-    \draw[
-        dashed,
-        gray!60
-    ] (4.5,1.6) -- (4.5,2.4);
-
-\end{tikzpicture}
+        \begin{tikzpicture}
+            \draw[rope] (1.5,2) -- (4.5,2);
+            \draw[vR] (1.5,2) -- (0.3,2) node[midway, above] {$T$};
+            \draw[vR] (4.5,2) -- (5.7,2) node[midway, above] {$T'$};
+            \fill (1.5,2) circle (2pt);
+            \fill (4.5,2) circle (2pt);
+            \node at (3,2.4) {$\Delta m$};
+            \draw[aux] (1.5,1.8) -- (1.5,0.9)  (4.5,1.8) -- (4.5,0.9);
+            \draw[dim] (1.5,1.1) -- (4.5,1.1) node[midway, black, fill=white, inner sep=2pt] {$\Delta x$};
+        \end{tikzpicture}
     \end{center}
 
     $T-T' = 0a \therefore T = T'$ i així demostm la propietat.
@@ -1549,112 +894,26 @@ Ara bé, com és que en la llei de Newton mai posem les forçes entre els cossos
 Considerem \textbf{un sistema de particules}; $\vec{P} = \vec{p_1}+ \dots + \vec{p_n}$
 
 \begin{center}
-    \begin{tikzpicture}[
-    >=stealth,
-    thick
-]
-    \shade[
-        ball color=blue!45
-    ] (1.8,3.6) circle (0.38);
-
-    \node at (1.8,3.6) {\small $m_1$};
-
-    \draw[
-        ->,
-        very thick,
-        blue!75!black
-    ] (1.8,3.6) -- (0.5,4.35)
-        node[midway, above] {\color{blue!75!black}$\vec v_1$};
-
-    \draw[
-        ->,
-        very thick,
-        red!75!black
-    ] (1.8,3.6) -- (2.9,3.0)
-        node[midway, below right] {\color{red!75!black}$\vec f_1$};
-
-    \shade[
-        ball color=green!50
-    ] (4.8,2.0) circle (0.38);
-
-    \node at (4.8,2.0) {\small $m_2$};
-
-    \draw[
-        ->,
-        very thick,
-        blue!75!black
-    ] (4.8,2.0) -- (6.2,2.0)
-        node[midway, above] {\color{blue!75!black}$\vec v_2$};
-
-    \draw[
-        ->,
-        very thick,
-        red!75!black
-    ] (4.8,2.0) -- (4.1,3.25)
-        node[midway, left] {\color{red!75!black}$\vec f_2$};
-
-    \shade[
-        ball color=orange!60
-    ] (2.8,0.5) circle (0.38);
-
-    \node at (2.8,0.5) {\small $m_3$};
-
-    \draw[
-        ->,
-        very thick,
-        blue!75!black
-    ] (2.8,0.5) -- (3.9,-0.45)
-        node[midway, below] {\color{blue!75!black}$\vec v_3$};
-
-    \draw[
-        ->,
-        very thick,
-        red!75!black
-    ] (2.8,0.5) -- (1.25,0.65)
-        node[midway, above] {\color{red!75!black}$\vec f_3$};
-
-    \draw[
-        ->,
-        dashed,
-        gray!50
-    ] (2.15,3.35) -- (4.35,2.25)
-        node[midway, above, sloped] {\scriptsize $\vec f_{2,1}$};
-
-    \draw[
-        ->,
-        dashed,
-        gray!50
-    ] (4.35,2.35) -- (2.15,3.45)
-        node[midway, below, sloped] {\scriptsize $\vec f_{1,2}$};
-
-    \draw[
-        ->,
-        dashed,
-        gray!50
-    ] (2.05,3.25) -- (2.65,0.9)
-        node[midway, right] {\scriptsize $\vec f_{3,1}$};
-
-    \draw[
-        ->,
-        dashed,
-        gray!50
-    ] (2.65,0.9) -- (2.05,3.25)
-        node[midway, left] {\scriptsize $\vec f_{1,3}$};
-
-    \draw[
-        ->,
-        dashed,
-        gray!50
-    ] (4.45,1.65) -- (3.15,0.8)
-        node[midway, right] {\scriptsize $\vec f_{3,2}$};
-
-    \draw[
-        ->,
-        dashed,
-        gray!50
-    ] (3.15,0.8) -- (4.45,1.65)
-        node[midway, left] {\scriptsize $\vec f_{2,3}$};
-
+\begin{tikzpicture}
+  \node[ball] (p1) at (1.8,3.6) {$m_1$};
+  \node[ball] (p2) at (4.8,2.0) {$m_2$};
+  \node[ball] (p3) at (2.8,0.5) {$m_3$};
+  % external forces (red) and velocities (blue)
+  \draw[vB] (p1.150) -- ++(150:1.1) node[midway, above] {$\vec v_1$};
+  \draw[vR] (p1.331) -- ++(331:1.1) node[midway, below right] {$\vec f_1$};
+  \draw[vB] (p2.0)   -- ++(0:1.3)   node[midway, above] {$\vec v_2$};
+  \draw[vR] (p2.119) -- ++(119:1.1) node[midway, left] {$\vec f_2$};
+  \draw[vB] (p3.319) -- ++(319:1.2) node[midway, below] {$\vec v_3$};
+  \draw[vR] (p3.175) -- ++(175:1.4) node[midway, above] {$\vec f_3$};
+  % internal forces (thin grey); each arrow starts on the body that receives it
+  \begin{scope}[->, cK!70!black, line width=0.7pt, every node/.style={black, inner sep=1pt}]
+    \draw (2.164,3.327) -- (4.370,2.150) node[pos=0.5, below left]  {$\vec f_{2,1}$};
+    \draw (4.436,2.274) -- (2.230,3.451) node[pos=0.5, above right] {$\vec f_{1,2}$};
+    \draw (2.005,3.193) -- (2.729,0.949) node[pos=0.5, right] {$\vec f_{3,1}$};
+    \draw (2.595,0.907) -- (1.871,3.151) node[pos=0.5, left]  {$\vec f_{1,3}$};
+    \draw (4.398,1.786) -- (3.118,0.826) node[pos=0.5, above left]  {$\vec f_{3,2}$};
+    \draw (3.202,0.714) -- (4.482,1.674) node[pos=0.5, below right] {$\vec f_{2,3}$};
+  \end{scope}
 \end{tikzpicture}
 \end{center}
 
@@ -1667,32 +926,15 @@ Si $\vec{F}_{total}^{externa} = 0$, el moment no varia i $\vec{P}$ és constant.
 \begin{examplebox}{Conservació del moment}
     Moment Lineal, exemple bàsic;
 
-    \begin{center}
-    \begin{tikzpicture}[scale=0.9,>=Stealth]
-
-        \fill[gray!15] (-0.5,-0.1) rectangle (9,0.05);
-        \draw[thick] (-0.5,0.05)--(9,0.05);
-        \node[below] at (4.25,-0.1) {$\mu=0$};
-
-        \draw[thick,blue!70!black,line width=2pt] (1,0.35)--(1,1.05);
-        \draw[thick,blue!70!black,line width=2pt] (1,0.85)--(0.75,0.55);
-        \draw[thick,blue!70!black,line width=2pt] (1,0.85)--(1.25,0.55);
-        \draw[thick] (1,0.35)--(0.8,0.05);
-        \draw[thick] (1,0.35)--(1.2,0.05);
-        \fill[orange!75!brown] (1,1.25) circle (0.18);
-        \draw[thick] (1,1.07)--(1,0.35);
-        \node[above] at (1,1.5) {$m$};
-
-        \draw[thick,red!75!black,line width=2pt] (7,0.35)--(7,1.05);
-        \draw[thick,red!75!black,line width=2pt] (7,0.85)--(6.75,0.55);
-        \draw[thick,red!75!black,line width=2pt] (7,0.85)--(7.25,0.55);
-        \draw[thick] (7,0.35)--(6.8,0.05);
-        \draw[thick] (7,0.35)--(7.2,0.05);
-        \fill[orange!75!brown] (7,1.25) circle (0.18);
-        \draw[thick] (7,1.07)--(7,0.35);
-        \node[above] at (7,1.5) {$m'$};
-
-    \end{tikzpicture}
+   \begin{center}
+    \begin{tikzpicture}
+        \draw[ground] (-0.3,0) -- (7.3,0);
+        \person{1}{cB}
+        \person{6}{cR}
+        \node at (1,1.55) {$m$};
+        \node at (6,1.55) {$m'$};
+        \node at (3.5,0.3) {$\mu=0$};
+        \end{tikzpicture}
     \end{center}
 
     Dos cossos de massa ($m,, m'$) es troben sobre una superficie amb $\mu = 0$.
@@ -1706,42 +948,20 @@ Si $\vec{F}_{total}^{externa} = 0$, el moment no varia i $\vec{P}$ és constant.
     \[\vec{P_{A+m1+B+m2}} = \vec{P_{A+m1}} = \vec{P_{B+m2}}\]
     
     \begin{center}
-    \begin{tikzpicture}[scale=0.9,>=Stealth]
-
-        \fill[cyan!8] (-0.5,-0.1) rectangle (9,0.05);
-        \draw[thick] (-0.5,0.05)--(9,0.05);
-
-        \fill[orange!75!brown] (1,1.25) circle (0.18);
-        \draw[thick,blue!70!black,line width=2pt] (1,1.07)--(1,0.4);
-        \draw[thick,blue!70!black,line width=2pt] (1,0.85)--(1.3,0.7);
-        \draw[thick,blue!70!black,line width=2pt] (1,0.85)--(0.8,0.6);
-        \draw[thick] (1,0.4)--(0.8,0.05);
-        \draw[thick] (1,0.4)--(1.2,0.05);
-        \node[above] at (1,1.5) {$A$};
-
-        \fill[yellow!80!orange] (2,0.75) circle (0.09);
-        \draw[->,thick] (2.15,0.75)--(2.9,0.75);
-        \node[above] at (2.4,0.85) {$m_1$};
-
-        \draw[->,very thick,blue] (0.8,1.8)--(0.1,1.8);
-        \node[above,blue] at (0.45,1.8) {$\vec v_A$};
-
-        \fill[orange!75!brown] (7,1.25) circle (0.18);
-        \draw[thick,red!75!black,line width=2pt] (7,1.07)--(7,0.4);
-        \draw[thick,red!75!black,line width=2pt] (7,0.85)--(6.7,0.7);
-        \draw[thick,red!75!black,line width=2pt] (7,0.85)--(7.2,0.6);
-        \draw[thick] (7,0.4)--(6.8,0.05);
-        \draw[thick] (7,0.4)--(7.2,0.05);
-        \node[above] at (7,1.5) {$B$};
-
-        \fill[yellow!80!orange] (6,0.75) circle (0.09);
-        \draw[->,thick] (5.85,0.75)--(5.1,0.75);
-        \node[above] at (5.6,0.85) {$m_2$};
-
-        \draw[->,very thick,red] (7.3,1.8)--(8,1.8);
-        \node[above,red] at (7.65,1.8) {$\vec v_B$};
-    \end{tikzpicture}
-    \end{center}
+\begin{tikzpicture}
+  \draw[ground] (-0.3,0) -- (7.3,0);
+  \person{1}{cB}
+  \person{6}{cR}
+  \node at (1,1.55) {$A$};
+  \node at (6,1.55) {$B$};
+  \node[ball, minimum size=0.35cm] at (2.0,0.65) {};
+  \draw[vec, black!70] (2.25,0.65) -- (3.1,0.65) node[midway, above] {$m_1$};
+  \node[ball, minimum size=0.35cm] at (5.0,0.65) {};
+  \draw[vec, black!70] (4.75,0.65) -- (3.9,0.65) node[midway, above] {$m_2$};
+  \draw[vB] (0.8,1.95) -- (0.0,1.95) node[midway, above] {$\vec v_A$};
+  \draw[vR] (6.2,1.95) -- (7.0,1.95) node[midway, above] {$\vec v_B$};
+\end{tikzpicture}
+\end{center}
 
     I prenent el sistema de referència indicat, $P_mb < 0$ per tant $P_B = P_m2$ i $v_B > 0$
 
@@ -1816,55 +1036,19 @@ M\vec a_{\mathrm{CM}}=\vec F_{\mathrm{ext}}
 Calcular el CM d'un \textbf{sòlid rígid}.
 
 \begin{center}
-\begin{tikzpicture}[scale=1.0,>=Stealth,line join=round]
-
-    \coordinate (A) at (0,0);
-    \coordinate (B) at (3,0);
-    \coordinate (C) at (3,3);
-    \coordinate (D) at (0,3);
-    \coordinate (E) at (1,0.8);
-    \coordinate (F) at (4,0.8);
-    \coordinate (G) at (4,3.8);
-    \coordinate (H) at (1,3.8);
-
-    \fill[blue!12] (A)--(B)--(C)--(D)--cycle;
-    \fill[blue!22] (B)--(F)--(G)--(C)--cycle;
-    \fill[blue!30] (D)--(C)--(G)--(H)--cycle;
-
-    \foreach \i in {1,...,5}{
-        \draw[blue!45,thin] ({3*\i/6},0)--({3*\i/6},3);
-        \draw[blue!45,thin] (0,{3*\i/6})--(3,{3*\i/6});
-    }
-
-    \foreach \i in {1,...,5}{
-        \draw[blue!45,thin]
-            ({3*\i/6},3)--({3*\i/6+1},3.8);
-        \draw[blue!45,thin]
-            ({\i/6}, {3+0.8*\i/6})--
-            ({3+\i/6},{3+0.8*\i/6});
-    }
-
-    \foreach \i in {1,...,5}{
-        \draw[blue!45,thin]
-            (3,{3*\i/6})--(4,{3*\i/6+0.8});
-        \draw[blue!45,thin]
-            ({3+\i/6}, {0.8*\i/6})--
-            ({3+\i/6},{3+0.8*\i/6});
-    }
-
-    \fill[orange!65] (1.5,1.5) rectangle (2,2);
-    \draw[thick,orange!80!black] (1.5,1.5) rectangle (2,2);
-
-    \draw[->,thick,orange!80!black] (2,1.75)--(3.25,2.15);
-    \node[orange!80!black,right] at (3.25,2.15) {$dV$};
-    \node[orange!80!black,below] at (1.75,1.45) {$dm=\rho\,dV$};
-
-    \fill[red] (1.5,1.5) circle (2.5pt);
-
-    \draw[thick] (A)--(B)--(F)--(G)--(H)--(D)--cycle;
-    \draw[thick] (B)--(C)--(D);
-    \draw[thick] (C)--(G);
-
+\begin{tikzpicture}
+  \fill[cB!8]  (0,0) rectangle (3,3);
+  \fill[cB!16] (3,0) -- (4,0.8) -- (4,3.8) -- (3,3) -- cycle;
+  \fill[cB!24] (0,3) -- (3,3) -- (4,3.8) -- (1,3.8) -- cycle;
+  \draw[black!70, line width=0.8pt] (0,0) rectangle (3,3);
+  \draw[black!70, line width=0.8pt] (3,0) -- (4,0.8) -- (4,3.8) -- (1,3.8) -- (0,3);
+  \draw[black!70, line width=0.8pt] (3,3) -- (4,3.8);
+  % small element
+  \filldraw[draw=cO, fill=cO!30, line width=0.6pt] (1.3,1.3) rectangle (1.8,1.8);
+  \filldraw[draw=cO, fill=cO!45, line width=0.6pt] (1.8,1.3) -- (1.98,1.44) -- (1.98,1.94) -- (1.8,1.8) -- cycle;
+  \filldraw[draw=cO, fill=cO!55, line width=0.6pt] (1.3,1.8) -- (1.8,1.8) -- (1.98,1.94) -- (1.48,1.94) -- cycle;
+  \draw[->, cO, line width=0.8pt] (2.05,1.6) -- (3.2,2.0) node[right] {$dV$};
+  \node at (1.55,0.8) {$dm=\rho\,dV$};
 \end{tikzpicture}
 \end{center}
 
@@ -1909,17 +1093,12 @@ Podem calcular el \textbf{producte vectorial} com;
 Sabem que $\vec{F}_{total}^{externa} = M \ddot{R}$, podriem pensar que al aplicar un parell de forçes oposades, el sistema no fa res (cap efecte), aquí intervé una magnitud anomenada \textbf{moment d'una força} $\vec{M}$.
 
 \begin{center}
-\begin{tikzpicture}[>=Stealth,scale=1]
-    \draw[thick,fill=gray!10] (0,0) circle (1.2);
-    \fill (0,0) circle (2pt);
-    \draw[dashed] (-1.5,0) -- (1.5,0);
-    \draw[dashed] (0,-1.5) -- (0,1.5);
-    \node[below left] at (0,0) {$CM$};
-
-    \draw[->,very thick,blue] (-1.2,0) -- (-2.2,0);
-    \draw[->,very thick,red] (1.2,0) -- (2.2,0);
-    \node[blue,above] at (-1.7,0) {$\vec F$};
-    \node[red,above] at (1.7,0) {$-\vec F$};
+\begin{tikzpicture}
+    \draw[rigid] (0,0) ellipse (0.8 and 1.2);
+  \draw[aux] (-1.2,0) -- (1.2,0);
+  \draw[vR] (-0.8,0) -- (-2.3,0) node[midway, above] {$\vec F$};
+  \draw[vR] (0.8,0)  -- (2.3,0)  node[midway, above] {$-\vec F$};
+  \fill (0,0) circle (2pt) node[below] {$CM$};
 \end{tikzpicture}
 \end{center}
 
@@ -1936,18 +1115,12 @@ M_O=rF\sin\theta
 \]
 
 \begin{center}
-\begin{tikzpicture}[>=Stealth,scale=1]
-    \draw[thick,fill=gray!10] (-2,-0.6) rectangle (2,0.6);
-    \fill (0,0) circle (2pt);
-
-    \draw[->,very thick,blue] (-1.4,0.6) -- (-1.4,1.8);
-    \draw[->,very thick,red] (1.4,-0.6) -- (1.4,-1.8);
-    \node[blue,left] at (-1.4,1.35) {$\vec F$};
-    \node[red,right] at (1.4,-1) {$-\vec F$};
-
-    \draw[dashed] (-1.4,-1) -- (-1.4,0.5);
-    \draw[dashed] (1.4,-1) -- (1.4,0.5);
-
+\begin{tikzpicture}
+  \draw[rigid] (-2,-0.6) rectangle (2,0.6);
+  \draw[aux] (-1.4,-0.6) -- (-1.4,-1.8)  (1.4,0.6) -- (1.4,1.8);
+  \draw[vR] (-1.4,0.6)  -- (-1.4,1.8)  node[midway, left]  {$\vec F$};
+  \draw[vR] (1.4,-0.6)  -- (1.4,-1.8)  node[midway, right] {$-\vec F$};
+  \fill (0,0) circle (2pt);
 \end{tikzpicture}
 \end{center}
 
@@ -1985,35 +1158,22 @@ Per calcular el moment de forçes d'una força, prenem la força mateixa, i la d
 Aqui ja no estudiem les \textbf{situacions en equilibri}, sinó que $\vec{M} \neq 0$. I on sempre treballem amb sòldis rígids que és un \textbf{cos amb distàncies relatives entre si constants},
 
 \begin{center}
-\begin{tikzpicture}[>=Stealth, scale=1.0]
-
-\draw[dashed, very thick, gray!70] (3, -0.6) -- (3,4.5);
-\node[above] at (3,4.5) {$e$};
-
-\draw[thick, blue!60!black, fill=blue!10]
-    (1.1,0.5) ellipse (1.25 and 0.45);
-\draw[thick, blue!60!black, fill=blue!10]
-    (1.1,3.2) ellipse (1.25 and 0.45);
-\draw[thick, blue!60!black] (-0.15,0.5) -- (-0.15,3.2);
-\draw[thick, blue!60!black] (2.35,0.5) -- (2.35,3.2);
-\draw[dashed, blue!60!black] (1.1,0.5) -- (1.1,3.2);
-
-\foreach \x/\y in {0.4/0.9,1.5/1.1,0.7/1.7,1.7/2.1,0.5/2.7,1.5/3.0} {
-    \fill[blue!70!black] (\x,\y) circle (2.5pt);
-}
-
-\fill[red!70!black] (1.7,2.1) circle (2.5pt);
-\draw[->, very thick, red!70!black]
-    (3,2.1) -- (1.7,2.1)
-    node[left] {$\vec{\eta}_i$};
-
-\draw[dashed, red!60!black] (3,2.1) ellipse (1.3 and 0.45);
-\node[red!70!black] at (4.5,2.4) {\small };
-
-\draw[->, very thick, orange!85!black]
-    (3.55,4) arc[start angle=35,end angle=320,x radius=0.55,y radius=0.35];
-\node[orange!85!black] at (4.1,4.5) {$\omega$};
-
+\begin{tikzpicture}
+  \draw[aux] (3,-0.6) -- (3,4.4);
+  \node at (3,4.65) {$e$};
+  \draw[rigid] (-0.15,3.2) -- (-0.15,0.5)
+      arc[start angle=180, end angle=360, x radius=1.25, y radius=0.45] -- (2.35,3.2)
+      arc[start angle=0, end angle=180, x radius=1.25, y radius=0.45] -- cycle;
+  \draw[draw=cO, fill=cO!28, line width=0.8pt] (1.1,3.2) ellipse (1.25 and 0.45);
+  \foreach \x/\y in {0.4/0.9, 1.5/1.1, 0.7/1.7, 0.5/2.7, 1.5/3.0}{
+    \fill[black!70] (\x,\y) circle (2pt);
+  }
+  \draw[aux, cR] (3,2.1) ellipse (1.3 and 0.45);
+  \draw[vR] (3,2.1) -- (1.7,2.1) node[midway, above] {$\vec\eta_i$};
+  \fill[cR] (1.7,2.1) circle (2pt);
+  \draw[->, cB, line width=1.1pt] (3.45,3.95)
+      arc[start angle=35, end angle=320, x radius=0.55, y radius=0.35];
+  \node[cB] at (3.75,3.7) {$\omega$};
 \end{tikzpicture}
 \end{center}
 
@@ -2083,40 +1243,16 @@ I com que les podem igualar, \textbf{fins i tot si el CM es troba accelerat};
     Per tant el que fem és sumar el gir del centre de masses (el propi de la terra) i el de l'orbita per obtenir el total.
 
 \begin{center}
-\begin{tikzpicture}[>=Stealth, scale=1.0]
-
-\draw[
-    dashed,
-    thick,
-    gray!60
-] (0,0) ellipse (3.3 and .5);
-
-\shade[ball color=yellow!80!orange] (-1.8,0) circle (0.28);
-\draw[thick, orange!80!black] (-1.8,0) circle (0.28);
-\node[below left] at (-1.8,-0.3) {Sol};
-
-\shade[ball color=blue!80!cyan] (1.5,0.65) circle (0.2);
-\draw[thick, blue!70!black] (1.5,0.65) circle (0.2);
-\node[below right] at (1.65,0.4) {Terra};
-
-\draw[->, very thick, black]
-    (-1.5,0.05) -- (1.3,0.6)
-    node[midway, above] {$\vec R_{\mathrm{CM}}$};
-
-\draw[->, very thick, green!50!black]
-    (1.7,0.65) -- (0,1.5)
-    node[right, above] {$\vec P$};
-
-\draw[->, very thick, blue!80!black]
-    (1.5,0.85) -- (1.5,1.5)
-    node[above] {$\vec L_{\mathrm{CM}}$};
-
-\draw[->, very thick, violet]
-    (-1.8,0.3) -- (-1.8,2.7)
-    node[above] {$\vec L_O$};
-
-\draw[dashed, gray!60] (-1.8,0) -- (-1.8,2.7);
-
+\begin{tikzpicture}
+  \draw[aux] (0,0) ellipse (3 and 0.9);
+  \node[ball, minimum size=0.8cm] (S) at (0,0) {};
+  \node[ball, minimum size=0.4cm] (T) at (2.457,0.516) {};
+  \node[left, black]  at (-0.5,0) {Sol};
+  \node[below, black] at (2.457,0.3) {Terra};
+  \draw[vB] (S.12) -- (T.192) node[midway, above] {$\vec R_{\mathrm{CM}}$};
+  \draw[vG] (T.157) -- ++(157:1.2) node[above] {$\vec P$};
+  \draw[vR] (T.90) -- ++(0,1.1) node[above] {$\vec L_{\mathrm{CM}}$};
+  \draw[vR] (S.90) -- ++(0,1.5) node[above] {$\vec L_O$};
 \end{tikzpicture}
 \end{center}
 
@@ -2131,40 +1267,16 @@ L'enegia i el treball són \textbf{unitats escalars} és a dir que només tenen 
 Suposem que una força es \textbf{desplaça} en línea recta amb una \textbf{força constant};
 
 \begin{center}
-\begin{tikzpicture}[>=Stealth, scale=1.0]
-
-% Terra i eixos
-\draw[thick, gray!50] (0,0) -- (7,0);
-\draw[->, thick, gray!60] (0,0) -- (7.5,0) node[right] {$x$};
-
-% Posició inicial i final
-\coordinate (A) at (1,0.45);
-\coordinate (B) at (5,0.45);
-
-% Desplaçament
-\draw[->, very thick, blue!70!black] (1,0.45) -- (5,0.45)
-    node[midway, above] {$\Delta\vec r$};
-
-% Bloc
-\fill[gray!25] (0.65,0.45) rectangle (1.35,1.15);
-\draw[thick, gray!70!black] (0.65,0.45) rectangle (1.35,1.15);
-\node at (1,0.8) {$m$};
-
-% Força aplicada
-\draw[->, very thick, red!70!black] (1,0.8) -- (3,2)
-    node[above right] {$\vec F$};
-
-% Angle
-\draw[thick, gray!70] (2,0.45) arc[start angle=0,end angle=45,radius=1];
-\node at (2.25,0.9) {$\theta$};
-
-% Posició final
-\fill[blue!70!black] (5,0.45) circle (2pt);
-\node[below] at (5,0.2) {$\vec r_f$};
-\node[below] at (1,0.2) {$\vec r_i$};
-
-% Treball
-
+\begin{tikzpicture}
+  \draw[ax] (-0.3,0) -- (6,0) node[right, black] {$x$};
+  \draw[aux] (1,0.4) -- ++(2.2,0);
+  \draw[vG] (1,0.4) -- ++(35:2.2) node[above right] {$\vec F$};
+  \draw[cK!70!black, line width=0.6pt] (1.9,0.4) arc[start angle=0, end angle=35, radius=0.9];
+  \node at (2.14,0.76) {$\theta$};
+  \node[body, anchor=south] at (1,0) {$m$};
+  \node[body, anchor=south, draw=cK, fill=none, dashed] at (5,0) {};
+  \draw[aux] (1,-0.05) -- (1,-0.55)  (5,-0.05) -- (5,-0.55);
+  \draw[vB] (1,-0.45) -- (5,-0.45) node[midway, fill=white, inner sep=2pt] {$\Delta\vec r$};
 \end{tikzpicture}
 \end{center}
 
@@ -2210,45 +1322,20 @@ Al contrari que el treball, l'energia cinètica \textbf{si que esta associada a 
     Suposem que una particula de massa $m$ on actua $\vec{F}_{tot}$ que fa un camí $\tau$.
 
     \begin{center}
-    \begin{tikzpicture}[>=Stealth, scale=1.0]
-
-    \draw[->, thick, gray!60] (-0.3,0) -- (7,0) node[right] {$x$};
-    \draw[->, thick, gray!60] (0,-0.3) -- (0,4.5) node[above] {$y$};
-
-    \draw[
-        thick,
-        blue!70!black,
-        domain=0.7:6.2,
-        samples=150,
-        variable=\x
-    ] plot ({\x},{0.5+0.35*\x+0.35*sin(65*\x)});
-
-    \node[blue!70!black] at (1,1.5) {$\tau$};
-
-    \coordinate (A) at (0.7,{0.5+0.35*0.7+0.35*sin(65*0.7)});
-    \coordinate (B) at (6.2,{0.5+0.35*6.2+0.35*sin(65*6.2)});
-
-    \fill[blue!70!black] (A) circle (2.5pt);
-    \fill[blue!70!black] (B) circle (2.5pt);
-
-    \node[below left] at (A) {$\vec r_i$};
-    \node[above right] at (B) {$\vec r_f$};
-
-    \fill[gray!30] (3.5,{0.5+0.35*3.5+0.35*sin(65*3.5)}) circle (0.14);
-    \draw[thick, gray!70!black] (3.5,{0.5+0.35*3.5+0.35*sin(65*3.5)}) circle (0.14);
-    \node[above] at (3.5,{0.5+0.35*3.5+0.35*sin(65*3.5)+0.2}) {$m$};
-
-    \draw[->, very thick, red!70!black]
-        (3.5,{0.5+0.35*3.5+0.35*sin(65*3.5)})
-        -- ++(0.9,0.65)
-        node[above right] {$\vec F_{\mathrm{tot}}$};
-
-    \draw[->, thick, green!50!black]
-        (3.5,{0.5+0.35*3.5+0.35*sin(65*3.5)}) -- ++(0.7, 0.2)
-        node[right] {$d\vec r$};
-
-    \end{tikzpicture}
-    \end{center}
+\begin{tikzpicture}[declare function={w(\x)=0.5+0.4*\x+0.3*sin(80*\x);}]
+  \axes{5.6}{3.4}{$x$}{$y$}
+  \draw[curve, domain=0.6:5.0, samples=100, variable=\x] plot ({\x},{w(\x)});
+  \node[black] at (1.2,{w(1.2)+0.4}) {$\tau$};
+  \pgfmathsetmacro{\ym}{w(2.9)}
+  \pgfmathsetmacro{\ang}{atan((w(2.95)-w(2.85))/0.1)}
+  \draw[vR] (2.9,\ym) -- ++(35:1.2) node[above right] {$\vec F_{\mathrm{tot}}$};
+  \draw[vB] (2.9,\ym) -- ++(\ang:0.9) node[below right] {$d\vec r$};
+  \node[ball, minimum size=0.35cm] at (2.9,\ym) {};
+  \node[black] at (2.55,{\ym+0.4}) {$m$};
+  \fill (0.6,{w(0.6)}) circle (2pt) node[above left] {$\vec r_i$};
+  \fill (5.0,{w(5.0)}) circle (2pt) node[above left] {$\vec r_f$};
+\end{tikzpicture}
+\end{center}
 
     $W = \int_{\tau} \vec{F}_{tot}\cdot d\vec{r}$, amb la següent equació de newton ($F = m\dv{\vec{v}}{t}$) i ($d\vec{r} = \vec{v} dt$). 
 
@@ -2264,34 +1351,18 @@ Per a una força conservativa $\vec F$, anomenem energia potencial $V$ la funci�
     Tenim una molla, que es contrau $\Delta x$ amb una força $F = -k\Delta x$, volem calcular el treball de la \textbf{força contrària} de la particula
 
     \begin{center}
-    \begin{tikzpicture}[>=Stealth, scale=1.0]
-
-    \draw[thick, gray!70] (0,0.5) -- (0,2.5);
-    \foreach \y in {0.6,0.9,...,2.4} {
-        \draw[gray!60] (0,\y) -- (-0.2,\y-0.2);
-    }
-
-    \draw[
-        thick,
-        blue!70!black,
-        decorate,
-        decoration={coil, aspect=0.5, segment length=4mm, amplitude=5mm}
-    ] (0,1.5) -- (3.2,1.5);
-
-    \fill[gray!25] (3.2,1.05) rectangle (4.1,1.95);
-    \draw[thick, gray!70!black] (3.2,1.05) rectangle (4.1,1.95);
-    \node at (3.65,1.5) {$m$};
-
-    \draw[->, thick, gray!60] (0,1) -- (5.5,1) node[right] {$x$};
-
-    \draw[<->, thick, green!50!black] (3.2,2.3) -- (4.1,2.3);
-    \node[above] at (3.65,2.3) {$\Delta x$};
-
-    \draw[->, very thick, red!70!black] (3.2,0.95) -- (2.3,0.95)
-        node[midway, below] {$\vec F=-kx\vec i$};
-
-    \end{tikzpicture}
-    \end{center}
+\begin{tikzpicture}
+  \draw[ax] (-0.2,0) -- (5.4,0) node[right, black] {$x$};
+  \draw[cK!70!black, line width=1pt] (0,0) -- (0,1.0);
+  \foreach \y in {0.1,0.3,...,0.9} \draw[cK, line width=0.6pt] (0,\y) -- (-0.18,\y-0.18);
+  \draw[black!60, line width=0.8pt, decorate,
+        decoration={coil, aspect=0.5, segment length=4mm, amplitude=3mm}] (0,0.4) -- (3.4,0.4);
+  \node[body, anchor=south west] at (3.4,0) {$m$};
+  \draw[aux] (2.0,1.1) -- (2.0,-0.55)  (3.4,0) -- (3.4,-0.55);
+  \draw[dim] (2.0,-0.45) -- (3.4,-0.45) node[midway, black, fill=white, inner sep=1pt] {$\Delta x$};
+  \draw[vR] (3.85,1.2) -- (2.45,1.2) node[midway, above] {$\vec F=-kx\,\vec i$};
+\end{tikzpicture}
+\end{center}
 
     \[W = \int_{x_1}^{x_2} -F dx = \int_{x_1}^{x_2} kx dx = [\frac{1}{2}kx^2]_{x_1}^{x_2}\]
 
@@ -2315,45 +1386,17 @@ Si $\exists$ Forçes no conservatives, $\Delta E = W_F$
 A poques distàncies podem representar un objecte de massa amb un Pes que actua cap abaix $\vec{P} = -mg\vec{j}$ i seguiex una corba C.
 
 \begin{center}
-\begin{tikzpicture}[>=Stealth, scale=1.0]
-
-\draw[->, thick, gray!70] (0,0) -- (7,0) node[right] {$x$};
-\draw[->, thick, gray!70] (0,0) -- (0,5) node[above] {$y$};
-
-\draw[
-    thick,
-    blue!70!black,
-    domain=1.2:6,
-    samples=150,
-    variable=\x
-] plot ({\x},{4.2-0.18*(\x-1.2)-0.12*(\x-1.2)^2});
-
-\coordinate (I) at (1.2,4.2);
-\coordinate (F) at (6,0.65);
-\coordinate (M) at (3.4,3.2);
-
-\fill[blue!70!black] (I) circle (2.5pt);
-\fill[blue!70!black] (F) circle (2.5pt);
-
-\node[above left] at (I) {$(x_i,y_i)$};
-\node[below right] at (F) {$(x_f,y_f)$};
-
-\draw[dashed, gray!60] (0,4.2) -- (I);
-\draw[dashed, gray!60] (0,0.65) -- (F);
-
-\node[left] at (0,4.2) {$y_i$};
-\node[left] at (0,1.5) {$y_f$};
-
-\fill[gray!35] (M) circle (0.13);
-\draw[thick, gray!70!black] (M) circle (0.13);
-
-\node[above right] at (M) {$m$};
-
-\draw[->, very thick, red!75!black]
-    (M) -- (3.4,2.2)
-    node[below] {$\vec{P}=-mg\vec{j}$};
-
-
+\begin{tikzpicture}
+  \axes{5.6}{4.0}{$x$}{$y$}
+  \draw[curve] (1,3.4) .. controls (2.6,3.2) and (4.2,2.2) .. (5,0.6)
+      coordinate[pos=0] (I) coordinate[pos=0.4] (M) coordinate[pos=1] (F);
+  \draw[aux] (0,3.4) -- (I)  (0,0.6) -- (F);
+  \node[left, black] at (0,3.4) {$y_i$};
+  \node[left, black] at (0,0.6) {$y_f$};
+  \draw[vR] (M) -- ++(0,-1.1) node[midway, right] {$\vec P=-mg\,\vec j$};
+  \node[ball, minimum size=0.35cm] at (M) {};
+  \fill (I) circle (2pt) node[above right] {$(x_i,y_i)$};
+  \fill (F) circle (2pt) node[below left]  {$(x_f,y_f)$};
 \end{tikzpicture}
 \end{center}
 
@@ -2368,37 +1411,15 @@ Hem trobat que $V = mgy$
 Si tenim dues masses que s'atrauen (generen una força d'atracció $G\frac{Mm}{r^3}\vec{r}$) i la particula \textbf{m} seguiex un cami Calcular
 
 \begin{center}
-\begin{tikzpicture}[>=Stealth, scale=1.0]
-
-% Massa central
-\fill[gray!35] (0,0) circle (0.28);
-\draw[thick, gray!70!black] (0,0) circle (0.28);
-\node[below left] at (-0.1,-0.1) {$M$};
-
-% Partícula
-\fill[blue!70!black] (4,1.5) circle (0.09);
-\node[above right, blue!70!black] at (4,1.5) {$m$};
-
-% Vector posició
-\draw[->, thick, blue!70!black] (0.15,0.05) -- (3.85,1.45)
-    node[midway, above left] {$\vec r$};
-
-% Força gravitatòria
-\draw[->, very thick, red!70!black] (3.9,1.42) -- (2.8,1.0)
-    node[midway, above] {$\vec F_g$};
-
-% Distància radial
-\draw[dashed, gray!60] (4,1.5) -- (4,0);
-\draw[dashed, gray!60] (0,0) -- (4,0);
-\node[below] at (2,0) {$r$};
-
-% Camí arbitrari
-\draw[thick, green!50!black, dashed]
-    (4,1.5) .. controls (5,2.8) and (6,0.4) .. (5.5,-1)
-    .. controls (4.5,-2) and (2,-1.8) .. (1.2,-0.5);
-
-\node[green!40!black, right] at (5.4,1.7) {\small Camí};
-
+\begin{tikzpicture}
+  \coordinate (m) at (4,1.5);
+  \draw[aux] (0,0) -- (m) node[pos=0.3, above left, black] {$r$};
+  \draw[vR] (m) -- ($(m)!1.3cm!(0,0)$) node[midway, above] {$\vec F_g$};
+  \draw[curve, dashed] (m) .. controls (6,2.5) and (5,-2.5) .. (1.3,-0.6)
+      node[pos=0.25, right] {Camí};
+  \node[ball, minimum size=0.8cm] at (0,0) {$M$};
+  \node[ball, minimum size=0.35cm] at (m) {};
+  \node[above right] at (4.15,1.65) {$m$};
 \end{tikzpicture}
 \end{center}
 
@@ -2418,38 +1439,17 @@ I l'energia porencial ens queda com; $U = -\frac{GMm}{r}$ i no depèn del camí 
 Sempre podem dibuixar la gràfica de \textbf{Energia respecte posició}. Recordem que $E$ és sempre constant (línea recta) i que la distància entre E i U és K;
 
 \begin{center}
-\begin{tikzpicture}[>=Stealth, scale=1.0]
-
-\draw[->, thick, gray!70] (0,0) -- (7,0) node[right] {$r$};
-\draw[->, thick, gray!70] (0,-3.5) -- (0,2) node[above] {$E$};
-
-\draw[
-    thick,
-    blue!70!black,
-    domain=0.55:6.5,
-    samples=200,
-    variable=\x
-] plot ({\x},{-2.5/\x});
-
-\draw[dashed, very thick, red!70!black]
-    (0.5,-1.1) -- (6.5,-1.1)
-    node[right] {$E$};
-
-\draw[
-    thick,
-    green!50!black,
-    domain=0.55:2.27,
-    samples=150,
-    variable=\x
-] plot ({\x},{-1.1+2.5/\x});
-
-\fill[black] (2.27,-1.1) circle (2pt);
-\draw[dotted, gray!60] (2.27,0) -- (2.27,-1.1);
-\node[above] at (2.27,0) {$r_{\max}$};
-
-\node[blue!70!black] at (3,-2) {$U(r)=-\dfrac{GMm}{r}$};
-\node[green!40!black] at (2.5,1) {$K=E-U$};
-
+\begin{tikzpicture}
+  \draw[ax] (0,0) -- (6,0) node[right, black] {$r$};
+  \draw[ax] (0,-3.2) -- (0,2.4) node[above, black] {$E$};
+  \draw[curve, cB, domain=0.8:5.8, samples=100, variable=\x] plot ({\x},{-2.4/\x});
+  \draw[aux, cR, line width=0.8pt] (0.1,-1) -- (5.8,-1) node[right] {$E$};
+  \draw[curve, cG, domain=0.8:2.4, samples=60, variable=\x] plot ({\x},{-1+2.4/\x});
+  \draw[aux] (2.4,0) -- (2.4,-1);
+  \fill (2.4,-1) circle (2pt);
+  \node[above right, black] at (2.4,0) {$r_{\max}$};
+  \node[cB] at (4.2,-1.95) {$U(r)=-\dfrac{GMm}{r}$};
+  \node[cG, right] at (1.3,1.5) {$K=E-U$};
 \end{tikzpicture}
 \end{center}
 
@@ -2533,49 +1533,24 @@ Però com ho podem saber? Doncs \textbf{una ona és una ona si compleix l'equaci
 Demostrarem com funciona una ona a partir d'una corda però una ona no només és una corda en moviment, sinó que és molt més.
 
 \begin{center}
-\begin{tikzpicture}[>=Stealth, scale=1.2]
-
-\draw[->, thick, gray!60] (-0.5,0) -- (6.5,0) node[right] {$x$};
-\draw[->, thick, gray!60] (0,-0.5) -- (0,3) node[above] {$y$};
-
-\draw[
-    thick,
-    blue!70!black,
-    domain=0.5:5.5,
-    samples=200,
-    variable=\x
-] plot ({\x},{0.15*\x*\x - 0.9*\x + 2.2});
-
-\coordinate (A) at (2,1.0);
-\coordinate (B) at (4,1.0);
-
-\draw[dashed, gray!60] (2,0) -- (A);
-\draw[dashed, gray!60] (4,0) -- (B);
-
-\node[below] at (2,0) {$x$};
-\node[below] at (4,0) {$x+dx$};
-
-\draw[->, very thick, red!70!black]
-    (A) -- ++(-1.2, 0)
-    node[left] {$T(x)$};
-
-\draw[->, very thick, red!70!black]
-    (B) -- ++(1.2, 0)
-    node[right] {$T(x+dx)$};
-
-\draw[gray!80, thick] (1.3,1.0) arc[start angle=180,end angle=163,radius=0.7];
-\node[gray!80] at (1.05,1.3) {$\theta_1$};
-
-\draw[gray!80, thick] (4.7,1.0) arc[start angle=0,end angle=17,radius=0.7];
-\node[gray!80] at (4.95,1.3) {$\theta_2$};
-
-\draw[<->, thick, gray!70] (2,-0.3) -- (4,-0.3);
-\node[below] at (3,-0.3) {$dx$};
-
-\node[blue!70!black] at (3,1.4) {$q(x,t)$};
-
-\fill[blue!70!black] (3,0.85) circle (2.5pt);
-
+\begin{tikzpicture}
+  \axes{5.4}{2.9}{$x$}{$y$}
+  \draw[curve, cB, domain=0.5:4.9, samples=80, variable=\x] plot ({\x},{0.4*(\x-2.7)^2+0.5});
+  \coordinate (A) at (1.7,0.9);
+  \coordinate (B) at (3.7,0.9);
+  \draw[aux] (1.7,0) -- (A)  (3.7,0) -- (B);
+  \node[below, black] at (1.7,0) {$x$};
+  \node[below, black] at (3.7,0) {$x+dx$};
+  \draw[dim] (1.7,0.22) -- (3.7,0.22) node[midway, black, fill=white, inner sep=1pt] {$dx$};
+  \draw[aux] (A) -- ++(-1.3,0)  (B) -- ++(1.3,0);
+  \draw[vR] (A) -- ++(141.3:1.1) node[below left]  {$T(x)$};
+  \draw[vR] (B) -- ++(38.7:1.1)  node[below right] {$T(x+dx)$};
+  \draw[cK!70!black, line width=0.6pt] ($(A)+(180:0.6)$) arc[start angle=180, end angle=141.3, radius=0.6];
+  \draw[cK!70!black, line width=0.6pt] ($(B)+(0:0.6)$)   arc[start angle=0, end angle=38.7, radius=0.6];
+  \node[black] at ($(A)+(160.6:0.95)$) {$\theta_1$};
+  \node[black] at ($(B)+(19.4:0.95)$)  {$\theta_2$};
+  \fill[cR] (2.7,0.5) circle (2pt);
+  \node[cR, above] at (2.7,0.55) {$q(x,t)$};
 \end{tikzpicture}
 \end{center}
 
@@ -2755,77 +1730,18 @@ q(x,t)
 El primer terme varia lentament i el segon ràpidament per tant el terme de moviment s'acobla a l'estructura que té el primer.
 
 \begin{center}
-
-\begin{tikzpicture}[>=Stealth, scale=0.9]
-
-\draw[->, thick, gray!60] (0,3.6) -- (9.4,3.6) node[right] {$t$};
-
-\draw[
-    thick,
-    blue!70!black,
-    domain=0:9,
-    samples=500,
-    variable=\x
-] plot ({\x}, {3.6+0.8*cos(480*\x)});
-
-\draw[
-    thick,
-    red!70!black,
-    domain=0:9,
-    samples=500,
-    variable=\x
-] plot ({\x}, {3.6+0.8*cos(400*\x)});
-
-\node[blue!70!black, left] at (-0.1,4.2) {$A\cos(\omega_1 t)$};
-\node[red!70!black, left]  at (-0.1,3.0) {$A\cos(\omega_2 t)$};
-
-\draw[
-    ->,
-    very thick,
-    gray!70
-] (4.5,2.6) -- (4.5,1.9)
-    node[midway, right] {\small suma};
-
-\draw[->, thick, gray!60] (0,0) -- (9.4,0) node[right] {$t$};
-
-\draw[
-    dashed,
-    thick,
-    green!50!black,
-    domain=0:9,
-    samples=200,
-    variable=\x
-] plot ({\x}, {1.6*cos(40*\x)});
-
-\draw[
-    dashed,
-    thick,
-    green!50!black,
-    domain=0:9,
-    samples=200,
-    variable=\x
-] plot ({\x}, {-1.6*cos(40*\x)});
-
-\draw[
-    thick,
-    black,
-    domain=0:9,
-    samples=500,
-    variable=\x
-] plot ({\x}, {0.8*cos(480*\x)+0.8*cos(400*\x)});
-
-\node[left] at (-0.1,0) {$A\cos(\omega_1 t)+A\cos(\omega_2 t)$};
-
-\draw[dashed, thick, green!50!black] (0,-2.3) -- (0.8,-2.3);
-\node[right] at (0.9,-2.3)
-    {\small envolupant (lenta): $\pm 2A\cos\!\big(\tfrac{\omega_1-\omega_2}{2}\,t\big)$};
-
-\draw[thick, black] (0,-3) -- (0.8,-3);
-\node[right] at (0.9,-3)
-    {\small portadora (ràpida): $\cos\!\big(\tfrac{\omega_1+\omega_2}{2}\,t\big)$};
-
+\begin{tikzpicture}
+  \draw[ax] (0,2.8) -- (6.3,2.8) node[right, black] {$t$};
+  \draw[cB, line width=0.9pt, domain=0:6, samples=500, variable=\x] plot ({\x},{2.8+0.6*cos(720*\x)});
+  \draw[cR, line width=0.9pt, domain=0:6, samples=500, variable=\x] plot ({\x},{2.8+0.6*cos(600*\x)});
+  \node[cB] at (1.5,3.75) {$A\cos(\omega_1 t)$};
+  \node[cR] at (4.5,3.75) {$A\cos(\omega_2 t)$};
+  \draw[->, cK!70!black, line width=0.6pt] (3,2.0) -- (3,1.45) node[midway, right, black] {suma};
+  \draw[ax] (0,0) -- (6.3,0) node[right, black] {$t$};
+  \draw[aux, cG, line width=0.7pt, domain=0:6, samples=200, variable=\x] plot ({\x},{1.2*cos(60*\x)});
+  \draw[aux, cG, line width=0.7pt, domain=0:6, samples=200, variable=\x] plot ({\x},{-1.2*cos(60*\x)});
+  \draw[curve, domain=0:6, samples=500, variable=\x] plot ({\x},{0.6*cos(720*\x)+0.6*cos(600*\x)});
 \end{tikzpicture}
-
 \end{center}
 
 \subsubsection{Ones Estacionàries}
@@ -2843,69 +1759,22 @@ Perquè sigui una ona estacionària amb els dos extrems fixos, cal que $q(0,t)=0
 Els nòdes són els punts que no es mouen mai, és a dir, $q(x,t)=0$ per a tot $t$. Això passa quan $\sin(n\pi\frac{x}{L})=0$. Els ventres són els punts d'amplitud màxima, on $\left|\sin\!\left(n\pi\frac{x}{L}\right)\right|=1$.
 
 \begin{center}
-
-\begin{tikzpicture}[>=Stealth, scale=0.9]
-
-\node[above] at (3,6.75) {$q(x,t)=2A\sin(\omega t)\sin(kx)$};
-
-\foreach \modo/\yb in {1/5.6, 2/2.8, 3/0}{
-
-\fill[blue!70!black, opacity=0.08]
-        plot[domain=0:6, samples=80, variable=\x]
-            ({\x}, {\yb+0.9*sin(\modo*30*\x)})
-        -- plot[domain=6:0, samples=80, variable=\x]
-            ({\x}, {\yb-0.9*sin(\modo*30*\x)})
-        -- cycle;
-
-    \draw[gray!50, thin] (0,\yb) -- (6,\yb);
-
-    \draw[
-        dashed,
-        thick,
-        gray!70,
-        domain=0:6,
-        samples=80,
-        variable=\x
-    ] plot ({\x}, {\yb-0.9*sin(\modo*30*\x)});
-
-    \draw[
-        very thick,
-        blue!70!black,
-        domain=0:6,
-        samples=80,
-        variable=\x
-    ] plot ({\x}, {\yb+0.9*sin(\modo*30*\x)});
-
+\begin{tikzpicture}
+  \node at (2.5,5.4) {$q(x,t)=2A\sin(\omega t)\sin(kx)$};
+  \foreach \modo/\yb in {1/3.9, 2/2.0, 3/0.1}{
+    \draw[cK, line width=0.5pt] (0,\yb) -- (5,\yb);
+    \draw[aux, domain=0:5, samples=80, variable=\x] plot ({\x},{\yb-0.65*sin(\modo*36*\x)});
+    \draw[curve, cB, domain=0:5, samples=80, variable=\x] plot ({\x},{\yb+0.65*sin(\modo*36*\x)});
     \foreach \m in {0,...,\modo}{
-        \fill[red!70!black] ({\m*6/\modo},\yb) circle (2.5pt);
+      \fill[cR] ({\m*5/\modo},\yb) circle (2pt);
     }
-
     \foreach \m in {1,...,\modo}{
-        \fill[green!50!black]
-            ({(2*\m-1)*3/\modo}, {\yb+0.9*sin(90*(2*\m-1))}) circle (2.5pt);
+      \fill[cG] ({(2*\m-1)*2.5/\modo},{\yb+0.65*sin(90*(2*\m-1))}) circle (2pt);
     }
-
-    \fill[black] (0,\yb) circle (3pt);
-    \fill[black] (6,\yb) circle (3pt);
-
-    \node[left]  at (-0.3,\yb) {$n=\modo$};
-    \node[right] at (6.4,\yb)  {$L=\modo\,\dfrac{\lambda_{\modo}}{2}$};
-}
-
-\node[below] at (0,-0.15) {$0$};
-\node[below] at (6,-0.15) {$L$};
-
-\fill[red!70!black] (0,-1.7) circle (2.5pt);
-\node[right] at (0.2,-1.7) {\small node};
-
-\fill[green!50!black] (1.8,-1.7) circle (2.5pt);
-\node[right] at (2.0,-1.7) {\small ventre};
-
-\draw[dashed, thick, gray!70] (3.8,-1.7) -- (4.6,-1.7);
-\node[right] at (4.7,-1.7) {\small mig període després};
-
+    \node[black, left]  at (-0.2,\yb) {$n=\modo$};
+    \node[black, right] at (5.3,\yb)  {$L=\modo\,\dfrac{\lambda_{\modo}}{2}$};
+  }
 \end{tikzpicture}
-
 \end{center}
 
 Amb els dos extrems fixos, l'equació del mode $n$ ($n=1,2,3,\dots$) és
@@ -2958,69 +1827,38 @@ També podem demostrar que l'energia de la corda es manté però també es trasl
 Per tant el canvi d'energia no només és constant sinò que es trasllada al llarg del temps.
 
 \begin{center}
-
-\begin{tikzpicture}[>=Stealth, scale=0.9]
-
-\foreach \i in {0,...,59}{
-    \pgfmathsetmacro{\xa}{\i*6/60}
-    \pgfmathsetmacro{\xb}{(\i+1)*6/60}
+\begin{tikzpicture}
+  % string through equilibrium: all kinetic
+  \foreach \i in {0,...,59}{
+    \pgfmathsetmacro{\xa}{\i*5/60}
+    \pgfmathsetmacro{\xb}{(\i+1)*5/60}
     \pgfmathtruncatemacro{\pc}{100*(sin(180*(\i+0.5)/60))^2}
     \setheat{\pc}
-    \draw[
-        line width=3.5pt,
-        line cap=round,
-        cHeat
-    ] (\xa,3.2) -- (\xb,3.2);
-}
-
-\fill[black] (0,3.2) circle (3pt);
-\fill[black] (6,3.2) circle (3pt);
-
-\node[right, align=left] at (6.5,3.2)
-    {Tota l'energia\\ és \textbf{cinètica}\\ {\small (passa per l'equilibri)}\\[3pt]
-     $E_c=E,\ E_p=0$};
-
-\draw[dashed, gray!60, thick] (0,0) -- (6,0);
-
-\foreach \i in {0,...,59}{
-    \pgfmathsetmacro{\xa}{\i*6/60}
-    \pgfmathsetmacro{\xb}{(\i+1)*6/60}
-    \pgfmathsetmacro{\ya}{1.2*sin(180*\i/60)}
-    \pgfmathsetmacro{\yb}{1.2*sin(180*(\i+1)/60)}
+    \draw[cHeat, line width=3.5pt] (\xa,2.6) -- (\xb,2.6);
+  }
+  \fill (0,2.6) circle (2pt)  (5,2.6) circle (2pt);
+  \node[right, align=left, black] at (5.3,2.6) {$E_c=E$\\ $E_p=0$};
+  % string at maximum elongation: all potential
+  \draw[aux] (0,0) -- (5,0);
+  \foreach \i in {0,...,59}{
+    \pgfmathsetmacro{\xa}{\i*5/60}
+    \pgfmathsetmacro{\xb}{(\i+1)*5/60}
+    \pgfmathsetmacro{\ya}{0.9*sin(180*\i/60)}
+    \pgfmathsetmacro{\yb}{0.9*sin(180*(\i+1)/60)}
     \pgfmathtruncatemacro{\pc}{100*(cos(180*(\i+0.5)/60))^2}
     \setheat{\pc}
-    \draw[
-        line width=3.5pt,
-        line cap=round,
-        cHeat
-    ] (\xa,\ya) -- (\xb,\yb);
-}
-
-\fill[black] (0,0) circle (3pt);
-\fill[black] (6,0) circle (3pt);
-
-\node[right, align=left] at (6.5,0.6)
-    {Tota l'energia\\ és \textbf{potencial}\\ {\small (elongació màxima)}\\[3pt]
-     $E_c=0,\ E_p=E$};
-
-\foreach \i in {0,...,49}{
+    \draw[cHeat, line width=3.5pt] (\xa,\ya) -- (\xb,\yb);
+  }
+  \fill (0,0) circle (2pt)  (5,0) circle (2pt);
+  \node[right, align=left, black] at (5.3,0.35) {$E_c=0$\\ $E_p=E$};
+  % colour scale (no text)
+  \foreach \i in {0,...,49}{
     \pgfmathtruncatemacro{\pc}{100*(\i+0.5)/50}
     \setheat{\pc}
-    \filldraw[
-        fill=cHeat,
-        draw=cHeat,
-        line width=0.3pt
-    ] ({2+\i*3/50},-1.9) rectangle ({2+(\i+1)*3/50},-1.65);
-}
-
-\draw[thick, gray!60] (2,-1.9) rectangle (5,-1.65);
-
-\node[left]  at (2,-1.775) {\small baixa};
-\node[right] at (5,-1.775) {\small alta};
-\node[above] at (3.5,-1.65) {\small densitat d'energia};
-
+    \fill[cHeat] (7.0,{\i*2.6/50}) rectangle (7.25,{(\i+1)*2.6/50});
+  }
+  \draw[cK, line width=0.5pt] (7.0,0) rectangle (7.25,2.6);
 \end{tikzpicture}
-
 \end{center}
 
 \section{Ones II}

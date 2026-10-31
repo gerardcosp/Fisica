@@ -5,15 +5,15 @@
 \contentsline {subsection}{\numberline {1.4}MRUA}{5}{subsection.1.4}%
 \contentsline {subsection}{\numberline {1.5}Canvis en els sistemes de referència}{6}{subsection.1.5}%
 \contentsline {subsection}{\numberline {1.6}MCU i MCUA}{7}{subsection.1.6}%
-\contentsline {subsection}{\numberline {1.7}Moviment General en 2D}{8}{subsection.1.7}%
+\contentsline {subsection}{\numberline {1.7}Moviment General en 2D}{9}{subsection.1.7}%
 \contentsline {subsection}{\numberline {1.8}Distàncies}{10}{subsection.1.8}%
 \contentsline {subsection}{\numberline {1.9}Casos Particulars}{10}{subsection.1.9}%
-\contentsline {subsubsection}{\numberline {1.9.1}Politjes}{10}{subsubsection.1.9.1}%
+\contentsline {subsubsection}{\numberline {1.9.1}Politjes}{11}{subsubsection.1.9.1}%
 \contentsline {section}{\numberline {2}Dinàmica}{11}{section.2}%
 \contentsline {subsection}{\numberline {2.1}Lleis de Newton}{11}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Forces}{12}{subsection.2.2}%
 \contentsline {subsection}{\numberline {2.3}Camp Gravitatori}{12}{subsection.2.3}%
-\contentsline {subsubsection}{\numberline {2.3.1}Gravetat Artificial}{12}{subsubsection.2.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.1}Gravetat Artificial}{13}{subsubsection.2.3.1}%
 \contentsline {subsubsection}{\numberline {2.3.2}Cancelació de la Gravetat}{13}{subsubsection.2.3.2}%
 \contentsline {subsection}{\numberline {2.4}Forces de Fregament}{13}{subsection.2.4}%
 \contentsline {subsection}{\numberline {2.5}Casos Particulars}{14}{subsection.2.5}%
@@ -37,16 +37,16 @@
 \contentsline {subsection}{\numberline {5.4}Energia potencial gravitatoria (alçades petites)}{25}{subsection.5.4}%
 \contentsline {subsection}{\numberline {5.5}Energia potencial gravitatoria (alçades grans)}{25}{subsection.5.5}%
 \contentsline {subsubsection}{\numberline {5.5.1}Gràfica Funció Energia}{26}{subsubsection.5.5.1}%
-\contentsline {subsection}{\numberline {5.6}Treball i Energia en Sistemes de Partícules}{27}{subsection.5.6}%
+\contentsline {subsection}{\numberline {5.6}Treball i Energia en Sistemes de Partícules}{26}{subsection.5.6}%
 \contentsline {subsubsection}{\numberline {5.6.1}Energia Cinètica d'un Sòlid Rotatori}{27}{subsubsection.5.6.1}%
 \contentsline {subsubsection}{\numberline {5.6.2}Teorema d'Steiner}{27}{subsubsection.5.6.2}%
 \contentsline {section}{\numberline {6}Ones I}{27}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Definició d'una Ona}{28}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.1}Definició d'una Ona}{27}{subsection.6.1}%
 \contentsline {subsubsection}{\numberline {6.1.1}Equació d'Ona}{28}{subsubsection.6.1.1}%
 \contentsline {subsection}{\numberline {6.2}Moviment Ondulatori}{30}{subsection.6.2}%
 \contentsline {subsubsection}{\numberline {6.2.1}Interaccions entre Ones (Principi de Superposició)}{31}{subsubsection.6.2.1}%
 \contentsline {subsubsection}{\numberline {6.2.2}Ones Estacionàries}{32}{subsubsection.6.2.2}%
 \contentsline {subsubsection}{\numberline {6.2.3}Energia d'una Ona}{33}{subsubsection.6.2.3}%
-\contentsline {subsubsection}{\numberline {6.2.4}Potència d'una Ona}{34}{subsubsection.6.2.4}%
+\contentsline {subsubsection}{\numberline {6.2.4}Potència d'una Ona}{33}{subsubsection.6.2.4}%
 \contentsline {section}{\numberline {7}Ones II}{34}{section.7}%
 \contentsline {section}{\numberline {8}Relativitat}{34}{section.8}%
