@@ -2957,28 +2957,6 @@ També podem demostrar que l'energia de la corda es manté però també es trasl
 
 Per tant el canvi d'energia no només és constant sinò que es trasllada al llarg del temps.
 
-\definecolor{cVermell}{RGB}{200,30,30}
-\definecolor{cTaronja}{RGB}{240,130,20}
-\definecolor{cGroc}{RGB}{245,210,40}
-\definecolor{cVerd}{RGB}{60,170,70}
-\definecolor{cBlau}{RGB}{40,80,190}
-
-\newcommand{\setheat}[1]{%
-    \ifnum#1>75
-        \pgfmathtruncatemacro{\heatq}{(#1-75)*4}%
-        \colorlet{cHeat}{cVermell!\heatq!cTaronja}%
-    \else\ifnum#1>50
-        \pgfmathtruncatemacro{\heatq}{(#1-50)*4}%
-        \colorlet{cHeat}{cTaronja!\heatq!cGroc}%
-    \else\ifnum#1>25
-        \pgfmathtruncatemacro{\heatq}{(#1-25)*4}%
-        \colorlet{cHeat}{cGroc!\heatq!cVerd}%
-    \else
-        \pgfmathtruncatemacro{\heatq}{#1*4}%
-        \colorlet{cHeat}{cVerd!\heatq!cBlau}%
-    \fi\fi\fi
-}
-
 \begin{center}
 
 \begin{tikzpicture}[>=Stealth, scale=0.9]
