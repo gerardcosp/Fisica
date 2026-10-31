@@ -1,10 +1,42 @@
-\documentclass[12pt]{article}
+\documentclass{article}
 
 %-------------------------------------------------
+% COLORS
+%-------------------------------------------------
+
+\usepackage{xcolor}
+
+\colorlet{cB}{blue!70!black}    % blue   : position, velocity, main curve
+\colorlet{cR}{red!70!black}     % red    : forces, secondary vectors, data points
+\colorlet{cG}{green!50!black}   % green  : acceleration, third vector
+\colorlet{cO}{orange!80!black}  % orange : bodies (masses, blocks, balls)
+\colorlet{cK}{gray!70}          % grey   : axes, ground, auxiliary lines
+\colorlet{diagramGray}{cK!70!black} % grey used in the page header and footer
+
+\definecolor{cVermell}{RGB}{200,30,30}
+\definecolor{cTaronja}{RGB}{240,130,20}
+\definecolor{cGroc}{RGB}{245,210,40}
+\definecolor{cVerd}{RGB}{60,170,70}
+\definecolor{cBlau}{RGB}{40,80,190}
+
+% -------------------------------------------------
 % PAGE & LANGUAGE
 % -------------------------------------------------
 
 \usepackage[a4paper,margin=2cm]{geometry}
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancypagestyle{plain}{
+    \fancyhf{}
+    \fancyhead[L]{\small\color{diagramGray}Física}
+    \fancyhead[R]{\small\color{diagramGray}Química}
+    \fancyfoot[C]{\small\color{diagramGray}\thepage}
+}
+\fancyhf{}
+\fancyhead[L]{\small\color{diagramGray}Física}
+\fancyhead[R]{\small\color{diagramGray}Química}
+\fancyfoot[C]{\small\color{diagramGray}\thepage}
 
 % -------------------------------------------------
 % MATHEMATICS

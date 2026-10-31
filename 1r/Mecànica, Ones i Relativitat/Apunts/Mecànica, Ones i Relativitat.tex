@@ -1,10 +1,96 @@
-\documentclass[12pt]{article}
+\documentclass{article}
 
-%-------------------------------------------------
+% -------------------------------------------------
+% COLORS
+% -------------------------------------------------
+
+\usepackage[dvipsnames,svgnames,x11names]{xcolor}
+
+\colorlet{cB}{blue!70!black}    % blue   : position, velocity, main curve
+\colorlet{cR}{red!70!black}     % red    : forces, secondary vectors, data points
+\colorlet{cG}{green!50!black}   % green  : acceleration, third vector
+\colorlet{cO}{orange!80!black}  % orange : bodies (masses, blocks, balls)
+\colorlet{cK}{gray!70}          % grey   : axes, ground, auxiliary lines
+\colorlet{diagramGray}{cK!70!black} % grey used in the page header and footer
+
+\definecolor{cVermell}{RGB}{200,30,30}
+\definecolor{cTaronja}{RGB}{240,130,20}
+\definecolor{cGroc}{RGB}{245,210,40}
+\definecolor{cVerd}{RGB}{60,170,70}
+\definecolor{cBlau}{RGB}{40,80,190}
+
+% -------------------------------------------------
 % PAGE & LANGUAGE
 % -------------------------------------------------
 
 \usepackage[a4paper,margin=2cm]{geometry}
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhf{}
+
+\fancyhead[L]{\small\color{diagramGray}Física}
+\fancyhead[R]{\small\color{diagramGray}Mecànica, Ones i Relativitat}
+\fancyfoot[C]{\small\color{diagramGray}\thepage}
+
+\fancypagestyle{plain}{
+    \fancyhf{}
+    \fancyhead[L]{\small\color{diagramGray}Física}
+    \fancyhead[R]{\small\color{diagramGray}Mecànica, Ones i Relativitat}
+    \fancyfoot[C]{\small\color{diagramGray}\thepage}
+}
+
+% -------------------------------------------------
+% DRAWINGS
+% -------------------------------------------------
+
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, decorations.pathmorphing, calc}
+
+\newcommand{\setheat}[1]{%
+    \ifnum#1>75
+        \pgfmathtruncatemacro{\heatq}{(#1-75)*4}%
+        \colorlet{cHeat}{cVermell!\heatq!cTaronja}%
+    \else\ifnum#1>50
+        \pgfmathtruncatemacro{\heatq}{(#1-50)*4}%
+        \colorlet{cHeat}{cTaronja!\heatq!cGroc}%
+    \else\ifnum#1>25
+        \pgfmathtruncatemacro{\heatq}{(#1-25)*4}%
+        \colorlet{cHeat}{cGroc!\heatq!cVerd}%
+    \else
+        \pgfmathtruncatemacro{\heatq}{#1*4}%
+        \colorlet{cHeat}{cVerd!\heatq!cBlau}%
+    \fi\fi\fi
+}
+
+\tikzset{
+  every picture/.append style={>=Stealth, line cap=round, line join=round, font=\small},
+  ax/.style     ={->, cK!70!black, line width=0.6pt},          % axes
+  dim/.style    ={<->, cK!70!black, line width=0.6pt},         % dimension lines
+  aux/.style    ={dashed, cK, line width=0.5pt},               % auxiliary lines
+  curve/.style  ={black!80, line width=1.1pt},                 % trajectories / curves
+  vec/.style    ={->, line width=1.1pt},                       % vectors
+  vB/.style     ={vec, cB},
+  vR/.style     ={vec, cR},
+  vG/.style     ={vec, cG},
+  rigid/.style  ={draw=cO, fill=cO!15, line width=0.8pt},      % extended rigid bodies
+  body/.style   ={rigid, fill=cO!25, minimum width=0.9cm, minimum height=0.8cm, inner sep=0pt}, % blocks
+  ball/.style   ={body, circle, minimum size=0.6cm},           % particles / balls
+  ground/.style ={cK, line width=1pt},
+  rope/.style   ={black!60, line width=1.2pt},
+}
+
+\newcommand{\axes}[4]{%
+  \draw[ax] (0,0) -- (#1,0) node[right, black] {#3};
+  \draw[ax] (0,0) -- (0,#2) node[above, black] {#4};}
+
+% stick figure standing on y=0:  \person{x}{colour}
+\newcommand{\person}[2]{%
+  \draw[#2, line width=1.1pt] (#1,0.35) -- (#1,0.9)
+      (#1,0.35) -- ++(-0.15,-0.35) (#1,0.35) -- ++(0.15,-0.35)
+      (#1,0.75) -- ++(-0.22,-0.2) (#1,0.75) -- ++(0.22,-0.2);
+  \fill[cO] (#1,1.08) circle (0.16);}
+
 
 % -------------------------------------------------
 % MATHEMATICS
@@ -24,8 +110,6 @@
 % -------------------------------------------------
 
 \usepackage{graphicx}
-\usepackage{tikz}
-\usetikzlibrary{3d,arrows.meta}
 \usepackage{pgfplots}
 
 \pgfplotsset{compat=1.18}
@@ -35,7 +119,6 @@
 % COLORS & BOXES
 % -------------------------------------------------
 
-\usepackage[dvipsnames,svgnames,x11names]{xcolor}
 \usepackage{tcolorbox}
 \tcbuselibrary{skins,breakable}
 
@@ -419,6 +502,7 @@ Que bàsicament ens dona el canvi de velocitat respeccte el petitíssim canvi de
 \end{tikzpicture}
 
 \end{center}
+
 \[\ddot{\vec{r}}(t) = \ddot{x}(t)\vec{i} + \ddot{y}(t)\vec{j} + \ddot{z}(t)\vec{k}\]
 
 \subsection{MRU}
@@ -1150,6 +1234,7 @@ Sobre qualsevol cos pot actuar una força. A prop de la superfície terrestre, l
 \end{tikzpicture}
 
 \end{center}
+
 \subsection{Camp Gravitatori}
 
 Si dos objectes qualsevol tenen massa, es genera una força atractiva entre ells amb relació a la seva distància de manera que.
@@ -2034,6 +2119,7 @@ I com que les podem igualar, \textbf{fins i tot si el CM es troba accelerat};
 
 \end{tikzpicture}
 \end{center}
+
 \end{examplebox}
 
 \section{Treball I Energies}
@@ -2741,6 +2827,7 @@ El primer terme varia lentament i el segon ràpidament per tant el terme de movi
 \end{tikzpicture}
 
 \end{center}
+
 \subsubsection{Ones Estacionàries}
 
 Si tenim una corda de densitat $\rho$ i de longitud $L$ amb els extrems fixos per una tensió $T$ per exemple una guitarra. Generem ones harmòniques $A_{\mp}\cos(\omega t \mp kx)$ és a dir \textbf{ones que es van reflecitint}, obtenim l'ona estacionaria com;
