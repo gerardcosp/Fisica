@@ -251,7 +251,9 @@ Aquestes operacions compleixen les seves \textbf{propietats habituals a $\Q, \R$
 
 Com a cossos tenim per exemple $f(x), \R, \Q, F_2 = \Z/2\Z$ on en l'ultim només existeix 0, 1 on $1 + 1 = 0$.
 
-Anomenem \textbf{grup abelià} aquell cos que permet una operació que commuta com $(K, +), (K, \cdot)\dots$. Un conjunt de dos operacions és un \textbf{anell} per exemple $\R = (K, +, \cdot)$
+Anomenem \textbf{grup abelià} aquell cos que permet una operació que commuta, com $(K, +)$ o $(K, \cdot)$.
+
+Un conjunt de dues operacions és un \textbf{anell}; per exemple, $\R = (K, +, \cdot)$.
 
 \section{Matrius}
 
@@ -1531,5 +1533,125 @@ Finalment si tenim $M(B_1 \xleftarrow{f} B_2)$ podem passar a coordenades invers
 \textcolor{red}{\textbf{Sempre posem els vectors en columnes.}}
 
 \section{Diagonalització}
+
+Anomenem diagonalització a la tècnica de \textbf{diagonalitzar una matriu}, és a dir transformarla en una linea horitzontal. \textcolor{red}{\textbf{Per poder diagonalitzar una matriu ha de ser cuadrada}}.
+
+Això ho fem amb els autovalors i autovectors, (una forma diagonal és aquella dels autovalors en diagonal).
+
+\subsection{AutoValors i AutoVectors}
+
+Donada una aplicació lineal;
+
+\[f: F \rightarrow E\]
+\[\vec{x} \rightarrow A \vec{x}\]
+
+Definim que \textbf{un vector propi} ($\vec{e}$) que ve donat per un \textbf{valor propi} ($\mu$) és $\mu\vec{e} \propto \vec{e}$ on $\vec{e} \neq \vec{0}$ i es compleix que $f(\vec{e}) = \mu e$. 
+
+És a dir un vector propi (o autovector) és aquell que en passar per una transformació lineal només s'allarga o s'escurça.
+
+La resolució d'un autovector es basa primer en trobar els \textit{autovalors};
+
+Anomenem \textbf{polinomi característic} de la matriu $A$ l'expressió
+\[\boxed{\det(A - XId)}\]
+
+Els autovalors ($\lambda$) són \textbf{la solució de l'equació del polinomi propi igualat a zero}, és a dir;
+
+\[\boxed{\det(A-\lambda Id)=0}\]
+
+On trobarem $\lambda_i$ i això són els \textbf{autovalors}, per computar els autovectors prenem aquests $\lambda_i$ i trobem la solució $(A - \lambda Id) \vec{v} = 0$. [És a dir un sistema d'equacions]
+
+\noindent\textit{"Fet"}: Donat $f: F \rightarrow E$ lineal en $K^N$
+
+\begin{itemize}
+    \item Els \textbf{valors propis} de f corresponen als zeros del polinomi caraccteristic.
+    \item Si $\mu$ és valor propi de f, els vectors propis que correspoenen del valor propi $\mu$ es compleix que $\boxed{\ker(A - \mu Id) \neq \{0\}}$.
+\end{itemize}
+
+\begin{examplebox}{}
+    Donada una matriu;
+
+    \[A = \begin{pmatrix}
+        5 & 4\\
+        4 & 5
+    \end{pmatrix}\]
+
+    Per trobar els autovalors, calculem el polinomi característic;
+
+    \[
+    p_A(\lambda) = \det(A - \lambda Id)
+    \]
+
+    \[
+    \begin{aligned}
+    p_A(\lambda)
+    &= \begin{vmatrix}
+        5-\lambda & 4\\
+        4 & 5-\lambda
+    \end{vmatrix}\\
+    &= (5-\lambda)^2 - 16\\
+    &= \lambda^2 - 10\lambda + 9
+    \end{aligned}
+    \]
+
+    Igualem el polinomi a zero i resolem;
+
+    \[
+    \lambda^2 - 10\lambda + 9 = 0
+    \]
+
+    \[
+    (\lambda-9)(\lambda-1)=0
+    \]
+
+    Obtenim que $\lambda_1 = 9$ i $\lambda_2 = 1$ que són els nostres autovalors i per trobar els autovectors computem $(A - 9Id)\vec{v} = 0$ i $(A - Id)\vec{v} = 0$ per tant els autovectors son;
+
+    \[v_1 = \begin{pmatrix}
+        1\\
+        1
+    \end{pmatrix}, v_2 = \begin{pmatrix}
+        1\\
+        -1
+    \end{pmatrix}\]
+\end{examplebox}
+
+
+\subsection{Traça}
+
+Anomenem \textbf{traça} a la suma de tots els autovalors que té una matriu; $\tr(A) = \sum_{i = 1}^{n} \lambda_1$
+
+Això pot ser molt útil a l'hora de trobar els \textbf{autovalors} d'una matriu sense haver de calcular explícitament el \textbf{polinomi característic}.
+
+\textit{"Fet"}: En qualsevol matriu \textbf{triangular} (superior o inferior), els seus \textbf{autovalors} són els elements de la \textbf{diagonal principal}.
+
+\textit{"Fet"}: Si el que volem és \textbf{diagonalitzar} una matriu, també podem utilitzar que el seu \textbf{determinant} és igual al producte dels elements de la diagonal de la matriu diagonalitzada.
+
+\begin{examplebox}{}
+    Donada una matriu;
+
+    \[A = \begin{pmatrix}
+        5 & 4\\
+        4 & 5
+    \end{pmatrix}\]
+
+    Sabem aquestes dos condicion, $ \tr(A) = \lambda_1 + \lambda_2 = 5 + 5$ i $\det(A) = 5(5) - 4(4) = \lambda_1 \cdot \lambda_2 $ per tant si resolem el sistema;
+
+    \[
+\begin{cases}
+10 = x+y\\
+9 = x\cdot y
+\end{cases}
+\]
+
+Obtenim que $x = \lambda_1 = 9 $ i $y = \lambda_2 = 1$ que són els nostres autovalors i per trobar els autovectors computem $(A - 9Id)\vec{v} = 0$ i $(A - Id)\vec{v} = 0$ per tant els autovectors son;
+
+\[v_1 = \begin{pmatrix}
+    1\\
+    1
+\end{pmatrix}, v_2 = \begin{pmatrix}
+    1\\
+    -1
+\end{pmatrix}\]
+\end{examplebox}
+
 \section{Tensors}
 \end{document}
