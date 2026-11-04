@@ -1653,5 +1653,206 @@ Obtenim que $x = \lambda_1 = 9 $ i $y = \lambda_2 = 1$ que són els nostres auto
 \end{pmatrix}\]
 \end{examplebox}
 
+\subsection{Forma Diagonal d'una Aplicació}
+
+Una funció diagonalitza si $\exists B$ de ç$E = (v_1, \dots, v_n)$ tal que $\dim E = n$. Aquesta base B és aquella base \textbf{formada pels vectors propis de f que compleixen} $f(v) = \mu v$. En aquesta base, podem escriure la matriu com una \textit{matriu de forma diagonal}. És a dir amb elements només a la diagonal i tot lo altre zeros ja que en base B;
+
+\[f(v_1) = 0v_1 + 0 v_2 + \dots 0 v_n\]
+\[f(v_1) = 0 v_1 + \lambda_2 v_2 + \dots 0 v_n\]
+\[\vdots\]
+\[f(v_1) = 0 v_1 + 0 v_2 + \dots \lambda_n v_n\]
+
+De manera que anomenem forma diagonal: \[
+\boxed{
+M(B\xrightarrow{f}B)=
+\begin{pmatrix}
+\lambda_1 & 0 & \cdots & 0\\
+0 & \lambda_2 & \cdots & 0\\
+\vdots & \vdots & \ddots & \vdots\\
+0 & 0 & \cdots & \lambda_n
+\end{pmatrix}
+}
+\]
+
+Aquesta es pot obtenir com $M(B\xrightarrow{f}B) = M(C \xrightarrow{Id} B)M(B \xrightarrow{f} B)M(B \xrightarrow{Id} C)$
+
+\noindent \textit{"Algoritme} $f: E\rightarrow E$ \textit{""}
+
+ \begin{enumerate}
+    \item Fixem una base C de E i calculem $M(C \xrightarrow{f} C)$
+    \item Calculem el \textit{polinomi caraccteristic}
+    \item Trobem zeros del polinomi (tantes arrels com dimensions de la matriu)
+    \item Per cada $\lambda$ del pas 3 trobem base i dimensió de $\ker(f-\lambda Id) \neq 0$
+    \item Trobem $M(B\xrightarrow{f}B)$
+    \item Si A diagonal, $A^{2026} = PD^{2026}P^{-1}$
+\end{enumerate}
+
+Si tenim una aplicació composta i la volem calcular:
+\[
+\begin{aligned}
+f^{2026} &= M(C \xrightarrow{Id} B)\\
+&\quad\cdot M(B \xrightarrow{f} B)^{2026}\\
+&\quad\cdot M(B \xrightarrow{Id} C)
+\end{aligned}
+\]
+
+\begin{proof}
+    Si tenim $f = PDP{-1}$ si volem calcular $f^{2026}$ podem desenvolupar com;
+
+    \[f^{2026} = PDP^{-1}PDP^{-1}PDP^{-1}\cdots PDP^{-1}\]
+
+    Els elements del mig $PP^{-1} = Id$ llavors $f^{2026} = PDP^{-1}$.
+\end{proof}
+
+\textcolor{red}{\textbf{Si tenim una matriu diagonal en potència, el resultat és les potències de la diagonal.}}
+
+\begin{examplebox}{}
+Sigui la matriu
+\[
+A = \begin{pmatrix}
+2 & 1\\
+0 & 3
+\end{pmatrix}
+\]
+
+Diagonalitzem la matriu:
+\[
+A = PDP^{-1}
+\]
+
+On:
+\[
+P = \begin{pmatrix}
+1 & 1\\
+0 & 1
+\end{pmatrix},
+\qquad
+D = \begin{pmatrix}
+2 & 0\\
+0 & 3
+\end{pmatrix},
+\qquad
+P^{-1} = \begin{pmatrix}
+1 & -1\\
+0 & 1
+\end{pmatrix}
+\]
+
+Per tant, podem calcular $A^{2026}$ com:
+\[
+A^{2026} = PD^{2026}P^{-1}
+\]
+
+Com que $D$ és diagonal, elevar-la a una potència consisteix a elevar cadascun dels elements de la diagonal:
+\[
+D^{2026} =
+\begin{pmatrix}
+2^{2026} & 0\\
+0 & 3^{2026}
+\end{pmatrix}
+\]
+
+Així doncs:
+\[
+A^{2026} =
+\begin{pmatrix}
+1 & 1\\
+0 & 1
+\end{pmatrix}
+\begin{pmatrix}
+2^{2026} & 0\\
+0 & 3^{2026}
+\end{pmatrix}
+\begin{pmatrix}
+1 & -1\\
+0 & 1
+\end{pmatrix}
+\]
+
+\end{examplebox}
+
+Ara si ens demanen calcular $f^{2026}\begin{pmatrix}
+    2026\\
+    2027
+\end{pmatrix}$. Com que es tracta d'una aplicació \textbf{lineal}.
+
+Podem descomposar el vector que volem en la base $B = \{(x_1,y_1), (x_2,y_2)\}$ de vectors propis;
+
+\[\begin{pmatrix}
+    2026\\
+    2027
+\end{pmatrix} = \lambda_1 \begin{pmatrix}
+    x_1\\
+    y_1
+\end{pmatrix} + \lambda_2  \begin{pmatrix}
+    x_2\\
+    y_2
+\end{pmatrix}\]
+
+Per tant en base B és $ \begin{pmatrix}
+    \lambda_1\\
+    \lambda_2
+\end{pmatrix}$, per tant $f^{2026}=\begin{pmatrix}
+    2026\\
+    2027
+\end{pmatrix} = \lambda_1 f^{2026}  \begin{pmatrix}
+    x_1\\
+    y_1
+\end{pmatrix} + \lambda_2 f^{2026} \begin{pmatrix}
+    x_2\\
+    y_2
+\end{pmatrix}$
+
+Com que la matriu $f$ també es troba en les coordenades dels vectors propis, \textbf{una matriu diagonal pel seu vector propi és el seu valor propi.}
+
+\[= \lambda_1 \mu_1^{2026} \begin{pmatrix}
+    x_1\\
+    y_1
+    \end{pmatrix} + \lambda_2 \mu_2^{2026} \begin{pmatrix}
+    x_2\\
+    y_2
+    \end{pmatrix} = f^{2026}\begin{pmatrix}
+        2026\\
+        2027
+    \end{pmatrix}
+\]
+
+\section{Aplicacions Bilineals}
+
+Donats E,F,G 3 $\R$ espais vectorials podem definir una nova aplicació lineal amb dos elements d'entrada i un de sortida tal que;
+
+\[E \cross F \rightarrow G\]
+\[(u,v) \rightarrow \phi (u,v)\]
+
+És bilineal si és lineal d'anada i lineal de tornada. Aquestes aplicacions solen tenir la forma de;
+
+\[\R^3 \cross \R^3 \rightarrow \R\]
+\[\phi((x_1,y_1,z_1),(x_2,y_2,z_2)) = x_1x_2+y_1y_2+z_1z_2\]
+
+I es pot transformar de la forma; $\begin{pmatrix}
+    x_1 & y_1 & z_1
+\end{pmatrix}\begin{pmatrix}
+    1 & 0 & 0\\ 0 & 1 & 0\\ 0 & 0 & 1\\
+\end{pmatrix}\begin{pmatrix}
+    x_2 \\y_2 \\ z_2
+\end{pmatrix}$
+
+Si volem comprovar que es bilineal podem fixar la matriu fila o la matriu columna \textbf{i tractar-ho com una aplicació lineal} per tant estudiar \textit{la suma tancada i la multiplicació per escalar}. Si quan ficem els dos totes dos son lineals l'aplicació és bilineal.
+
+\subsection{Producte Escalar}
 \section{Tensors}
+\section{Preambul - Encara sense lloc}
+
+Si tenim E un K espai vectorial, podem definir $Apl(E,K) = \{f: E \rightarrow K\}$, com un \textbf{espai vectorial} de les funcions de E a K lkineals ja que compleixen \textbf{suma tancada i multiplicació per escalar}.
+
+\begin{examplebox}{}
+    $E = \R^3, K = \R$, $Apl(E,K) = \{f:\R^3 \rightarrow \R\}$ és un espai vectorial d'alguns vectors concrets, podem definir;
+
+    \[e_1^*(x,y,z) = x\]
+    \[e_2^*(x,y,z) = y\]
+    \[e_3^*(x,y,z) = z\]
+
+    Diem que $f(x,y,z) = \lambda_1x_1 + \lambda_2x_2 + \lambda_3x_3 = \lambda_1 e_1^* + \lambda_2 e_2^* + \lambda_3 e_3^* $ i per tant $<e_1^*, e_2^*, e_3^*>$ és im sistema de generadors del espai aplicació lineal.
+\end{examplebox}
+
 \end{document}
