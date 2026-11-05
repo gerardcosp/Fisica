@@ -18,7 +18,7 @@
 \contentsline {subsection}{\numberline {3.3}Moment Dipolar}{16}{subsection.3.3}%
 \contentsline {subsection}{\numberline {3.4}Percentatge Iònic}{17}{subsection.3.4}%
 \contentsline {subsection}{\numberline {3.5}Energia d'Enllaç}{17}{subsection.3.5}%
-\contentsline {subsection}{\numberline {3.6}Teoria del Enllaç de València}{17}{subsection.3.6}%
-\contentsline {subsubsection}{\numberline {3.6.1}Recobriment Sigma ($\sigma $)}{17}{subsubsection.3.6.1}%
-\contentsline {subsubsection}{\numberline {3.6.2}Orbitals Hibridats}{17}{subsubsection.3.6.2}%
-\contentsline {subsubsection}{\numberline {3.6.3}Recobriment Pi ($\pi $)}{17}{subsubsection.3.6.3}%
+\contentsline {subsection}{\numberline {3.6}Teoria del Enllaç de València}{18}{subsection.3.6}%
+\contentsline {subsubsection}{\numberline {3.6.1}Orbitals Hibridats}{18}{subsubsection.3.6.1}%
+\contentsline {subsubsection}{\numberline {3.6.2}Recobriment Sigma ($\sigma $)}{19}{subsubsection.3.6.2}%
+\contentsline {subsubsection}{\numberline {3.6.3}Recobriment Pi ($\pi $)}{19}{subsubsection.3.6.3}%

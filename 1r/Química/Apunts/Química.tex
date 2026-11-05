@@ -671,15 +671,117 @@ Per últim del 1r parcial, com he dit abans una molècula pot ser molt iònica (
 \[CI = \frac{\mu_{exp}}{\mu_{calculat}} \cdot 100 = \frac{\mu_{exp}}{q \cross d} \cdot 100 \]
 
 \subsection{Energia d'Enllaç}
+
+Anomenem energia d'enllaç a l'energia que té un enllaç \textbf{que s'allibera} al trencar un enllaç ($E>0$);
+
+\[
+\mathrm{H-H} \longrightarrow \mathrm{H\cdot + \cdot H}
+\qquad
+E_{\mathrm{H-H}} = 435{,}93\,\mathrm{kJ\,mol^{-1}}
+\]
+
+Aquests valors són aproximats i es calculen amb la diferència d'energia d'abans i de desprès del enllaç. \textbf{Òbviament com major ordre d'enllaç, més energia tenen.}
+
+La teoria de Lewis ens ajuda qualitativament (de forma visual) a interpretar els enllaços covalents, en canvi podem tenir altres teories que ens ajudin \textit{quantitativament}. La teoria del enllaç de valènia o la teoria dels orbitals moleculars.
+
+\begin{itemize}
+    \item \textbf{Valence Bond Theory (VB):}
+    \begin{itemize}
+        \item Electrons i enllaços localitzats.
+        \item Els orbitals atòmics (AO) o híbrids es mantenen en formar-se la molècula.
+        \item L'estabilització de l'enllaç prové del solapament dels orbitals atòmics, que permet compartir electrons.
+        \item Útil per descriure molècules grans.
+    \end{itemize}
+
+    \item \textbf{Molecular Orbital Theory (MO):}
+    \begin{itemize}
+        \item Electrons i enllaços deslocalitzats.
+        \item Els orbitals atòmics es combinen per formar nous orbitals moleculars (MO), amb energies diferents.
+        \item Els electrons ocupen els orbitals moleculars de menor a major energia.
+        \item Útil per descriure molècules petites.
+    \end{itemize}
+\end{itemize}
+
 \subsection{Teoria del Enllaç de València}
 
-\subsubsection{Recobriment Sigma (\texorpdfstring{$\sigma$}{sigma})}
+Aquest diu que alhora d'enllaçarse dos molecules i formar \textbf{un enllaç covalent}, els orbitals es \textit{solapen} i alla es on es trobaran els electrons compartits del enllaç (estan localitzats).
 
 \subsubsection{Orbitals Hibridats}
+
+Anomenem hibridació al model que parla i intenta predir la nova forma de \textbf{dos orbitals solapats}, aquests intenten acoblase a la teoria de VSEPR, és a dir si combinem 3 orbitals l (lobulars) i un s, obtenim una nova forma on els enllaços es disposen \textbf{de forma tetraèdrica}
 
 \begin{center}
     \includegraphics[width=0.4\textwidth]{Shapes_of_hybrid_orbitals.jpg}
 \end{center}
+
+Realment quan \textbf{creem nous orbitals}, aquests tenen una notació diferent $s + 2p = sp^2$, i aquests tenen una energia diferent;
+
+\begin{center}
+\begin{tikzpicture}[scale=1, >=stealth]
+
+    \draw[->, thick, blue!70!black] (0,0) -- (0,3.5)
+        node[above] {$E$};
+
+    \draw[thick] (0.8,0.6) -- (1.3,0.6);
+    \node[left] at (0.8,0.6) {$2s$};
+    \draw[->,cyan,thick] (0.95,0.65) -- (0.95,1.25);
+    \draw[->,cyan,thick] (1.15,1.25) -- (1.15,0.65);
+
+    \foreach \x in {2.1,2.8,3.5} {
+        \draw[thick] (\x,2.5) -- (\x+0.5,2.5);
+        \draw[->,cyan,thick] (\x+0.25,2.55) -- (\x+0.25,3.15);
+    }
+    \node[left] at (2.1,2.5) {$2p$};
+
+    \draw[->, thick, teal!70!black] (4.5,1.7) -- (6,1.7)
+        node[midway,above] {\small Hibridació};
+
+    \draw[->, thick, blue!70!black] (6.5,0) -- (6.5,3.5)
+        node[above] {$E$};
+
+    \node[left] at (7.3,1.8) {$sp^3$};
+
+    \foreach \x in {7.5,8.2,8.9,9.6} {
+        \draw[thick] (\x,1.8) -- (\x+0.5,1.8);
+    }
+
+    \draw[->,cyan,thick] (7.7,1.85) -- (7.7,2.45);
+    \draw[->,cyan,thick] (7.9,2.45) -- (7.9,1.85);
+
+    \foreach \x in {8.45,9.15,9.85} {
+        \draw[->,cyan,thick] (\x,1.85) -- (\x,2.45);
+    }
+
+\end{tikzpicture}
+\end{center}
+
+\begin{itemize}
+    \item \textbf{Notació amb superíndex:} indica el nombre d'orbitals $p$ que participen en la hibridació.
+    \begin{itemize}
+        \item $sp$: 1 orbital $s$ + 1 orbital $p$.
+        \item $sp^2$: 1 orbital $s$ + 2 orbitals $p$.
+        \item $sp^3$: 1 orbital $s$ + 3 orbitals $p$.
+    \end{itemize}
+
+    \item \textbf{Notació amb subíndex:} indica l'orientació espacial de l'orbital $p$.
+    \begin{itemize}
+        \item $sp_x$: combinació de l'orbital $s$ amb l'orbital $p_x$ (eix X).
+        \item $sp_y$: combinació de l'orbital $s$ amb l'orbital $p_y$ (eix Y).
+        \item $sp_z$: combinació de l'orbital $s$ amb l'orbital $p_z$ (eix Z).
+    \end{itemize}
+\end{itemize}
+
+\begin{itemize}
+    \item $sp$ $\longrightarrow$ Geometria lineal ($180^\circ$).
+    \item $sp^2$ $\longrightarrow$ Geometria trigonal plana ($120^\circ$).
+    \item $sp^3$ $\longrightarrow$ Geometria tetraèdrica ($109{,}5^\circ$).
+    \item $sp^3d$ $\longrightarrow$ Geometria bipiràmide trigonal ($90^\circ$ i $120^\circ$).
+    \item $sp^3d^2$ $\longrightarrow$ Geometria octaèdrica ($90^\circ$).
+\end{itemize}
+
+\subsubsection{Recobriment Sigma (\texorpdfstring{$\sigma$}{sigma})}
+
+Aquest recobriment és quan dos orbitals es solapen simètricament respecte l'eix d'enllaç és pot dir que verticalment, és a dir tenen una bona àrea delimitada simètrica d'enllaç.
 
 \subsubsection{Recobriment Pi (\texorpdfstring{$\pi$}{pi})}
 
