@@ -404,7 +404,6 @@ Com totes les operacions matemàtiques, les desigualtats tenen \textbf{propietat
     \item \textbf{Propietat Reflexiva}: $\forall x \in \R, \Q$, $x \geq x \leq x$
     \item \textbf{Propietat Antisimètrica}: Si $ x\geq y$, $x \leq y$ només ($y=x$)
     \item \textbf{Propietat Transitiva}: Si $x \leq y$ i $ y \leq z$ llavors $x \leq z$
-    
 \end{itemize}
 
 En una desigualtat es poden aplicar les seguents \textbf{normes}:
@@ -1261,5 +1260,168 @@ Hi ha diversos tipus de \textbf{discontinuïtats}.
 \end{itemize}
 
 \subsection{Derivades}
+
+Donada una funció arbitraria, si volem conèixer \textbf{el pendent en qualsevol punt} $x_0$, hem de parlar de la derivada en aquest punt $f'(x_0) = \dot{f}(x_0) = \dv{f}{x}\mid_{x=x_0},\dots$
+
+Però que és la derivada geomètricament i físicament?
+
+\subsubsection{Definició de Derivada}
+
+Si prenem dos punts qualsevols $a, x (x>a)\in D$, la pendent que els creua és $\frac{\Delta y}{ \Delta x} = \frac{f(x) - f(a)}{x-a}$.
+
+\begin{center}
+\begin{tikzpicture}[>=stealth, scale=1]
+
+    % Eixos
+    \draw[->, thick] (-0.3,0) -- (7,0) node[right] {$x$};
+    \draw[->, thick] (0,-0.3) -- (0,5) node[above] {$f(x)$};
+
+    % Funció
+    \draw[thick, blue!60!black, smooth, domain=0.7:6.2, samples=100]
+        plot (\x,{0.12*(\x-4.5)^2+2});
+
+    % Punts
+    \coordinate (A) at (2,2.75);
+    \coordinate (B) at (5.5,2.12);
+
+    \fill[blue!60!black] (A) circle (2pt);
+    \fill[blue!60!black] (B) circle (2pt);
+
+    % Recta secant
+    \draw[red!70!black, thick] (0.8,2.97) -- (6.5,1.93);
+
+    % Coordenades
+    \node[below] at (2,0) {$a$};
+    \node[below] at (5.5,0) {$x$};
+    \node[left] at (0,2.75) {$f(a)$};
+    \node[left] at (0,2.12) {$f(x)$};
+
+    % Diferències
+    \draw[<->, dashed, gray] (2,-0.35) -- (5.5,-0.35)
+        node[midway, below] {$\Delta x=x-a$};
+
+    \node[red!70!black, above] at (4.5,3.15)
+        {$m=\dfrac{f(x)-f(a)}{x-a}$};
+
+\end{tikzpicture}
+\end{center}
+
+Ara bé, si volem prendre la \textbf{pendent en aquell punt} prenem $\lim_{x\rightarrow a}$ és a dir prenem quan els valors de x s'acosten molt als de a. Per tant la definició de derivada és;
+
+\[\boxed{f'(a) =\lim_{x\rightarrow a}\frac{f(x) - f(a)}{x-a}}\]
+
+Com que tenim \textbf{un punt i una pendent} podem \textit{construïr una recta} tangent a la corba en aquell punt;
+
+\begin{center}
+\begin{tikzpicture}[>=stealth, scale=1]
+
+    % Eixos
+    \draw[->, thick] (-0.3,0) -- (7,0) node[right] {$x$};
+    \draw[->, thick] (0,-0.3) -- (0,5) node[above] {$f(x)$};
+
+    % Funció
+    \draw[thick, blue!60!black, smooth, domain=0.7:6.2, samples=100]
+        plot (\x,{0.12*(\x-4.5)^2+2.2});
+
+    % Punt de tangència
+    \coordinate (A) at (4.5,2.2);
+    \fill[blue!60!black] (A) circle (2.5pt);
+
+    % Recta tangent
+    \draw[red!70!black, thick] (0.84,1.75) -- (7.5,2.5);
+
+    % Projeccions del punt
+    \draw[dashed, gray] (4.5,0) -- (A);
+    \draw[dashed, gray] (0,2.2) -- (A);
+
+    % Etiquetes
+    \node[below] at (4.5,0) {$a$};
+    \node[left] at (0,2.2) {$f(a)$};
+    \node[above right] at (A) {$(a,f(a))$};
+
+
+    \node[blue!60!black, below right] at (5.2,1.95)
+        {$f(x)$};
+
+\end{tikzpicture}
+\end{center}
+
+Com sabem, $\frac{f(x) - f(a)}{x-a} = f'(a)$, $f(x) = f'(a) (x-a) + f(a) = y$ que és l'equació d'una recta concreta (només hi ha una).
+
+Perque un límit existeixi i no vagi al infinit afegim una quantitat múltiple perque el límit de $\lim_{x\rightarrow a} = \frac{o (x-a)}{x-a} = 0$ és a dir multipliquem el factor $(x-a)$ per una o petita que és una \textbf{quantitat diferencial} tan petita que és negligible.
+
+Per tant si o és petit sabem que $f(x) - f(a) = f'(a) (x-a) + o(x-a)$ i tenim $\Delta y = f'(a) \Delta x$ que si ho fem molt petit, tenim la típica notació decimal;
+
+\[\boxed{dy = f'(a) dx = \dv{y}{x} = f'(a)}\]
+
+\begin{examplebox}{Derivada d'una funció quadràtica}
+    Calculem la derivada de la funció $f(x)=x^2$ en un punt $a$ mitjançant la definició de derivada.
+
+    \begin{align*}
+        f'(a) &= \lim_{x\rightarrow a}\frac{f(x)-f(a)}{x-a}\\[6pt]
+        &= \lim_{x\rightarrow a}\frac{x^2-a^2}{x-a}\\[6pt]
+        &= \lim_{x\rightarrow a}\frac{(x-a)(x+a)}{x-a}\\[6pt]
+        &= \lim_{x\rightarrow a}(x+a)\\[6pt]
+        &= a+a\\[6pt]
+        &= 2a
+    \end{align*}
+
+    Per tant, la derivada de $f(x)=x^2$ en qualsevol punt $a$ és:
+
+    \[\boxed{f'(a)=2a}\]
+
+    Com que $a$ és un punt qualsevol del domini, podem expressar la funció derivada com:
+
+    \[\boxed{f'(x)=2x}\]
+\end{examplebox}
+
+Com que la propia deifinició de derivades té en el numerador $f(x) - f(a)$ \textbf{implica que per que una funció sigui derivada ha de ser continua.}
+
+Propietats de les derivades $\in D$
+
+Donades $f,g \rightarrow$ definides en un intèrval \textbf{I} i derivables $a \in I$
+
+\begin{itemize}
+    \item \textbf{Suma} = $(f+g)$ és derivable en a i $(f+g)' = f' + g'$
+    
+    \item \textbf{Multiplicació} $(f+g)$ és derivable en a i $(f\cdot g)' = f'g + g'f$
+    
+    \item \textbf{Divisió} $g \neq 0$, $(f+g)$ és derivable en a i $(\frac{f}{g})' = \frac{f'g - g'f}{g^2}$
+\end{itemize}
+
+ \begin{proof}
+    Per demostrar la derivació d'una multiplicació de funcions, partim de la definició de derivada:
+
+    \begin{align*}
+        (f\cdot g)'(a)
+        &= \lim_{x\rightarrow a}
+        \frac{f(x)g(x)-f(a)g(a)}{x-a}
+    \end{align*}
+
+    Sumem i restem $f(x)g(a)$ al numerador:
+
+    \begin{align*}
+        &= \lim_{x\rightarrow a}
+        \frac{f(x)g(x)-f(x)g(a)+f(x)g(a)-f(a)g(a)}{x-a}\\[6pt]
+        &= \lim_{x\rightarrow a}
+        \left[
+        f(x)\frac{g(x)-g(a)}{x-a}
+        +g(a)\frac{f(x)-f(a)}{x-a}
+        \right]
+    \end{align*}
+
+    Aplicant les propietats dels límits i sabent que les funcions són derivables en $a$, també són contínues en aquest punt:
+
+    \begin{align*}
+        &= f(a)\lim_{x\rightarrow a}\frac{g(x)-g(a)}{x-a}
+        +g(a)\lim_{x\rightarrow a}\frac{f(x)-f(a)}{x-a}\\[6pt]
+        &= f(a)g'(a)+g(a)f'(a)
+    \end{align*}
+
+    Per tant, obtenim la regla del producte:
+
+    \[ \boxed{(f\cdot g)'=f'g+fg'} \]
+\end{proof}
+
 \subsection{Integrals}    
 \end{document}

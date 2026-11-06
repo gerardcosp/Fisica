@@ -1876,16 +1876,125 @@ Ara anomenarem a qualsevol magnitud que depèn d'un sinus o cosinus; $\boxed{x =
 
 Podem descriure el desplaçament d'una ona qualsevol com a $s(x,t) = s_0 \sin(kx - \omega t)$ si s és constant no es desplaça.
 
+\subsubsection{Densitat d'Ona}
+
 Si volem calcular \textit{la densitat} a que transforma l'ona \textbf{derivem l'equació de posició respecte la posició} de manera que;
 
 \[\rho (x,t) = \rho_0 \dv{s(x,t)}{x} = \rho_0 s_0 k \cos(kx-\omega t)\]
+
+\subsubsection{Pressió d'Ona}
 
 Si volem calcula \textit{la pressió de l'ona}, sabem que $P \propto \frac{n}{v}$ per l'equació dels gassos que alhora $\propto \rho$ per tant;
 
 \[P(x,t) = P_0\sin(kx - \omega t)\]
 
 Ara bé si volem relacionar $P$ amb $\rho$ (en sòlids $B$). podem recordar que $P = -B \dv{s(x,t)}{x}$ que és l'equació general pero en una ona harmònica. $P = -B \rho_0 s_0 k \cos(kx-\omega t) = c^2 s_0 \rho_0 \frac{\omega}{c} = s_0 \rho_0 \omega c$ on c és la velocitat de l'ona.
+
+\subsubsection{Densitat d'Energia d'Ona}
+
+Si calculem \textbf{la mitjana de la densitat d'energia d'una ona} (és a dir la quantitat d'energia per superficie) obtenim $<\frac{\Delta E}{\Delta x}> = \frac{1}{2}\rho \omega^2 A^2$ em una corda pero en un medi $<\frac{\Delta E}{\Delta x}> = \frac{1}{2}\rho_0 \omega^2 s_0^2$, també es pot escriure en termes de $P_0$.
+
+\subsubsection{Potència d'Ona}
+
+Com sabem; Potència $P = \vec{F} \cdot \vec{v} = (P\cdot S) \pdv{s}{t}$;
+
+\[P = S s_0^2 \omega^2 c \rho \cos^2(kx-\omega t)\]
+
+\textcolor{red}{\textbf{Si calculem la mitjana (pel teorema del valor mijà) $<P> = \frac{1}{2} S s_0^2 \omega^2 c \rho$}}
+
+\subsubsection{Intensitat d'Ona}
+
+Definim l'intensitat com potència per supericie $\frac{\text{Energia}}{\text{Temps} \cdot \text{Àrea}}$. De manera que si eliminem la superficie a l'equació de pressió i calculem la mitjana ($\frac{1}{2}$). 
+
+\[I = s_0^2 \omega^2 c\rho \cos^2(kx-\omega t); <I> = \frac{1}{2} s_0^2 \omega^2c\rho\]
+
+De manera anàloga, $<I> = \frac{1}{2} \frac{P_0^2}{\rho c}$. Com podem veure, hi ha una relació entre la intensitat d'energia que és $\frac{1}{2} \omega \rho_0 \omega^2 s_0^2$ i és que bàsicament;
+
+\[\boxed{I = \frac{\Delta \varepsilon}{\Delta x}c}\]
+
+La nostra percepció no és proporcional a l'intensitat per això creem una nova magnitud \textbf{nivell sonor} amb unitats en decibels, que és \textit{logaritmica} i ens relaciona com ho escoltem;
+
+\[\beta = 10 \log \frac{I}{I_0}dB\] 
+
+On $I_0$ és l'intensitat llindar a la que nosaltres escoltem algo $I_0 = 10^{-12} \frac{W}{m^2}$
+
 \subsection{Effecte Doppler}
+
+Quan un emissor es mou a una velocitat $\vec{v_F} = 0 / k$, un receptor que es mou a $\vec{v_R} = 0 / k$ és a dir sense velocitat o constant, rep una ona alterada i d'això n'anomenem \textbf{effecte Doppler}. (\textit{El front es mou})
+
+\begin{center}
+\begin{tikzpicture}[>=stealth]
+
+  % Paràmetres (cm)
+  \def\vsrc{0.3}     % velocitat de la font
+  \def\cwave{0.75}   % velocitat de l'ona
+  \def\ylam{0.5}     % alçada a la qual es dibuixen λ' i λ''
+  \def\xR{2.5}       % posició del receptor
+
+  % Punts dels fronts a y = -\ylam (per posar les cotes just sobre els fronts)
+  \pgfmathsetmacro{\xfA}{-3*\vsrc+sqrt((3*\cwave)^2-\ylam^2)}
+  \pgfmathsetmacro{\xfB}{-4*\vsrc+sqrt((4*\cwave)^2-\ylam^2)}
+  \pgfmathsetmacro{\xbA}{-1*\vsrc-sqrt((1*\cwave)^2-\ylam^2)}
+  \pgfmathsetmacro{\xbB}{-2*\vsrc-sqrt((2*\cwave)^2-\ylam^2)}
+
+  % Trajectòria
+  \draw[cK, line width=0.5pt] (-4.4,0) -- (3.3,0);
+% Fronts d'ona (el front n es va emetre fa n períodes)
+  \foreach \n in {1,...,4}{
+    \pgfmathsetmacro{\opw}{1-0.12*(\n-1)}
+    \draw[curve, cB, opacity=\opw] ({-\n*\vsrc},0) circle ({\n*\cwave});
+}
+
+  % Posicions on es van emetre els fronts
+  \foreach \n in {1,...,4}{
+    \draw[cK, fill=white, line width=0.4pt] ({-\n*\vsrc},0) circle (1.5pt);
+}
+
+  % Longituds d'ona: davant (λ') i darrere (λ'')
+  \draw[<->, cK, line width=0.5pt] (\xfA,-\ylam) -- (\xfB,-\ylam);
+\node[black, below, inner sep=1pt] at ({(\xfA+\xfB)/2},-\ylam) {$\lambda'$};
+\draw[<->, cK, line width=0.5pt] (\xbB,-\ylam) -- (\xbA,-\ylam);
+\node[black, below, inner sep=1pt] at ({(\xbA+\xbB)/2},-\ylam) {$\lambda''$};
+% Velocitat de la font
+  \draw[->, curve, cR] (-0.9,0.22) -- (-0.15,0.22)
+      node[black, above, pos=0.5, inner sep=2pt] {$\vec{v}_F$};
+
+% Font i receptor
+  \fill[cR] (0,0) circle (2pt);
+\node[black, below] at (0,-0.05) {$F$};
+\fill[cG] (\xR,0) circle (2pt);
+\node[black, below] at (\xR,-0.05) {$R$};
+\end{tikzpicture}
+\end{center}
+
+Per calcular com es mou, i els diferents paràmetres $T, \lambda$, podem distingir diversos cassos.
+
+\subsubsection{Front Movent-se}
+
+\noindent\boxed{T}
+
+El front emet polsos amb periode $T$, a $t = 0$ la font emet un pols que tarda $t_1 = \frac{d}{c}$, el segon temps (respecte el primer) es dona en $t_2 = T + \frac{d - T\vec{v_F}}{c}$.
+
+Per tant $T_R = t_2 - t_1 = T \frac{c \pm \vec{v_F}}{c}$.
+
+\[
+\boxed{
+T_R =
+\begin{cases}
+T\dfrac{c-\vec{v_F}}{c}, & \text{si la font s'apropa al receptor}\\[8pt]
+T\dfrac{c+\vec{v_F}}{c}, & \text{si la font s'allunya del receptor}
+\end{cases}
+}
+\]
+
+\noindent\boxed{\lambda}
+
+\subsubsection{Receptor Movent-se}
+
+\noindent\boxed{T}
+
+\noindent\boxed{\lambda}
+
 \section{Relativitat}
 \subsection{Cinemàtica}
 \subsubsection{Transformades de Lorentz}

@@ -28,4 +28,5 @@
 \contentsline {subsubsection}{\numberline {6.1.5}Combinació de Funcions Continues}{24}{subsubsection.6.1.5}%
 \contentsline {subsubsection}{\numberline {6.1.6}Discontinuïtats}{24}{subsubsection.6.1.6}%
 \contentsline {subsection}{\numberline {6.2}Derivades}{24}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}Integrals}{24}{subsection.6.3}%
+\contentsline {subsubsection}{\numberline {6.2.1}Definició de Derivada}{24}{subsubsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.3}Integrals}{27}{subsection.6.3}%
