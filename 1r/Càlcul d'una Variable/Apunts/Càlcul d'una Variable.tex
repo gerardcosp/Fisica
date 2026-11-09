@@ -1384,44 +1384,104 @@ Donades $f,g \rightarrow$ definides en un intèrval \textbf{I} i derivables $a \
 \begin{itemize}
     \item \textbf{Suma} = $(f+g)$ és derivable en a i $(f+g)' = f' + g'$
     
-    \item \textbf{Multiplicació} $(f+g)$ és derivable en a i $(f\cdot g)' = f'g + g'f$
+    \item \textbf{Multiplicació} = $(f+g)$ és derivable en a i $(f\cdot g)' = f'g + g'f$
     
-    \item \textbf{Divisió} $g \neq 0$, $(f+g)$ és derivable en a i $(\frac{f}{g})' = \frac{f'g - g'f}{g^2}$
+    \item \textbf{Divisió} $g \neq 0$ = $(f+g)$ és derivable en a i $(\frac{f}{g})' = \frac{f'g - g'f}{g^2}$
+
+    \begin{proof}
+        Per demostrar la derivació d'una multiplicació de funcions, partim de la definició de derivada:
+
+        \begin{align*}
+            (f\cdot g)'(a)
+            &= \lim_{x\rightarrow a}
+            \frac{f(x)g(x)-f(a)g(a)}{x-a}
+        \end{align*}
+
+        Sumem i restem $f(x)g(a)$ al numerador:
+
+        \begin{align*}
+            &= \lim_{x\rightarrow a}
+            \frac{f(x)g(x)-f(x)g(a)+f(x)g(a)-f(a)g(a)}{x-a}\\[6pt]
+            &= \lim_{x\rightarrow a}
+            \left[
+            f(x)\frac{g(x)-g(a)}{x-a}
+            +g(a)\frac{f(x)-f(a)}{x-a}
+            \right]
+        \end{align*}
+
+        Aplicant les propietats dels límits i sabent que les funcions són derivables en $a$, també són contínues en aquest punt:
+
+        \begin{align*}
+            &= f(a)\lim_{x\rightarrow a}\frac{g(x)-g(a)}{x-a}
+            +g(a)\lim_{x\rightarrow a}\frac{f(x)-f(a)}{x-a}\\[6pt]
+            &= f(a)g'(a)+g(a)f'(a)
+        \end{align*}
+
+        Per tant, obtenim la regla del producte:
+
+        \[ \boxed{(f\cdot g)'=f'g+fg'} \]
+
+    \end{proof}
+
+    \item \textbf{Regla de la Cadena} = $(g\circ f)(x)=g(f(x))$. Bàsicament, el que estem fent és derivar $g$ en el valor $f(a)$.
+
+    Definim dos intervals $I, J$, amb $f$ derivable en $I$ i la seva imatge dins de $J$ ($a \in I,\ f(a)\in J$). Podem comprovar que
+    
+    \[
+        (g\circ f)'(a) = g'(f(a))\,f'(a).
+    \]
+
+    \begin{proof}
+        \[
+            (g\circ f)'(a)
+            = \lim_{x\to a}\frac{g(f(x)) - g(f(a))}{x-a}.
+        \]
+        Multiplicant i dividint per $\dfrac{f(x)-f(a)}{f(x)-f(a)}$, obtenim
+        \[
+            (g\circ f)'(a)
+            = \lim_{x\to a}
+              \frac{\bigl(g(f(x)) - g(f(a))\bigr)\bigl(f(x)-f(a)\bigr)}{\bigl(f(x)-f(a)\bigr)(x-a)}.
+        \]
+        A més, com que $f$ és derivable en $a$, també és contínua en aquest punt, i per tant $f(x)\to f(a)$ quan $x\to a$. D'aquesta manera (agrupant diferents termes),
+        \[
+            (g\circ f)'(a)=g'(f(a))\,f'(a).
+        \]
+    \end{proof}
 \end{itemize}
 
- \begin{proof}
-    Per demostrar la derivació d'una multiplicació de funcions, partim de la definició de derivada:
+\subsubsection{Derivada de la Funció Inversa}
 
-    \begin{align*}
-        (f\cdot g)'(a)
-        &= \lim_{x\rightarrow a}
-        \frac{f(x)g(x)-f(a)g(a)}{x-a}
-    \end{align*}
+Quan podem comprovar la derivada de qualsevol funció podem trobar \textit{una relació entre la derivada d'una funció i la seva inversa}.
 
-    Sumem i restem $f(x)g(a)$ al numerador:
+Sabem que una funció amb la seva inversa per definició $f(f^{-1}(x)) = x = f^{-1}(f(x))$ de manera que podem derivar ambdòs cantons;
 
-    \begin{align*}
-        &= \lim_{x\rightarrow a}
-        \frac{f(x)g(x)-f(x)g(a)+f(x)g(a)-f(a)g(a)}{x-a}\\[6pt]
-        &= \lim_{x\rightarrow a}
-        \left[
-        f(x)\frac{g(x)-g(a)}{x-a}
-        +g(a)\frac{f(x)-f(a)}{x-a}
-        \right]
-    \end{align*}
+\[(f(f^{-1}(x)))' = (x)'\]
+\[f'(f^{-1}(x))\,(f^{-1})'(x) = 1\]
+\[\boxed{(f^{-1})'(x) = \frac{1}{f'(f^{-1}(x))}}\]
 
-    Aplicant les propietats dels límits i sabent que les funcions són derivables en $a$, també són contínues en aquest punt:
+\begin{examplebox}{}
 
-    \begin{align*}
-        &= f(a)\lim_{x\rightarrow a}\frac{g(x)-g(a)}{x-a}
-        +g(a)\lim_{x\rightarrow a}\frac{f(x)-f(a)}{x-a}\\[6pt]
-        &= f(a)g'(a)+g(a)f'(a)
-    \end{align*}
+\[
+\tan(\arctan(x))=x
+\]
 
-    Per tant, obtenim la regla del producte:
+\[
+\frac{1}{\cos^2(\arctan(x))}\cdot
+(\arctan(x))'=1
+\]
 
-    \[ \boxed{(f\cdot g)'=f'g+fg'} \]
-\end{proof}
+\[
+(\arctan(x))'=\cos^2(\arctan(x))
+\]
+
+\[
+=\frac{1}{1+\tan^2(\arctan(x))}
+\]
+
+\[
+\boxed{(\arctan(x))'=\frac{1}{1+x^2}}
+\]
+\end{examplebox}
 
 \subsection{Integrals}    
 \end{document}

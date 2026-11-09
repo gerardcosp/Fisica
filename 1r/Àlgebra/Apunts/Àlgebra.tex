@@ -1840,6 +1840,121 @@ I es pot transformar de la forma; $\begin{pmatrix}
 Si volem comprovar que es bilineal podem fixar la matriu fila o la matriu columna \textbf{i tractar-ho com una aplicació lineal} per tant estudiar \textit{la suma tancada i la multiplicació per escalar}. Si quan ficem els dos totes dos son lineals l'aplicació és bilineal.
 
 \subsection{Producte Escalar}
+
+Una forma bilineal sobre E és una \textbf{aplicació lineal que pren dos espais d'entrada i surt un de sortida amb dimensió 1}. En física podem dir que \textit{pren dos vectors de mateixes dimensions i torna un escalar};
+
+\[\phi: E \cross E \rightarrow K\]
+
+\begin{itemize}
+    \item $\forall e \in E$ fix, $\phi (e,_): E\rightarrow K$ és lineal
+    \item $\forall v \in E$ fix, $\phi (_,v): E\rightarrow K$ és lineal
+\end{itemize}
+
+Físicament a això li diem producte vectorial que ens ajuda a calcular la norma entre dos vectors $\abs{\abs{\vec{v}}} = x^2 + y^2 + z^2$. És a dir que ens torna un nombre que si li prenem d'arrel quadrada és la distància (o mòdul d'aquest).
+
+\noindent $E = \R^N$, $A \in M_N (\R)$
+
+$<,>_A: \R^N \cross \R^N \rightarrow \R$;
+$(\alpha_1, \dots, \alpha_N), (\beta_1, \dots, \beta_N) \rightarrow \begin{pmatrix}
+   \alpha_1 & \dots & \alpha_N 
+\end{pmatrix}A\begin{pmatrix}
+    \beta_1\\
+    \vdots\\
+    \beta_N
+\end{pmatrix}$
+
+On A és la matriu de l'aplicació. En el cas del producte escalar es dona quan $A = Id$
+
+\noindent \textit{Com passem de forma lineal a associada?}
+
+Donades $\phi: E\cross E \rightarrow \R$ i fixem $B = \{v_1, \dots, v_N\}$ una base de E tal que $\dim E = N$, volem calcular la matriu associada de l'aplicació definida per dos vectors $e_1, e_2$ $\phi(e_1,e_2)$. 
+
+Si sabem que;
+
+\[e_1 = \lambda_1v_1 + \dots + \lambda_Nv_N\]
+\[e_2 = \mu_1v_1 + \dots + \mu_Nv_N\]
+
+Per linealitat, si fixem $e_2$, $\phi(\lambda_1v_1 + \dots + \lambda_Nv_N, e_2) = \lambda_1 \phi(v_1,e_2) +\dots + \lambda_N \phi(v_N, e_2)$ i es pot transformar com a matrius,
+
+\[\begin{pmatrix}
+    \lambda_1 &\dots&\lambda_N
+\end{pmatrix} \begin{pmatrix}
+    \phi(v_1, e_2)\\
+    \vdots\\
+    \phi(v_N, e_2)
+\end{pmatrix}\]
+
+Però com que $e_2 = \mu_1 v_1 +\dots+ \mu_N v_N$ es pot reescriure com
+
+\[\begin{pmatrix}
+    \lambda_1 &\dots&\lambda_N
+\end{pmatrix} \begin{pmatrix}
+    \phi(v_1, v_1)\\
+    \vdots\\
+    \phi(v_N, v_1)
+\end{pmatrix}\mu_1 + \dots+\begin{pmatrix}
+    \lambda_1 &\dots&\lambda_N
+\end{pmatrix} \begin{pmatrix}
+    \phi(v_1, v_N)\\
+    \vdots\\
+    \phi(v_N, v_N)
+\end{pmatrix}\mu_N\]
+
+Que alhora es pot reescriure com
+
+\[\begin{pmatrix}
+    \lambda_1 &\dots&\lambda_N
+\end{pmatrix} \begin{pmatrix}
+    \phi(v_1, v_1) & \dots & \phi(v_1, v_1)  \\\
+    \vdots&&\vdots\\
+    \phi(v_1, v_N) &\dots & \phi(v_N, v_N) 
+\end{pmatrix}\begin{pmatrix}
+    \mu_1\\
+    \vdots \\
+    \mu_N
+\end{pmatrix}\]
+
+Ara bé si tenim dues matrius $A,B \in M_N (\R)$ tal que $A = P^t BP$ diem que son \textbf{congruents} en canvi si $A = P^{-1}BP$ diem que són \textbf{equivalents}.
+
+\noindent Observació: $f: E\rightarrow E$ lineal amb base B i C diferents de E.
+
+Tenim $M(C\xleftarrow{f}C)$, $M(B\xleftarrow{f}B)$, recordem que podem definir; $M(C\xleftarrow{f}C) = M(C\xleftarrow{Id}B)M(B\xleftarrow{f}B)M(B\xleftarrow{Id}C)$
+
+\noindent Fet: Si $\phi$ forma bilineal sobre E i 2 bases B, C. Si dos funcions $M(\phi, B), M(\phi, C)$ són conjungats tenim que;
+
+\[M(\phi, C) = P^t M(\phi, B)P\]
+
+On $P = M(B \xleftarrow{f} C)$
+
+\begin{proof}
+    $\phi(e_1,e_2)$
+
+    Podem definir $P(e_2)_C = M(B \xleftarrow{f}C)e_2 = (e_2)_B$
+    De forma anàloga $P(e_1)_C = (e_1)_B$
+
+    $M(\phi, C) = (e_1)_B M(\phi, B)(e_2)_B$
+\end{proof}
+
+\noindent Definició: Si $<,>$ és una forma bilineal simètrica sobre E. Un $\R$ espai vectorial es diu que es una forma ortogonal per $(E, <>)$
+
+\noindent Idea: Vectors $<v,v>_\R$ ens dona en mòdul la distància del vector i així podem treballar amb geometria.
+
+\begin{enumerate}
+    \item El parell $(\R^N, <,>_{IN})$ genera \textit{geometria euclidiana} de $\dim = N$
+    \item El parell $(\R^N, <,>_{-IN})$ genera \textit{geometria a anti-euclidiana} de $\dim = N$, amb nombres complexos (distàncies imaginaries ($i$))
+    \item La geometria de \textbf{Lorentz} $(\R^N, <,>_M)$ on
+    \[
+        M = \begin{pmatrix}
+        1 & 0 & 0 & \vline& 0\\
+        0 & 1 & 0 & \vline&0\\
+        0 & 0 & 1 & \vline&0\\
+        \hline
+        0 & 0 & 0 & \vline&-1\\
+        \end{pmatrix}
+    \]
+    Que treballa amb \textbf{l'espai (matriu identitat) i el temps(4ta dimensió)}
+\end{enumerate}
+
 \section{Tensors}
 \section{Preambul - Encara sense lloc}
 

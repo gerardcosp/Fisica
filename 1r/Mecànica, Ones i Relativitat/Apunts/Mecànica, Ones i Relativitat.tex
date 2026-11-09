@@ -1829,36 +1829,46 @@ Per tant el canvi d'energia no només és constant sinò que es trasllada al lla
 
 \begin{center}
 \begin{tikzpicture}
-  % string through equilibrium: all kinetic
+  \def\rowT{2.0}   % cuerda pasando por el equilibrio
+  \def\rowB{0.1}   % cuerda en la elongación máxima
+
+  % ---------- equilibrio: toda cinética (E_c ∝ sin^2) ----------
+  \draw[cK, line width=0.5pt] (0,\rowT) -- (5,\rowT);
+  \draw[aux, domain=0:5, samples=80, variable=\x] plot ({\x},{\rowT-0.65*sin(36*\x)});
+  \draw[aux, domain=0:5, samples=80, variable=\x] plot ({\x},{\rowT+0.65*sin(36*\x)});
   \foreach \i in {0,...,59}{
     \pgfmathsetmacro{\xa}{\i*5/60}
     \pgfmathsetmacro{\xb}{(\i+1)*5/60}
     \pgfmathtruncatemacro{\pc}{100*(sin(180*(\i+0.5)/60))^2}
     \setheat{\pc}
-    \draw[cHeat, line width=3.5pt] (\xa,2.6) -- (\xb,2.6);
+    \draw[curve, cHeat, line cap=round] (\xa,\rowT) -- (\xb,\rowT);
   }
-  \fill (0,2.6) circle (2pt)  (5,2.6) circle (2pt);
-  \node[right, align=left, black] at (5.3,2.6) {$E_c=E$\\ $E_p=0$};
-  % string at maximum elongation: all potential
-  \draw[aux] (0,0) -- (5,0);
+  \fill[cR] (0,\rowT) circle (2pt) (5,\rowT) circle (2pt);
+  \node[black, right, align=left] at (5.3,\rowT) {$E_c=E$\\ $E_p=0$};
+
+  % ---------- elongación máxima: toda potencial (E_p ∝ cos^2) ----------
+  \draw[cK, line width=0.5pt] (0,\rowB) -- (5,\rowB);
+  \draw[aux, domain=0:5, samples=80, variable=\x] plot ({\x},{\rowB-0.65*sin(36*\x)});
   \foreach \i in {0,...,59}{
     \pgfmathsetmacro{\xa}{\i*5/60}
     \pgfmathsetmacro{\xb}{(\i+1)*5/60}
-    \pgfmathsetmacro{\ya}{0.9*sin(180*\i/60)}
-    \pgfmathsetmacro{\yb}{0.9*sin(180*(\i+1)/60)}
+    \pgfmathsetmacro{\ya}{\rowB+0.65*sin(180*\i/60)}
+    \pgfmathsetmacro{\yb}{\rowB+0.65*sin(180*(\i+1)/60)}
     \pgfmathtruncatemacro{\pc}{100*(cos(180*(\i+0.5)/60))^2}
     \setheat{\pc}
-    \draw[cHeat, line width=3.5pt] (\xa,\ya) -- (\xb,\yb);
+    \draw[curve, cHeat, line cap=round] (\xa,\ya) -- (\xb,\yb);
   }
-  \fill (0,0) circle (2pt)  (5,0) circle (2pt);
-  \node[right, align=left, black] at (5.3,0.35) {$E_c=0$\\ $E_p=E$};
-  % colour scale (no text)
+  \fill[cR] (0,\rowB) circle (2pt) (5,\rowB) circle (2pt);
+  \fill[cG] (2.5,{\rowB+0.65}) circle (2pt);
+  \node[black, right, align=left] at (5.3,\rowB) {$E_c=0$\\ $E_p=E$};
+
+  % ---------- escala de color (sin texto) ----------
   \foreach \i in {0,...,49}{
     \pgfmathtruncatemacro{\pc}{100*(\i+0.5)/50}
     \setheat{\pc}
-    \fill[cHeat] (7.0,{\i*2.6/50}) rectangle (7.25,{(\i+1)*2.6/50});
+    \fill[cHeat] (7.0,{-0.25+\i*2.6/50}) rectangle (7.25,{-0.25+(\i+1)*2.6/50});
   }
-  \draw[cK, line width=0.5pt] (7.0,0) rectangle (7.25,2.6);
+  \draw[cK, line width=0.5pt] (7.0,-0.25) rectangle (7.25,2.35);
 \end{tikzpicture}
 \end{center}
 

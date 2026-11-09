@@ -119,6 +119,7 @@
 % -------------------------------------------------
 
 \usepackage[version=4]{mhchem}
+\usepackage{chemfig}
 
 % -------------------------------------------------
 % LINKS
@@ -779,10 +780,50 @@ Realment quan \textbf{creem nous orbitals}, aquests tenen una notació diferent 
     \item $sp^3d^2$ $\longrightarrow$ Geometria octaèdrica ($90^\circ$).
 \end{itemize}
 
+\begin{examplebox}{}
+    Donada una molècula qualsevol;
+
+    $\mathrm{N\equiv C-O-CH_2-COOH}$
+
+    Per trobar les seves hibridacions, el que fem és que, \textbf{per cada element tractem tota la resta com a radicals} i comptem el nombre asteric.
+
+    Si tenim el nombre asteric podem determinar quin tipus de hibrdació és i quina geometria té així podent justificar la forma;
+
+    $\chemfig{N~C(-[2]O-[0]CH_2-[0]C(=[2]O)-[0]OH)}$
+
+    \begin{enumerate}
+        \item \textbf{Dibuixem els parells no enllaçants}
+        \item \textbf{Comptem el nombre estèric}: nombre d'enllaços sigma i nombre de parells no enllaçants.
+        Mirem;
+
+        \begin{center}
+            \begin{tabular}{c c c}
+            \hline
+            \textbf{Número asteric} & \textbf{Hibridació} & \textbf{Geometria} \\
+            \hline
+            2 & $sp$ & Lineal \\
+            3 & $sp^2$ & Trigonal plana \\
+            4 & $sp^3$ & Tetraédrica \\
+            5 & $sp^3d$ & Bipiramidal trigonal \\
+            6 & $sp^3d^2$ & Octaédrica \\
+            \hline
+            \end{tabular}
+        \end{center}
+
+    \end{enumerate}
+\end{examplebox}
+
 \subsubsection{Recobriment Sigma (\texorpdfstring{$\sigma$}{sigma})}
 
 Aquest recobriment és quan dos orbitals es solapen simètricament respecte l'eix d'enllaç és pot dir que verticalment, és a dir tenen una bona àrea delimitada simètrica d'enllaç.
 
 \subsubsection{Recobriment Pi (\texorpdfstring{$\pi$}{pi})}
+
+Es dona un recobriment pi quan \textbf{dos orbitals p} paral·lels es toquen lateralment així formant un altre enllaç, molt més feble que els sigma en forma de telèfon antic;
+
+\begin{center}
+    \includegraphics[width = 0.5\textwidth]{Recobriment Pi.png}
+\end{center}
+De fet quan tenim un ordre d'enllaç de 2 o 3 és perque tenim un \textbf{enllaç sigma} i \textbf{un o dos enllaços pi}.
 
 \end{document}
