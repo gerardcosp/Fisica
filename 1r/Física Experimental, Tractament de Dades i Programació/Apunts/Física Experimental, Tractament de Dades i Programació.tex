@@ -62,6 +62,8 @@
 \usepackage{tikz}
 \usepackage{pgfplots}
 
+\usepgfplotslibrary{groupplots}
+
 \pgfplotsset{compat=1.18}
 \graphicspath{{./images/}}
 
@@ -183,6 +185,7 @@
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
+\renewcommand{\proofname}{Demostració}
 
 % -------------------------------------------------
 % DOCUMENT STYLE
@@ -560,7 +563,8 @@ La \textit{ISO}, agrupa les incerteses en 2 tipus (no vol dir que siguin diferen
 
 La incertesa estàndard no té un valor numèric únic i universal per defecte (no és, per exemple, ``5'' o ``10''): el seu valor depèn per complet de les teves dades o de l'instrument que utilitzis.
 
-Tanmateix, el terme \emph{estàndard} significa matemàticament que equival exactament a \textbf{1 desviació estàndard} ($k = 1$). Això li dona unes propietats estadístiques fixes si les dades segueixen una distribució normal.
+Tanmateix, el terme \emph{estàndard} significa matemàticament que equival exactament a \textbf{1 desviació estàndard} ($k = 1$).
+Això li dona unes propietats estadístiques fixes si les dades segueixen una distribució normal.
 
 Quan deixes la incertesa en el seu valor estàndard ($u$):
 
@@ -576,6 +580,16 @@ Quan deixes la incertesa en el seu valor estàndard ($u$):
         \]
 \end{itemize}
 
+Podem intentar fer-ho tot sempre amb estàndards ($k=1$) és a dir amb un \textit{cobriment de 68,27\%} perque així el resultat és de la mateixa incertesa (estàndard) igual.
+
+Com que $u = s$, ens trobem que:
+
+\[u = s = \sqrt{\frac{\sum_{i = 1}^{n}(q_i - \bar{q})^2}{n-1}}\]
+
+Podem calcular la \textbf{incertesa total}, com l'arrel quadrada de la suma de \textit{incertesa calculada} i \textit{incertesa del instrument}.
+
+\[u_t = \sqrt{u_c^2 + u_m^2}\]
+
 \subsubsection{Incertesa Combinada}
 
 Anomenem \textbf{incertesa combinada} $u_c$ a la combinació d'incerteses $u_c = \sum u_i$ de cada experiment;
@@ -583,11 +597,64 @@ Anomenem \textbf{incertesa combinada} $u_c$ a la combinació d'incerteses $u_c =
 La incertesa estàndard combinada $u_c(y)$ és l'arrel quadrada positiva de la variança combinada:
 
 \[
-  u_c(y) = \sqrt{\sum_{i=1}^{N} (\pdv{f}{x_i})^{2} u^2(x_i)
-  \;+\; 2\sum_{i=1}^{N-1}\sum_{j=i+1}^{N}
-  \pdv{f}{x_i}\,\pdv{f}{x_j}\,
-  u(x_i,x_j)}
+  u_c^2(y) = \sum_{i = 1}^{N} (\pdv{f}{x_1})^2u^2(x_i)
 \]
+
+\textcolor{red}{\textbf{Cal tenir en compte que totes les incertesses tinguin el mateix grau de cobriment per això és recomanable fer-ho amb estàndard.}}
+
+\begin{examplebox}{}
+
+\textbf{Enunciat.} Un carro parteix del repòs i recorre una distància $x$ en un temps $t$. L'acceleració es calcula com
+\[
+    a = \frac{2x}{t^{2}}.
+\]
+Es mesura l'espai una sola vegada: $\bar{x} = 2{,}3540\,\mathrm{m}$, amb una incertesa instrumental $u_{x,i} = 0{,}001\,\mathrm{m}$. El temps es mesura $N = 5$ vegades: $\bar{t} = 2{,}174\,\mathrm{s}$, amb una desviació estàndard de les mesures $\sigma_t = 0{,}015166\,\mathrm{s}$ i una incertesa instrumental $u_{t,i} = 0{,}01\,\mathrm{s}$. Calculeu $a$ amb la seva incertesa.
+
+\textbf{1. Incertesa total (estàndard) de cada magnitud.} Cada magnitud té una component d'origen instrumental i una d'origen estadístic, que se sumen quadràticament:
+\[
+    u = \sqrt{u_{i}^{2} + u_{e}^{2}}.
+\]
+Espai: només hi ha una mesura, per tant no hi ha component estadística ($u_{x,e} = 0\,\mathrm{m}$):
+\[
+    u_x = \sqrt{u_{x,i}^{2} + u_{x,e}^{2}} = \sqrt{(0{,}001\,\mathrm{m})^{2} + 0^{2}} = 0{,}001\,\mathrm{m}.
+\]
+Temps: la component estadística és la desviació estàndard de la mitjana,
+\[
+    u_{t,e} = \frac{\sigma_t}{\sqrt{N}} = \frac{0{,}015166\,\mathrm{s}}{\sqrt{5}} = 0{,}006782\,\mathrm{s},
+\]
+\[
+    u_t = \sqrt{u_{t,i}^{2} + u_{t,e}^{2}} = \sqrt{(0{,}01\,\mathrm{s})^{2} + (0{,}006782\,\mathrm{s})^{2}} = 0{,}01208\,\mathrm{s}.
+\]
+
+\textbf{2. Valor de la magnitud derivada.}
+\[
+    a = \frac{2\bar{x}}{\bar{t}^{2}} = \frac{2 \cdot 2{,}3540\,\mathrm{m}}{(2{,}174\,\mathrm{s})^{2}} = 0{,}99613\,\mathrm{m/s^{2}}.
+\]
+
+\textbf{3. Derivades parcials.} Derivem $a(x,t)$ respecte de cada variable, mantenint l'altra constant:
+\begin{align*}
+    \frac{\partial a}{\partial x} &= \frac{2}{t^{2}} = \frac{2}{(2{,}174\,\mathrm{s})^{2}} = 0{,}4232\,\mathrm{s^{-2}},\\[4pt]
+    \frac{\partial a}{\partial t} &= -\frac{4x}{t^{3}} = -\frac{4 \cdot 2{,}3540\,\mathrm{m}}{(2{,}174\,\mathrm{s})^{3}} = -0{,}9164\,\mathrm{m/s^{3}}.
+\end{align*}
+
+\textbf{4. Incertesa combinada.} Per a magnituds independents, la llei de propagació d'incerteses és
+\[
+    u_a^{2} = \left(\frac{\partial a}{\partial x}\right)^{2} u_x^{2} + \left(\frac{\partial a}{\partial t}\right)^{2} u_t^{2}.
+\]
+Substituint:
+\begin{align*}
+    u_a &= \sqrt{\left(\frac{2}{2{,}174^{2}}\right)^{2} 0{,}001^{2} + \left(\frac{4 \cdot 2{,}3540}{2{,}174^{3}}\right)^{2} 0{,}01208^{2}}\\[4pt]
+        &= \sqrt{1{,}79 \cdot 10^{-7} + 1{,}226 \cdot 10^{-4}}\,\mathrm{m/s^{2}} = 0{,}01108\,\mathrm{m/s^{2}}.
+\end{align*}
+
+\textbf{5. Resultat.} Expressem la incertesa amb dues xifres significatives i arrodonim el valor a la mateixa posició decimal:
+\begin{align*}
+    x &= (2{,}3540 \pm 0{,}0010)\,\mathrm{m},\\
+    t &= (2{,}174 \pm 0{,}012)\,\mathrm{s},\\
+    a &= (0{,}996 \pm 0{,}011)\,\mathrm{m/s^{2}}.
+\end{align*}
+
+\end{examplebox}
 
 \subsubsection{Incertesa Expandida}
 
@@ -596,7 +663,7 @@ A vegades no ens val que una incertesa sigui tan gran, és a dir que \textbf{la 
 \begin{center}
     \begin{tikzpicture}
 \begin{axis}[
-  width=11cm, height=6.5cm,
+  width=7cm, height=3.5cm,
   axis lines=left,
   xmin=-4, xmax=4, ymin=0, ymax=0.48,
   xtick={-1,0,1}, xticklabels={$-u$,$0$,$u$},
@@ -620,7 +687,7 @@ A vegades no ens val que una incertesa sigui tan gran, és a dir que \textbf{la 
 
 \begin{tikzpicture}
 \begin{axis}[
-  width=11cm, height=6.5cm,
+  width=7cm, height=3.5cm,
   axis lines=left,
   xmin=-4, xmax=4, ymin=0, ymax=0.48,
   xtick={-1.645,0,1.645}, xticklabels={$-U$,$0$,$U$},
@@ -696,4 +763,329 @@ Sempre arrodonim a qualsevol nivell (milèssima, centèssima, decena, \dots), \t
   \item \textbf{Prefixos SI:} sempre fan referència a potències de 10, per tant no s'han d'usar per a potències de 2 (telecomunicacions i electrònica), perquè poden causar errors. Per a aquestes existeixen prefixos propis: kibi (Ki), mebi (Mi), gibi (Gi), tebi (Ti), pebi (Pi) i exbi (Ei). Exemple: $1\,\mathrm{KiB} = 2^{10}\,\mathrm{B} = 1024\,\mathrm{B}$.
 \end{itemize}
 
+Hem de recordar que es pot escriure de la manera que volem però \textbf{sempre es posa amb 2 xifres significatives però el càlcul es fa amb totes.}
+
+\begin{enumerate}
+    \item \textbf{Incertesa indicada explícitament:}
+
+    \[
+    m_s = 100{,}02147\ \text{g},
+    \qquad
+    u_c(m_s) = 0{,}35\ \text{mg}
+    \]
+
+    S'indiquen per separat el valor mesurat i la seva incertesa, que pot estar expressada en una unitat diferent.
+
+    \item \textbf{Incertesa entre parèntesis referida a les últimes xifres:}
+
+    \[
+    m_s = 100{,}02147(35)\ \text{g}
+    \]
+
+    El nombre entre parèntesis representa la incertesa aplicada a les últimes xifres del valor mesurat. En aquest cas, $(35)$ indica una incertesa de $0{,}00035\ \text{g}$.
+
+    \item \textbf{Incertesa entre parèntesis en la mateixa unitat:}
+
+    \[
+    m_s = 100{,}02147(0{,}00035)\ \text{g}
+    \]
+
+    El nombre entre parèntesis indica directament el valor numèric de la incertesa, expressada en la mateixa unitat que la magnitud mesurada.
+
+    \item \textbf{Incertesa indicada amb el símbol $\pm$:}
+
+    \[
+    m_s = (100{,}02147 \pm 0{,}00035)\ \text{g}
+    \]
+
+    S'indica explícitament el valor mesurat i la seva incertesa mitjançant el símbol $\pm$. Aquest símbol representa la incertesa típica combinada i no un interval de confiança.
+\end{enumerate}
+
+\textcolor{red}{\textbf{Escrivim el resultat com de diverses maneres però la més fàcil és $(X \pm U)[Y]$ i si volem fer factors de conversió múltipliquem per un factor de 10.}}
+
+\section{Màxima versemblança, Mínims quadrats i Regressió Lineal}
+
+Quan mesurem una magnitud física $N$ cops no ens surt sempre el mateix valor, perquè cada mesura té un petit error aleatori. Tenim les dades $\{x_1, x_2, \dots, x_N\}$, però \textbf{no coneixem el valor real} $\mu$ de la magnitud. La pregunta és:
+
+\begin{center}
+\textit{Quin valor de $\mu$ fa que les dades que hem obtingut siguin les més probables?}
+\end{center}
+
+Això és el \textit{principi de màxima versemblança}: de tots els valors possibles de $\mu$, escollim el que fa més probable el que hem mesurat. Ens servirà per justificar (i no només ``creure'') que la millor estimació d'una magnitud és la mitjana, i és la base del \textit{mètode de mínims quadrats}, que s'usa per ajustar una recta (o qualsevol model) a unes dades experimentals.
+
+Si tenim un conjunt $\{x_1, x_2, \dots, x_N\}$ de mesures independents, la probabilitat que es donin tots els punts alhora (és a dir, d'haver obtingut exactament aquestes dades) és el producte de les probabilitats de cadascun: $P(x_1 \cap x_2 \cap \dots \cap x_N) = P(x_1) P(x_2)\dots P(x_N)$, que alhora es pot reescriure com $\prod_{i=1}^{N} P(x_i)$.
+
+Ara, l'error d'una mesura és la suma de moltes pertorbacions petites i independents, per tant (\textit{Teorema del Límit Central}) normalment surt una distribució gaussiana, on el més probable és el valor del mig.
+
+% Dibuix gaussiana
+
+La probabilitat que la mesura $x_i$ caigui en un interval petit $[x_i, x_i + \Delta x_i]$ és
+
+\[\Delta P_i = \frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{1}{2}\left(\frac{x_i - \mu}{\sigma}\right)^2}\Delta x_i\]
+
+On $\mu$ és el valor real (el que volem trobar) i $\sigma$ la dispersió de les mesures (la incertesa). Com que $x_i$ és una variable contínua, la probabilitat d'obtenir \textit{exactament} un valor és zero, per això parlem d'un interval. Si fem $\Delta x_i \to 0$ ens quedem amb la \textit{densitat de probabilitat};
+
+\[f(x_i) \equiv \dv{P_i}{x_i} = \frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{1}{2}\left(\frac{x_i - \mu}{\sigma}\right)^2}\]
+
+Per trobar la total (si recordem) hem de fer $\prod_{i=1}^{N} f(x_i)$ (els $\Delta x_i$ no depenen de $\mu$ i els podem deixar de banda). Aquest producte, vist com a funció de $\mu$ amb les dades ja fixades, és la \textit{versemblança}: $L(\mu) = \left(\frac{1}{\sigma\sqrt{2\pi}}\right)^N e^{-\frac{1}{2}\sum_{i=1}^{N} \left(\frac{x_i-\mu}{\sigma}\right)^2}$ (hem fet servir que $e^a e^b = e^{a+b}$).
+
+Volem el $\mu$ que fa $L(\mu)$ el més gran possible. Com que tot menys l'exponent és constant ($\sigma$ és la mateixa per a totes les mesures), hem de mirar només l'exponent: $e^{-A}$ és més gran com més petit és $A$, així que el màxim es dona quan $\sum_{i=1}^{N} \left(\frac{x_i-\mu}{\sigma}\right)^2$ és mínim, i com que $\sigma$ és constant, hem de trobar quan $\sum_{i =1}^{N} (x_i - \mu)^2$ és mínim. És a dir, \textbf{maximitzar la versemblança és el mateix que minimitzar la suma dels quadrats} de les diferències entre les dades i el valor $\mu$ que proposem: això és el mètode de mínims quadrats.
+
+\subsection{Mètode dels Mínims Quadrats}
+
+El mètode de mínims quadrats el que vol és que a partir d'una taula de valors poder aproximar una funció. En física, si tenim un experiment amb N punts ens podria servir per aproximar una funció que serveixi $\forall \R$.
+
+
+La nostra mesura ha de segui el \textbf{principi de màxima versemblança}.
+
+\begin{itemize}
+    \item No necessariament ha de passar per cap punt però la funció que volem és la que té menys àrea de quadrats que toquen el punt i la funció.
+\end{itemize}
+
+En un punt $x_i$ tenim una imatge $y_i$ però hi ha una $\Delta y$ entre $y_i$ i $f(x_i)$, aquesta distància al quadrat és una àrea;
+
+\begin{center}
+    \includegraphics[width = 0.5\textwidth]{Mètode de Mínims Quadrats.png}
+\end{center}
+\[\boxed{D^2 = \sum_{i=1}^{N}(y_i -f(x_i))^2}\]
+
+\textcolor{red}{\textbf{Tenim un problema, la funció pot ser qualsevol per això hem d'imposar una funció parametritzada!!!}}
+
+\begin{center}
+    \begin{tikzpicture}
+
+\begin{groupplot}[
+    group style={
+        group size=3 by 1,
+        horizontal sep=1.1cm
+    },
+    width=5.2cm,
+    height=4.5cm,
+    xmin=0.5, xmax=5.5,
+    ymin=0, ymax=8,
+    xtick={1,2,3,4,5},
+    ytick={0,2,4,6,8},
+    axis lines=left,
+    grid=major,
+    grid style={gray!15},
+    tick label style={font=\scriptsize},
+    label style={font=\small},
+    title style={font=\small},
+    xlabel={$x$},
+    ylabel={$y$}
+]
+
+% 1. AJUST LINEAL
+\nextgroupplot[title={Lineal}]
+\addplot[
+    only marks,
+    mark=*,
+    black,
+    mark size=1.8pt
+] coordinates {
+    (1,2) (2,3) (3,5) (4,4) (5,7)
+};
+
+\addplot[
+    blue,
+    thick,
+    domain=1:5,
+    samples=100
+] {1.1*x+0.9};
+
+
+% 2. AJUST EXPONENCIAL
+\nextgroupplot[title={Exponencial}]
+\addplot[
+    only marks,
+    mark=*,
+    black,
+    mark size=1.8pt
+] coordinates {
+    (1,2) (2,3) (3,5) (4,4) (5,7)
+};
+
+\addplot[
+    red,
+    thick,
+    domain=1:5,
+    samples=100
+] {1.76177*exp(0.266458*x)};
+
+
+% 3. AJUST SINUSOIDAL
+\nextgroupplot[title={Sinusoidal}]
+\addplot[
+    only marks,
+    mark=*,
+    black,
+    mark size=1.8pt
+] coordinates {
+    (1,2) (2,3) (3,5) (4,4) (5,7)
+};
+
+\addplot[
+    teal!70!black,
+    thick,
+    domain=1:5,
+    samples=200
+] {2.56387*sin(deg(0.5*x-1.72631))+4.64134};
+
+\end{groupplot}
+\end{tikzpicture}
+\end{center}
+
+\subsection{Regressió Lineal}
+
+Anomenem \textbf{regressió lineal} a quan prenem la funció com una \textit{funció lineal} $f(x) = A + Bx$.
+
+Si subsituïm i derivem respecte els paràmetres $A,B$ per obtenir un \textbf{sistema d'equacions}. Obtenim que els paràmetres són:
+
+\[
+\boxed{
+A=
+\frac{
+\left(\sum_{i=1}^{N}x_iy_i\right)
+\left(\sum_{i=1}^{N}x_i\right)
+-
+\left(\sum_{i=1}^{N}x_i^2\right)
+\left(\sum_{i=1}^{N}y_i\right)
+}{
+\left(\sum_{i=1}^{N}x_i\right)^2
+-
+N\sum_{i=1}^{N}x_i^2
+}
+}
+\]
+
+\[
+\boxed{
+B=
+\frac{
+\left(\sum_{i=1}^{N}x_i\right)
+\left(\sum_{i=1}^{N}y_i\right)
+-
+N\sum_{i=1}^{N}x_iy_i
+}{
+\left(\sum_{i=1}^{N}x_i\right)^2
+-
+N\sum_{i=1}^{N}x_i^2
+}
+}
+\]
+
+\begin{proof}
+    
+\begin{align}
+D^2 &= \sum_{i=1}^{N}\left(y_i-(A+Bx_i)\right)^2
+\\[8pt]
+%
+\pdv{D^2}{B} &= 0
+\\[5pt]
+-2\sum_{i=1}^{N}x_i\left(y_i-A-Bx_i\right) &= 0
+\\[5pt]
+\sum_{i=1}^{N}x_iy_i
+-A\sum_{i=1}^{N}x_i
+-B\sum_{i=1}^{N}x_i^2 &= 0
+\\[5pt]
+A\sum_{i=1}^{N}x_i+B\sum_{i=1}^{N}x_i^2
+&= \sum_{i=1}^{N}x_iy_i
+\\[12pt]
+%
+\pdv{D^2}{A} &= 0
+\\[5pt]
+-2\sum_{i=1}^{N}\left(y_i-A-Bx_i\right) &= 0
+\\[5pt]
+\sum_{i=1}^{N}y_i-NA-B\sum_{i=1}^{N}x_i &= 0
+\\[5pt]
+NA+B\sum_{i=1}^{N}x_i
+&= \sum_{i=1}^{N}y_i
+\end{align}
+
+\[
+\begin{cases}
+A\displaystyle\sum_{i=1}^{N}x_i
++B\displaystyle\sum_{i=1}^{N}x_i^2
+=\displaystyle\sum_{i=1}^{N}x_iy_i
+\\[10pt]
+NA+B\displaystyle\sum_{i=1}^{N}x_i
+=\displaystyle\sum_{i=1}^{N}y_i
+\end{cases}
+\]
+
+\[
+\Delta =
+\begin{vmatrix}
+\sum x_i & \sum x_i^2\\
+N & \sum x_i
+\end{vmatrix}
+=
+\left(\sum x_i\right)^2-N\sum x_i^2
+\]
+
+\[
+\Delta_A =
+\begin{vmatrix}
+\sum x_iy_i & \sum x_i^2\\
+\sum y_i & \sum x_i
+\end{vmatrix}
+=
+\left(\sum x_iy_i\right)\left(\sum x_i\right)
+-\left(\sum x_i^2\right)\left(\sum y_i\right)
+\]
+
+\[
+\Delta_B =
+\begin{vmatrix}
+\sum x_i & \sum x_iy_i\\
+N & \sum y_i
+\end{vmatrix}
+=
+\left(\sum x_i\right)\left(\sum y_i\right)
+-N\sum x_iy_i
+\]
+
+\[
+\boxed{
+A=\frac{\Delta_A}{\Delta}
+\qquad
+B=\frac{\Delta_B}{\Delta}
+}
+\]
+\end{proof}
+\newpage
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{c|c|c}
+\hline
+\textbf{Potència de 10} & \textbf{Prefix} & \textbf{Símbol}\\
+\hline
+$10^{-30}$ & quecto & q\\
+$10^{-27}$ & ronto & r\\
+$10^{-24}$ & yocto & y\\
+$10^{-21}$ & zepto & z\\
+$10^{-18}$ & atto & a\\
+$10^{-15}$ & femto & f\\
+$10^{-12}$ & pico & p\\
+$10^{-9}$ & nano & n\\
+$10^{-6}$ & micro & $\mu$\\
+$10^{-3}$ & mili & m\\
+$10^{-2}$ & centi & c\\
+$10^{-1}$ & deci & d\\
+$10^0$ & -- & --\\
+$10^1$ & deca & da\\
+$10^2$ & hecto & h\\
+$10^3$ & kilo & k\\
+$10^6$ & mega & M\\
+$10^9$ & giga & G\\
+$10^{12}$ & tera & T\\
+$10^{15}$ & peta & P\\
+$10^{18}$ & exa & E\\
+$10^{21}$ & zetta & Z\\
+$10^{24}$ & yotta & Y\\
+$10^{27}$ & ronna & R\\
+$10^{30}$ & quetta & Q\\
+\hline
+\end{tabular}
+\end{center}
 \end{document}

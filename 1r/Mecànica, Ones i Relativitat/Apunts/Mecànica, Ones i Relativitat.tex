@@ -1935,41 +1935,33 @@ Quan un emissor es mou a una velocitat $\vec{v_F} = 0 / k$, un receptor que es m
 \begin{center}
 \begin{tikzpicture}[>=stealth]
 
-  % Paràmetres (cm)
-  \def\vsrc{0.3}     % velocitat de la font
-  \def\cwave{0.75}   % velocitat de l'ona
-  \def\ylam{0.5}     % alçada a la qual es dibuixen λ' i λ''
-  \def\xR{2.5}       % posició del receptor
+  \def\vsrc{0.3}    
+  \def\cwave{0.75}  
+  \def\ylam{0.5}    
+  \def\xR{2.5}       
 
-  % Punts dels fronts a y = -\ylam (per posar les cotes just sobre els fronts)
   \pgfmathsetmacro{\xfA}{-3*\vsrc+sqrt((3*\cwave)^2-\ylam^2)}
   \pgfmathsetmacro{\xfB}{-4*\vsrc+sqrt((4*\cwave)^2-\ylam^2)}
   \pgfmathsetmacro{\xbA}{-1*\vsrc-sqrt((1*\cwave)^2-\ylam^2)}
   \pgfmathsetmacro{\xbB}{-2*\vsrc-sqrt((2*\cwave)^2-\ylam^2)}
 
-  % Trajectòria
   \draw[cK, line width=0.5pt] (-4.4,0) -- (3.3,0);
-% Fronts d'ona (el front n es va emetre fa n períodes)
   \foreach \n in {1,...,4}{
     \pgfmathsetmacro{\opw}{1-0.12*(\n-1)}
     \draw[curve, cB, opacity=\opw] ({-\n*\vsrc},0) circle ({\n*\cwave});
 }
 
-  % Posicions on es van emetre els fronts
   \foreach \n in {1,...,4}{
     \draw[cK, fill=white, line width=0.4pt] ({-\n*\vsrc},0) circle (1.5pt);
 }
 
-  % Longituds d'ona: davant (λ') i darrere (λ'')
   \draw[<->, cK, line width=0.5pt] (\xfA,-\ylam) -- (\xfB,-\ylam);
 \node[black, below, inner sep=1pt] at ({(\xfA+\xfB)/2},-\ylam) {$\lambda'$};
 \draw[<->, cK, line width=0.5pt] (\xbB,-\ylam) -- (\xbA,-\ylam);
 \node[black, below, inner sep=1pt] at ({(\xbA+\xbB)/2},-\ylam) {$\lambda''$};
-% Velocitat de la font
   \draw[->, curve, cR] (-0.9,0.22) -- (-0.15,0.22)
       node[black, above, pos=0.5, inner sep=2pt] {$\vec{v}_F$};
 
-% Font i receptor
   \fill[cR] (0,0) circle (2pt);
 \node[black, below] at (0,-0.05) {$F$};
 \fill[cG] (\xR,0) circle (2pt);
@@ -1985,31 +1977,98 @@ Per calcular com es mou, i els diferents paràmetres $T, \lambda$, podem disting
 
 El front emet polsos amb periode $T$, a $t = 0$ la font emet un pols que tarda $t_1 = \frac{d}{c}$, el segon temps (respecte el primer) es dona en $t_2 = T + \frac{d - T\vec{v_F}}{c}$.
 
-Per tant $T_R = t_2 - t_1 = T \frac{c \pm \vec{v_F}}{c}$.
+Per tant $T_R = t_2 - t_1 = T \frac{c \pm {v_F}}{c}$.
 
 \[
 \boxed{
 T_R =
 \begin{cases}
-T\dfrac{c-\vec{v_F}}{c}, & \text{si la font s'apropa al receptor}\\[8pt]
-T\dfrac{c+\vec{v_F}}{c}, & \text{si la font s'allunya del receptor}
+T\dfrac{c-{v_F}}{c}, & \text{si la font s'apropa al receptor}\\[8pt]
+T\dfrac{c+{v_F}}{c}, & \text{si la font s'allunya del receptor}
 \end{cases}
 }
 \]
 
 \noindent\boxed{\lambda}
 
-\subsubsection{Receptor Movent-se}
+Si multipliquem ambdòs cantons per $c$ obtenim que;
 
-\noindent\boxed{T}
+\[\lambda_R =
+\begin{cases}
+\lambda\dfrac{c-{v_F}}{c}, & \text{si la font s'apropa al receptor}\\[8pt]
+\lambda\dfrac{c+{v_F}}{c}, & \text{si la font s'allunya del receptor}
+\end{cases}
+\]
 
-\noindent\boxed{\lambda}
+\subsubsection{Doppler general}
+
+Per poder descriure en una equació el Doppler general, descrivim que \textbf{la font i el receptor es mouen} a velocitats diferents $u_F, u_R$ i, per fer-ho més fàcil, definim \textit{un nou sistema de referència} on $\dot{R}(t)= u_R$, és a dir, que es mogui en sincronia amb l'altre i, si fem les transformacions de Galileu:
+
+\[\begin{cases}
+  u_R' = u_R - u_R = 0\\
+  u_F' = u_F - u_R\\
+  c' = c - u_R
+\end{cases}\]
+
+Però si ens fixem, aquestes noves magnituds primes poden definir un nou Doppler com hem definit abans:
+
+\[
+T_R =
+\begin{cases}
+T\dfrac{c'-u_F'}{c'}, \\[8pt]
+T\dfrac{c'+u_F'}{c'},
+\end{cases}
+\]
+
+\[\lambda_R =
+\begin{cases}
+\lambda\dfrac{c'-u_F'}{c'}, \\[8pt]
+\lambda\dfrac{c'+u_F'}{c'},
+\end{cases}
+\]
+
+Ara bé, si substituïm el que acabem de trobar de les transformacions de Galileu en aquest nostre Doppler, obtenim que:
+
+\noindent$\boxed{T}$
+
+\[
+T_R =
+\begin{cases}
+T\dfrac{c-u_F}{c-u_R},& \text{si la font s'apropa al receptor}\\[8pt]
+T\dfrac{c+u_F}{c-u_R},& \text{si la font s'allunya del receptor}
+\end{cases}
+\]
+
+\noindent$\boxed{\lambda}$
+
+\[\lambda_R =
+\begin{cases}
+\lambda\dfrac{c-u_F}{c-u_R}, & \text{si la font s'apropa al receptor}\\[8pt]
+\lambda\dfrac{c+u_F}{c-u_R},& \text{si la font s'allunya del receptor}
+\end{cases}
+\]
+
+Si tenim un effecte doppler amb desviat amb un angle $\varphi$ la velocitat del receptor sobre l'emissor frem la projecció per tant $u_r' = u_r\cos(\varphi)$
+
+\subsection{Ones de Xoc}
+
+Si en un medi (diferent al buit) es dona que \textbf{la velocitat de la ona és més ràpida que la de la llum en aquell medi}, la ona té la forma,
+
+\begin{center}
+   \includegraphics[width = 0.45 \textwidth]{Ones de Xoc.png}%
+\end{center}
+
+I diem que és una ona de xoc on podem calcular la relació Amplitud-Distància amb el angle que forma.
+
+\[\sin(\theta) = \frac{c}{u}\]
+
+Si girem la relació, és a dir $\frac{u}{c}$ l'anomenem \textbf{número de Mach}.
 
 \section{Relativitat}
 \subsection{Cinemàtica}
 \subsubsection{Transformades de Lorentz}
 \subsection{Dinàmica}
-\subsection{Doppler}
+\subsection{Doppler Relativista}
 \subsection{Relativitat General}
 
 \end{document}
