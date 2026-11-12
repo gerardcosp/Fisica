@@ -57,6 +57,7 @@
 % -------------------------------------------------
 
 \usepackage{graphicx}
+\usepackage{wrapfig}
 \usepackage{tikz}
 \usepackage{pgfplots}
 
@@ -582,7 +583,6 @@ Per construir bé l'estructura de Lewis, volem el mínim re repartició de càrr
     every node/.style={inner sep=1pt, font=\large},
     bond/.style={shorten >=5pt, shorten <=5pt, line width=0.8pt}
 ]
-  % Àtoms
   \node (P)  at (0,0)     {P};
   \node (O1) at (0,2)     {O};
   \node (O2) at (-2,0)    {O};
@@ -592,11 +592,9 @@ Per construir bé l'estructura de Lewis, volem el mínim re repartició de càrr
   \node (H3) at (3.5,0)   {H};
   \node (H4) at (0,-3.5)  {H};
  
-  % Doble enllaç P=O
   \draw[bond] ([xshift=-1.6pt]P.center) -- ([xshift=-1.6pt]O1.center);
   \draw[bond] ([xshift= 1.6pt]P.center) -- ([xshift= 1.6pt]O1.center);
  
-  % Enllaços simples P--O i O--H
   \draw[bond] (P)  -- (O2);
   \draw[bond] (P)  -- (O3);
   \draw[bond] (P)  -- (O4);
@@ -604,7 +602,6 @@ Per construir bé l'estructura de Lewis, volem el mínim re repartició de càrr
   \draw[bond] (O3) -- (H3);
   \draw[bond] (O4) -- (H4);
  
-  % Parells d'electrons solitaris
   \lonepair{O1}{150}\lonepair{O1}{30}
   \lonepair{O2}{90} \lonepair{O2}{270}
   \lonepair{O3}{90} \lonepair{O3}{270}
@@ -825,5 +822,700 @@ Es dona un recobriment pi quan \textbf{dos orbitals p} paral·lels es toquen lat
     \includegraphics[width = 0.5\textwidth]{Recobriment Pi.png}
 \end{center}
 De fet quan tenim un ordre d'enllaç de 2 o 3 és perque tenim un \textbf{enllaç sigma} i \textbf{un o dos enllaços pi}.
+
+\section{Teoria d'orbitals Moleculars}
+
+Aquesta teoria d'orbitals, al contrari que la d'electrons de valència (en la que tactavem àtom per àtom), tracta la molecula com un tot, \textbf{tots els electrons ocupen orbitals moleculars}. Cada orbital atómic és una funció d'ona de \textit{la suma o resta} de tots els orbitals de la molècula amb \textbf{una certa energia $\Delta E$ i on hi caben dos electrons $\boxed{\uparrow\downarrow}$}.
+
+Els orbitas moleculars s'obtenen com a \textit{combinació lineal d'orbitals atòmics (CLOA)}. Per a dues molècules A i B:
+
+\[\psi(OM) = c_1\phi_A \pm c_2\phi_B\]
+
+Combinar n OA dona n OM, és a dir combinar 1 s i 1 s, dona 2 orbials, però podem distingir fàcilment entre dos tipus;
+
+\begin{wrapfigure}{r}{0.4\textwidth}
+    \includegraphics[width=\linewidth]{Teoria d'orbitals Moleculars.jpg}
+\end{wrapfigure}
+
+\leavevmode
+\begin{itemize}
+    \item \textbf{OM enllaçant (suma):}
+    Hi ha interferències \textit{constructives} i la densitat
+    s'acumula entre els nuclis. Té menys energia que els OA
+    de partida i, per tant, és més estable.
+
+    \item \textbf{OM antienllaçant (resta):}
+    Hi ha interferències \textit{destructives} i apareix un
+    pla nodal entre els nuclis. Té més energia i es marca
+    amb un asterisc (*).
+\end{itemize}
+
+\textcolor{red}{\textbf{Tractem el col·locament dels electrons com si fos un àtom seguint la regla de Hund (s'omplen els buits primer) i el principi d'Aufbau}}
+
+\begin{examplebox}{}
+    Si tenim una molècula $H_2$ cada hidrogen té $1s$ amb $2 e^-$ totals:
+
+    \[1 s_A + 1s_B \rightarrow \sigma_{1s} \]
+    \[1 s_A - 1s_B \rightarrow \sigma^*_{1s} \]
+
+    \begin{center}
+        \includegraphics[width = 0.5\textwidth]{Dibuix Orbitals atòmics.jpeg}
+    \end{center}
+
+    Com que cada hidrogen aporta un electró, tenim dos electrons en total. Aquests electrons ocupen primer l'orbital de menor energia, seguint el principi d'Aufbau. Per tant la \textit{configuració molecular és}: $(\sigma_{1s})^2: \boxed{\uparrow\downarrow}$. Podem interpretar que els dos electrons es troben en un orbital nou creat en tota la molecula.
+\end{examplebox}
+
+\noindent \textbf{Condicions perquè dos orbitals atòmics es puguin combinar}:
+
+\begin{enumerate}
+    \item Energies Semblants: Els orbitals atòmics han de tenir energies relativament properes (el que té més pes en un orbital molecular és aquell que té una energia més similar (en el enllaçant el que menys i en el anti enllaçant el que més)).
+    \item Solapament Suficient: Els orbitals han de tenir una superposició per poder fer la combinació lineal.
+    \item Simetria Compatible: Els orbitals han de tenir la mateixa simetria en l'eix d'origen (especialment important).
+\end{enumerate}
+
+\subsection{Simetria dels Orbitals Moleculars \texorpdfstring{$\sigma$ i $\pi$}{sigma i pi}}
+
+Podem classificar els orbitals de 2 maneres obtenint 4 combinacions. Poden ser $\sigma$ o $\pi$
+
+\noindent \textbf{Orbitals $\sigma$}
+
+Es formen mitjançant la superposició frontals dels orbitals atòmics, és a dir els orbitals s'aproximen l'un al altre en l'eix paral·lel al nucli.
+
+\begin{center}
+     \includegraphics[width = 0.5\textwidth]{Enllaç Sigma.jpeg}
+\end{center}
+
+\[s-s\]
+\[s-p_z\]
+\[p_z-p_z\]
+
+I d'aquí podem distingir dos tipus, els enllaçants $\sigma$ i els antienllaçants $\sigma^*$
+
+\noindent \textbf{Orbitals $\pi$}
+
+Es formen mitjançant la superposició lateral dels orbitals atòmics, els p es situen en paral·lels entre ells i només es pot donar en;
+
+\[p_x - p_x\]
+\[p_y-p_y\]
+
+I alhora que el sigma es poden donar, els enllaçants $\pi$ i els antienllaçants $\pi^*$
+
+Aquesta teoria ens ajuda molt a definir l'ordre d'enllaç, \textit{"L'ordre d'enllaç és una magnitud que ens indica el grau d'estabilització de l'enllaç entre dos àtoms."} i es calcula com;
+
+\[\boxed{OE = \frac{\#e^-_{\text{enllaçants}} \cdot \# e^-_{\text{antienllaçants}}}{2}}\]
+
+Podem interpretar els resultats com:
+
+\[O.E = 0\rightarrow \text{No hi ha estabilitat en l'enllaç}\]
+\[O.E > 0 \rightarrow \text{La formació del enllaç és favorable}\]
+\[O.E >> 0\rightarrow \text{Enllaç molt fort}\]
+
+\subsection{Magnetisme de les Molècules}
+
+La TOM també ens permet explicar el comportament magnètic de les mol·lècules;
+
+\begin{itemize}
+    \item Diamagnetisme: Una molècula es diamagnètica quan tots els seus electrons estan aparellats.
+    \item Paramagnetisme: Una molècula és paramagnètica quan té un o més electrons desaparellats.
+\end{itemize}
+
+\subsection{Casos dels Orbitals Moleculars}
+
+\noindent\boxed{\text{Molècules Diatòmiques Homonuclears del 1r Període}}
+
+Les molècules homonuclears són aquelles que estan formades per dos
+àtoms del mateix element.
+
+En el primer període de la taula periòdica només tenim els elements
+hidrogen i heli. Per tant, els seus orbitals de valència són els
+orbitals \(1s\).
+
+Quan combinem dos orbitals \(1s\), obtenim dos orbitals moleculars:
+
+\[
+\sigma_{1s}<\sigma^*_{1s}
+\]
+
+L'orbital enllaçant té menys energia que l'antienllaçant.
+
+\subsubsection*{Casos particulars}
+
+\paragraph{Hidrogen molecular positiu: \(H_2^+\)}
+
+L'ió \(H_2^+\) té un únic electró, que ocupa l'orbital enllaçant:
+
+\[
+(\sigma_{1s})^1
+\]
+
+El seu ordre d'enllaç és:
+
+\[
+OE=\frac{1-0}{2}=\boxed{0,5}
+\]
+
+Per tant, existeix un enllaç, encara que és més feble que el de l'\(H_2\).
+
+\paragraph{Hidrogen molecular: \(H_2\)}
+
+Té dos electrons, que ocupen l'orbital enllaçant:
+
+\[
+(\sigma_{1s})^2
+\]
+
+\[
+OE=\frac{2-0}{2}=\boxed{1}
+\]
+
+Es forma un enllaç estable d'ordre 1.
+
+\paragraph{Heli molecular positiu: \(He_2^+\)}
+
+Té tres electrons. Dos ocupen l'orbital enllaçant i un ocupa
+l'antienllaçant:
+
+\[
+(\sigma_{1s})^2(\sigma^*_{1s})^1
+\]
+
+\[
+OE=\frac{2-1}{2}=\boxed{0,5}
+\]
+
+Per tant, encara existeix un enllaç net.
+
+\paragraph{Heli molecular: \(He_2\)}
+
+Té quatre electrons:
+
+\[
+(\sigma_{1s})^2(\sigma^*_{1s})^2
+\]
+
+\[
+OE=\frac{2-2}{2}=\boxed{0}
+\]
+
+Els efectes estabilitzadors i desestabilitzadors es compensen.
+Per això no es considera una molècula estable en condicions ordinàries.
+
+
+\bigskip
+\noindent\boxed{\text{Molècules Diatòmiques Homonuclears del 2n Període}}
+
+Quan arribem al segon període, la situació es complica una mica
+perquè els àtoms disposen d'orbitals de valència \(2s\) i \(2p\).
+
+Això significa que, en combinar dos àtoms, no només es formen
+orbitals moleculars a partir dels orbitals \(2s\), sinó també
+a partir dels orbitals \(2p\).
+
+\subsubsection*{Combinació dels orbitals \(2p\)}
+
+Recordem que hi ha tres orbitals \(2p\):
+
+\[
+2p_x,\qquad 2p_y,\qquad 2p_z
+\]
+
+Si situem els dos nuclis sobre l'eix \(z\), obtenim dues maneres
+diferents de combinar-los.
+
+\paragraph{Combinació frontal}
+
+Els orbitals \(2p_z\) se superposen frontalment i formen:
+
+\[
+\sigma_{2p_z},\qquad \sigma^*_{2p_z}
+\]
+
+\paragraph{Combinació lateral}
+
+Els orbitals \(2p_x\) i \(2p_y\) se superposen lateralment
+i formen:
+
+\[
+\pi_{2p_x},\quad \pi_{2p_y}
+\]
+
+\[
+\pi^*_{2p_x},\quad \pi^*_{2p_y}
+\]
+
+Això ens dona un total de sis orbitals moleculars procedents
+dels sis orbitals atòmics \(2p\) (tres per cada àtom).
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{combinacio_orbitals_2p.png}
+\end{figure}
+
+
+\subsubsection*{Ordre energètic dels orbitals moleculars}
+
+Aquí hi ha un dels punts més importants del tema:
+l'ordre energètic dels orbitals moleculars no és sempre el mateix.
+
+Depèn de l'element químic i de la interacció entre els orbitals
+\(2s\) i \(2p\).
+
+Tenim dos casos.
+
+\paragraph{Cas 1. Elements des del liti fins al nitrogen (\(Z\leq 7\))}
+
+Per a \(Li_2\), \(Be_2\), \(B_2\), \(C_2\) i \(N_2\),
+l'ordre energètic de valència és:
+
+\[
+\boxed{
+\begin{aligned}
+\sigma_{2s}
+&< \sigma^*_{2s}\\
+&< \pi_{2p_x}=\pi_{2p_y}\\
+&< \sigma_{2p_z}\\
+&< \pi^*_{2p_x}=\pi^*_{2p_y}\\
+&< \sigma^*_{2p_z}
+\end{aligned}
+}
+\]
+
+Observa que els orbitals \(\pi_{2p}\) tenen menys energia que el \(\sigma_{2p}\).
+
+Això passa perquè es produeix un fenomen anomenat \textbf{barreja s-p}.
+
+Els orbitals moleculars formats a partir dels orbitals \(2s\) i \(2p_z\) tenen una simetria compatible, ja que tots dos són de tipus sigma. Per això poden interaccionar i modificar les seves energies.
+
+Aquesta interacció fa que els orbitals \(\sigma_{2s}\) i \(\sigma_{2p_z}\) es repel·leixin energèticament: el primer baixa d'energia i el segon puja.
+
+Com a conseqüència, els orbitals \(\pi_{2p}\) queden per sota del \(\sigma_{2p_z}\).
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.65\textwidth]
+    {diagrama_energia_Li_N.png}
+\end{figure}
+
+
+\paragraph{Cas 2. Elements des de l'oxigen fins al neó (\(Z\geq 8\))}
+
+Per a \(O_2\), \(F_2\) i \(Ne_2\), l'ordre energètic és diferent:
+
+\[
+\boxed{
+\begin{aligned}
+\sigma_{2s}
+&< \sigma^*_{2s}\\
+&< \sigma_{2p_z}\\
+&< \pi_{2p_x}=\pi_{2p_y}\\
+&< \pi^*_{2p_x}=\pi^*_{2p_y}\\
+&< \sigma^*_{2p_z}
+\end{aligned}
+}
+\]
+
+En aquest cas, la barreja entre els orbitals \(2s\) i \(2p_z\)
+és molt menys important.
+
+Per això els orbitals recuperen l'ordre que podríem esperar
+segons la interacció frontal i lateral: el \(\sigma_{2p_z}\)
+queda per sota dels \(\pi_{2p}\).
+
+\subsubsection*{Cas particular: \(N_2\)}
+
+El nitrogen té cinc electrons de valència. Per tant, dos àtoms
+de nitrogen aporten deu electrons.
+
+Com que \(N_2\) pertany al grup d'elements amb barreja s-p,
+hem d'utilitzar el primer ordre energètic.
+
+La configuració electrònica és:
+
+\[
+\begin{aligned}
+&(\sigma_{2s})^2
+(\sigma^*_{2s})^2\\
+&(\pi_{2p_x})^2
+(\pi_{2p_y})^2
+(\sigma_{2p_z})^2
+\end{aligned}
+\]
+
+Comptem els electrons:
+
+\[
+\begin{aligned}
+\text{Enllaçants: }&2+4+2=8\\
+\text{Antienllaçants: }&2
+\end{aligned}
+\]
+
+Per tant:
+
+\[
+OE=\frac{8-2}{2}=\boxed{3}
+\]
+
+El nitrogen molecular presenta un enllaç d'ordre 3,
+és a dir, un enllaç triple.
+
+A més, tots els electrons estan aparellats, de manera que
+\(N_2\) és diamagnètica.
+
+
+\subsubsection*{Cas particular: \(O_2\)}
+
+L'oxigen té sis electrons de valència. Per tant, dos àtoms
+d'oxigen aporten dotze electrons.
+
+Com que l'oxigen pertany al grup amb \(Z\geq 8\),
+utilitzem el segon ordre energètic.
+
+La configuració és:
+
+\[
+\begin{aligned}
+&(\sigma_{2s})^2(\sigma^*_{2s})^2\\
+&(\sigma_{2p_z})^2\\
+&(\pi_{2p_x})^2(\pi_{2p_y})^2\\
+&(\pi^*_{2p_x})^1(\pi^*_{2p_y})^1
+\end{aligned}
+\]
+
+Els dos últims electrons es col·loquen en els dos orbitals
+\(\pi^*\) degenerats, un a cada orbital, seguint la regla
+de Hund.
+
+Això és molt important perquè significa que l'\(O_2\)
+té dos electrons desaparellats.
+
+Comptem els electrons:
+
+\[
+\begin{aligned}
+\text{Enllaçants: }&2+2+4=8\\
+\text{Antienllaçants: }&2+2=4
+\end{aligned}
+\]
+
+\[
+OE=\frac{8-4}{2}=\boxed{2}
+\]
+
+Per tant, l'oxigen molecular presenta un enllaç d'ordre 2.
+
+Però el resultat més interessant és que l'\(O_2\)
+és paramagnètic, perquè té dos electrons desaparellats
+als orbitals antienllaçants \(\pi^*\).
+
+Aquesta és una de les grans aportacions de la TOM:
+explica el paramagnetisme de l'oxigen molecular, una propietat
+que la teoria d'enllaç de valència no explica adequadament
+amb la seva descripció més senzilla de l'enllaç.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.55\textwidth]{diagrama_O2.png}
+\end{figure}
+
+
+\subsubsection*{Ions moleculars de l'oxigen}
+
+Quan una molècula guanya o perd electrons, hem de modificar
+la configuració electrònica i tornar a calcular l'ordre d'enllaç.
+
+Per exemple:
+
+\begin{itemize}
+    \item \(O_2^+\): perd un electró d'un orbital antienllaçant.
+    \item \(O_2^-\): guanya un electró en un orbital antienllaçant.
+    \item \(O_2^{2-}\): guanya dos electrons en orbitals antienllaçants.
+\end{itemize}
+
+Això dona:
+
+\begin{center}
+\begin{tabular}{c|c}
+\textbf{Espècie} & \textbf{Ordre d'enllaç}\\
+\hline
+\(O_2^+\) & 2,5\\
+\(O_2\) & 2\\
+\(O_2^-\) & 1,5\\
+\(O_2^{2-}\) & 1
+\end{tabular}
+\end{center}
+
+Observa que quan traiem electrons antienllaçants,
+l'ordre d'enllaç augmenta. En canvi, quan n'afegim,
+disminueix.
+
+Per tant, en general:
+
+\begin{itemize}
+    \item Més electrons enllaçants \(\longrightarrow\)
+    més estabilització.
+    \item Més electrons antienllaçants \(\longrightarrow\)
+    menys estabilització.
+\end{itemize}
+
+
+\bigskip
+\noindent\boxed{\text{Molècules Diatòmiques Heteronuclears}}
+
+Fins ara hem estudiat molècules formades per dos àtoms iguals,
+com \(H_2\), \(N_2\) o \(O_2\). Ara estudiarem molècules
+formades per dos àtoms diferents.
+
+Aquestes molècules s'anomenen heteronuclears.
+
+Alguns exemples són:
+
+\[
+LiH,\qquad HF,\qquad CO
+\]
+
+La diferència fonamental respecte de les homonuclears és que
+els dos àtoms no tenen la mateixa electronegativitat i,
+per tant, els seus orbitals atòmics no tenen necessàriament
+la mateixa energia.
+
+
+\subsubsection*{Diferència d'energia entre els orbitals atòmics}
+
+Recordem que l'electronegativitat és la capacitat d'un àtom
+per atreure els electrons d'un enllaç químic.
+
+Un àtom més electronegatiu tendeix a retenir els electrons
+amb més força. Per això, els seus orbitals atòmics tenen
+generalment una energia més baixa.
+
+Per tant:
+
+\[
+\boxed{
+\text{Més electronegativitat}
+\longrightarrow
+\text{Menys energia dels OA}
+}
+\]
+
+Això té conseqüències en la formació dels orbitals moleculars.
+
+Quan combinem dos orbitals atòmics de diferent energia,
+els orbitals moleculars resultants no són simètrics respecte
+dels dos àtoms.
+
+L'orbital enllaçant té més contribució de l'orbital atòmic
+de menor energia, és a dir, del més electronegatiu.
+
+En canvi, l'orbital antienllaçant té més contribució
+de l'orbital atòmic de major energia, és a dir,
+del menys electronegatiu.
+
+Això significa que els electrons de l'orbital enllaçant
+tenen més probabilitat de trobar-se a prop de l'àtom
+més electronegatiu.
+
+Per tant, l'enllaç pot presentar una distribució electrònica
+desigual i tenir caràcter polar.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.65\textwidth]{diagrama_heteronuclear.png}
+\end{figure}
+
+
+\subsubsection*{Exemple: \(LiH\)}
+
+El liti té un orbital de valència \(2s\), mentre que
+l'hidrogen té un orbital \(1s\).
+
+Quan es combinen, obtenim:
+
+\[
+\sigma=a_1Li(2s)+b_1H(1s)
+\]
+
+\[
+\sigma^*=a_2Li(2s)-b_2H(1s)
+\]
+
+Segons les diapositives del professor:
+
+\begin{itemize}
+    \item En l'orbital enllaçant, \(b_1>a_1\).
+    \item En l'orbital antienllaçant, \(a_2>b_2\).
+\end{itemize}
+
+Per què?
+
+Perquè l'orbital \(1s\) de l'hidrogen té una energia inferior
+a l'orbital \(2s\) del liti.
+
+Per tant, l'orbital molecular enllaçant s'assembla més
+a l'orbital de l'hidrogen, mentre que l'antienllaçant
+s'assembla més al del liti.
+
+Aquest exemple ens serveix per entendre que, en les molècules
+heteronuclears, els orbitals moleculars no tenen necessàriament
+la mateixa contribució dels dos àtoms.
+
+
+\subsubsection*{Exemple: \(HF\)}
+
+El fluor té els orbitals de valència:
+
+\[
+2s,\quad 2p_x,\quad 2p_y,\quad 2p_z
+\]
+
+L'hidrogen té un orbital:
+
+\[
+1s
+\]
+
+Però no tots els orbitals del fluor es poden combinar
+amb l'orbital de l'hidrogen.
+
+Perquè es produeixi la combinació, els orbitals han de tenir
+una simetria compatible i energies prou semblants.
+
+Si situem l'hidrogen i el fluor sobre l'eix \(z\),
+l'orbital \(1s\) de l'hidrogen es pot combinar amb
+l'orbital \(2p_z\) del fluor.
+
+Aquesta combinació dona lloc a:
+
+\[
+\sigma \qquad \sigma^*
+\]
+
+En canvi, els orbitals \(2p_x\) i \(2p_y\) del fluor
+no tenen la simetria adequada per combinar-se amb
+l'orbital \(1s\) de l'hidrogen.
+
+Aquests orbitals romanen com a orbitals no enllaçants.
+
+L'orbital \(2s\) del fluor també queda essencialment
+no enllaçant en aquesta descripció elemental, perquè
+la seva energia és massa diferent de la de l'orbital
+\(1s\) de l'hidrogen.
+
+\textbf{Què has d'entendre d'aquest exemple?}
+
+No tots els orbitals atòmics d'una molècula han de combinar-se
+necessàriament. Els que no troben un altre orbital amb simetria
+i energia adequades poden quedar com a orbitals no enllaçants.
+
+
+\subsubsection*{Exemple: \(CO\) (monòxid de carboni)}
+
+El monòxid de carboni està format per carboni i oxigen.
+
+El carboni té quatre electrons de valència i l'oxigen
+en té sis:
+
+\[
+4+6=10\text{ electrons de valència}
+\]
+
+Això significa que el CO és isoelectrònic amb el \(N_2\),
+perquè tots dos tenen deu electrons de valència.
+
+Per tant, presenten configuracions electròniques moleculars
+semblants i tenen el mateix ordre d'enllaç:
+
+\[
+\boxed{OE(CO)=3}
+\]
+
+Això correspon a un enllaç d'ordre 3.
+
+El CO és diamagnètic perquè tots els electrons estan aparellats.
+
+
+\subsubsection*{HOMO i LUMO}
+
+A les diapositives també apareixen dos conceptes importants relacionats amb els orbitals moleculars:
+
+\begin{itemize}
+    \item \textbf{HOMO (Highest Occupied Molecular Orbital):}
+    és l'orbital molecular ocupat de més energia.
+
+    \item \textbf{LUMO (Lowest Unoccupied Molecular Orbital):}
+    és l'orbital molecular buit de menys energia.
+\end{itemize}
+
+Aquests dos orbitals són importants perquè intervenen especialment en les transicions electròniques i en la reactivitat química.
+
+\subsection{Electrons Deslocalitzats: Ozó i Benzè}
+
+Fins ara hem estudiat molecules amb dos àtoms, pero la TOM permet estudiar molècules amb més de 2 àtoms. Aquests orbitals moleculars ja són més grans i \textbf{expliquen la deslocalització dels electrons com per exemple del benzé} és a dir que no es pot saber 100\% a quin enllaç es troben.
+
+Això ens ajuda a explicar \textbf{les ressonàncies}.
+
+Si dibuixem el ozó: 
+\schemestart
+    \chemfig{
+        \charge{90=\:, 180=\:, 270=\:, 45[anchor=180]=$\scriptstyle-$}{O}
+        -[:31.6]
+        \charge{90=\:, 90[anchor=-90]=$\scriptstyle+$}{O}
+        =[:-31.6]
+        \charge{90=\:, 0=\:}{O}
+    }
+    \arrow{<->}
+    \chemfig{
+        \charge{90=\:, 180=\:}{O}
+        =[:31.6]
+        \charge{90=\:, 90[anchor=-90]=$\scriptstyle+$}{O}
+        -[:-31.6]
+        \charge{90=\:, 0=\:, 270=\:, 135[anchor=0]=$\scriptstyle-$}{O}
+    }
+\schemestop
+
+Si veniem, les dos formes són vàlides. Però com sabem quina és la correcte? Doncs les dos ho son perque no podem afirmar on es troba l'electró dins del orbital molecular. El mateix passa amb el benzè.
+
+\textcolor{red}{\textbf{Idea important: la deslocalització electrònica permet explicar per què els dos enllaços de l'ozó són equivalents, malgrat que les estructures de Lewis individuals semblin indicar que són diferents.}}
+
+\subsection{Aromaticitat}
+
+La \textbf{deslocalització} en estructures cícliques pot donar lloc a una estabilitat molt elevada. A aquest fenòmen se li diu \textbf{aromaticitat}. Per que una molècula sigui aromàtica ha de complir que:
+
+\begin{itemize}
+    \item \textit{Estructura Cíclica}
+    \item \textit{Geometria Plana}
+    \item \textit{Sistema Conjugat}, Ha d'existir una continuïtat d'enllaços p que permetin la descolalització d'electrons $\pi$ a tota la molècula és a dir que cada àtom ha de disposar d'un p mínim.
+    \item \textit{Regla de Hückel}, el nombre total d'electrons $\pi$ deslocalitzats han de seguir $\boxed{4n+2}, n\in \R^+$.
+\end{itemize}
+
+\begin{tcolorbox}[
+    colback=white,      
+    colframe=black,    
+    coltext=black,     
+    boxrule=1pt,        
+    arc=0pt            
+]
+    \textbf{Procediment General per estudiar una molècula diatòmica}
+
+    \begin{enumerate}
+        \item \textbf{Comptar els electrons de valència}
+
+        Suma els electrons de valència dels dos àtoms. Si és un ió, resta electrons si té càrrega positiva o afegeix-ne si té càrrega negativa.
+
+        \item \textbf{Determinar els orbitals moleculars}
+
+        Identifica quins orbitals atòmics es poden combinar segons la seva energia, simetria i solapament.
+
+        \item \textbf{Construir el diagrama energètic}
+
+        Col·loca els orbitals moleculars en ordre creixent d'energia. Recorda que l'ordre dels orbitals \(2p\) canvia segons si l'element és anterior o posterior a l'oxigen.
+
+        \item \textbf{Distribuir els electrons}
+
+        Aplica els principis d'Aufbau, Pauli i Hund.
+
+         \end{enumerate}
+\end{tcolorbox}
 
 \end{document}

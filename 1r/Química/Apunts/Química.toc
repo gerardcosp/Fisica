@@ -22,3 +22,17 @@
 \contentsline {subsubsection}{\numberline {3.6.1}Orbitals Hibridats}{18}{subsubsection.3.6.1}%
 \contentsline {subsubsection}{\numberline {3.6.2}Recobriment Sigma ($\sigma $)}{20}{subsubsection.3.6.2}%
 \contentsline {subsubsection}{\numberline {3.6.3}Recobriment Pi ($\pi $)}{20}{subsubsection.3.6.3}%
+\contentsline {section}{\numberline {4}Teoria d'orbitals Moleculars}{20}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Simetria dels Orbitals Moleculars $\sigma $ i $\pi $}{22}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Magnetisme de les Molècules}{23}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Casos dels Orbitals Moleculars}{23}{subsection.4.3}%
+\contentsline {paragraph}{Hidrogen molecular positiu: \(H_2^+\)}{24}{section*.2}%
+\contentsline {paragraph}{Hidrogen molecular: \(H_2\)}{24}{section*.3}%
+\contentsline {paragraph}{Heli molecular positiu: \(He_2^+\)}{24}{section*.4}%
+\contentsline {paragraph}{Heli molecular: \(He_2\)}{24}{section*.5}%
+\contentsline {paragraph}{Combinació frontal}{25}{section*.7}%
+\contentsline {paragraph}{Combinació lateral}{25}{section*.8}%
+\contentsline {paragraph}{Cas 1. Elements des del liti fins al nitrogen (\(Z\leq 7\))}{26}{section*.10}%
+\contentsline {paragraph}{Cas 2. Elements des de l'oxigen fins al neó (\(Z\geq 8\))}{27}{section*.11}%
+\contentsline {subsection}{\numberline {4.4}Electrons Deslocalitzats: Ozó i Benzè}{34}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Aromaticitat}{34}{subsection.4.5}%
