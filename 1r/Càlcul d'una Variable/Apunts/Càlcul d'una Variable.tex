@@ -59,6 +59,7 @@
 \usepackage{graphicx}
 \usepackage{tikz}
 \usetikzlibrary{patterns}
+\tikzset{aux/.style={gray,line width=0.5pt}, curve/.style={cB,line width=1.2pt}}
 \usepackage{pgfplots}
 
 \pgfplotsset{compat=1.18}
@@ -1460,28 +1461,136 @@ Sabem que una funció amb la seva inversa per definició $f(f^{-1}(x)) = x = f^{
 \[\boxed{(f^{-1})'(x) = \frac{1}{f'(f^{-1}(x))}}\]
 
 \begin{examplebox}{}
+    \[\tan(\arctan(x))=x\]
 
-\[
-\tan(\arctan(x))=x
-\]
+    \[\frac{1}{\cos^2(\arctan(x))}\cdot(\arctan(x))'=1\]
 
-\[
-\frac{1}{\cos^2(\arctan(x))}\cdot
-(\arctan(x))'=1
-\]
+    \[(\arctan(x))'=\cos^2(\arctan(x))\]
 
-\[
-(\arctan(x))'=\cos^2(\arctan(x))
-\]
+    \[=\frac{1}{1+\tan^2(\arctan(x))}\]
 
-\[
-=\frac{1}{1+\tan^2(\arctan(x))}
-\]
-
-\[
-\boxed{(\arctan(x))'=\frac{1}{1+x^2}}
-\]
+    \[\boxed{(\arctan(x))'=\frac{1}{1+x^2}}\]
 \end{examplebox}
+
+\subsubsection{Creixement i Decreixement}
+
+$f$ derivable en $a\in D$, sabem que es pot aproximar la funció en una \textit{recta secant} com;
+
+\[f(x)  = f(a) + f'(a)(x-a)+o(x-a)\]
+
+\begin{itemize}
+    \item $f$ és creixent en $x = a$ si, $\lim_{h\rightarrow 0} \frac{f(x) - f(a)}{x-a} >0$: \textbf{És a dir si la derivada és positiva.}
+    \item $f$ és decreixent en $x = a$ si, $\lim_{h\rightarrow 0} \frac{f(x) - f(a)}{x-a} <0$: \textbf{És a dir si la derivada és negativa.}
+\end{itemize}
+
+$f$ té un màxim en a $\equiv f(x) \leq f(a) \forall x$ en l'entorn de a 
+
+$f$ té un mínim en a $\equiv f(x) \geq f(a) \forall x$ en l'entorn de a 
+
+\textcolor{red}{\textbf{Si f té un extrem relatiu en a vol dir que f'(a) = 0 i l'hem d'estudiar amb la segona derivada.}}
+
+\begin{itemize}
+    \item Si $f''(a) <0$ és màxim (\textit{és còncava})
+    \item Si $f''(a) >0$ és mínim (\textit{és convexa})
+    \item Si $f''(a)=0$ és un punt d'inflexió (\textit{és pla})
+\end{itemize}
+
+\subsubsection{Teorema del Valor Mitjà}
+
+\noindent\boxed{\text{Teorema de Rolle}}
+
+\begin{proof}
+    $f$ continua en $[a,b]$ i derivable en $(a,b)$ amb $f(a) = f(b)$ es comprova que $\exists c \in (a,b) \mid f'(c) = 0$ (almenys 1). 
+\end{proof}
+
+\noindent\textbf{Idea.} Si una corba contínua i sense ``punxes'' surt i arriba a la mateixa alçada, en algun moment ha de ``girar'': puja i després baixa (o al revés). On gira, la recta tangent és horitzontal, és a dir, $f'(c)=0$. Pot passar més d'una vegada (a la figura, en $c_1$ i $c_2$); per això diu ``almenys 1''.
+
+\begin{center}
+\begin{tikzpicture}
+  % eixos
+  \draw[-stealth, line width=0.5pt, black] (0.3,0) -- (7.9,0) node[right] {$x$};
+  \draw[-stealth, line width=0.5pt, black] (0.3,0) -- (0.3,3.8) node[above] {$y$};
+
+  % nivell f(a)=f(b) i projeccions sobre els eixos
+  \draw[aux, dash pattern=on 2pt off 2pt] (0.3,2.2) -- (7,2.2);
+  \draw[aux, dash pattern=on 2pt off 2pt] (1,0) -- (1,2.2);
+  \draw[aux, dash pattern=on 2pt off 2pt] (7,0) -- (7,2.2);
+  \draw[aux, dash pattern=on 2pt off 2pt] (2.056,0) -- (2.056,2.902);
+  \draw[aux, dash pattern=on 2pt off 2pt] (5.544,0) -- (5.544,0.782);
+
+  % corba f(x) = 2.2 + 0.1 (x-1)(x-3.4)(x-7)
+  \draw[curve, domain=1:7, samples=80, smooth, variable=\x]
+    plot ({\x}, {2.2 + 0.1*(\x-1)*(\x-3.4)*(\x-7)});
+
+  % tangents horitzontals en c_1 (màxim) i c_2 (mínim)
+  \draw[cR, line width=0.8pt] (1.45,2.902) -- (2.66,2.902);
+  \draw[cR, line width=0.8pt] (4.94,0.782) -- (6.15,0.782);
+
+  % punts
+  \fill[black] (1,2.2) circle (2pt);
+  \fill[black] (7,2.2) circle (2pt);
+  \fill[cVermell] (2.056,2.902) circle (2pt);
+  \fill[cVermell] (5.544,0.782) circle (2pt);
+
+  % etiquetes
+  \node[left]  at (0.3,2.2) {$f(a)=f(b)$};
+  \node[below] at (1,0)     {$a$};
+  \node[below] at (2.056,0) {$c_1$};
+  \node[below] at (5.544,0) {$c_2$};
+  \node[below] at (7,0)     {$b$};
+  \node[right] at (7,2.2)   {$y=f(x)$};
+\end{tikzpicture}
+\end{center}
+\bigskip
+
+\noindent\boxed{\text{Teorema de Lagrange}}
+
+\begin{proof}
+    Si $f$ és continua en $[a,b]$ i derivable en $(a,b)$ amb $f(a) \neq f(b)$, $\exists c \mid f'(c) = m = \frac{\Delta y}{\Delta x} = \frac{f(b)-f(a)}{b-a}$
+\end{proof}
+
+\noindent\textbf{Idea.} És el teorema de Rolle "inclinat": entre $a$ i $b$ hi ha algun punt on la tangent és paral·lela a la secant que uneix $(a,f(a))$ i $(b,f(b))$; és a dir, on el pendent instantani $f'(c)$ coincideix amb el pendent mitjà $m$. Si $f(t)$ és la posició d'un mòbil, $m$ és la velocitat mitjana i $f'(c)$ la velocitat instantània: en algun instant el mòbil va exactament a la seva velocitat mitjana.
+
+\begin{center}
+\begin{tikzpicture}
+  % eixos
+  \draw[-stealth, line width=0.5pt, black] (0.3,0) -- (7.9,0) node[right] {$x$};
+  \draw[-stealth, line width=0.5pt, black] (0.3,0) -- (0.3,3.8) node[above] {$y$};
+
+  % projeccions sobre els eixos
+  \draw[aux, dash pattern=on 2pt off 2pt] (0.3,0.5) -- (1,0.5);
+  \draw[aux, dash pattern=on 2pt off 2pt] (0.3,2.971) -- (7,2.971);
+  \draw[aux, dash pattern=on 2pt off 2pt] (1,0) -- (1,0.5);
+  \draw[aux, dash pattern=on 2pt off 2pt] (7,0) -- (7,2.971);
+  \draw[aux, dash pattern=on 2pt off 2pt] (3.299,0) -- (3.299,2.277);
+
+  % corba f(x) = 0.5 + 2.6 (1 - e^{-(x-1)/2})
+  \draw[curve, domain=1:7, samples=80, smooth, variable=\x]
+    plot ({\x}, {0.5 + 2.6*(1 - exp(-0.5*(\x-1)))});
+
+  % secant (A--B) i tangent paral·lela en c (pendent m = 0.4118)
+  \draw[cG, line width=0.8pt] (1,0.5) -- (7,2.971);
+  \draw[cR, line width=0.8pt] (2.1,1.783) -- (4.5,2.771);
+
+  % punts
+  \fill[black] (1,0.5)   circle (2pt);
+  \fill[black] (7,2.971) circle (2pt);
+  \fill[cVermell] (3.299,2.277) circle (2pt);
+
+  % etiquetes
+  \node[left]  at (0.3,0.5)   {$f(a)$};
+  \node[left]  at (0.3,2.971) {$f(b)$};
+  \node[below] at (1,0)       {$a$};
+  \node[below] at (3.299,0)   {$c$};
+  \node[below] at (7,0)       {$b$};
+  \node[right] at (7,2.971)   {$y=f(x)$};
+  \node        at (5.4,1.05)  {$m=\dfrac{f(b)-f(a)}{b-a}$};
+\end{tikzpicture}
+\end{center}
+
+\subsubsection{Series de Taylor}
+
+\subsubsection{Estudi de les Funcions}
 
 \subsection{Integrals}    
 \end{document}
