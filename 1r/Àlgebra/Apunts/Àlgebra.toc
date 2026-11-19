@@ -31,5 +31,9 @@
 \contentsline {subsection}{\numberline {5.3}Forma Diagonal d'una Aplicació}{30}{subsection.5.3}%
 \contentsline {section}{\numberline {6}Aplicacions Bilineals}{32}{section.6}%
 \contentsline {subsection}{\numberline {6.1}Producte Escalar}{33}{subsection.6.1}%
-\contentsline {section}{\numberline {7}Tensors}{35}{section.7}%
-\contentsline {section}{\numberline {8}Preambul - Encara sense lloc}{35}{section.8}%
+\contentsline {section}{\numberline {7}Geometries}{35}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Geometria Euclidiana}{35}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Termes Importants}{36}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Radical}{37}{subsection.7.3}%
+\contentsline {section}{\numberline {8}Tensors}{38}{section.8}%
+\contentsline {section}{\numberline {9}Preambul - Encara sense lloc}{38}{section.9}%

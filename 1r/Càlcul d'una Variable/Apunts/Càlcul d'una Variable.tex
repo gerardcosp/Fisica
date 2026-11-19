@@ -1495,6 +1495,16 @@ $f$ té un mínim en a $\equiv f(x) \geq f(a) \forall x$ en l'entorn de a
     \item Si $f''(a)=0$ és un punt d'inflexió (\textit{és pla})
 \end{itemize}
 
+Si tenim un interval tancat $[a,b]$ i \textbf{creixent} $\Leftrightarrow f'(x)\geq 0 \ \forall x\in(a,b)$
+
+Pel teorema del valor mitjà, $\frac{f(x_2)-f(x_1)}{x_2-x_1}\geq 0 \Rightarrow f'(c)\geq 0 \ \forall c\in(a,b)$
+
+Si tenim un interval tancat $[a,b]$ i \textbf{decreixent} $\Leftrightarrow f'(x)\leq 0 \ \forall x\in(a,b)$
+
+Pel teorema del valor mitjà, $\frac{f(x_2)-f(x_1)}{x_2-x_1}\leq 0 \Rightarrow f'(c)\leq 0 \ \forall c\in(a,b)$
+
+\textcolor{red}{\textbf{Ara bé si $f$ és derivable en $(a,b)$ i $f'(c)$ però $f(a)- f(b) = 0$ indica que f és constant}}
+
 \subsubsection{Teorema del Valor Mitjà}
 
 \noindent\boxed{\text{Teorema de Rolle}}
@@ -1588,7 +1598,94 @@ $f$ té un mínim en a $\equiv f(x) \geq f(a) \forall x$ en l'entorn de a
 \end{tikzpicture}
 \end{center}
 
+\subsubsection{Regla de l'Hôpital}
+
+Aquesta quasibé llei és un \textbf{mètode per resoldre límits} que ens diu;
+
+Si $f$ i $g$ són derivables en un entorn de $a$, amb $g'(x)\neq 0$, i es compleix una indeterminació $\frac{0}{0}$ o $\frac{\infty}{\infty}$, aleshores:
+
+\begin{center}
+    \boxed{\lim_{x\to a}\frac{f(x)}{g(x)}=\lim_{x\to a}\frac{f'(x)}{g'(x)}}
+\end{center}
+
+\begin{center}
+\begin{tikzpicture}
+  % eixos
+  \draw[-stealth, line width=0.5pt, black] (0.3,0) -- (7.9,0) node[right] {$x$};
+  \draw[-stealth, line width=0.5pt, black] (0.3,-2.6) -- (0.3,3.8) node[above] {$y$};
+
+  % tangents en a (pendents f'(a) = 1.2 i g'(a) = 0.5)
+  \draw[aux, dash pattern=on 2pt off 2pt] (2.4,-1.92) -- (5.8,2.16);
+  \draw[aux, dash pattern=on 2pt off 2pt] (2.4,-0.8)  -- (5.8,0.9);
+
+  % corbes: f(x) = 1.2(x-4) + 0.12(x-4)^2  i  g(x) = 0.5(x-4) - 0.04(x-4)^2
+  \draw[curve, domain=2.2:6, samples=80, smooth, variable=\x]
+    plot ({\x}, {1.2*(\x-4) + 0.12*(\x-4)*(\x-4)});
+  \draw[curve, cR, domain=2.2:6, samples=80, smooth, variable=\x]
+    plot ({\x}, {0.5*(\x-4) - 0.04*(\x-4)*(\x-4)});
+
+  % punt on s'anul·len les dues funcions
+  \fill[black] (4,0) circle (2pt);
+
+  % etiquetes
+  \node[below right] at (4,0)    {$a$};
+  \node[above left]  at (4,0)    {$f(a)=g(a)=0$};
+  \node[right] at (6,2.88) {$y=f(x)$};
+  \node[right] at (6,0.84) {$y=g(x)$};
+  \node[anchor=north west, align=left] at (4.5,-0.4)
+    {$f(x)\approx f'(a)(x-a)$\\[2pt]
+     $g(x)\approx g'(a)(x-a)$\\[4pt]
+     $\dfrac{f(x)}{g(x)}\approx\dfrac{f'(a)}{g'(a)}$};
+\end{tikzpicture}
+\end{center}
+
+\textcolor{red}{\textbf{Això és molt útil ja que si tenim qualsevol altre tipus d'indeterminació podem manipular algebraicament (amb logaritmes o altres mètodes) per obtenir la divisió.}}
+
 \subsubsection{Series de Taylor}
+
+Taylor ens diu que \textbf{qualsevol expressió complicada} com \textit{exponencials, trigonomètriques, logaritmes, \dots} es pot reescriure com una suma infinita de polinomis.
+
+Això en la física sembla molt útil ja que podem prendre aproximacions molt bones que ens ajuden a simplificar les expressions o a resoldre límits. \textbf{Per exemple en dinàmica s'utilitza molt la reducció de $(1-x)^{\alpha} = 1-\alpha x$ si $\abs{x} << 1$}. 
+
+La formula de taylor per a qualsevol expressió és;
+
+\[\boxed{\sum_{k=0}^{n} \frac{f^{(k)}(a)}{k!}(x-a)^k}\]
+
+On prenem un valor a d'on començar l'aproximació i n és el grau de certesa \textit{idealment $n \rightarrow \infty$} però som finits nosaltres i així també ho és el nostre temps.
+
+\begin{center}
+\begin{tikzpicture}[x=0.8cm, y=1.25cm]
+  % eixos
+  \draw[-stealth, line width=0.5pt, black] (-5,0) -- (5,0) node[right] {$x$};
+  \draw[-stealth, line width=0.5pt, black] (0,-1.9) -- (0,1.9) node[above] {$y$};
+
+  % marques sobre els eixos
+  \draw[line width=0.5pt] (3.1416,0.07)  -- (3.1416,-0.07);
+  \draw[line width=0.5pt] (-3.1416,0.07) -- (-3.1416,-0.07);
+  \node[below left] at (3.1416,0)  {$\pi$};
+  \node[below left] at (-3.1416,0) {$-\pi$};
+  \draw[aux, dash pattern=on 2pt off 2pt] (0,1)  -- (1.5708,1);
+  \draw[aux, dash pattern=on 2pt off 2pt] (0,-1) -- (-1.5708,-1);
+  \node[left] at (0,1)  {$1$};
+  \node[left] at (0,-1) {$-1$};
+
+  % corba f(x) = sin x
+  \draw[curve, domain=-4.1:4.1, samples=100, smooth, variable=\x]
+    plot ({\x}, {sin(\x r)});
+
+  % polinomi de Taylor de grau 3 en a = 0:  T_3(x) = x - x^3/6
+  \draw[curve, cR, domain=-3:3, samples=60, smooth, variable=\x]
+    plot ({\x}, {(\x) - (\x)*(\x)*(\x)/6});
+
+  % punt d'expansió
+  \fill[black] (0,0) circle (2pt);
+  \node[below right] at (0,0) {$a=0$};
+
+  % etiquetes
+  \node[right] at (4.1,-0.818) {$y=\sin x$};
+  \node[left]  at (-3,1.5)     {$y=T_3(x)=x-\frac{x^3}{3!}$};
+\end{tikzpicture}
+\end{center}
 
 \subsubsection{Estudi de les Funcions}
 

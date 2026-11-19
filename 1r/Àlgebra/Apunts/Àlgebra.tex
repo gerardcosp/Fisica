@@ -542,7 +542,7 @@ Tenim dues maneres d'escriure un subespai vectorial $U \subseteq \mathbb{K}^n$:
     \item \textbf{(SE1) Equacions paramètriques (per generadors):} 
     $U$ s'escriu com el subespai generat per uns vectors,
     \[
-        U = \langle v_1, \dots, v_k \rangle
+        U = < v_1, \dots, v_k >
         = \{\lambda_1 v_1 + \dots + \lambda_k v_k \mid \lambda_i \in \mathbb{K}\}.
     \]
     Si $v_1,\dots,v_k$ són linealment independents, formen una base i $\dim U = k$.
@@ -566,7 +566,7 @@ Tenim dues maneres d'escriure un subespai vectorial $U \subseteq \mathbb{K}^n$:
 \end{enumerate}
 
 \paragraph{Exemple (SE1 $\to$ SE2).}
-Sigui $U = \langle (1,0,1,2),\,(0,1,1,1),\,(1,1,2,3) \rangle \subseteq \mathbb{R}^4$.
+Sigui $U = < (1,0,1,2),\,(0,1,1,1),\,(1,1,2,3) > \subseteq \mathbb{R}^4$.
 
 Posem els vectors com a columnes i afegim la columna $(x_1,x_2,x_3,x_4)^T$:
 \[
@@ -1935,6 +1935,10 @@ On $P = M(B \xleftarrow{f} C)$
     $M(\phi, C) = (e_1)_B M(\phi, B)(e_2)_B$
 \end{proof}
 
+$f$ conserva el producte escalar si $<e,v> = <f(e),f(v)>$ per a tots $e,v\in E$.
+
+\section{Geometries}
+
 \noindent Definició: Si $<,>$ és una forma bilineal simètrica sobre E. Un $\R$ espai vectorial es diu que es una forma ortogonal per $(E, <>)$
 
 \noindent Idea: Vectors $<v,v>_\R$ ens dona en mòdul la distància del vector i així podem treballar amb geometria.
@@ -1955,6 +1959,101 @@ On $P = M(B \xleftarrow{f} C)$
     Que treballa amb \textbf{l'espai (matriu identitat) i el temps(4ta dimensió)}
 \end{enumerate}
 
+\subsection{Geometria Euclidiana}
+
+\noindent Definició: Una isometria entre 2 geometries ortogonals $(E, <,>),(E',<,>')$ és $f: E \rightarrow E'$ un isomorfisme (lineal + bijectiva) de manera qye $<f(u), f(v)>' = <u,v>$
+
+Si tenim una geometria ortogonal $(E, <,>)$ fixe, una base $B$ de $E$ que tenim $M(<,>; B) = <e_1, \dots, e_N>$ i s'ens forma la matriu de la funció en coordenades de $B$ de la forma;
+
+\[\begin{pmatrix}
+    <e_1,e_1> &\dots& <e_1, e_N>\\
+    \vdots &&\vdots\\
+    <e_N, e_1>& \dots & <e_N,e_N> 
+\end{pmatrix}\]
+
+Llavors si tenim dos vectors i volem aplicar l'aplicació només hem de fer
+
+$e = (\lambda_1,\dots,\lambda_N)_B$
+$v = (\beta,\dots,\beta)_B$
+
+\[<e,v> = \begin{pmatrix}
+    \lambda_1 & \dots & \lambda_N
+\end{pmatrix}A\begin{pmatrix}
+    \beta_1\\
+    \vdots\\
+    \beta_N
+\end{pmatrix}\]
+
+Definim $f: E \rightarrow \R^N$ on $e(\lambda_1,\dots,\lambda_N) \rightarrow (\lambda_1,\dots,\lambda_N)$ és un isomorfisme i el producte escalar es mantè. 
+
+\textcolor{red}{\textbf{Idea: $f$ és una isometria entre $(E,<\,,>)$ i $(\R^N,<\,,>_A)$, dos espais amb geometries diferents. Així podem passar a coordenades, resoldre a $\R^N$ i tornar a $E$ sense perdre res, perquè es conserva el producte escalar (i amb ell longituds, angles i ortogonalitat). Cal veure que $< e,v>=< f(e),f(v)>$ és a dir que es manté el producte escalar.}}
+
+\begin{proof}
+    Sigui $B=\{b_1,\dots,b_N\}$ una base de $E$ i $f:E\rightarrow\R^N$ l'isomorfisme que envia $e=\sum_i\lambda_ib_i$ a les seves coordenades $(\lambda_1,\dots,\lambda_N)$. A $\R^N$ definim $< x,y>_A=x^tAy$ amb $A=M(<\,,>;B)$.
+
+    Siguin $e=\sum_i\lambda_ib_i$ i $v=\sum_j\beta_jb_j$. Per bilinealitat,
+    \[
+    < e,v>=\sum_{i,j}\lambda_i\beta_j< b_i,b_j>=
+    \begin{pmatrix}\lambda_1&\dots&\lambda_N\end{pmatrix}M(<\,,>;B)\begin{pmatrix}\beta_1\\ \vdots\\ \beta_N\end{pmatrix}.
+    \]
+    D'altra banda, per definició de $<\,,>_A$,
+    \[
+    < f(e),f(v)>_A=<(\lambda_1,\dots,\lambda_N),(\beta_1,\dots,\beta_N)>_A=
+    \begin{pmatrix}\lambda_1&\dots&\lambda_N\end{pmatrix}M(<\,,>;B)\begin{pmatrix}\beta_1\\ \vdots\\ \beta_N\end{pmatrix}.
+    \]
+    Les dues expressions són iguals, per tant $< e,v>=< f(e),f(v)>_A$.
+\end{proof}
+
+\noindent Donades dues matrius de dos isomorfismes son isometriques (es a dir podem fer aquests canvis anteriors de base) si $\exists P$ invertible on $\boxed{B = P^tAP}$.
+
+\subsection{Termes Importants}
+
+\noindent Definició: Fixem $(E, <,>)$ geometria ortogonal i $u, v$ vectors d'$E$ amb $F,G \subseteq E$ subespais vectorials.
+
+\begin{itemize}
+    \item Diem que dos vectors són \textbf{ortogonals} si $< u,v> = 0$, és a dir, si \textit{el seu producte escalar és zero}.
+    \item Una \textbf{base ortogonal} de $(E,<\,,>)$ és una base formada \textit{tota per vectors ortogonals dos a dos}.
+    \item Diem que $F,G$ són \textbf{ortogonals} si \textit{$< u,v> = 0,\ \forall u \in F,\ \forall v \in G$}.
+    \item Diem que $E$ és \textbf{suma ortogonal} de $F,G$, denotat $E = F\perp G$, si $E = F+G$ amb $F\cap G = \{0_E\}$ i \textit{$F$ i $G$ són ortogonals}.
+    \item Definim el \textbf{subespai ortogonal} $F^{\perp} = \{v\in E \mid < u,v> = 0,\ \forall u \in F \}$, \textit{és a dir, els vectors ortogonals a tot $F$}.
+        \begin{enumerate}
+            \item $F\subset G \rightarrow G^{\perp} \subset F^{\perp}$
+            \item $(F+G)^{\perp} = F^{\perp} \cap G^{\perp}$
+            \item $F \subseteq (F^{\perp})^{\perp}$
+        \end{enumerate}
+    \item Anomenem \textbf{radical de F} amb notació $\operatorname{Rad}(F)$ com, $\operatorname{Rad}(F) = F \cap F^{\perp} = \{u\in F \mid <u,v> = 0 \forall v \in F\}$ [Diem que \textbf{F és singular} si es dona que $\operatorname{Rad}(F) = \{0_E\}$ en el cas contrari és no-singular].
+    \item Diem $u\in E$ és \textbf{isotrop} si $u \neq 0_E$ però la seva for bilineal propia $<u,u> = 0 \mid u \in <u>^{\perp}$ és a dir \textit{aquell vector no nul que en fer el producte escalar dona zero}.
+\end{itemize}
+
+\subsection{Radical}
+
+\noindent Fet: Molt important!
+
+En una geometria $(\R^N, \langle\,,\rangle_A)$ ortogonal amb una matriu de l'aplicació llavors es dona que;
+
+\[\boxed{\operatorname{Rad}(\R^N, \langle\cdot,\cdot\rangle_A) = \ker(T_A)}\]
+
+\begin{proof}
+    Per definició, $\operatorname{Rad}(\R^N,\langle\,,\rangle_A)=\R^N\cap(\R^N)^{\perp}=\{v\in\R^N \mid \langle u,v\rangle_A=0\ \ \forall u\in\R^N\}$.
+    Com que $\langle u,v\rangle_A=u^tAv$,
+    \[
+    v\in\operatorname{Rad} \iff u^tAv=0\ \ \forall u\in\R^N (\text{Fixem u}) \iff Av=0 \iff v\in\ker T_A .
+    \]
+
+    És a dir si fixem un vector de $u$ en la base \textbf{resoldre el radical} es torna tan facil com resoldre el sistema $A \begin{pmatrix}
+        x\\
+        y\\
+        z
+    \end{pmatrix} = \begin{pmatrix}
+        0\\
+        0\\
+        0
+    \end{pmatrix}$
+
+\end{proof}
+
+
+
 \section{Tensors}
 \section{Preambul - Encara sense lloc}
 
@@ -1969,5 +2068,8 @@ Si tenim E un K espai vectorial, podem definir $Apl(E,K) = \{f: E \rightarrow K\
 
     Diem que $f(x,y,z) = \lambda_1x_1 + \lambda_2x_2 + \lambda_3x_3 = \lambda_1 e_1^* + \lambda_2 e_2^* + \lambda_3 e_3^* $ i per tant $<e_1^*, e_2^*, e_3^*>$ és im sistema de generadors del espai aplicació lineal.
 \end{examplebox}
+
+
+
 
 \end{document}
