@@ -1450,6 +1450,15 @@ Donades $f,g \rightarrow$ definides en un intèrval \textbf{I} i derivables $a \
     \end{proof}
 \end{itemize}
 
+\subsubsection{Derivada Enèssima}
+
+Si tenim $f$ derivable en $I$ $\rightarrow $$f'$ és la funció que recull tots els punts de les derivades de $f$ en l'intèrval $I$
+
+Si tenim $f'$ derivable en $I$ $\rightarrow $$f''$ és la funció que recull tots els punts de les derivades de $f'$ en l'intèrval $I$
+
+Si tenim $f^{(n)}$ derivable en $I$ $\rightarrow $$f^{(n+1)}$ és la funció que recull tots els punts de les derivades de $f^{(n)}$ en l'intèrval $I$
+
+
 \subsubsection{Derivada de la Funció Inversa}
 
 Quan podem comprovar la derivada de qualsevol funció podem trobar \textit{una relació entre la derivada d'una funció i la seva inversa}.
@@ -1610,24 +1619,19 @@ Si $f$ i $g$ són derivables en un entorn de $a$, amb $g'(x)\neq 0$, i es comple
 
 \begin{center}
 \begin{tikzpicture}
-  % eixos
   \draw[-stealth, line width=0.5pt, black] (0.3,0) -- (7.9,0) node[right] {$x$};
   \draw[-stealth, line width=0.5pt, black] (0.3,-2.6) -- (0.3,3.8) node[above] {$y$};
 
-  % tangents en a (pendents f'(a) = 1.2 i g'(a) = 0.5)
   \draw[aux, dash pattern=on 2pt off 2pt] (2.4,-1.92) -- (5.8,2.16);
   \draw[aux, dash pattern=on 2pt off 2pt] (2.4,-0.8)  -- (5.8,0.9);
 
-  % corbes: f(x) = 1.2(x-4) + 0.12(x-4)^2  i  g(x) = 0.5(x-4) - 0.04(x-4)^2
   \draw[curve, domain=2.2:6, samples=80, smooth, variable=\x]
     plot ({\x}, {1.2*(\x-4) + 0.12*(\x-4)*(\x-4)});
   \draw[curve, cR, domain=2.2:6, samples=80, smooth, variable=\x]
     plot ({\x}, {0.5*(\x-4) - 0.04*(\x-4)*(\x-4)});
 
-  % punt on s'anul·len les dues funcions
   \fill[black] (4,0) circle (2pt);
 
-  % etiquetes
   \node[below right] at (4,0)    {$a$};
   \node[above left]  at (4,0)    {$f(a)=g(a)=0$};
   \node[right] at (6,2.88) {$y=f(x)$};
@@ -1643,7 +1647,29 @@ Si $f$ i $g$ són derivables en un entorn de $a$, amb $g'(x)\neq 0$, i es comple
 
 \subsubsection{Series de Taylor}
 
-Taylor ens diu que \textbf{qualsevol expressió complicada} com \textit{exponencials, trigonomètriques, logaritmes, \dots} es pot reescriure com una suma infinita de polinomis.
+Si $f$ és derivable en $x=a$, podem Taylor ens diu que una bona aproximació és $f(x) = f(a) + f'(a)(x-a) + o(x-a)$ on $o$ és el petit error perque puguem posar una igualtat.
+
+Ara bé aquesta aproximació no és molt encertada ja que queda una funció tal que;
+
+% dibuix
+
+Taylor diu que \textbf{donat un polinomi de grau n $P_n(x-a)$} podem veure que la diferencia perque es dongui el límit ha de ser;
+
+\[\frac{f(x) - P_n(x;a)}{(x-a)^n} \rightarrow 0 \]
+
+És a dir que el quadrat del polinomi ha de ser una mica més gran per tant el numerador \textbf{ha de ser un infinitessimal d'ordre més gran} (\textit{és a dir algo que tendeix a 0 més ràpidament}). De manera que $(x-a)^{n+1} = o (x-a)^n$. És a dir que cada grau que augmentem és més despreciable que l'anterior \textbf{això ens servirà per poder raonar les simplificacions que fem}($\sin(x) = x, \cos(x) = 1$).
+
+Es pot dir que per qualsevol polinomi de gran n $P_n(x-a)$ perque quedi ben aproximada ha de quedar tal que;
+
+\[(0) P_n(x; a) = C_0 + C_1(x-a) + C_2 (x-a)^2 + \dots C_n(x-a)^n \xrightarrow{x=a} C_0 = f(a)\]
+\[(1) P_n'(x; a) = C_1 + 2C_2 (x-a) + \dots nC_n(x-a)^{n-1} \xrightarrow{x=a} C_1 = f'(a)\]
+\[(2) P_n''(x; a) = 2C_2 + 3\cdot 2\,C_3(x-a) + \dots n(n-1)C_n(x-a)^{n-2} \xrightarrow{x=a} 2C_2 = f''(a)\]
+\[(k) P_n^{(k)}(x; a) = k!\,C_k + (k+1)k\cdots 2\,C_{k+1}(x-a) + \dots n(n-1)\cdots(n-k+1)\,C_n(x-a)^{n-k} \xrightarrow{x=a} k!\,C_k = f^{(k)}(a)\]
+\[(n) P_n^{(n)}(x; a) = n!\,C_n \xrightarrow{x=a} n!\,C_n = f^{(n)}(a)\]
+
+De manera que tots els coeficientes $C_k = \frac{1}{k!}f^(k)(a)$. 
+
+Per tant, \textbf{qualsevol expressió complicada} com \textit{exponencials, trigonomètriques, logaritmes, \dots} es pot reescriure com una suma infinita de polinomis.
 
 Això en la física sembla molt útil ja que podem prendre aproximacions molt bones que ens ajuden a simplificar les expressions o a resoldre límits. \textbf{Per exemple en dinàmica s'utilitza molt la reducció de $(1-x)^{\alpha} = 1-\alpha x$ si $\abs{x} << 1$}. 
 
@@ -1655,11 +1681,9 @@ On prenem un valor a d'on començar l'aproximació i n és el grau de certesa \t
 
 \begin{center}
 \begin{tikzpicture}[x=0.8cm, y=1.25cm]
-  % eixos
   \draw[-stealth, line width=0.5pt, black] (-5,0) -- (5,0) node[right] {$x$};
   \draw[-stealth, line width=0.5pt, black] (0,-1.9) -- (0,1.9) node[above] {$y$};
 
-  % marques sobre els eixos
   \draw[line width=0.5pt] (3.1416,0.07)  -- (3.1416,-0.07);
   \draw[line width=0.5pt] (-3.1416,0.07) -- (-3.1416,-0.07);
   \node[below left] at (3.1416,0)  {$\pi$};
@@ -1669,19 +1693,15 @@ On prenem un valor a d'on començar l'aproximació i n és el grau de certesa \t
   \node[left] at (0,1)  {$1$};
   \node[left] at (0,-1) {$-1$};
 
-  % corba f(x) = sin x
   \draw[curve, domain=-4.1:4.1, samples=100, smooth, variable=\x]
     plot ({\x}, {sin(\x r)});
 
-  % polinomi de Taylor de grau 3 en a = 0:  T_3(x) = x - x^3/6
   \draw[curve, cR, domain=-3:3, samples=60, smooth, variable=\x]
     plot ({\x}, {(\x) - (\x)*(\x)*(\x)/6});
 
-  % punt d'expansió
   \fill[black] (0,0) circle (2pt);
   \node[below right] at (0,0) {$a=0$};
 
-  % etiquetes
   \node[right] at (4.1,-0.818) {$y=\sin x$};
   \node[left]  at (-3,1.5)     {$y=T_3(x)=x-\frac{x^3}{3!}$};
 \end{tikzpicture}

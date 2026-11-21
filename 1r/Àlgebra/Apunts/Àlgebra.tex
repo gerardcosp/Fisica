@@ -1854,7 +1854,7 @@ Físicament a això li diem producte vectorial que ens ajuda a calcular la norma
 
 \noindent $E = \R^N$, $A \in M_N (\R)$
 
-$<,>_A: \R^N \cross \R^N \rightarrow \R$;
+$\langle,\rangle_A: \R^N \cross \R^N \rightarrow \R$;
 $(\alpha_1, \dots, \alpha_N), (\beta_1, \dots, \beta_N) \rightarrow \begin{pmatrix}
    \alpha_1 & \dots & \alpha_N 
 \end{pmatrix}A\begin{pmatrix}
@@ -1939,14 +1939,14 @@ $f$ conserva el producte escalar si $<e,v> = <f(e),f(v)>$ per a tots $e,v\in E$.
 
 \section{Geometries}
 
-\noindent Definició: Si $<,>$ és una forma bilineal simètrica sobre E. Un $\R$ espai vectorial es diu que es una forma ortogonal per $(E, <>)$
+\noindent Definició: Si $\langle,\rangle$ és una forma bilineal simètrica sobre E. Un $\R$ espai vectorial es diu que es una forma ortogonal per $(E, <>)$
 
-\noindent Idea: Vectors $<v,v>_\R$ ens dona en mòdul la distància del vector i així podem treballar amb geometria.
+\noindent Idea: Vectors $\langle v,v\rangle_\R$ ens dona en mòdul la distància del vector i així podem treballar amb geometria.
 
 \begin{enumerate}
-    \item El parell $(\R^N, <,>_{IN})$ genera \textit{geometria euclidiana} de $\dim = N$
-    \item El parell $(\R^N, <,>_{-IN})$ genera \textit{geometria a anti-euclidiana} de $\dim = N$, amb nombres complexos (distàncies imaginaries ($i$))
-    \item La geometria de \textbf{Lorentz} $(\R^N, <,>_M)$ on
+    \item El parell $(\R^N, \langle,\rangle_{IN})$ genera \textit{geometria euclidiana} de $\dim = N$
+    \item El parell $(\R^N, \langle,\rangle_{-IN})$ genera \textit{geometria a anti-euclidiana} de $\dim = N$, amb nombres complexos (distàncies imaginaries ($i$))
+    \item La geometria de \textbf{Lorentz} $(\R^N, \langle,\rangle_M)$ on
     \[
         M = \begin{pmatrix}
         1 & 0 & 0 & \vline& 0\\
@@ -1961,9 +1961,9 @@ $f$ conserva el producte escalar si $<e,v> = <f(e),f(v)>$ per a tots $e,v\in E$.
 
 \subsection{Geometria Euclidiana}
 
-\noindent Definició: Una isometria entre 2 geometries ortogonals $(E, <,>),(E',<,>')$ és $f: E \rightarrow E'$ un isomorfisme (lineal + bijectiva) de manera qye $<f(u), f(v)>' = <u,v>$
+\noindent Definició: Una isometria entre 2 geometries ortogonals $(E, \langle,\rangle),(E',\langle,\rangle')$ és $f: E \rightarrow E'$ un isomorfisme (lineal + bijectiva) de manera qye $<f(u), f(v)>' = \langle u,v\rangle$
 
-Si tenim una geometria ortogonal $(E, <,>)$ fixe, una base $B$ de $E$ que tenim $M(<,>; B) = <e_1, \dots, e_N>$ i s'ens forma la matriu de la funció en coordenades de $B$ de la forma;
+Si tenim una geometria ortogonal $(E, \langle,\rangle)$ fixe, una base $B$ de $E$ que tenim $M(\langle,\rangle; B) = <e_1, \dots, e_N>$ i s'ens forma la matriu de la funció en coordenades de $B$ de la forma;
 
 \[\begin{pmatrix}
     <e_1,e_1> &\dots& <e_1, e_N>\\
@@ -2008,7 +2008,7 @@ Definim $f: E \rightarrow \R^N$ on $e(\lambda_1,\dots,\lambda_N) \rightarrow (\l
 
 \subsection{Termes Importants}
 
-\noindent Definició: Fixem $(E, <,>)$ geometria ortogonal i $u, v$ vectors d'$E$ amb $F,G \subseteq E$ subespais vectorials.
+\noindent Definició: Fixem $(E, \langle,\rangle)$ geometria ortogonal i $u, v$ vectors d'$E$ amb $F,G \subseteq E$ subespais vectorials.
 
 \begin{itemize}
     \item Diem que dos vectors són \textbf{ortogonals} si $< u,v> = 0$, és a dir, si \textit{el seu producte escalar és zero}.
@@ -2021,8 +2021,20 @@ Definim $f: E \rightarrow \R^N$ on $e(\lambda_1,\dots,\lambda_N) \rightarrow (\l
             \item $(F+G)^{\perp} = F^{\perp} \cap G^{\perp}$
             \item $F \subseteq (F^{\perp})^{\perp}$
         \end{enumerate}
-    \item Anomenem \textbf{radical de F} amb notació $\operatorname{Rad}(F)$ com, $\operatorname{Rad}(F) = F \cap F^{\perp} = \{u\in F \mid <u,v> = 0 \forall v \in F\}$ [Diem que \textbf{F és singular} si es dona que $\operatorname{Rad}(F) = \{0_E\}$ en el cas contrari és no-singular].
-    \item Diem $u\in E$ és \textbf{isotrop} si $u \neq 0_E$ però la seva for bilineal propia $<u,u> = 0 \mid u \in <u>^{\perp}$ és a dir \textit{aquell vector no nul que en fer el producte escalar dona zero}.
+    \item Anomenem \textbf{radical de F} amb notació $\operatorname{Rad}(F)$ com, $\operatorname{Rad}(F) = F \cap F^{\perp} = \{u\in F \mid \langle u,v\rangle = 0 \forall v \in F\}$ [Diem que \textbf{F és singular} si es dona que $\operatorname{Rad}(F) \neq \{0_E\}$ en el cas contrari és no-singular].
+    \begin{table}[h!]
+        \centering
+        \renewcommand{\arraystretch}{1.4}
+        \begin{tabular}{|l|c|c|}
+        \hline
+        & \textbf{No Singular} & \textbf{Singular } \\ \hline
+        \textbf{Determinant} & $\det(M) \neq 0$ & $\det(M) = 0$ \\ \hline
+        \textbf{Inversa ($M^{-1}$)} & \textbf{Sí} és invertible ($\exists M^{-1}$) & \textbf{No} és invertible ($\nexists M^{-1}$) \\ \hline
+        \textbf{Radical ($\operatorname{Rad}(E)$)} &  $\operatorname{Rad}(E) = \{\mathbf{0}\}$ &  $\operatorname{Rad}(E) \neq \{\mathbf{0}\}$ \\ \hline
+    \end{tabular}
+    \end{table}
+
+    \item Diem $u\in E$ és \textbf{isotrop} si $u \neq 0_E$ però la seva for bilineal propia $\langle u,u\rangle = 0 \mid u \in <u>^{\perp}$ és a dir \textit{aquell vector no nul que en fer el producte escalar dona zero}.
 \end{itemize}
 
 \subsection{Radical}
@@ -2052,7 +2064,57 @@ En una geometria $(\R^N, \langle\,,\rangle_A)$ ortogonal amb una matriu de l'apl
 
 \end{proof}
 
+\noindent Fet: Donat $(E, \langle,\rangle)$ geometria ortogonal, fixem $B$ base d'$E$ amb la matriu de l'apliació bilineal $A = M(\langle,\rangle; B)$ i simètrica on $\dim E = N$.
 
+Llavors $\dim \operatorname{Rad} (\R^N, \langle,\rangle_A) = N - \operatorname{rang}(A)$
+
+\textbf{En particular, E és no-singular si A és invertible}
+
+\begin{proof}
+    Tenim $C_B, E \rightarrow \R^N$ morfisme de coordenades (\textit{és lineal i bijectiva}) en base $B$ de $E$
+
+    \[e(\lambda_1, \dots,\lambda_N) \rightarrow (\lambda_1, \dots,\lambda_N)\] 
+
+    Si donem una \textbf{isometria} (relació) entre dues geometries $(E, \langle,\rangle)$ i $(\R^N, \langle,\rangle_A)$.
+
+    \[<e,v> = <C_B(e), C_B(v)>_A\]
+
+    $C_B (\operatorname{Rad}(E,\langle,\rangle))= \{B(e)\in \R^N \mid <e,v> = 0 = <C_B(e),C_B(v)\}$
+
+    $C_B$ és epi ($\equiv$ exhaustiva) $= \{C_B(e)\in \R^N \mid <C_B(e), \omega>_A = 0 \forall \omega \in \R^N\} = \{v\in \R^N \mid <v,\omega>_A = 0 \forall \omega \in \R^N \} = \operatorname{Rad}(\R^N, \langle,\rangle_A)$
+\end{proof}
+
+\noindent Fet: Donat $(E, \langle,\rangle)$ geometria ortogonal amb $F \subseteq E$
+
+\begin{enumerate}
+    \item Si $F \cap \operatorname{Rad}(F) = \{0_E\} \rightarrow \dim F + \dim F^{\perp} = \dim E$ [En un espai no-singular ja que $\operatorname{Rad}(F) = \{0_E\}$]
+    \item Si $E$ és no singular es dona que $(F^{\perp})^{\perp}$
+    \item Si $F$ és no singular es dona que $E = F\perp F^{\perp}$
+\end{enumerate}
+
+\begin{examplebox}{}
+    \textbf{Pregunta.} Existeix una base ortogonal de la geometria $(\R^2,\langle\,,\rangle_A)$, on
+    \[A=\begin{pmatrix}1&1\\1&1\end{pmatrix}?\]
+    La matriu $A$ és la matriu de Gram de la base canònica $e_1=(1,0),\ e_2=(0,1)$, i com que $\det A=0$ la forma és \emph{no-singular} (té radical). Per això no podem aplicar Gram--Schmidt sense cura: només podem dividir per $\langle v,v\rangle$ si $v$ \textbf{no} és isòtrop.
+
+    \textbf{Pas 1: triar un vector no isòtrop.} Prenem $v=(0,1)$:
+    \[\langle v,v\rangle_A=\begin{pmatrix}0&1\end{pmatrix}\begin{pmatrix}1&1\\1&1\end{pmatrix}\begin{pmatrix}0\\1\end{pmatrix}=\begin{pmatrix}1&1\end{pmatrix}\begin{pmatrix}0\\1\end{pmatrix}=1\neq 0,\]
+    per tant $v$ \emph{no} és isòtrop i podem dividir per $\langle v,v\rangle_A$.
+
+    \textbf{Pas 2: treure a $e_1$ la seva component sobre $v$.} Realment el que volem es corretgir a $e_1$ la component sobre $v$ que fa que el seu producte bilineal no sigui zero, és a dir restem $e = e_1 - \lambda v$, on $\lambda$ és la relació de la projecció d'un sobre l'altre. Calculem 
+    \[\langle e_1,v\rangle_A=\begin{pmatrix}1&0\end{pmatrix}\begin{pmatrix}1&1\\1&1\end{pmatrix}\begin{pmatrix}0\\1\end{pmatrix}=\begin{pmatrix}1&1\end{pmatrix}\begin{pmatrix}0\\1\end{pmatrix}=1,\]
+    i definim
+    \[e=e_1-\frac{\langle e_1,v\rangle_A}{\langle v,v\rangle_A}\,v=(1,0)-1\cdot(0,1)=(1,-1).\]
+
+    \textbf{Comprovació.} Efectivament $e\perp v$:
+    \[\begin{pmatrix}0&1\end{pmatrix}\begin{pmatrix}1&1\\1&1\end{pmatrix}\begin{pmatrix}1\\-1\end{pmatrix}=\begin{pmatrix}1&1\end{pmatrix}\begin{pmatrix}1\\-1\end{pmatrix}=0.\]
+    Com que $v=(0,1)$ i $e=(1,-1)$ són linealment independents, $\{(0,1),(1,-1)\}$ és una \textbf{base ortogonal}. En aquesta base la matriu de Gram és $\begin{pmatrix}1&0\\0&0\end{pmatrix}$: el $0$ apareix perquè $e=(1,-1)$ és isòtrop (de fet pertany al radical).
+
+    \textbf{Altra manera.} En lloc de restar la projecció, podem buscar directament tots els vectors ortogonals a $v$, resolent $\langle v,x\rangle_A=0$:
+    \[\begin{pmatrix}0&1\end{pmatrix}\begin{pmatrix}1&1\\1&1\end{pmatrix}\begin{pmatrix}x\\y\end{pmatrix}=x+y=0
+    \ \Longrightarrow\ (x,y)=\lambda(1,-1).\]
+    Obtenim el mateix vector $e=(1,-1)$ (llevat d'un múltiple).
+\end{examplebox}
 
 \section{Tensors}
 \section{Preambul - Encara sense lloc}
