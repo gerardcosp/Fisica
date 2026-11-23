@@ -1,5 +1,8 @@
 \documentclass[12pt]{article}
 
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
 % -------------------------------------------------
 % COLORS
 % -------------------------------------------------
@@ -263,7 +266,72 @@
 \begin{document}
 \justifying
 
-\maketitle
+\begin{titlepage}
+\centering
+\rmfamily
+
+\vspace*{1cm}
+
+% ---- Títol ----
+{\fontsize{32}{38}\selectfont\textls[250]{FÍSICA EXPERIMENTAL, TRACTAMENT DE DADES I PROGRAMACIÓ}\par}
+
+\vspace{1em}
+\rule{2.2cm}{0.4pt}\par
+
+\vspace{2.5cm}
+
+% ---- Logo UAB ----
+\begin{tikzpicture}[x=1pt,y=1pt,scale=0.1]
+    % ---- U ----
+    \fill
+      (0,265) -- (0,90)
+      .. controls (0,40) and (53,0) .. (118,0)
+      .. controls (183,0) and (238,40) .. (238,90)
+      -- (238,265) -- (177,265) -- (177,95)
+      .. controls (177,67) and (151,45) .. (118,45)
+      .. controls (85,45) and (60,67) .. (60,95)
+      -- (60,265) -- cycle;
+    % ---- A (con el trazo curvo de la barra) ----
+    \fill[even odd rule]
+      (255,0) -- (365,265) -- (442,265) -- (552,0) -- (494,0)
+      -- (469,60) -- (380,60)
+      .. controls (345,60) and (320,25) .. (315,0)
+      -- cycle
+      (403,223) -- (451,105)
+      .. controls (405,105) and (362,90) .. (340,65)
+      -- cycle;
+    % ---- B ----
+    \fill[even odd rule]
+      (573,0) -- (573,265) -- (725,265)
+      .. controls (768,265) and (803,236) .. (803,195)
+      -- (803,180)
+      .. controls (803,158) and (775,146) .. (750,135)
+      .. controls (775,124) and (803,112) .. (803,87)
+      -- (803,65)
+      .. controls (803,29) and (774,0) .. (738,0)
+      -- cycle
+      (635,153) -- (635,220) -- (703,220)
+      .. controls (721,220) and (735,206) .. (735,188)
+      -- (735,185)
+      .. controls (735,167) and (721,153) .. (703,153)
+      -- cycle
+      (635,45) -- (635,113) -- (713,113)
+      .. controls (730,113) and (743,100) .. (743,83)
+      -- (743,75)
+      .. controls (743,58) and (730,45) .. (713,45)
+      -- cycle;
+\end{tikzpicture}\par
+
+\vfill
+
+% ---- Autor i curs ----
+{\large Gerard Cosp Lores\par}
+\vspace{0.7em}
+{\small\color{black!60} 2026--2027\par}
+
+\vspace*{1cm}
+\end{titlepage}
+
 \tableofcontents
 
 \newpage

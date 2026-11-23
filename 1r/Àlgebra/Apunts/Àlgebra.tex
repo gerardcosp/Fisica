@@ -1,5 +1,8 @@
 \documentclass[12pt]{article}
 
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
 %-------------------------------------------------
 % COLORS
 %-------------------------------------------------
@@ -215,7 +218,72 @@
 \begin{document}
 \justifying
 
-\maketitle
+\begin{titlepage}
+\centering
+\rmfamily
+
+\vspace*{1cm}
+
+% ---- Títol ----
+{\fontsize{32}{38}\selectfont\textls[250]{ÀLGEBRA}\par}
+
+\vspace{1em}
+\rule{2.2cm}{0.4pt}\par
+
+\vspace{2.5cm}
+
+% ---- Logo UAB ----
+\begin{tikzpicture}[x=1pt,y=1pt,scale=0.1]
+    % ---- U ----
+    \fill
+      (0,265) -- (0,90)
+      .. controls (0,40) and (53,0) .. (118,0)
+      .. controls (183,0) and (238,40) .. (238,90)
+      -- (238,265) -- (177,265) -- (177,95)
+      .. controls (177,67) and (151,45) .. (118,45)
+      .. controls (85,45) and (60,67) .. (60,95)
+      -- (60,265) -- cycle;
+    % ---- A (con el trazo curvo de la barra) ----
+    \fill[even odd rule]
+      (255,0) -- (365,265) -- (442,265) -- (552,0) -- (494,0)
+      -- (469,60) -- (380,60)
+      .. controls (345,60) and (320,25) .. (315,0)
+      -- cycle
+      (403,223) -- (451,105)
+      .. controls (405,105) and (362,90) .. (340,65)
+      -- cycle;
+    % ---- B ----
+    \fill[even odd rule]
+      (573,0) -- (573,265) -- (725,265)
+      .. controls (768,265) and (803,236) .. (803,195)
+      -- (803,180)
+      .. controls (803,158) and (775,146) .. (750,135)
+      .. controls (775,124) and (803,112) .. (803,87)
+      -- (803,65)
+      .. controls (803,29) and (774,0) .. (738,0)
+      -- cycle
+      (635,153) -- (635,220) -- (703,220)
+      .. controls (721,220) and (735,206) .. (735,188)
+      -- (735,185)
+      .. controls (735,167) and (721,153) .. (703,153)
+      -- cycle
+      (635,45) -- (635,113) -- (713,113)
+      .. controls (730,113) and (743,100) .. (743,83)
+      -- (743,75)
+      .. controls (743,58) and (730,45) .. (713,45)
+      -- cycle;
+\end{tikzpicture}\par
+
+\vfill
+
+% ---- Autor i curs ----
+{\large Gerard Cosp Lores\par}
+\vspace{0.7em}
+{\small\color{black!60} 2026--2027\par}
+
+\vspace*{1cm}
+\end{titlepage}
+
 \tableofcontents
 
 \newpage
@@ -2116,6 +2184,54 @@ Llavors $\dim \operatorname{Rad} (\R^N, \langle,\rangle_A) = N - \operatorname{r
     Obtenim el mateix vector $e=(1,-1)$ (llevat d'un múltiple).
 \end{examplebox}
 
+\subsubsection{Projecció}
+
+Donat un vector si el volem projectar sobre un altre utilitzant una aplicació bilineal, usem la formula (Projecció de $\vec{a}$ sobre $\vec{b}$).
+
+\[\operatorname{Proj}_{\vec{b}}(\vec{a}) = \frac{\langle \vec{b}, \vec{a}\rangle_A}{\langle \vec{b},\vec{b}\rangle_A}\,\vec{b} = \frac{\vec{a}\cdot\vec{b}}{\left\|\vec{b}\right\|^2}\,\vec{b}\]
+
+\subsubsection{Crear una Base Ortogonal}
+
+Definim $E = F \perp F^{\perp} \equiv$ a la suma directe dient que la seva suma és total i la intersecció és zero. Una projecció ortogonal és com desglossar un vector sobre un altre i només prendre el que forma un producte escalar  $0$.
+
+% Dibuix
+\begin{center}
+\providecolor{cB}{RGB}{0,86,179}   % només s'apliquen si no tens cB i cR al preàmbul
+\providecolor{cR}{RGB}{200,40,40}
+\begin{tikzpicture}[line width=0.5pt]
+  \begin{scope}[rotate=15]
+    % Subespais F i F^perp
+    \draw[cB] (-1,0) -- (6,0)    node[right,black] {$F$};
+    \draw[cR] (0,-1) -- (0,4.2)  node[above,black] {$F^{\perp}$};
+
+    % Rectangle de la descomposició
+    \draw[dashed,gray] (4,0) -- (4,3) -- (0,3);
+
+    % Angles rectes
+    \draw (0.3,0) -- (0.3,0.3) -- (0,0.3);
+    \draw (3.7,0) -- (3.7,0.3) -- (4,0.3);
+
+    % Vectors
+    \draw[-latex,cB,line width=1pt] (0,0) -- (4,0) node[below,black] {$v_F$};
+    \draw[-latex,cR,line width=1pt] (0,0) -- (0,3) node[left,black]  {$v_{F^{\perp}}$};
+    \draw[-latex,line width=1pt]    (0,0) -- (4,3) node[above right,black] {$v$};
+
+    \fill (0,0) circle (1pt);
+  \end{scope}
+\end{tikzpicture}
+\end{center}
+
+Base ortogonal per a $(E,<,>_A)$ geomtria ortogonal. Volem trobar una base $\{v_1, \dots, v_N\} \mid <v_i,v_j> = 0 (i\neq j)$. 
+
+\noindent \textit{Algorisme Gram-Schmidt}
+
+Donada una base $(u_1, \dots, u_N)$ de $(E, <,>)$
+
+\begin{enumerate}
+    \item Si $<,>$ és Id zero o tenim $u_1,\dots, u_N$ isotrops, \textbf{ja tenim base ortogonal}.
+    \item Reduïm la base per tal que $u_1$ no isotrop (en la fòrmula dividim per $<u_i, u_i>$ i ha de ser $\neq 0$).
+    \item Apliquem la fórmula de Grahm Schmidt a $u_1$ no isòtrop generant així uns vectors perpendiculars $<u_1>^{\perp}$ i obtindrem un espai de dimensió inferior, ara amb aquest altre espai $<v_2,v_3>$ perpendicular a $u_1$ haurem de trobar la projecció perpendicular de $v_2, v_3$ i donarem una base $B' = \{u_1, v_2 , t_3\}$
+\end{enumerate}
 \section{Tensors}
 \section{Preambul - Encara sense lloc}
 
@@ -2130,8 +2246,5 @@ Si tenim E un K espai vectorial, podem definir $Apl(E,K) = \{f: E \rightarrow K\
 
     Diem que $f(x,y,z) = \lambda_1x_1 + \lambda_2x_2 + \lambda_3x_3 = \lambda_1 e_1^* + \lambda_2 e_2^* + \lambda_3 e_3^* $ i per tant $<e_1^*, e_2^*, e_3^*>$ és im sistema de generadors del espai aplicació lineal.
 \end{examplebox}
-
-
-
 
 \end{document}

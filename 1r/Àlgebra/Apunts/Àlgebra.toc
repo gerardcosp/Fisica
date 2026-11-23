@@ -17,11 +17,11 @@
 \contentsline {subsubsection}{\numberline {3.4.1}Intersecció de $F \cap W$}{17}{subsubsection.3.4.1}%
 \contentsline {subsubsection}{\numberline {3.4.2}Suma de $F + W$}{17}{subsubsection.3.4.2}%
 \contentsline {subsection}{\numberline {3.5}Bases Comunes a Saber}{18}{subsection.3.5}%
-\contentsline {subsection}{\numberline {3.6}Canvis de Base}{19}{subsection.3.6}%
+\contentsline {subsection}{\numberline {3.6}Canvis de Base}{18}{subsection.3.6}%
 \contentsline {section}{\numberline {4}Aplicacions Lineals}{21}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Aplicacions Injectives, Exhaustives i Bijectives}{23}{subsection.4.1}%
 \contentsline {subsubsection}{\numberline {4.1.1}Aplicació Injectiva}{23}{subsubsection.4.1.1}%
-\contentsline {subsubsection}{\numberline {4.1.2}Aplicació Exhaustiva}{24}{subsubsection.4.1.2}%
+\contentsline {subsubsection}{\numberline {4.1.2}Aplicació Exhaustiva}{23}{subsubsection.4.1.2}%
 \contentsline {subsubsection}{\numberline {4.1.3}Aplicació Bijectiva}{24}{subsubsection.4.1.3}%
 \contentsline {subsection}{\numberline {4.2}Composició d'Aplicacions Lineals}{26}{subsection.4.2}%
 \contentsline {subsection}{\numberline {4.3}Canvis de Base amb Aplicacions Lineals}{27}{subsection.4.3}%
@@ -35,5 +35,7 @@
 \contentsline {subsection}{\numberline {7.1}Geometria Euclidiana}{35}{subsection.7.1}%
 \contentsline {subsection}{\numberline {7.2}Termes Importants}{36}{subsection.7.2}%
 \contentsline {subsection}{\numberline {7.3}Radical}{37}{subsection.7.3}%
-\contentsline {section}{\numberline {8}Tensors}{39}{section.8}%
-\contentsline {section}{\numberline {9}Preambul - Encara sense lloc}{39}{section.9}%
+\contentsline {subsubsection}{\numberline {7.3.1}Projecció}{39}{subsubsection.7.3.1}%
+\contentsline {subsubsection}{\numberline {7.3.2}Crear una Base Ortogonal}{39}{subsubsection.7.3.2}%
+\contentsline {section}{\numberline {8}Tensors}{40}{section.8}%
+\contentsline {section}{\numberline {9}Preambul - Encara sense lloc}{40}{section.9}%

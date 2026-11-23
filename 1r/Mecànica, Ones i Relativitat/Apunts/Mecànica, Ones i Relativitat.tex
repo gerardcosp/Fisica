@@ -1,5 +1,8 @@
 \documentclass[12pt]{article}
 
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
 % -------------------------------------------------
 % COLORS
 % -------------------------------------------------
@@ -46,7 +49,7 @@
 % -------------------------------------------------
 
 \usepackage{tikz}
-\usetikzlibrary{arrows.meta, decorations.pathmorphing, calc}
+\usetikzlibrary{arrows.meta, decorations.pathmorphing, decorations.markings, calc, patterns}
 
 \newcommand{\setheat}[1]{%
     \ifnum#1>75
@@ -265,7 +268,72 @@
 \begin{document}
 \justifying
 
-\maketitle
+\begin{titlepage}
+\centering
+\rmfamily
+
+\vspace*{1cm}
+
+% ---- Títol ----
+{\fontsize{32}{38}\selectfont\textls[250]{MECÀNICA, ONES I RELATIVITAT}\par}
+
+\vspace{1em}
+\rule{2.2cm}{0.4pt}\par
+
+\vspace{2.5cm}
+
+% ---- Logo UAB ----
+\begin{tikzpicture}[x=1pt,y=1pt,scale=0.1]
+    % ---- U ----
+    \fill
+      (0,265) -- (0,90)
+      .. controls (0,40) and (53,0) .. (118,0)
+      .. controls (183,0) and (238,40) .. (238,90)
+      -- (238,265) -- (177,265) -- (177,95)
+      .. controls (177,67) and (151,45) .. (118,45)
+      .. controls (85,45) and (60,67) .. (60,95)
+      -- (60,265) -- cycle;
+    % ---- A (con el trazo curvo de la barra) ----
+    \fill[even odd rule]
+      (255,0) -- (365,265) -- (442,265) -- (552,0) -- (494,0)
+      -- (469,60) -- (380,60)
+      .. controls (345,60) and (320,25) .. (315,0)
+      -- cycle
+      (403,223) -- (451,105)
+      .. controls (405,105) and (362,90) .. (340,65)
+      -- cycle;
+    % ---- B ----
+    \fill[even odd rule]
+      (573,0) -- (573,265) -- (725,265)
+      .. controls (768,265) and (803,236) .. (803,195)
+      -- (803,180)
+      .. controls (803,158) and (775,146) .. (750,135)
+      .. controls (775,124) and (803,112) .. (803,87)
+      -- (803,65)
+      .. controls (803,29) and (774,0) .. (738,0)
+      -- cycle
+      (635,153) -- (635,220) -- (703,220)
+      .. controls (721,220) and (735,206) .. (735,188)
+      -- (735,185)
+      .. controls (735,167) and (721,153) .. (703,153)
+      -- cycle
+      (635,45) -- (635,113) -- (713,113)
+      .. controls (730,113) and (743,100) .. (743,83)
+      -- (743,75)
+      .. controls (743,58) and (730,45) .. (713,45)
+      -- cycle;
+\end{tikzpicture}\par
+
+\vfill
+
+% ---- Autor i curs ----
+{\large Gerard Cosp Lores\par}
+\vspace{0.7em}
+{\small\color{black!60} 2026--2027\par}
+
+\vspace*{1cm}
+\end{titlepage}
+
 \tableofcontents
 
 \newpage
@@ -2064,7 +2132,357 @@ I diem que és una ona de xoc on podem calcular la relació Amplitud-Distància 
 
 Si girem la relació, és a dir $\frac{u}{c}$ l'anomenem \textbf{número de Mach}.
 
+\section{Pre-Relativitat}
+
+Abans del segle XX la física es diferenciaba en dos camps \textbf{la matèria (estudiava la mecànica, termodinàmica, és a dir tot allo que li podem donar una posició al espai i una massa.)} i \textbf{la radiació (allò que no te massa ni localització.)}. Totes dues estaven unides per \textit{l'energia}, és a dir una pilota en moviment té energia al igual que una corda que oscila.
+
+La relativitat va sorgir quan es va voler estudiar la llum, ja que es va veure que \textbf{la seva velocitat és invariant en els sistemes}. Per tant hi havia una gran diferencia en el que es tractaba en la física clàssica. 
+
+\subsection{Natura de la Llum}
+
+La llum es va començar a percebre com unes ones, o interferències formades per la combinació electromagnètica ($\vec{E}, \vec{B}$), però amb diversos experiments com \textit{l'experiment dla doble escletxa}, on es podia veure que alhora una ona però també una particula, a aquesta se li van anomenar \textbf{fotons.} Aquests tenen les propietats de ser:
+
+\begin{itemize}
+  \item Individuals
+  \item Indivisibles
+  \item Independents
+  \item Ilocalitzats
+\end{itemize}
+
+Com que hem dit que la llum és particula i ona hi ha d'haver una manera de relacionar \textbf{el moment del corpuscle}, amb la seva \textbf{longitud d'ona}, i es va arribar a la conclusió que;
+
+\[p = \frac{h}{\lambda}\]
+\[E = hf = pc\]
+
+\subsection{La Velocitat de la Llum}
+
+La velocitat de la llum $c = 299792458 m/s$ és una velocitat molt gran (ara ja no tant ja que tenim relloges atòmics que mesuren $10^{-9}s$ nanosegons). Es va poder mesurar per \textbf{formes directes i indirectes} a travès de diversos experiments.
+
+\noindent \textbf{MESURES DIRECTES}
+
+\begin{tcolorbox}[
+    colback=white,      
+    colframe=black,    
+    coltext=black,     
+    boxrule=1pt,        
+    arc=0pt 
+  ]           
+  \textbf{Galileu}, no va calcular res numèricament però va pensar que la llum anava a una velocitat.
+
+  - Es va allunyar amb un company i va calcular quan tardava en veure la llum, obviament a pocs metres és inapreciable però a distàncies prou grans es pot calcular.
+
+  \[x = ct\]
+
+  Si $x \approx 300.000 km$ la llum tarda en arribar un segon.
+
+\end{tcolorbox}
+\begin{tcolorbox}[
+    colback=white,      
+    colframe=black,    
+    coltext=black,     
+    boxrule=1pt,        
+    arc=0pt 
+  ]           
+
+  \textbf{Røemer},
+
+  - Un satèit de Júpiter té un periode constant però que nosaltres percebem diferent segons més aprop o més lluny de la terra es trobi aixi que queda la grafica sinusoidal tal que;
+  
+  El temps acomulat en mig any és de $\sum = 22'$. Entre dos periodes iguals la distància D que s'ha mogut la terra respecte Júpiter (el que s'ha allunyat) és $D \sum = v$ on v és la velocitat a la que veiem la llum des del planeta $v=c$.
+
+\end{tcolorbox}
+\begin{tcolorbox}[
+    colback=white,      
+    colframe=black,    
+    coltext=black,     
+    boxrule=1pt,        
+    arc=0pt 
+  ]      
+  
+  \textbf{Fizeau},
+
+  - Allargar el camí de la llum amb miralls i rodes dentades que giren a una velocitat angular $\omega$.
+
+  \begin{center}
+    \begin{tikzpicture}[line cap=round, line join=round]
+
+    % --- Mirall llunyà ---
+    \fill[pattern=north east lines, pattern color=cK] (-0.3,-1.6) rectangle (0,1.6);
+    \draw[cK, line width=1pt] (0,-1.6) -- (0,1.6);
+
+    % --- Roda dentada (vista en perspectiva) ---
+    \begin{scope}[shift={(5.2,0.95)}]
+      \draw[cK, line width=0.5pt] (-0.65,0) -- (0.65,0);            % eix
+      \draw[cK, line width=1pt, fill=white] (0,0) ellipse (0.3 and 0.95);
+      \foreach \a in {30,150,210,330}
+        \draw[cK, line width=0.5pt] (0,0) -- ({0.3*cos(\a)},{0.95*sin(\a)});
+      \foreach \a in {15,45,...,345}                                % dents
+        \draw[cK, line width=2.2pt]
+          ({0.3*cos(\a)},{0.95*sin(\a)}) -- ({0.354*cos(\a)},{1.12*sin(\a)});
+      \fill[cK] (0,0) circle (1.5pt);
+    \end{scope}
+    % sentit de gir
+    \draw[-{Stealth[length=2mm]}, cK, line width=0.5pt]
+      ([shift={(4.3,1.0)}]60:0.25) arc[start angle=60, end angle=-250, radius=0.25];
+    \node[cK, left] at (4.0,1.0) {$\omega$};
+
+    % --- Feix de llum (el tram de l'esquerra és llarg: puntejat) ---
+    \draw[cR, line width=1pt, dotted] (0,0) -- (2.4,0);
+    \draw[cR, line width=1pt] (2.4,0) -- (7.9,0);
+    \draw[cR, line width=1pt, dotted] (7.9,0) -- (8.9,0);
+    \draw[cR, line width=1pt] (8.9,0) -- (9.5,0);
+
+    % --- Mirall semitransparent ---
+    \draw[cB, line width=2pt] (6.4,0.6) -- (7.6,-0.6);
+
+    % --- Font, lent i feix cap al mirall semitransparent ---
+    \draw[cR, line width=1pt] (7,-2.69) -- (7,0);
+    \draw[cR, line width=1pt] (7,-2.69) -- (6.7,-1.9) -- (7,0);
+    \draw[cR, line width=1pt] (7,-2.69) -- (7.3,-1.9) -- (7,0);
+    \draw[cG, line width=1pt]
+      (6.7,-1.9) to[bend left=35] (7.3,-1.9) to[bend left=35] (6.7,-1.9);
+    \draw[cK, line width=0.5pt, fill=white] (7,-2.95) circle (0.26);
+    \draw[cK, line width=0.5pt, fill=cK] (6.9,-3.5) rectangle (7.1,-3.21);
+
+    % --- Ull ---
+    \draw[cK, line width=0.5pt]
+      (9.55,0) .. controls (9.8,0.4) and (10.2,0.4) .. (10.45,0)
+              .. controls (10.2,-0.4) and (9.8,-0.4) .. (9.55,0);
+    \fill[cK] (9.98,0) circle (0.11);
+
+    % --- Distància d ---
+    \draw[{Stealth[length=2mm]}-{Stealth[length=2mm]}, cK, line width=0.5pt]
+      (0,-1.15) -- (7,-1.15) node[midway, fill=white, inner sep=2pt] {$d$};
+
+  \end{tikzpicture}
+  \end{center}
+
+  Tenim una llanterna oberta que enfoca a un mirall semi-trasparent a una distància d que redirigeix la llum cap als nostres ulls i la $\Delta t$ que triguem en veurela es la que ens ajuda a determinar la velocitat de la llum. 
+
+  \[c = \frac{d}{\Delta t}\]
+
+\end{tcolorbox}
+\begin{tcolorbox}[
+    colback=white,      
+    colframe=black,    
+    coltext=black,     
+    boxrule=1pt,        
+    arc=0pt 
+  ]           
+
+  \textbf{Focault}, faa el mateix que adalt pero substituint la roda per miralls giratoris que només reflecten la llum quan els hi incideix pels cantons rectes amb un cert angle.
+
+  \begin{center}
+    \begin{tikzpicture}[line cap=round, line join=round,
+    ray/.style={cR, line width=1pt,
+      decoration={markings, mark=at position 0.55 with {\arrow{Stealth[length=2.2mm]}}},
+      postaction={decorate}},
+    mir/.style={cB, line width=2pt}]
+
+    % --- Feix de llum ---
+    \draw[ray] (-1.45,-2.25) -- (0,-0.95);     % entrada
+    \draw[ray] (0,-0.95)     -- (1.65,-2.15);  % mirall giratori -> mirall inferior
+    \draw[ray] (1.65,-2.15)  -- (3.0,-0.45);   % -> mirall dret
+    \draw[ray] (3.0,-0.45)   -- (1.65,1.9);    % -> mirall superior
+    \draw[ray] (1.65,1.9)    -- (0,0.95);      % -> mirall giratori
+    \draw[ray] (0,0.95)      -- (-2.12,1.6);   % -> ull
+
+    % --- Miralls fixos ---
+    \draw[mir] (0.9,1.95)   -- (2.4,1.9);      % superior
+    \draw[mir] (0.85,-2.17) -- (2.45,-2.12);   % inferior
+    \draw[mir] (2.85,0.25)  -- (3.2,-1.3);     % dret
+
+    % --- Mirall giratori (hexàgon) i eix cap al motor ---
+    \draw[cK, line width=1.5pt, fill=white]
+      (1.1,0) -- (0.55,0.95) -- (-0.55,0.95) -- (-1.1,0) -- (-0.55,-0.95) -- (0.55,-0.95) -- cycle;
+    \draw[cK, line width=0.5pt] (-1.52,-1.29) -- (0.45,0.38);
+    \draw[cK, line width=0.5pt, fill=white] (0,0) circle (0.1);
+    \draw[cK, line width=0.5pt] (-1.65,-1.4) circle (0.18);
+
+    % --- Ull ---
+    \begin{scope}[shift={(-2.5,1.6)}]
+      \draw[cK, line width=0.5pt]
+        (-0.35,0) .. controls (-0.1,0.4) and (0.1,0.4) .. (0.35,0)
+                  .. controls (0.1,-0.4) and (-0.1,-0.4) .. (-0.35,0);
+      \fill[cK] (0.08,0) circle (0.1);
+    \end{scope}
+
+    % --- Dades ---
+  
+  \end{tikzpicture}
+  \end{center}
+\end{tcolorbox}
+
+\noindent \textbf{MESURES INDIRECTES}
+
+\begin{tcolorbox}[
+    colback=white,      
+    colframe=black,    
+    coltext=black,     
+    boxrule=1pt,        
+    arc=0pt 
+  ]           
+
+  \textbf{Aberració de Bradley}, descriu que com que les estrelles brillen i la llum tarda en arribar hi sebla haver un desfase d'angle entre les estrelles i la terra, Bradley va descobrir que l'angle entre la posició de l'estrella i la normal de la terra esaba conectada.
+
+  \[\tan\alpha = \frac{v}{c}\]
+
+\end{tcolorbox}
+\begin{tcolorbox}[
+    colback=white,      
+    colframe=black,    
+    coltext=black,     
+    boxrule=1pt,        
+    arc=0pt 
+  ]           
+
+  \textbf{Fizeau}, va estudiar com en medis que es movien (com fluits) afecta la llum,
+  
+  \begin{center}
+        \newcommand{\arr}[3]{%
+      \begin{scope}[shift={(#1,#2)}, rotate=#3]
+        \fill[cR] (0.12,0) -- (-0.1,0.07) -- (-0.1,-0.07) -- cycle;
+      \end{scope}}
+    \newcommand{\flow}[3]{%
+      \begin{scope}[shift={(#1,#2)}, rotate=#3]
+        \draw[cK, line width=2.5pt] (-0.3,0) -- (0,0);
+        \fill[cK] (0.2,0) -- (-0.1,0.16) -- (-0.1,-0.16) -- cycle;
+      \end{scope}}
+    \newcommand{\mirror}[4]{%
+      \begin{scope}[shift={(#1,#2)}, rotate=#3]
+        \draw[cK, line width=1pt] (-0.85,0) -- (0.85,0);
+        \foreach \t in {-0.7,-0.5,...,0.7}
+          \draw[cK, line width=0.5pt] (\t,0) -- ({\t-0.12},{#4*0.2});
+      \end{scope}}
+    \begin{tikzpicture}[line cap=round, line join=round]
+
+      \draw[draw=cK, double=white, double distance=7pt, line width=1.2pt, rounded corners=6pt]
+        (5.1,1.3) -- (5.1,0) -- (3.3,0) -- (3.3,-1.26) -- (5.1,-1.26) -- (5.1,-2.0);
+      \flow{5.1}{0.8}{-90}
+      \flow{3.3}{-0.63}{-90}
+      \flow{5.1}{-1.7}{-90}
+      \node[cK, anchor=west] at (5.4,1.1) {$v_m$};
+
+      % --- Feixos de llum (un sol recorregut, amb els dos sentits marcats) ---
+      \draw[cR, line width=1pt] (-2.1,0) -- (7.5,0) -- (7.5,-1.26) -- (0,-1.26) -- (0,1.15);
+      \arr{-0.8}{0}{0}
+      \arr{0.9}{0}{0}
+      \arr{6.5}{0}{180}
+      \arr{0.9}{-1.26}{0}
+      \arr{6.5}{-1.26}{180}
+      \arr{0}{0.7}{90}
+      \arr{0}{-0.7}{-90}
+
+      % --- Font F i escletxes ---
+      \begin{scope}[shift={(-2.4,0.05)}]
+        \foreach \a in {0,45,90,135}
+          \draw[cR, line width=1.2pt] ({-0.2*cos(\a)},{-0.2*sin(\a)}) -- ({0.2*cos(\a)},{0.2*sin(\a)});
+      \end{scope}
+      \node[cK] at (-2.4,-0.45) {$F$};
+      \fill[cK] (-1.6,0.14) rectangle (-1.5,0.72);
+      \fill[cK] (-1.25,0.14) rectangle (-1.15,0.72);
+      \fill[cK] (-1.55,-0.14) rectangle (-1.45,-0.46);
+      \fill[cK] (-1.22,-0.14) rectangle (-1.12,-0.46);
+
+      % --- Làmina semitransparent L ---
+      \draw[cB, line width=2pt] (-0.35,0.6) -- (0.42,-0.58);
+      \node[cB, anchor=west] at (0.28,0.45) {$L$};
+
+      % --- Miralls ---
+      \mirror{0}{-1.26}{-45}{-1}
+      \mirror{7.5}{0}{-45}{1}
+      \mirror{7.5}{-1.26}{45}{-1}
+      \node[cK] at (-0.95,-1.55) {$M$};
+      \node[cK] at (7.55,0.9)    {$M$};
+      \node[cK] at (8.4,-1.6)    {$M$};
+
+      % --- Ull (interferències) ---
+      \begin{scope}[shift={(0,1.6)}]
+        \draw[cK, line width=0.5pt]
+          (-0.35,0) .. controls (-0.1,0.4) and (0.1,0.4) .. (0.35,0)
+                    .. controls (0.1,-0.4) and (-0.1,-0.4) .. (-0.35,0);
+        \fill[cK] (0,-0.03) circle (0.1);
+      \end{scope}
+
+    \end{tikzpicture}
+  \end{center}
+
+  En anar la llum pren una velocitat $c' = c_m (\frac{c}{n})- \chi v_m$ i en tornar $c' = c_m + \chi v_m$ però no varia $c'=c$. S'observa que el coeficient d'arrosegament hauria de ser 1 però és $\chi = 1 - \frac{1}{n^2}$.
+
+
+\end{tcolorbox}
+\begin{tcolorbox}[
+    colback=white,      
+    colframe=black,    
+    coltext=black,     
+    boxrule=1pt,        
+    arc=0pt 
+  ]           
+
+  \textbf{Michaelson-Morley}, van desenvolupar \textit{l'interferòmetre}
+
+  \begin{center}
+      \newcommand{\arr}[3]{%
+      \begin{scope}[shift={(#1,#2)}, rotate=#3]
+        \fill[cR] (0.12,0) -- (-0.1,0.07) -- (-0.1,-0.07) -- cycle;
+      \end{scope}}
+      \newcommand{\mirror}[4]{%
+      \begin{scope}[shift={(#1,#2)}, rotate=#3]
+        \draw[cK, line width=1pt] (-0.75,0) -- (0.75,0);
+        \foreach \t in {-0.65,-0.5,...,0.65}
+          \draw[cK, line width=0.5pt] (\t,0) -- ({\t-0.1},{#4*0.18});
+      \end{scope}}
+
+    \begin{tikzpicture}[line cap=round, line join=round]
+
+    % --- Feixos de llum ---
+    \draw[cR, line width=1pt] (-2.8,0) -- (4.86,0);       % horitzontal
+    \draw[cR, line width=1pt] (0,1.43) -- (0,-1.65);      % vertical
+    \arr{-1.9}{0}{0}
+    \arr{0.93}{0}{0}
+    \arr{2.9}{0}{180}
+    \arr{0}{0.92}{-90}
+    \arr{0}{0.47}{90}
+    \arr{0}{-0.5}{-90}
+
+    % --- Làmina semitransparent ---
+    \draw[cB, line width=2pt] (-0.71,-0.66) -- (0.7,0.65);
+
+    % --- Miralls ---
+    \mirror{0}{1.43}{0}{1}
+    \mirror{4.86}{0}{90}{-1}
+
+    % --- Font de llum ---
+    \draw[cK, line width=0.5pt, fill=white] (-3.2,0.2) circle (0.22);
+    \draw[cK, line width=0.5pt, fill=cK] (-3.28,-0.28) rectangle (-3.12,-0.03);
+
+    % --- Distàncies l_1 i l_2 ---
+    \draw[{Stealth[length=2mm]}-{Stealth[length=2mm]}, cK, line width=0.5pt]
+      (-0.9,1.43) -- (-0.9,0.06) node[midway, fill=white, inner sep=2pt] {$\ell_2$};
+    \draw[{Stealth[length=2mm]}-{Stealth[length=2mm]}, cK, line width=0.5pt]
+      (0.25,-0.5) -- (4.7,-0.5) node[midway, fill=white, inner sep=2pt] {$\ell_1$};
+
+    % --- Velocitat de la Terra respecte a l'èter ---
+    \draw[-{Stealth[length=2mm]}, cK, line width=1pt] (-3.17,-0.79) -- (-2.36,-0.79);
+    \node[cK] at (-2.65,-1.15) {$v_T=v_{\text{èter}}$};
+
+    % --- Detector d'interferències ---
+    \draw[cK, line width=0.5pt] (-0.3,-1.65) -- (0.3,-1.65);
+    \draw[cK, line width=0.5pt] (-0.3,-1.65) arc[start angle=180, end angle=360, x radius=0.3, y radius=0.3];
+    \node[cK, anchor=west] at (0.7,-1.9) {\small Detector d'interferències};
+
+  \end{tikzpicture}
+  \end{center}
+
+  Ells suposaven que totes les ones necessitaven un medi per a propagar-se: el so, l'aire, ... De manera que van entendre que \textbf{la llum es movia per l'èter}. Una substància de la qual tot el univers esta enfonsat. Ells van intentar detectr l'existència del èter, amb el moviment de la llum.
+
+  Ells volien detectar si la terra es movia i per tant si el seu èter es movia, pero en comparació amb la velocitat de la llum la del èter seria molt petita, però tenien l'interferòmetre.
+\end{tcolorbox}
+
 \section{Relativitat}
+
+
+
 \subsection{Cinemàtica}
 \subsubsection{Transformades de Lorentz}
 \subsection{Dinàmica}

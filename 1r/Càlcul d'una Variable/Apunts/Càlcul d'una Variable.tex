@@ -1,5 +1,8 @@
 \documentclass[12pt]{article}
 
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
 %-------------------------------------------------
 % COLORS
 %-------------------------------------------------
@@ -216,7 +219,72 @@
 \begin{document}
 \justifying
 
-\maketitle
+\begin{titlepage}
+\centering
+\rmfamily
+
+\vspace*{1cm}
+
+% ---- Títol ----
+{\fontsize{32}{38}\selectfont\textls[250]{CÀLCUL D'VARIABLE}\par}
+
+\vspace{1em}
+\rule{2.2cm}{0.4pt}\par
+
+\vspace{2.5cm}
+
+% ---- Logo UAB ----
+\begin{tikzpicture}[x=1pt,y=1pt,scale=0.1]
+    % ---- U ----
+    \fill
+      (0,265) -- (0,90)
+      .. controls (0,40) and (53,0) .. (118,0)
+      .. controls (183,0) and (238,40) .. (238,90)
+      -- (238,265) -- (177,265) -- (177,95)
+      .. controls (177,67) and (151,45) .. (118,45)
+      .. controls (85,45) and (60,67) .. (60,95)
+      -- (60,265) -- cycle;
+    % ---- A (con el trazo curvo de la barra) ----
+    \fill[even odd rule]
+      (255,0) -- (365,265) -- (442,265) -- (552,0) -- (494,0)
+      -- (469,60) -- (380,60)
+      .. controls (345,60) and (320,25) .. (315,0)
+      -- cycle
+      (403,223) -- (451,105)
+      .. controls (405,105) and (362,90) .. (340,65)
+      -- cycle;
+    % ---- B ----
+    \fill[even odd rule]
+      (573,0) -- (573,265) -- (725,265)
+      .. controls (768,265) and (803,236) .. (803,195)
+      -- (803,180)
+      .. controls (803,158) and (775,146) .. (750,135)
+      .. controls (775,124) and (803,112) .. (803,87)
+      -- (803,65)
+      .. controls (803,29) and (774,0) .. (738,0)
+      -- cycle
+      (635,153) -- (635,220) -- (703,220)
+      .. controls (721,220) and (735,206) .. (735,188)
+      -- (735,185)
+      .. controls (735,167) and (721,153) .. (703,153)
+      -- cycle
+      (635,45) -- (635,113) -- (713,113)
+      .. controls (730,113) and (743,100) .. (743,83)
+      -- (743,75)
+      .. controls (743,58) and (730,45) .. (713,45)
+      -- cycle;
+\end{tikzpicture}\par
+
+\vfill
+
+% ---- Autor i curs ----
+{\large Gerard Cosp Lores\par}
+\vspace{0.7em}
+{\small\color{black!60} 2026--2027\par}
+
+\vspace*{1cm}
+\end{titlepage}
+
 \tableofcontents
 
 \newpage
@@ -1649,9 +1717,7 @@ Si $f$ i $g$ són derivables en un entorn de $a$, amb $g'(x)\neq 0$, i es comple
 
 Si $f$ és derivable en $x=a$, podem Taylor ens diu que una bona aproximació és $f(x) = f(a) + f'(a)(x-a) + o(x-a)$ on $o$ és el petit error perque puguem posar una igualtat.
 
-Ara bé aquesta aproximació no és molt encertada ja que queda una funció tal que;
-
-% dibuix
+Ara bé aquesta aproximació no és molt encertada ja que queda una funció tal que hi passa una recta tangent per $x=a$
 
 Taylor diu que \textbf{donat un polinomi de grau n $P_n(x-a)$} podem veure que la diferencia perque es dongui el límit ha de ser;
 
@@ -1707,6 +1773,37 @@ On prenem un valor a d'on començar l'aproximació i n és el grau de certesa \t
 \end{tikzpicture}
 \end{center}
 
+El polinomi de taylor sempre es comporta com les funcions originals si és de grau $n$ és a dir té la mateixa derivada i la simetria.
+
+Ara bé per indicar l'igualtat establim una nova relació de Taylor en un lloc més d'un punt a, i d'aquesta manera ja no és local. $f(x) = P_n(x;a) + R_n(x;a)$ on $R_n$ és el residu o "l'error".
+
+Per que es doni aquesta situació, \textbf{la funció s'ha de poder derivar $n+1$ cops}. I definim el residu com;
+
+\[\boxed{R_n(x;a) = \frac{f^{(n+1)(c)}}{(n+1)!} (x-a)^{(n+1)}}\]
+
+On $c\in I$ en l'interval que volem estudiar i es compleix que $0<c<x$ és a dir $c$ és menor que $x$.
+
+\begin{examplebox}{}
+    \textbf{Donat un grau $n$ i un error, calcular a partir de quina $x$ es
+    compleix.} Volem aproximar $\sin x$ amb $P_3(x;0)=x-\dfrac{x^3}{6}$ i que
+    l'error sigui menor que $10^{-3}$. Com que $f^{(4)}(x)=\sin x$, tenim
+    $|f^{(4)}(c)|\le 1$ i
+    \[
+      |R_3(x;0)|=\frac{|\sin c|}{4!}\,|x|^4\le\frac{|x|^4}{24}<10^{-3}
+      \iff |x|^4<0{,}024 \iff |x|<0{,}024^{1/4}\approx 0{,}394 .
+    \]
+    Per tant, per a $|x|<0{,}394$ l'error és menor que $10^{-3}$.
+
+    \medskip
+    \textbf{Donada una $x$ i un error, calcular a partir de quin grau $n$ es
+    dona.} Volem calcular $e=e^1$ amb error menor que $10^{-3}$ amb $a=0$.
+    Com que $f^{(n+1)}(c)=e^c$ i $c\in(0,1)$, tenim $e^c<e<3$ i
+    \[
+      |R_n(1;0)|=\frac{e^c}{(n+1)!}<\frac{3}{(n+1)!}<10^{-3}
+      \iff (n+1)!>3000 .
+    \]
+    Com que $6!=720$ i $7!=5040$, cal $n+1\ge 7$, és a dir, $n=6$.
+\end{examplebox} 
 \subsubsection{Estudi de les Funcions}
 
 \subsection{Integrals}    

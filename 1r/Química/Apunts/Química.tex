@@ -1,5 +1,8 @@
 \documentclass[12pt]{article}
 
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
 %-------------------------------------------------
 % COLORS
 %-------------------------------------------------
@@ -219,7 +222,72 @@
 \begin{document}
 \justifying
 
-\maketitle
+\begin{titlepage}
+\centering
+\rmfamily
+
+\vspace*{1cm}
+
+% ---- Títol ----
+{\fontsize{32}{38}\selectfont\textls[250]{QUÍMICA}\par}
+
+\vspace{1em}
+\rule{2.2cm}{0.4pt}\par
+
+\vspace{2.5cm}
+
+% ---- Logo UAB ----
+\begin{tikzpicture}[x=1pt,y=1pt,scale=0.1]
+    % ---- U ----
+    \fill
+      (0,265) -- (0,90)
+      .. controls (0,40) and (53,0) .. (118,0)
+      .. controls (183,0) and (238,40) .. (238,90)
+      -- (238,265) -- (177,265) -- (177,95)
+      .. controls (177,67) and (151,45) .. (118,45)
+      .. controls (85,45) and (60,67) .. (60,95)
+      -- (60,265) -- cycle;
+    % ---- A (con el trazo curvo de la barra) ----
+    \fill[even odd rule]
+      (255,0) -- (365,265) -- (442,265) -- (552,0) -- (494,0)
+      -- (469,60) -- (380,60)
+      .. controls (345,60) and (320,25) .. (315,0)
+      -- cycle
+      (403,223) -- (451,105)
+      .. controls (405,105) and (362,90) .. (340,65)
+      -- cycle;
+    % ---- B ----
+    \fill[even odd rule]
+      (573,0) -- (573,265) -- (725,265)
+      .. controls (768,265) and (803,236) .. (803,195)
+      -- (803,180)
+      .. controls (803,158) and (775,146) .. (750,135)
+      .. controls (775,124) and (803,112) .. (803,87)
+      -- (803,65)
+      .. controls (803,29) and (774,0) .. (738,0)
+      -- cycle
+      (635,153) -- (635,220) -- (703,220)
+      .. controls (721,220) and (735,206) .. (735,188)
+      -- (735,185)
+      .. controls (735,167) and (721,153) .. (703,153)
+      -- cycle
+      (635,45) -- (635,113) -- (713,113)
+      .. controls (730,113) and (743,100) .. (743,83)
+      -- (743,75)
+      .. controls (743,58) and (730,45) .. (713,45)
+      -- cycle;
+\end{tikzpicture}\par
+
+\vfill
+
+% ---- Autor i curs ----
+{\large Gerard Cosp Lores\par}
+\vspace{0.7em}
+{\small\color{black!60} 2026--2027\par}
+
+\vspace*{1cm}
+\end{titlepage}
+
 \tableofcontents
 
 \newpage
@@ -823,7 +891,7 @@ Es dona un recobriment pi quan \textbf{dos orbitals p} paral·lels es toquen lat
 \end{center}
 De fet quan tenim un ordre d'enllaç de 2 o 3 és perque tenim un \textbf{enllaç sigma} i \textbf{un o dos enllaços pi}.
 
-\section{Teoria d'orbitals Moleculars}
+\subsection{Teoria d'orbitals Moleculars}
 
 Aquesta teoria d'orbitals, al contrari que la d'electrons de valència (en la que tactavem àtom per àtom), tracta la molecula com un tot, \textbf{tots els electrons ocupen orbitals moleculars}. Cada orbital atómic és una funció d'ona de \textit{la suma o resta} de tots els orbitals de la molècula amb \textbf{una certa energia $\Delta E$ i on hi caben dos electrons $\boxed{\uparrow\downarrow}$}.
 
@@ -873,7 +941,7 @@ Combinar n OA dona n OM, és a dir combinar 1 s i 1 s, dona 2 orbials, però pod
     \item Simetria Compatible: Els orbitals han de tenir la mateixa simetria en l'eix d'origen (especialment important).
 \end{enumerate}
 
-\subsection{Simetria dels Orbitals Moleculars \texorpdfstring{$\sigma$ i $\pi$}{sigma i pi}}
+\subsubsection{Simetria dels Orbitals Moleculars \texorpdfstring{$\sigma$ i $\pi$}{sigma i pi}}
 
 Podem classificar els orbitals de 2 maneres obtenint 4 combinacions. Poden ser $\sigma$ o $\pi$
 
@@ -910,7 +978,7 @@ Podem interpretar els resultats com:
 \[O.E > 0 \rightarrow \text{La formació del enllaç és favorable}\]
 \[O.E >> 0\rightarrow \text{Enllaç molt fort}\]
 
-\subsection{Magnetisme de les Molècules}
+\subsubsection{Magnetisme de les Molècules}
 
 La TOM també ens permet explicar el comportament magnètic de les mol·lècules;
 
@@ -919,7 +987,7 @@ La TOM també ens permet explicar el comportament magnètic de les mol·lècules
     \item Paramagnetisme: Una molècula és paramagnètica quan té un o més electrons desaparellats.
 \end{itemize}
 
-\subsection{Casos dels Orbitals Moleculars}
+\subsubsection{Casos dels Orbitals Moleculars}
 
 \noindent\boxed{\text{Molècules Diatòmiques Homonuclears del 1r Període}}
 
@@ -1449,7 +1517,7 @@ A les diapositives també apareixen dos conceptes importants relacionats amb els
 
 Aquests dos orbitals són importants perquè intervenen especialment en les transicions electròniques i en la reactivitat química.
 
-\subsection{Electrons Deslocalitzats: Ozó i Benzè}
+\subsubsection{Electrons Deslocalitzats: Ozó i Benzè}
 
 Fins ara hem estudiat molecules amb dos àtoms, pero la TOM permet estudiar molècules amb més de 2 àtoms. Aquests orbitals moleculars ja són més grans i \textbf{expliquen la deslocalització dels electrons com per exemple del benzé} és a dir que no es pot saber 100\% a quin enllaç es troben.
 
@@ -1478,7 +1546,7 @@ Si veniem, les dos formes són vàlides. Però com sabem quina és la correcte? 
 
 \textcolor{red}{\textbf{Idea important: la deslocalització electrònica permet explicar per què els dos enllaços de l'ozó són equivalents, malgrat que les estructures de Lewis individuals semblin indicar que són diferents.}}
 
-\subsection{Aromaticitat}
+\subsubsection{Aromaticitat}
 
 La \textbf{deslocalització} en estructures cícliques pot donar lloc a una estabilitat molt elevada. A aquest fenòmen se li diu \textbf{aromaticitat}. Per que una molècula sigui aromàtica ha de complir que:
 
@@ -1517,5 +1585,90 @@ La \textbf{deslocalització} en estructures cícliques pot donar lloc a una esta
 
          \end{enumerate}
 \end{tcolorbox}
+
+\subsubsection{Enllaços Febles (Forces intermoleculars)}
+
+Les forces de Van der Waals son forces febles entre molecules, produïdes pels \textbf{electrons en moviment} (\textit{sempre es donen}). Hi ha molts tipus de forces que poden ocòrrer.
+
+\begin{itemize}
+    \item \textbf{Forces Dipol Induït - Dipol Induït (Dispersió o de London)} $[N_2]$
+    Ocorren en \textit{totes les molècules}, inclús apolars o gasos nobles, degut a fluctuacions en el moviment dels electrons.
+    \item \textbf{Forces Dipol - Dipol (Keesom)} $[HBr]$
+    Ocorren entre \textit{molècules polars que tenen un dipol permanent}. El pol positiu ($\delta^+$) d'una molècula atrau el pol negatiu ($\delta^-$) de l'altra.
+    \item \textbf{Forces Dipol - Dipol Induït (Debye)} $[H_2O + O_2]$
+    Ocorren entre \textit{una molècula polar i una molècula apolar}; la polar deforma el núvol electrònic de l'apolar i provoca que aquesta obtingui polaritat temporalment.
+    \item \textbf{Ponts d'Hidrogen} Apareix en molècules de la forma $X-H$ (X = Oxigen, Halògens, Nitrogen, ...). Es dona ja que l'hidrogen té la forma $(\delta^+)$ i l'altre ha d'adaptarse a $(delta^-)$ formant així una cadena i eleven el punt d'ebullició ja que \textbf{les molècules no estan separades}, es comporten com una espècie de sólid.
+\end{itemize}
+
+\begin{tcolorbox}[
+    colback=white,      
+    colframe=black,    
+    coltext=black,     
+    boxrule=1pt,        
+    arc=0pt            
+]
+    \textbf{En disminuir la temperatura ($T$), un gas passa a líquid:}
+    \begin{itemize}
+        \item L'energia tèrmica de les molècules del gas no és suficient per vèncer les forces de cohesió (atracció) entre elles (forces intermoleculars).
+        \item Les forces intermoleculars mantenen les molècules unides, confinades en un volum definit.
+        \item Les molècules estan més estabilitzades a l'interior del líquid (on les forces de cohesió són més fortes) que a la superfície.
+        \item Els líquids tendeixen a minimitzar el nombre de molècules a la superfície, adoptant la forma amb la mínima àrea superficial possible: \textbf{una gota}.
+    \end{itemize}
+
+\end{tcolorbox}
+
+\begin{center}
+    \begin{table}[ht]
+    \centering
+    \renewcommand{\arraystretch}{1.6}
+    \begin{tabular}{|l|p{4.8cm}|p{5.3cm}|}
+        \hline
+        \textbf{Tipus d'interacció} &
+        \textbf{Condició} &
+        \textbf{Criteri d'identificació} \\
+        \hline
+
+        Enllaç d'hidrogen &
+        \(\mathrm{X-H\cdots A}\), on
+        \(A = \mathrm{F, O, N}\). &
+        L'hidrogen ha d'estar unit
+        covalentment a un àtom de fluor,
+        oxigen o nitrogen. \\
+        \hline
+
+        Dipol--dipol &
+        \(\mu_1 \neq 0\) i \(\mu_2 \neq 0\). &
+        Interacció entre dues molècules
+        polars, és a dir, amb moment dipolar
+        permanent no nul. \\
+        \hline
+
+        Dipol permanent--dipol induït &
+        \(\mu_1 \neq 0\) i \(\mu_2 = 0\). &
+        Una molècula polar indueix un dipol
+        en una molècula apolar. \\
+        \hline
+
+        Dipol instantani--dipol induït &
+        \(\mu_1 = 0\) i \(\mu_2 = 0\). &
+        Interacció deguda a fluctuacions
+        temporals de la distribució
+        electrònica (forces de dispersió
+        de London). \\
+        \hline
+
+    \end{tabular}
+\end{table}
+\end{center}
+
+\section{Enllaç Iònic}
+
+Ja treballats els \textbf{sòlids moleculars} (units per forces de Van der Walls i Ponts d'Hidrogen) i els \textbf{sòlids covalents} (formats per enllaços covalents), ara toca parlar dels \textbf{metàlics}.
+
+Els sòlids metàlics estan formats per una \textbf{xarxa d'àtoms metàlics} i un núvol d'electrons al seu voltant.
+
+Hi ha molts orbitals combinats formant així \textit{un orbital molecular molt gran} on hi trobarem bandes d'energia per disposar els electrons de valència i els electrons conductors que expliquen la conducció electrònica que tenen.
+
+\section{Cinètica i Equilibri}
 
 \end{document}
