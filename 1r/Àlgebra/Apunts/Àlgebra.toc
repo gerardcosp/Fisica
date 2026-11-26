@@ -37,5 +37,6 @@
 \contentsline {subsection}{\numberline {7.3}Radical}{37}{subsection.7.3}%
 \contentsline {subsubsection}{\numberline {7.3.1}Projecció}{39}{subsubsection.7.3.1}%
 \contentsline {subsubsection}{\numberline {7.3.2}Crear una Base Ortogonal}{39}{subsubsection.7.3.2}%
-\contentsline {section}{\numberline {8}Tensors}{40}{section.8}%
-\contentsline {section}{\numberline {9}Preambul - Encara sense lloc}{40}{section.9}%
+\contentsline {subsection}{\numberline {7.4}Teorema de Silvester}{42}{subsection.7.4}%
+\contentsline {section}{\numberline {8}Tensors}{42}{section.8}%
+\contentsline {section}{\numberline {9}Preambul - Encara sense lloc}{42}{section.9}%

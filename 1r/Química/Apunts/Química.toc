@@ -37,5 +37,7 @@
 \contentsline {subsubsection}{\numberline {3.7.4}Electrons Deslocalitzats: Ozó i Benzè}{34}{subsubsection.3.7.4}%
 \contentsline {subsubsection}{\numberline {3.7.5}Aromaticitat}{34}{subsubsection.3.7.5}%
 \contentsline {subsubsection}{\numberline {3.7.6}Enllaços Febles (Forces intermoleculars)}{35}{subsubsection.3.7.6}%
-\contentsline {section}{\numberline {4}Enllaç Iònic}{36}{section.4}%
-\contentsline {section}{\numberline {5}Cinètica i Equilibri}{37}{section.5}%
+\contentsline {section}{\numberline {4}Enllaç Metàlic}{36}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Teoria de Bandes}{37}{subsection.4.1}%
+\contentsline {section}{\numberline {5}Enllaç Iònic}{37}{section.5}%
+\contentsline {section}{\numberline {6}Cinètica i Equilibri}{37}{section.6}%
