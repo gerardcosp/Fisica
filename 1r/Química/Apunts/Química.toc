@@ -39,5 +39,6 @@
 \contentsline {subsubsection}{\numberline {3.7.6}Enllaços Febles (Forces intermoleculars)}{35}{subsubsection.3.7.6}%
 \contentsline {section}{\numberline {4}Enllaç Metàlic}{36}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Teoria de Bandes}{37}{subsection.4.1}%
-\contentsline {section}{\numberline {5}Enllaç Iònic}{37}{section.5}%
-\contentsline {section}{\numberline {6}Cinètica i Equilibri}{37}{section.6}%
+\contentsline {subsubsection}{\numberline {4.1.1}SemiConductors}{38}{subsubsection.4.1.1}%
+\contentsline {section}{\numberline {5}Enllaç Iònic}{39}{section.5}%
+\contentsline {section}{\numberline {6}Cinètica i Equilibri}{39}{section.6}%

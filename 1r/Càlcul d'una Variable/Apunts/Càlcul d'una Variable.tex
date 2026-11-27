@@ -1806,5 +1806,122 @@ On $c\in I$ en l'interval que volem estudiar i es compleix que $0<c<x$ és a dir
 \end{examplebox} 
 \subsubsection{Estudi de les Funcions}
 
-\subsection{Integrals}    
+Per estudiar bé una funció hem de fer un estudi complert de com es comporta, per això fem sevir les eines que hem anat aprenent per estudiar-la amb rigor.
+
+\begin{itemize}
+    \item Assimptotes
+    \item Màxims i mínims
+    \item Curvatura (Concavitat i Convexitat)
+    Donada un punt $x=a$ d'una funció podem definir com es comporta la monotonia en $x=a$ amb la \textbf{segona derivada de la funció}.
+
+    Una funció còncava és aquella que \textbf{la tangent passa per sota de la funció} amb $f''(x) > 0$.
+    
+    Una funció convexa és aquella que \textbf{la tangent passa per sobre de la funció} amb $f''(x) < 0$.
+
+\begin{center}
+\begin{tikzpicture}[x=1.1cm, y=1.1cm]
+
+  % FUNCIÓ CONVEXA
+  \begin{scope}
+    \draw[-stealth, line width=0.5pt] (-2.2,0) -- (2.2,0) node[right] {$x$};
+    \draw[-stealth, line width=0.5pt] (0,-0.5) -- (0,3.5) node[above] {$y$};
+
+    % Funció convexa
+    \draw[curve, domain=-1.7:1.7, samples=100, smooth]
+      plot (\x, {0.7*\x*\x+0.5});
+
+    % Tangent en a=0
+    \draw[aux, dashed, domain=-1.7:1.7]
+      plot (\x, {0.5});
+
+    \fill[black] (0,0.5) circle (2pt);
+    \node[below right] at (0,0.5) {$a$};
+
+    \node[below] at (0,-0.4) {\textbf{Convexa}};
+  \end{scope}
+
+  % FUNCIÓ CÒNCAVA
+  \begin{scope}[xshift=6cm]
+    \draw[-stealth, line width=0.5pt] (-2.2,0) -- (2.2,0) node[right] {$x$};
+    \draw[-stealth, line width=0.5pt] (0,-0.5) -- (0,3.5) node[above] {$y$};
+
+    % Funció còncava
+    \draw[curve, domain=-1.7:1.7, samples=100, smooth]
+      plot (\x, {-0.7*\x*\x+2.9});
+
+    % Tangent en a=0
+    \draw[aux, dashed, domain=-1.7:1.7]
+      plot (\x, {2.9});
+
+    \fill[black] (0,2.9) circle (2pt);
+    \node[below right] at (0,2.9) {$a$};
+
+    \node[below] at (0,-0.4) {\textbf{Còncava}};
+  \end{scope}
+
+\end{tikzpicture}
+\end{center}
+
+   \begin{tcolorbox}[
+    colback=white,
+    colframe=black,
+    boxrule=0.6pt,
+    arc=0mm
+]
+
+\textbf{1. Criteri de la segona derivada}
+
+\[
+\boxed{
+\begin{cases}
+f''(a)>0 & \Longrightarrow \text{Convexa},\\[2pt]
+f''(a)<0 & \Longrightarrow \text{Còncava}.
+\end{cases}}
+\]
+
+\medskip
+\textbf{2. Cas particular: } $f''(a)=0$
+
+Si la segona derivada s'anul·la, cal estudiar les derivades d'ordre superior fins a trobar el primer $n>2$ tal que
+
+\[
+\boxed{f^{(n)}(a)\neq 0}
+\]
+
+És a dir, si les derivades successives s'anul·len en $a$, continuem derivant fins a trobar la primera que no sigui nul·la.
+
+\medskip
+\textbf{3. Criteri de les derivades d'ordre superior}
+
+\[
+\boxed{
+\begin{cases}
+n \text{ senar}
+&\Longrightarrow \text{Punt d'inflexió},\\[6pt]
+n \text{ parell}
+&\Longrightarrow
+\begin{cases}
+f^{(n)}(a)>0 & \Longrightarrow \text{Convexa},\\[2pt]
+f^{(n)}(a)<0 & \Longrightarrow \text{Còncava}.
+\end{cases}
+\end{cases}}
+\]
+
+\end{tcolorbox}
+
+\end{itemize}
+
+\subsection{Integrals} 
+
+L'Integral és una \textbf{propietat} que s'associa al \textit{comportament d'una funció donada} que normalment s'associa al càlcul de l'àrea de sota de la corba d'una funció en un intèrval $[a,b]$.
+
+El teorema fundamental del càlcul diu que donada una funció $f$ continua $[a,b]$ i $F(x)$ primitiva d'$f \mid F'(x) = f(x)$. Sempre es dona que;
+
+\[\int_{a}^{b} f(x) dx = F(b) - F(a)\]
+
+I que donada una funció $f$ tenim un conjunt infinit de primitives que es caracteritzen per tenir una constant $C$ que en derivar-la $\dv{}{x} C = 0$, $G'(x) = F'(x) = f(x) \forall x \in [a,b], G(x) = F(x) + C$
+
+\subsection{Teorema de Riemman}
+
+\subsection{Tècniques d'Integració}
 \end{document}
